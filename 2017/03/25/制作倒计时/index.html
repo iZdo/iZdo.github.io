@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>No title | iZdo&#39;s Blog | bonbolu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="如何做一个简单的倒计时1. 创建新工程CountTime2. 布局文件activity_main.xml:123456789101112131415161718192021222324252627282930313233343536373839&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&amp;gt;&amp;lt;LinearLayout    xmlns:android=">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="https://izdo.github.io/2017/03/25/制作倒计时/index.html">
+<meta property="og:site_name" content="iZdo's Blog">
+<meta property="og:description" content="如何做一个简单的倒计时1. 创建新工程CountTime2. 布局文件activity_main.xml:123456789101112131415161718192021222324252627282930313233343536373839&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&amp;gt;&amp;lt;LinearLayout    xmlns:android=">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog1/Blog1_1.png?raw=true">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog1/Blog1_2.gif?raw=true">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog1/Blog1_3.gif?raw=true">
+<meta property="og:updated_time" content="2017-03-26T12:33:35.336Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="如何做一个简单的倒计时1. 创建新工程CountTime2. 布局文件activity_main.xml:123456789101112131415161718192021222324252627282930313233343536373839&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&amp;gt;&amp;lt;LinearLayout    xmlns:android=">
+<meta name="twitter:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog1/Blog1_1.png?raw=true">
+    
+        <link rel="alternative" href="/atom.xml" title="iZdo&#39;s Blog" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.14">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/heizi.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">iZdo</h5>
+          <a href="mailto:401135451@qq.com" title="401135451@qq.com" class="mail">401135451@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/iZdo" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/u/2597276811" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://music.163.com/#/user/home?id=384832070" target="_blank" >
+                <i class="icon icon-lg icon-music"></i>
+                cloudmusic
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://steamcommunity.com/id/401135451/" target="_blank" >
+                <i class="icon icon-lg icon-steam"></i>
+                Steam
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">No title</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">No title</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-03-25T08:36:11.032Z" itemprop="datePublished" class="page-time">
+  2017-03-25
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#如何做一个简单的倒计时"><span class="post-toc-number">1.</span> <span class="post-toc-text">如何做一个简单的倒计时</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-创建新工程CountTime"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1. 创建新工程CountTime</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-布局文件activity-main-xml"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2. 布局文件activity_main.xml:</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#inputtime用于输入倒计时时间"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">inputtime用于输入倒计时时间</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#gettime用于显示inputtime输入的时间"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">gettime用于显示inputtime输入的时间</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#time用于显示倒计时时间"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">time用于显示倒计时时间</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#starttime、stoptime分别用于开始和停止倒计时"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">starttime、stoptime分别用于开始和停止倒计时</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#效果图"><span class="post-toc-number">1.2.5.</span> <span class="post-toc-text">效果图:</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-MainActivity逻辑"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">3. MainActivity逻辑:</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#由于主线程不允许子线程更新UI，因此这里需要用到Handler实现子线程更新UI的操作。"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">由于主线程不允许子线程更新UI，因此这里需要用到Handler实现子线程更新UI的操作。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#首先创建一个Handler并调用handleMessage方法处理sendMessage传递过来的消息，需要注意的是，TextView的setText方法只能传入String类型的参数，因此不能单单传入msg-arg1，一种简单的处理方式就是在后面加上“”将其转换成字符串-time-setText-msg-arg1-“”-。"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">首先创建一个Handler并调用handleMessage方法处理sendMessage传递过来的消息，需要注意的是，TextView的setText方法只能传入String类型的参数，因此不能单单传入msg.arg1，一种简单的处理方式就是在后面加上“”将其转换成字符串:time.setText(msg.arg1 + “”);。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Timer和TimerTask一般是配合使用的-由TimerTask实现任务内容，然后将任务放入计时器Timer-在TimerTask的run-方法里创建一个Message用于向Handler发送消息，这里传入的是i-此前已经将inputet中的数字赋给i-，并调用sendMessage方法将Message发送给Handler，最后调用schedule-方法将TimerTask放入计时器。"><span class="post-toc-number">1.3.3.</span> <span class="post-toc-text">Timer和TimerTask一般是配合使用的(由TimerTask实现任务内容，然后将任务放入计时器Timer),在TimerTask的run()方法里创建一个Message用于向Handler发送消息，这里传入的是i(此前已经将inputet中的数字赋给i)，并调用sendMessage方法将Message发送给Handler，最后调用schedule()方法将TimerTask放入计时器。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#timer-schedule-task-1-第一个参数表示要放入的TimerTask任务，第二个参数是一个毫秒值，表示多少时间之后启动任务，这里放入1000毫秒-1秒-。"><span class="post-toc-number">1.3.4.</span> <span class="post-toc-text">timer.schedule(task, 1);第一个参数表示要放入的TimerTask任务，第二个参数是一个毫秒值，表示多少时间之后启动任务，这里放入1000毫秒(1秒)。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#最后调用cancel-方法取消任务。"><span class="post-toc-number">1.3.5.</span> <span class="post-toc-text">最后调用cancel()方法取消任务。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ps-在startTime-中调用sendMessage-方法向Handler发送消息，而在Handler的handleMessage中又调用startTime-方法，这样就形成了sendMessage-gt-handleMessage-gt-sendMessage-gt-handleMessage-gt-…的循环。"><span class="post-toc-number">1.3.6.</span> <span class="post-toc-text">ps:在startTime()中调用sendMessage()方法向Handler发送消息，而在Handler的handleMessage中又调用startTime()方法，这样就形成了sendMessage()->handleMessage()->sendMessage()->handleMessage()->…的循环。</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-部署到Genymotion观看效果"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">4. 部署到Genymotion观看效果:</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-改进"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">5. 改进</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#这里存在这一个问题就是计时器读数到0后会变成负数，所以下面需要修改一些代码使计时器归0后停止计时。"><span class="post-toc-number">1.5.1.</span> <span class="post-toc-text">这里存在这一个问题就是计时器读数到0后会变成负数，所以下面需要修改一些代码使计时器归0后停止计时。</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#这里在startTime-方法中的run-方法中加入一个if判断，当i小于0的时候就调用stopTime-方法并且return。-这里判断条件是小于0而不是等于0是逻辑顺序的问题"><span class="post-toc-number">1.5.2.</span> <span class="post-toc-text">这里在startTime()方法中的run()方法中加入一个if判断，当i小于0的时候就调用stopTime()方法并且return。(这里判断条件是小于0而不是等于0是逻辑顺序的问题)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#为了更好地看到”刹车”效果，将任务间隔设置为1毫秒。"><span class="post-toc-number">1.5.3.</span> <span class="post-toc-text">为了更好地看到”刹车”效果，将任务间隔设置为1毫秒。</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#效果如下"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">效果如下:</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#对于目前的程序，由于从inputet获取的值为int类型，但当我们输入小数或者字符和其他符号时，程序会崩溃，这里可以使用正则表达式限制输入。"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">对于目前的程序，由于从inputet获取的值为int类型，但当我们输入小数或者字符和其他符号时，程序会崩溃，这里可以使用正则表达式限制输入。</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-制作倒计时"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">No title</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年03月25日 16:36" datetime="2017-03-25T08:36:11.032Z"  itemprop="datePublished">2017-03-25</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="如何做一个简单的倒计时"><a href="#如何做一个简单的倒计时" class="headerlink" title="如何做一个简单的倒计时"></a>如何做一个简单的倒计时</h1><h2 id="1-创建新工程CountTime"><a href="#1-创建新工程CountTime" class="headerlink" title="1. 创建新工程CountTime"></a>1. 创建新工程CountTime</h2><h2 id="2-布局文件activity-main-xml"><a href="#2-布局文件activity-main-xml" class="headerlink" title="2. 布局文件activity_main.xml:"></a>2. 布局文件activity_main.xml:</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">    <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/activity_main"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span></div><div class="line">    <span class="attr">tools:context</span>=<span class="string">"com.counttime.MainActivity"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">EditText</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/inputtime"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:ems</span>=<span class="string">"10"</span>/&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/gettime"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:text</span>=<span class="string">"获取倒计时时间"</span>/&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/time"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span>/&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/starttime"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:text</span>=<span class="string">"开始计时"</span>/&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/stoptime"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:text</span>=<span class="string">"停止计时"</span>/&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li><h3 id="inputtime用于输入倒计时时间"><a href="#inputtime用于输入倒计时时间" class="headerlink" title="inputtime用于输入倒计时时间"></a>inputtime用于输入倒计时时间</h3></li>
+<li><h3 id="gettime用于显示inputtime输入的时间"><a href="#gettime用于显示inputtime输入的时间" class="headerlink" title="gettime用于显示inputtime输入的时间"></a>gettime用于显示inputtime输入的时间</h3></li>
+<li><h3 id="time用于显示倒计时时间"><a href="#time用于显示倒计时时间" class="headerlink" title="time用于显示倒计时时间"></a>time用于显示倒计时时间</h3></li>
+<li><h3 id="starttime、stoptime分别用于开始和停止倒计时"><a href="#starttime、stoptime分别用于开始和停止倒计时" class="headerlink" title="starttime、stoptime分别用于开始和停止倒计时"></a>starttime、stoptime分别用于开始和停止倒计时</h3></li>
+</ul>
+<h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图:"></a>效果图:</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog1/Blog1_1.png?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="3-MainActivity逻辑"><a href="#3-MainActivity逻辑" class="headerlink" title="3. MainActivity逻辑:"></a>3. MainActivity逻辑:</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.counttime;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.os.Bundle;</div><div class="line"><span class="keyword">import</span> android.os.Handler;</div><div class="line"><span class="keyword">import</span> android.os.Message;</div><div class="line"><span class="keyword">import</span> android.support.v7.app.AppCompatActivity;</div><div class="line"><span class="keyword">import</span> android.view.View;</div><div class="line"><span class="keyword">import</span> android.widget.Button;</div><div class="line"><span class="keyword">import</span> android.widget.EditText;</div><div class="line"><span class="keyword">import</span> android.widget.TextView;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.Timer;</div><div class="line"><span class="keyword">import</span> java.util.TimerTask;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> <span class="keyword">implements</span> <span class="title">View</span>.<span class="title">OnClickListener</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> EditText inputet;</div><div class="line">    <span class="keyword">private</span> Button getTime, startTime, stopTime;</div><div class="line">    <span class="keyword">private</span> TextView time;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">    <span class="keyword">private</span> Timer timer = <span class="keyword">null</span>;</div><div class="line">    <span class="keyword">private</span> TimerTask task = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line">        <span class="comment">//调用初始化控件方法</span></div><div class="line">        initView();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 初始化控件</span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initView</span><span class="params">()</span> </span>&#123;</div><div class="line">        inputet = (EditText) findViewById(R.id.inputtime);</div><div class="line">        getTime = (Button) findViewById(R.id.gettime);</div><div class="line">        startTime = (Button) findViewById(R.id.starttime);</div><div class="line">        stopTime = (Button) findViewById(R.id.stoptime);</div><div class="line">        time = (TextView) findViewById(R.id.time);</div><div class="line">        getTime.setOnClickListener(<span class="keyword">this</span>);</div><div class="line">        startTime.setOnClickListener(<span class="keyword">this</span>);</div><div class="line">        stopTime.setOnClickListener(<span class="keyword">this</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 设置点击事件</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View view)</span> </span>&#123;</div><div class="line">        <span class="keyword">switch</span> (view.getId()) &#123;</div><div class="line">            <span class="comment">// 点击gettime按钮获取inputet上的时间值</span></div><div class="line">            <span class="keyword">case</span> R.id.gettime:</div><div class="line">                time.setText(inputet.getText().toString());</div><div class="line">                i = Integer.parseInt(inputet.getText().toString());</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> R.id.starttime:</div><div class="line">                startTime();</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> R.id.stoptime:</div><div class="line">                stopTime();</div><div class="line">                <span class="keyword">break</span>;</div><div class="line"></div><div class="line">            <span class="keyword">default</span>:</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 使用Handler实现对主线程的更新UI操作</span></div><div class="line">    <span class="keyword">private</span> Handler mHandler = <span class="keyword">new</span> Handler() &#123;</div><div class="line">        <span class="comment">// 调用handleMessage处理消息</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>&#123;</div><div class="line">            time.setText(msg.arg1 + <span class="string">""</span>);</div><div class="line">            startTime();</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">startTime</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">// 创建计时器和计时任务</span></div><div class="line">        timer = <span class="keyword">new</span> Timer();</div><div class="line">        task = <span class="keyword">new</span> TimerTask() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                i--;</div><div class="line">                Message message = mHandler.obtainMessage();</div><div class="line">                message.arg1 = i;</div><div class="line">                mHandler.sendMessage(message);</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">        timer.schedule(task, <span class="number">1000</span>);</div><div class="line">    &#125;</div><div class="line">   </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stopTime</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">// 取消计时器</span></div><div class="line">        timer.cancel();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><h3 id="由于主线程不允许子线程更新UI，因此这里需要用到Handler实现子线程更新UI的操作。"><a href="#由于主线程不允许子线程更新UI，因此这里需要用到Handler实现子线程更新UI的操作。" class="headerlink" title="由于主线程不允许子线程更新UI，因此这里需要用到Handler实现子线程更新UI的操作。"></a>由于主线程不允许子线程更新UI，因此这里需要用到Handler实现子线程更新UI的操作。</h3></li>
+<li><h3 id="首先创建一个Handler并调用handleMessage方法处理sendMessage传递过来的消息，需要注意的是，TextView的setText方法只能传入String类型的参数，因此不能单单传入msg-arg1，一种简单的处理方式就是在后面加上“”将其转换成字符串-time-setText-msg-arg1-“”-。"><a href="#首先创建一个Handler并调用handleMessage方法处理sendMessage传递过来的消息，需要注意的是，TextView的setText方法只能传入String类型的参数，因此不能单单传入msg-arg1，一种简单的处理方式就是在后面加上“”将其转换成字符串-time-setText-msg-arg1-“”-。" class="headerlink" title="首先创建一个Handler并调用handleMessage方法处理sendMessage传递过来的消息，需要注意的是，TextView的setText方法只能传入String类型的参数，因此不能单单传入msg.arg1，一种简单的处理方式就是在后面加上“”将其转换成字符串:time.setText(msg.arg1 + “”);。"></a>首先创建一个Handler并调用handleMessage方法处理sendMessage传递过来的消息，需要注意的是，TextView的setText方法只能传入String类型的参数，因此不能单单传入msg.arg1，一种简单的处理方式就是在后面加上“”将其转换成字符串:time.setText(msg.arg1 + “”);。</h3></li>
+<li><h3 id="Timer和TimerTask一般是配合使用的-由TimerTask实现任务内容，然后将任务放入计时器Timer-在TimerTask的run-方法里创建一个Message用于向Handler发送消息，这里传入的是i-此前已经将inputet中的数字赋给i-，并调用sendMessage方法将Message发送给Handler，最后调用schedule-方法将TimerTask放入计时器。"><a href="#Timer和TimerTask一般是配合使用的-由TimerTask实现任务内容，然后将任务放入计时器Timer-在TimerTask的run-方法里创建一个Message用于向Handler发送消息，这里传入的是i-此前已经将inputet中的数字赋给i-，并调用sendMessage方法将Message发送给Handler，最后调用schedule-方法将TimerTask放入计时器。" class="headerlink" title="Timer和TimerTask一般是配合使用的(由TimerTask实现任务内容，然后将任务放入计时器Timer),在TimerTask的run()方法里创建一个Message用于向Handler发送消息，这里传入的是i(此前已经将inputet中的数字赋给i)，并调用sendMessage方法将Message发送给Handler，最后调用schedule()方法将TimerTask放入计时器。"></a>Timer和TimerTask一般是配合使用的(由TimerTask实现任务内容，然后将任务放入计时器Timer),在TimerTask的run()方法里创建一个Message用于向Handler发送消息，这里传入的是i(此前已经将inputet中的数字赋给i)，并调用sendMessage方法将Message发送给Handler，最后调用schedule()方法将TimerTask放入计时器。</h3></li>
+<li><h3 id="timer-schedule-task-1-第一个参数表示要放入的TimerTask任务，第二个参数是一个毫秒值，表示多少时间之后启动任务，这里放入1000毫秒-1秒-。"><a href="#timer-schedule-task-1-第一个参数表示要放入的TimerTask任务，第二个参数是一个毫秒值，表示多少时间之后启动任务，这里放入1000毫秒-1秒-。" class="headerlink" title="timer.schedule(task, 1);第一个参数表示要放入的TimerTask任务，第二个参数是一个毫秒值，表示多少时间之后启动任务，这里放入1000毫秒(1秒)。"></a>timer.schedule(task, 1);第一个参数表示要放入的TimerTask任务，第二个参数是一个毫秒值，表示多少时间之后启动任务，这里放入1000毫秒(1秒)。</h3></li>
+<li><h3 id="最后调用cancel-方法取消任务。"><a href="#最后调用cancel-方法取消任务。" class="headerlink" title="最后调用cancel()方法取消任务。"></a>最后调用cancel()方法取消任务。</h3></li>
+<li><h3 id="ps-在startTime-中调用sendMessage-方法向Handler发送消息，而在Handler的handleMessage中又调用startTime-方法，这样就形成了sendMessage-gt-handleMessage-gt-sendMessage-gt-handleMessage-gt-…的循环。"><a href="#ps-在startTime-中调用sendMessage-方法向Handler发送消息，而在Handler的handleMessage中又调用startTime-方法，这样就形成了sendMessage-gt-handleMessage-gt-sendMessage-gt-handleMessage-gt-…的循环。" class="headerlink" title="ps:在startTime()中调用sendMessage()方法向Handler发送消息，而在Handler的handleMessage中又调用startTime()方法，这样就形成了sendMessage()-&gt;handleMessage()-&gt;sendMessage()-&gt;handleMessage()-&gt;…的循环。"></a>ps:在startTime()中调用sendMessage()方法向Handler发送消息，而在Handler的handleMessage中又调用startTime()方法，这样就形成了sendMessage()-&gt;handleMessage()-&gt;sendMessage()-&gt;handleMessage()-&gt;…的循环。</h3></li>
+</ul>
+<h2 id="4-部署到Genymotion观看效果"><a href="#4-部署到Genymotion观看效果" class="headerlink" title="4. 部署到Genymotion观看效果:"></a>4. 部署到Genymotion观看效果:</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog1/Blog1_2.gif?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="5-改进"><a href="#5-改进" class="headerlink" title="5. 改进"></a>5. 改进</h2><h3 id="这里存在这一个问题就是计时器读数到0后会变成负数，所以下面需要修改一些代码使计时器归0后停止计时。"><a href="#这里存在这一个问题就是计时器读数到0后会变成负数，所以下面需要修改一些代码使计时器归0后停止计时。" class="headerlink" title="这里存在这一个问题就是计时器读数到0后会变成负数，所以下面需要修改一些代码使计时器归0后停止计时。"></a>这里存在这一个问题就是计时器读数到0后会变成负数，所以下面需要修改一些代码使计时器归0后停止计时。</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">startTime</span><span class="params">()</span> </span>&#123;</div><div class="line">        ...</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                i--;</div><div class="line">                <span class="keyword">if</span>(i&lt;<span class="number">0</span>)&#123;</div><div class="line">                    stopTime();</div><div class="line">                    <span class="keyword">return</span>;</div><div class="line">                &#125;</div><div class="line">        ...</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h3 id="这里在startTime-方法中的run-方法中加入一个if判断，当i小于0的时候就调用stopTime-方法并且return。-这里判断条件是小于0而不是等于0是逻辑顺序的问题"><a href="#这里在startTime-方法中的run-方法中加入一个if判断，当i小于0的时候就调用stopTime-方法并且return。-这里判断条件是小于0而不是等于0是逻辑顺序的问题" class="headerlink" title="这里在startTime()方法中的run()方法中加入一个if判断，当i小于0的时候就调用stopTime()方法并且return。(这里判断条件是小于0而不是等于0是逻辑顺序的问题)"></a>这里在startTime()方法中的run()方法中加入一个if判断，当i小于0的时候就调用stopTime()方法并且return。(这里判断条件是小于0而不是等于0是逻辑顺序的问题)</h3><h3 id="为了更好地看到”刹车”效果，将任务间隔设置为1毫秒。"><a href="#为了更好地看到”刹车”效果，将任务间隔设置为1毫秒。" class="headerlink" title="为了更好地看到”刹车”效果，将任务间隔设置为1毫秒。"></a>为了更好地看到”刹车”效果，将任务间隔设置为1毫秒。</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">timer.schedule(task, <span class="number">1</span>);</div></pre></td></tr></table></figure>
+<h2 id="效果如下"><a href="#效果如下" class="headerlink" title="效果如下:"></a>效果如下:</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog1/Blog1_3.gif?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="对于目前的程序，由于从inputet获取的值为int类型，但当我们输入小数或者字符和其他符号时，程序会崩溃，这里可以使用正则表达式限制输入。"><a href="#对于目前的程序，由于从inputet获取的值为int类型，但当我们输入小数或者字符和其他符号时，程序会崩溃，这里可以使用正则表达式限制输入。" class="headerlink" title="对于目前的程序，由于从inputet获取的值为int类型，但当我们输入小数或者字符和其他符号时，程序会崩溃，这里可以使用正则表达式限制输入。"></a>对于目前的程序，由于从inputet获取的值为int类型，但当我们输入小数或者字符和其他符号时，程序会崩溃，这里可以使用正则表达式限制输入。</h2>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-03-26T12:33:35.336Z" itemprop="dateUpdated">2017年3月26日 20:33</time>
+</span><br>
+
+
+        这里写留言或版权声明：<a href="/2017/03/25/制作倒计时/" target="_blank" rel="external">https://izdo.github.io/2017/03/25/制作倒计时/</a>
+    </div>
+    <footer>
+        <a href="https://izdo.github.io">
+            <img src="/img/heizi.jpg" alt="iZdo">
+            iZdo
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://izdo.github.io/2017/03/25/制作倒计时/&title=《No title》 — iZdo's Blog&pic=https://izdo.github.io/img/heizi.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://izdo.github.io/2017/03/25/制作倒计时/&title=《No title》 — iZdo's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://izdo.github.io/2017/03/25/制作倒计时/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — iZdo's Blog&url=https://izdo.github.io/2017/03/25/制作倒计时/&via=https://izdo.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://izdo.github.io/2017/03/25/制作倒计时/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+
+
+    
+
+<div class="comments" id="comments">
+    <div class="ds-thread" data-thread-key="制作倒计时" data-title="No title" data-url="https://izdo.github.io/2017/03/25/制作倒计时/"></div>
+</div>
+<script>
+lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
+
+var duoshuoQuery = {short_name:'ysblog', theme: 'none'};
+lazyScripts.push('/js/embed.min.js?v=1.4.14');
+
+
+</script>
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>iZdo's Blog &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://izdo.github.io/2017/03/25/制作倒计时/&title=《No title》 — iZdo's Blog&pic=https://izdo.github.io/img/heizi.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://izdo.github.io/2017/03/25/制作倒计时/&title=《No title》 — iZdo's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://izdo.github.io/2017/03/25/制作倒计时/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — iZdo's Blog&url=https://izdo.github.io/2017/03/25/制作倒计时/&via=https://izdo.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://izdo.github.io/2017/03/25/制作倒计时/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIUlEQVR42u3aW27CUAxFUeY/6XQCcNnHTpFi73yhloBXKrnXj9cLX9fxOr+ffCa/q3XJkCHjsQwS4qcvIIGegyav0eOTIUPGAgYJohPcOSzyaV9iliFDhgwcHD8mkiQuQ4YMGTUGqR85WIYMGTI4gxzaUnwK+FEtLkOGjAcyeNf996//Zb4hQ4aMRzGu8Kod8vinFaOSIUPGaAZPcKSh1il3+Vj0YzwyZMgYyuA3pI1+XnCS8vjLT2TIkLGAkd5GjnHk2EdSMFrykCFDxmgGDzpt1teWX8ldwX8PGTJkjGDwRdJ+Z/6ukvjNb2XIkLGGkaa8dNBIHtYNC2EyZMgYyuANfT4w4CGmLb+PCVeGDBlDGeeGV1q+1hJ3J03LkCFDBhlS1oaX/LuCRQ0ZMmQMZfQDIk23tEAlpDgry5Ah47GMWsla+0qO5KUs+ivJkCFjAYMnzbR5lw4+4xQsQ4aMBYzaQJEUn6h9hh+BDBkyNjDS5S1S9PIFi9qAE22OyJAhYzSDt+HSpJkWq8E7ZciQsYBBkmknHfNjaLrYIUOGjD2MdD2inyhvHgzIkCFjKOMKrxq7tiIWUGXIkDGawa+Ud1crjRxbZciQsYHBQ0zHirXPTIeaMmTI2MNIE1+6ZsEfWXFsIEOGDBmNRlttCYMfPWXIkCHjnEz7hW6/JSdDhow9jE4rjbfYassWaNggQ4aM0Yy0dOTJt1MYp69lyJAxlPEHRpcD8U74FFEAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.14"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.14" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
