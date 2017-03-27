@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://izdo.github.io/"/>
-  <updated>2017-03-26T13:43:12.842Z</updated>
+  <updated>2017-03-26T15:08:33.867Z</updated>
   <id>https://izdo.github.io/</id>
   
   <author>
@@ -14,6 +14,53 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>如何做一个简单的通讯录</title>
+    <link href="https://izdo.github.io/2017/03/26/%E5%88%B6%E4%BD%9C%E9%80%9A%E8%AE%AF%E5%BD%95/"/>
+    <id>https://izdo.github.io/2017/03/26/制作通讯录/</id>
+    <published>2017-03-26T14:05:59.634Z</published>
+    <updated>2017-03-26T15:08:33.867Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="如何做一个简单的通讯录"><a href="#如何做一个简单的通讯录" class="headerlink" title="如何做一个简单的通讯录"></a>如何做一个简单的通讯录</h1><h2 id="1-创建新工程GetMyPhoneContacts"><a href="#1-创建新工程GetMyPhoneContacts" class="headerlink" title="1. 创建新工程GetMyPhoneContacts"></a>1. 创建新工程GetMyPhoneContacts</h2><h2 id="2-为了模拟通讯录的效果，现在genymotion模拟器中添加几个联系人"><a href="#2-为了模拟通讯录的效果，现在genymotion模拟器中添加几个联系人" class="headerlink" title="2. 为了模拟通讯录的效果，现在genymotion模拟器中添加几个联系人"></a>2. 为了模拟通讯录的效果，现在genymotion模拟器中添加几个联系人</h2><ul>
+<li><h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图:"></a>效果图:</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="blog2_1" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+</li>
+</ul>
+<h2 id="3-创建Java类-GetNumber"><a href="#3-创建Java类-GetNumber" class="headerlink" title="3. 创建Java类 GetNumber"></a>3. 创建Java类 GetNumber</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.getmyphonecontacts;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.content.Context;</div><div class="line"><span class="keyword">import</span> android.database.Cursor;</div><div class="line"><span class="keyword">import</span> android.provider.ContactsContract.CommonDataKinds.Phone;</div><div class="line"><span class="keyword">import</span> android.util.Log;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by iZdo on 2017/3/26.</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GetNumber</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getNumber</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        <span class="comment">// 查询系统通讯录</span></div><div class="line">        Cursor cursor = context.getContentResolver().query(Phone.CONTENT_URI, <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span>);</div><div class="line"></div><div class="line">        <span class="comment">// 定义两个字符串用于获取姓名和电话号码</span></div><div class="line">        String phoneName;</div><div class="line">        String phoneNumber;</div><div class="line"></div><div class="line">        <span class="comment">// 循环遍历</span></div><div class="line">        <span class="keyword">while</span> (cursor.moveToNext()) &#123;</div><div class="line">            phoneName = cursor.getString(cursor.getColumnIndex(Phone.DISPLAY_NAME));</div><div class="line">            phoneNumber = cursor.getString(cursor.getColumnIndex(Phone.NUMBER));</div><div class="line">            Log.d(<span class="string">"MainActivity"</span>, <span class="string">"phoneName= "</span> + phoneName + <span class="string">"phoneNumber= "</span> + phoneNumber);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>类中只有一个getNumber方法，这个方法用于获取手机通讯录的联系人</li>
+<li>这个方法需要一个上下文Context对象作为参数，首先调用上下文的getContentResolver()方法获取一个内容解析者ContentResolver对象并且调用其query()方法查询系统联系人</li>
+<li>query()方法第一个参数为一个Uri，这里传入Phone.CONTENT_URI即可，后面的四个参数为查询条件，目前我们不需要筛选联系人，因此全部传入null即可。</li>
+<li>query()返回的是一个游标Cursor，用while循环不断遍历Cursor，从Cursor中取出联系人的姓名和号码。</li>
+</ul>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.getmyphonecontacts;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.support.v7.app.AppCompatActivity;</div><div class="line"><span class="keyword">import</span> android.os.Bundle;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line">        GetNumber.getNumber(<span class="keyword">this</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>在MAinActivity中调用GetNumber的getNumber()方法。</li>
+</ul>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;如何做一个简单的通讯录&quot;&gt;&lt;a href=&quot;#如何做一个简单的通讯录&quot; class=&quot;headerlink&quot; title=&quot;如何做一个简单的通讯录&quot;&gt;&lt;/a&gt;如何做一个简单的通讯录&lt;/h1&gt;&lt;h2 id=&quot;1-创建新工程GetMyPhoneContacts&quot;&gt;&lt;a
+    
+    </summary>
+    
+      <category term="Android" scheme="https://izdo.github.io/categories/Android/"/>
+    
+    
+      <category term="Android" scheme="https://izdo.github.io/tags/Android/"/>
+    
+  </entry>
   
   <entry>
     <title>如何做一个简单的倒计时</title>
