@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://izdo.github.io/"/>
-  <updated>2017-03-27T14:55:41.043Z</updated>
+  <updated>2017-03-28T03:22:55.202Z</updated>
   <id>https://izdo.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://izdo.github.io/2017/03/26/%E5%88%B6%E4%BD%9C%E9%80%9A%E8%AE%AF%E5%BD%95/"/>
     <id>https://izdo.github.io/2017/03/26/制作通讯录/</id>
     <published>2017-03-26T14:05:59.634Z</published>
-    <updated>2017-03-27T14:55:41.043Z</updated>
+    <updated>2017-03-28T03:22:55.202Z</updated>
     
     <content type="html"><![CDATA[<h1 id="如何做一个简单的通讯录"><a href="#如何做一个简单的通讯录" class="headerlink" title="如何做一个简单的通讯录"></a>如何做一个简单的通讯录</h1><h2 id="获取手机通讯录信息"><a href="#获取手机通讯录信息" class="headerlink" title="获取手机通讯录信息"></a>获取手机通讯录信息</h2><h3 id="1-创建新工程GetMyPhoneContacts"><a href="#1-创建新工程GetMyPhoneContacts" class="headerlink" title="1. 创建新工程GetMyPhoneContacts"></a>1. 创建新工程GetMyPhoneContacts</h3><h3 id="2-为了模拟通讯录的效果，现在genymotion模拟器中添加几个联系人"><a href="#2-为了模拟通讯录的效果，现在genymotion模拟器中添加几个联系人" class="headerlink" title="2. 为了模拟通讯录的效果，现在genymotion模拟器中添加几个联系人"></a>2. 为了模拟通讯录的效果，现在genymotion模拟器中添加几个联系人</h3><ul>
 <li><h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图:"></a>效果图:</h3><figure class="image-bubble">
@@ -136,6 +136,36 @@
                 </div>
                 <div class="image-caption"></div>
             </figure>
+<blockquote>
+<ul>
+<li>可以看到，联系人的信息都显示在了每一行Item上了。</li>
+<li>ps:ImageView上的图片事先并无准备，所以就用了系统自带的ic_launcher图片。</li>
+</ul>
+</blockquote>
+<h2 id="复用历史缓存对象进行优化"><a href="#复用历史缓存对象进行优化" class="headerlink" title="复用历史缓存对象进行优化"></a>复用历史缓存对象进行优化</h2><blockquote>
+<ul>
+<li>ListView其实是一个比较难用的控件，因为它有很多细节可以优化，运行效率就是其中很重要的一点，我们上面写的ListView运行效率是很低的，因为在getView()方法中，每次都将布局重新加载了一遍，当ListView快速滚动的时候，会明显出现卡顿的现象(由于我们的数据量比较少，无法体现出卡顿效果，当数据量比较大的时候能够明显看出)，这时候我们就需要优化ListView的，我们可以发现getView()方法里还有一个view(原先是convertView)是我们没用到的，这是一个缓存对象，就是用于优化ListView的。</li>
+</ul>
+</blockquote>
+<p>###　修改MyAdapter中的代码:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyAdapter</span> <span class="keyword">extends</span> <span class="title">BaseAdapter</span> </span>&#123;</div><div class="line"></div><div class="line">   ...</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> View <span class="title">getView</span><span class="params">(<span class="keyword">int</span> i, View view, ViewGroup viewGroup)</span> </span>&#123;</div><div class="line">        <span class="comment">//        LayoutInflater inflater = LayoutInflater.from(mContext);</span></div><div class="line">        <span class="comment">//        LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.contact, null);</span></div><div class="line">        <span class="comment">//        TextView nametv = (TextView) layout.findViewById(R.id.name);</span></div><div class="line">        <span class="comment">//        TextView numbertv = (TextView) layout.findViewById(R.id.number);</span></div><div class="line">        <span class="comment">//        nametv.setText(mContactInfoList.get(i).getName());</span></div><div class="line">        <span class="comment">//        numbertv.setText(mContactInfoList.get(i).getNumber());</span></div><div class="line">        ViewHolder holder;</div><div class="line">        <span class="keyword">if</span> (view == <span class="keyword">null</span>) &#123;</div><div class="line">            view = LayoutInflater.from(mContext).inflate(R.layout.contact, <span class="keyword">null</span>);</div><div class="line">            holder = <span class="keyword">new</span> ViewHolder();</div><div class="line">            holder.nametv = (TextView) view.findViewById(R.id.name);</div><div class="line">            holder.numbertv = (TextView) view.findViewById(R.id.number);</div><div class="line">            holder.nametv.setText(mContactInfoList.get(i).getName());</div><div class="line">            holder.numbertv.setText(mContactInfoList.get(i).getNumber());</div><div class="line">            view.setTag(holder);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            holder = (ViewHolder) view.getTag();</div><div class="line">            holder.nametv.setText(mContactInfoList.get(i).getName());</div><div class="line">            holder.numbertv.setText(mContactInfoList.get(i).getNumber());</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> view;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ViewHolder</span> </span>&#123;</div><div class="line">        TextView nametv;</div><div class="line">        TextView numbertv;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<ul>
+<li>首先创建了一个内部类ViewHolder，用于对控件的实例进行缓存。</li>
+<li>在getView方法中，创建了一个ViewHolder对象，当缓存view为空时，就将联系人的信息封装在ViewHolder里，然后调用setTag()方法将ViewHolder储存在view中，而当缓存不为空时，就调用getTag()方法取出ViewHolder，这样就实现了缓存的复用。</li>
+</ul>
+</blockquote>
+<h3 id="继续改进"><a href="#继续改进" class="headerlink" title="继续改进"></a>继续改进</h3><blockquote>
+<ul>
+<li>通过复用缓存对象我们对ListView进行了优化，而通过观察getView()方法，我们发现不管缓存view为空时，新建ViewHolder去缓存实例还是缓存view不为空时，取出缓存，我们都需要用这个ViewHolder对TextView进行设置文本内容，所以我们又可以进一步优化代码:</li>
+</ul>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyAdapter</span> <span class="keyword">extends</span> <span class="title">BaseAdapter</span> </span>&#123;</div><div class="line"></div><div class="line">    ...</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> View <span class="title">getView</span><span class="params">(<span class="keyword">int</span> i, View view, ViewGroup viewGroup)</span> </span>&#123;</div><div class="line">       </div><div class="line">       ...</div><div class="line">       </div><div class="line">        ViewHolder holder;</div><div class="line">        <span class="keyword">if</span> (view == <span class="keyword">null</span>) &#123;</div><div class="line">            view = LayoutInflater.from(mContext).inflate(R.layout.contact, <span class="keyword">null</span>);</div><div class="line">            holder = <span class="keyword">new</span> ViewHolder();</div><div class="line">            holder.nametv = (TextView) view.findViewById(R.id.name);</div><div class="line">            holder.numbertv = (TextView) view.findViewById(R.id.number);</div><div class="line">            view.setTag(holder);</div><div class="line">        &#125; <span class="keyword">else</span></div><div class="line">            holder = (ViewHolder) view.getTag();</div><div class="line">        holder.nametv.setText(mContactInfoList.get(i).getName());</div><div class="line">        holder.numbertv.setText(mContactInfoList.get(i).getNumber());</div><div class="line"></div><div class="line">        <span class="keyword">return</span> view;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">   ...</div><div class="line">   </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>这里我们将holder.nametv.setText(mContactInfoList.get(i).getName())和     holder.numbertv.setText(mContactInfoList.get(i).getNumber())放到判断语句外边，减少了代码的重复(其实就是之前忘了放)。</li>
+</ul>
+</blockquote>
+<p>这样就完成了从手机系统通讯录中取出数据放到我们自己的通讯录上的效果。</p>
 ]]></content>
     
     <summary type="html">
