@@ -417,7 +417,7 @@
     <link href="https://izdo.github.io/2017/03/26/%E5%88%B6%E4%BD%9C%E9%80%9A%E8%AE%AF%E5%BD%95/"/>
     <id>https://izdo.github.io/2017/03/26/制作通讯录/</id>
     <published>2017-03-26T14:05:59.634Z</published>
-    <updated>2017-04-06T12:40:39.160Z</updated>
+    <updated>2017-04-06T12:42:17.985Z</updated>
     
     <content type="html"><![CDATA[<h1 id="如何做一个简单的通讯录"><a href="#如何做一个简单的通讯录" class="headerlink" title="如何做一个简单的通讯录"></a>如何做一个简单的通讯录</h1><h2 id="获取手机通讯录信息"><a href="#获取手机通讯录信息" class="headerlink" title="获取手机通讯录信息"></a>获取手机通讯录信息</h2><h3 id="创建新工程GetMyPhoneContacts"><a href="#创建新工程GetMyPhoneContacts" class="headerlink" title="创建新工程GetMyPhoneContacts"></a>创建新工程GetMyPhoneContacts</h3><h3 id="为了模拟通讯录的效果，现在genymotion模拟器中添加几个联系人"><a href="#为了模拟通讯录的效果，现在genymotion模拟器中添加几个联系人" class="headerlink" title="为了模拟通讯录的效果，现在genymotion模拟器中添加几个联系人"></a>为了模拟通讯录的效果，现在genymotion模拟器中添加几个联系人</h3><ul>
 <li><h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图:"></a>效果图:</h3><figure class="image-bubble">
@@ -574,7 +574,9 @@
       <category term="Android" scheme="https://izdo.github.io/categories/Android/"/>
     
     
-      <category term="Android,demo" scheme="https://izdo.github.io/tags/Android-demo/"/>
+      <category term="Android" scheme="https://izdo.github.io/tags/Android/"/>
+    
+      <category term="demo" scheme="https://izdo.github.io/tags/demo/"/>
     
   </entry>
   
