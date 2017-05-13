@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>OKHttp3框架(中) | iZdo&#39;s Blog | bonbolu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Android">
+    <meta name="description" content="OKHttp3框架(中)文件 简单方式新建FileDownloadActivity类(同时将默认启动的Activity改为FileDownloadActivity)1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OKHttp3框架(中)">
+<meta property="og:url" content="https://izdo.github.io/2017/05/13/OKHttp3框架(中)/index.html">
+<meta property="og:site_name" content="iZdo's Blog">
+<meta property="og:description" content="OKHttp3框架(中)文件 简单方式新建FileDownloadActivity类(同时将默认启动的Activity改为FileDownloadActivity)1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog7/Blog7_1.gif?raw=true">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog7/Blog7_2.png?raw=true">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog7/Blog7_3.gif?raw=true">
+<meta property="og:updated_time" content="2017-05-13T14:35:26.754Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OKHttp3框架(中)">
+<meta name="twitter:description" content="OKHttp3框架(中)文件 简单方式新建FileDownloadActivity类(同时将默认启动的Activity改为FileDownloadActivity)1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636">
+<meta name="twitter:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog7/Blog7_1.gif?raw=true">
+    
+        <link rel="alternative" href="/atom.xml" title="iZdo&#39;s Blog" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.14">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/heizi.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">iZdo</h5>
+          <a href="mailto:401135451@qq.com" title="401135451@qq.com" class="mail">401135451@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/iZdo" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/u/2597276811" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://music.163.com/#/user/home?id=384832070" target="_blank" >
+                <i class="icon icon-lg icon-music"></i>
+                cloudmusic
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://steamcommunity.com/id/401135451/" target="_blank" >
+                <i class="icon icon-lg icon-steam"></i>
+                Steam
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">OKHttp3框架(中)</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">OKHttp3框架(中)</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-05-13T14:37:21.332Z" itemprop="datePublished" class="page-time">
+  2017-05-13
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#OKHttp3框架-中"><span class="post-toc-number">1.</span> <span class="post-toc-text">OKHttp3框架(中)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#文件-简单方式"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">文件 简单方式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#新建FileDownloadActivity类-同时将默认启动的Activity改为FileDownloadActivity"><span class="post-toc-number">1.1.0.1.</span> <span class="post-toc-text">新建FileDownloadActivity类(同时将默认启动的Activity改为FileDownloadActivity)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#activity-file-download-xml"><span class="post-toc-number">1.1.0.2.</span> <span class="post-toc-text">activity_file_download.xml</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#writeFile"><span class="post-toc-number">1.1.0.3.</span> <span class="post-toc-text">writeFile()</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#获取权限"><span class="post-toc-number">1.1.0.4.</span> <span class="post-toc-text">获取权限</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#效果图："><span class="post-toc-number">1.1.0.5.</span> <span class="post-toc-text">效果图：</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#文件-拦截器方式"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">文件 拦截器方式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#新建ProgressResponseBody类继承ResponseBody"><span class="post-toc-number">1.2.0.1.</span> <span class="post-toc-text">新建ProgressResponseBody类继承ResponseBody</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#新建ProgressListener接口类作为监听器"><span class="post-toc-number">1.2.0.2.</span> <span class="post-toc-text">新建ProgressListener接口类作为监听器</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#修改ProgressResponseBody类"><span class="post-toc-number">1.2.0.3.</span> <span class="post-toc-text">修改ProgressResponseBody类</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#修改FileDownloadActivity中的代码："><span class="post-toc-number">1.2.0.4.</span> <span class="post-toc-text">修改FileDownloadActivity中的代码：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#效果图：-1"><span class="post-toc-number">1.2.0.5.</span> <span class="post-toc-text">效果图：</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#完善逻辑"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">完善逻辑</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-OKHttp3框架(中)"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">OKHttp3框架(中)</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年05月13日 22:37" datetime="2017-05-13T14:37:21.332Z"  itemprop="datePublished">2017-05-13</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="OKHttp3框架-中"><a href="#OKHttp3框架-中" class="headerlink" title="OKHttp3框架(中)"></a>OKHttp3框架(中)</h1><h2 id="文件-简单方式"><a href="#文件-简单方式" class="headerlink" title="文件 简单方式"></a>文件 简单方式</h2><h4 id="新建FileDownloadActivity类-同时将默认启动的Activity改为FileDownloadActivity"><a href="#新建FileDownloadActivity类-同时将默认启动的Activity改为FileDownloadActivity" class="headerlink" title="新建FileDownloadActivity类(同时将默认启动的Activity改为FileDownloadActivity)"></a>新建FileDownloadActivity类(同时将默认启动的Activity改为FileDownloadActivity)</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.izdo.okhttpdemo;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.Manifest;</div><div class="line"><span class="keyword">import</span> android.content.pm.PackageManager;</div><div class="line"><span class="keyword">import</span> android.os.Bundle;</div><div class="line"><span class="keyword">import</span> android.os.Environment;</div><div class="line"><span class="keyword">import</span> android.os.Handler;</div><div class="line"><span class="keyword">import</span> android.os.Message;</div><div class="line"><span class="keyword">import</span> android.support.annotation.NonNull;</div><div class="line"><span class="keyword">import</span> android.support.v4.app.ActivityCompat;</div><div class="line"><span class="keyword">import</span> android.support.v4.content.ContextCompat;</div><div class="line"><span class="keyword">import</span> android.support.v7.app.AppCompatActivity;</div><div class="line"><span class="keyword">import</span> android.util.Log;</div><div class="line"><span class="keyword">import</span> android.widget.Button;</div><div class="line"><span class="keyword">import</span> android.widget.ProgressBar;</div><div class="line"><span class="keyword">import</span> android.widget.Toast;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.File;</div><div class="line"><span class="keyword">import</span> java.io.FileNotFoundException;</div><div class="line"><span class="keyword">import</span> java.io.FileOutputStream;</div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"><span class="keyword">import</span> java.io.InputStream;</div><div class="line"></div><div class="line"><span class="keyword">import</span> butterknife.BindView;</div><div class="line"><span class="keyword">import</span> butterknife.ButterKnife;</div><div class="line"><span class="keyword">import</span> butterknife.OnClick;</div><div class="line"><span class="keyword">import</span> okhttp3.Call;</div><div class="line"><span class="keyword">import</span> okhttp3.Callback;</div><div class="line"><span class="keyword">import</span> okhttp3.OkHttpClient;</div><div class="line"><span class="keyword">import</span> okhttp3.Request;</div><div class="line"><span class="keyword">import</span> okhttp3.Response;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileDownloadActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// 文件地址</span></div><div class="line">    <span class="keyword">public</span> String url = <span class="string">"http://download.moji001.com/download/MojiWeather-V6.0304.02-release-c8888.apk"</span>;</div><div class="line">    <span class="comment">// 文件名</span></div><div class="line">    <span class="keyword">public</span> String fileName = <span class="string">"mojiweather.apk"</span>;</div><div class="line"></div><div class="line">    <span class="meta">@BindView</span>(R.id.btn_download)</div><div class="line">    Button mBtnDownload;</div><div class="line">    <span class="meta">@BindView</span>(R.id.progressBar)</div><div class="line">    ProgressBar mProgressBar;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> OkHttpClient httpClient;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_file_download);</div><div class="line">        ButterKnife.bind(<span class="keyword">this</span>);</div><div class="line"></div><div class="line">        initOKhttp();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initOKhttp</span><span class="params">()</span> </span>&#123;</div><div class="line">        httpClient = <span class="keyword">new</span> OkHttpClient();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@OnClick</span>(R.id.btn_download)</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onViewClicked</span><span class="params">()</span> </span>&#123;</div><div class="line">        downloadAPK();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 文件下载</span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">downloadAPK</span><span class="params">()</span> </span>&#123;</div><div class="line">        Request request = <span class="keyword">new</span> Request.Builder()</div><div class="line">                .url(url)</div><div class="line">                .build();</div><div class="line"></div><div class="line">        httpClient.newCall(request).enqueue(<span class="keyword">new</span> Callback() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFailure</span><span class="params">(Call call, IOException e)</span> </span>&#123;</div><div class="line">                Log.d(<span class="string">"FileDownloadActivity"</span>, <span class="string">"请求文件出错"</span>);</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(Call call, Response response)</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">                writeFile(response);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    Handler mHandler = <span class="keyword">new</span> Handler() &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>&#123;</div><div class="line">            <span class="keyword">if</span> (msg.what == <span class="number">1</span>) &#123;</div><div class="line">                <span class="keyword">int</span> progress = msg.arg1;</div><div class="line">                mProgressBar.setProgress(progress);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="comment">// 文件读取</span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">writeFile</span><span class="params">(Response response)</span> </span>&#123;</div><div class="line">        InputStream is = <span class="keyword">null</span>;</div><div class="line">        FileOutputStream fos = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">        <span class="comment">// 读取返回的数据流</span></div><div class="line">        is = response.body().byteStream();</div><div class="line"></div><div class="line">        <span class="comment">// 获取SD卡路径</span></div><div class="line">        String path = Environment.getExternalStorageDirectory().getAbsolutePath();</div><div class="line"></div><div class="line">        <span class="comment">// 创建新文件</span></div><div class="line">        File file = <span class="keyword">new</span> File(path, fileName);</div><div class="line"></div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            fos = <span class="keyword">new</span> FileOutputStream(file);</div><div class="line"></div><div class="line">            <span class="keyword">byte</span>[] bytes = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</div><div class="line"></div><div class="line">            <span class="keyword">int</span> len = <span class="number">0</span>;</div><div class="line"></div><div class="line">             <span class="comment">// 请求文件的总大小</span></div><div class="line">            <span class="keyword">long</span> totalSize = response.body().contentLength();</div><div class="line"></div><div class="line">            <span class="comment">// 当前已下载的大小</span></div><div class="line">            <span class="keyword">long</span> sum = <span class="number">0</span>;</div><div class="line"></div><div class="line">            <span class="comment">// 每次以1kb的大小写入文件</span></div><div class="line">            <span class="keyword">while</span> ((len = is.read(bytes)) != -<span class="number">1</span>) &#123;</div><div class="line"></div><div class="line">                fos.write(bytes);</div><div class="line"></div><div class="line">                sum += len;</div><div class="line"></div><div class="line">                <span class="keyword">int</span> progress = (<span class="keyword">int</span>) ((sum * <span class="number">1.0f</span> / totalSize) * <span class="number">100</span>);</div><div class="line"></div><div class="line">                Message msg = mHandler.obtainMessage(<span class="number">1</span>);</div><div class="line">                msg.arg1 = progress;</div><div class="line"></div><div class="line">                mHandler.sendMessage(msg);</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; <span class="keyword">finally</span> &#123;</div><div class="line">            <span class="comment">// 关闭流</span></div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                <span class="keyword">if</span> (is != <span class="keyword">null</span>)</div><div class="line">                    is.close();</div><div class="line">                <span class="keyword">if</span> (fos != <span class="keyword">null</span>)</div><div class="line">                    fos.close();</div><div class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="activity-file-download-xml"><a href="#activity-file-download-xml" class="headerlink" title="activity_file_download.xml"></a>activity_file_download.xml</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">    <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/activity_file_download"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span></div><div class="line">    <span class="attr">android:paddingBottom</span>=<span class="string">"@dimen/activity_vertical_margin"</span></div><div class="line">    <span class="attr">android:paddingLeft</span>=<span class="string">"@dimen/activity_horizontal_margin"</span></div><div class="line">    <span class="attr">android:paddingRight</span>=<span class="string">"@dimen/activity_horizontal_margin"</span></div><div class="line">    <span class="attr">android:paddingTop</span>=<span class="string">"@dimen/activity_vertical_margin"</span></div><div class="line">    <span class="attr">tools:context</span>=<span class="string">"com.izdo.okhttpdemo.FileDownloadActivity"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/btn_download"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:text</span>=<span class="string">"下载文件"</span>/&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">ProgressBar</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/progressBar"</span></div><div class="line">        <span class="attr">style</span>=<span class="string">"@style/Widget.AppCompat.ProgressBar.Horizontal"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span>/&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>布局文件为一个按钮和一个进度条，不多做解释。<br>使用ButterKnife初始化控件和初始化httpClient等操作也不多做解释。<br>接下来主要讲一下请求逻辑，首先需要准备一个文件提供下载，这里我使用的是墨迹天气apk的下载地址，在按钮的点击事件中调用downloadAPK()方法。<br>而downloadAPK()操作与OKHttp GET请求的基本操作一致，在请求成功时调用writeFile()方法。</p>
+</blockquote>
+<h4 id="writeFile"><a href="#writeFile" class="headerlink" title="writeFile()"></a>writeFile()</h4><blockquote>
+<p>这个方法主要用于在请求成功后向本地储存写入文件(这里存入SD卡)。<br>首先需要通过请求返回的response读取数据流，然后在获取SD卡路径后将流以每次1kb的大小写入文件filebi并存储在SD卡中，读写操作为Java的IO流操作，不多做解释。<br>接下来是进度条的更新操作:由于进度条的更新涉及到UI操作，所以需要一个Handler来完成。<br>首先在writeFile()方法外定义一个Handler用于接收Message，在handleMessage()方法中，判断当传递过来的Message的what值为1时就将当前进度设置为传递过来的Message中的参数arg1。<br>在writeFile()方法中定义一个请求文件的总大小totalSize和一个当前已下载的大小sum，在每次写入文件时，计算当前已下载的文件大小，并计算当前进度值，然后通过Handler传递Message，将what参数和arg1参数的值都传递给Handler。<br>关于int progress = (int) ((sum <em> 1.0f / totalSize) </em> 100)：由于sum和totalSize是long类型的数据，需要转化为int类型的进度值，所以这里将sum<em>1.0f，然后再将sum和totalSize相除的结果</em>100，就能得到当前的进度值了。  </p>
+</blockquote>
+<h4 id="获取权限"><a href="#获取权限" class="headerlink" title="获取权限"></a>获取权限</h4><blockquote>
+<p>想要访问SD卡和联网等操作，当然少不了权限的获取了，在清单文件中加入以下代码:</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.INTERNET"</span>/&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.READ_EXTERNAL_STORAGE"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.WRITE_EXTERNAL_STORAGE"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">uses-permission</span> <span class="attr">android:name</span>=<span class="string">"android.permission.MOUNT_UNMOUNT_FILESYSTEMS"</span>/&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>虽然我们已经加上了权限，但是这里需要讲一下，在Android6.0或6.0以上的手机对文件读写不仅要在清单文件配置，还需要动态地请求权限。<br>在类中加入以下两个方法：</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> EXTERNAL_STORAGE_REQ_CODE = <span class="number">10</span>;</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">requestPermission</span><span class="params">()</span> </span>&#123;</div><div class="line">       <span class="comment">// 判断当前Activity是否已经获得了该权限</span></div><div class="line">       <span class="keyword">if</span> (ContextCompat.checkSelfPermission(<span class="keyword">this</span>, Manifest.permission.WRITE_EXTERNAL_STORAGE)</div><div class="line">               != PackageManager.PERMISSION_GRANTED) &#123;</div><div class="line"></div><div class="line">           <span class="comment">// 如果App的权限申请曾经被用户拒绝过，就需要在这里跟用户做出解释</span></div><div class="line">           <span class="keyword">if</span> (ActivityCompat.shouldShowRequestPermissionRationale(<span class="keyword">this</span>, Manifest.permission.WRITE_EXTERNAL_STORAGE)) &#123;</div><div class="line">               Toast.makeText(<span class="keyword">this</span>, <span class="string">"please give me the permission"</span>, Toast.LENGTH_SHORT).show();</div><div class="line">           &#125; <span class="keyword">else</span> &#123;</div><div class="line">               <span class="comment">// 进行权限请求</span></div><div class="line">               ActivityCompat.requestPermissions(<span class="keyword">this</span>,</div><div class="line">                       <span class="keyword">new</span> String[]&#123;Manifest.permission.WRITE_EXTERNAL_STORAGE&#125;,</div><div class="line">                       EXTERNAL_STORAGE_REQ_CODE);</div><div class="line">           &#125;</div><div class="line">       &#125;</div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="meta">@Override</span></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onRequestPermissionsResult</span><span class="params">(<span class="keyword">int</span> requestCode, @NonNull String[] permissions, @NonNull <span class="keyword">int</span>[] grantResults)</span> </span>&#123;</div><div class="line">       <span class="keyword">switch</span> (requestCode) &#123;</div><div class="line">           <span class="keyword">case</span> EXTERNAL_STORAGE_REQ_CODE:</div><div class="line">               <span class="comment">// 如果请求被拒绝，那么通常grantResults数组为空</span></div><div class="line">               <span class="keyword">if</span> (grantResults.length &gt; <span class="number">0</span></div><div class="line">                       &amp;&amp; grantResults[<span class="number">0</span>] == PackageManager.PERMISSION_GRANTED) &#123;</div><div class="line">                   <span class="comment">// 申请成功，进行相应操作</span></div><div class="line">                   Toast.makeText(FileDownloadActivity.<span class="keyword">this</span>, <span class="string">"已获取权限"</span>, Toast.LENGTH_SHORT).show();</div><div class="line">               &#125; <span class="keyword">else</span> &#123;</div><div class="line">                   <span class="comment">//申请失败，可以继续向用户解释。</span></div><div class="line">               &#125;</div><div class="line">               <span class="keyword">break</span>;</div><div class="line">           <span class="keyword">default</span>:</div><div class="line">               <span class="keyword">break</span>;</div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>由于这个demo主要是对OKHtpp的使用的介绍，所以对权限请求部分也不多做解释，相关注释已在代码中体现。(在initOKhttp()方法前调用requestPermission()方法)</p>
+</blockquote>
+<h4 id="效果图："><a href="#效果图：" class="headerlink" title="效果图："></a>效果图：</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog7/Blog7_1.gif?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<blockquote>
+<p>可以看到，进度条的更新实现了，下载也很快就完成了，而在文件管理器中也可以看到已下载的文件。</p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog7/Blog7_2.png?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="文件-拦截器方式"><a href="#文件-拦截器方式" class="headerlink" title="文件 拦截器方式"></a>文件 拦截器方式</h2><blockquote>
+<p>简单方式的文件请求严格来说不属于OKHttp的方式，实际上任何一个网络请求都能实现文件下载的操作，接下来就介绍一下OKHttp的拦截器方式请求文件。<br>拦截器(Interceptors)是一种强大的机制，可以监视、重写和重试调用。<br>拦截器分为应用(APPLICATION)拦截器和网络(NETWORK)拦截器，每个拦截器链都有自己的优点。</p>
+</blockquote>
+<h4 id="新建ProgressResponseBody类继承ResponseBody"><a href="#新建ProgressResponseBody类继承ResponseBody" class="headerlink" title="新建ProgressResponseBody类继承ResponseBody"></a>新建ProgressResponseBody类继承ResponseBody</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.izdo.okhttpdemo.okhttp;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"></div><div class="line"><span class="keyword">import</span> okhttp3.MediaType;</div><div class="line"><span class="keyword">import</span> okhttp3.ResponseBody;</div><div class="line"><span class="keyword">import</span> okio.Buffer;</div><div class="line"><span class="keyword">import</span> okio.BufferedSource;</div><div class="line"><span class="keyword">import</span> okio.ForwardingSource;</div><div class="line"><span class="keyword">import</span> okio.Okio;</div><div class="line"><span class="keyword">import</span> okio.Source;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by iZdo on 2017/5/12.</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProgressResponseBody</span> <span class="keyword">extends</span> <span class="title">ResponseBody</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> ResponseBody mResponseBody;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> BufferedSource mBufferedSource;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ProgressResponseBody</span><span class="params">(ResponseBody responseBody)</span> </span>&#123;</div><div class="line">        mResponseBody = responseBody;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> MediaType <span class="title">contentType</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mResponseBody.contentType();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">contentLength</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mResponseBody.contentLength();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> BufferedSource <span class="title">source</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> Okio.buffer(getSource(mResponseBody.source()));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> Source <span class="title">getSource</span><span class="params">(Source source)</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ForwardingSource(source()) &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">read</span><span class="params">(Buffer sink, <span class="keyword">long</span> byteCount)</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">                <span class="keyword">return</span> <span class="keyword">super</span>.read(sink, byteCount);</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>由于我们需要实现进度的更新，所以接下来需要作出一些修改：</p>
+</blockquote>
+<h4 id="新建ProgressListener接口类作为监听器"><a href="#新建ProgressListener接口类作为监听器" class="headerlink" title="新建ProgressListener接口类作为监听器"></a>新建ProgressListener接口类作为监听器</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.izdo.okhttpdemo.okhttp;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by iZdo on 2017/5/12.</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ProgressListener</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onProgress</span><span class="params">(<span class="keyword">int</span> progress)</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDone</span><span class="params">(<span class="keyword">long</span> totalSize)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="修改ProgressResponseBody类"><a href="#修改ProgressResponseBody类" class="headerlink" title="修改ProgressResponseBody类"></a>修改ProgressResponseBody类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.izdo.okhttpdemo.okhttp;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"></div><div class="line"><span class="keyword">import</span> okhttp3.MediaType;</div><div class="line"><span class="keyword">import</span> okhttp3.ResponseBody;</div><div class="line"><span class="keyword">import</span> okio.Buffer;</div><div class="line"><span class="keyword">import</span> okio.BufferedSource;</div><div class="line"><span class="keyword">import</span> okio.ForwardingSource;</div><div class="line"><span class="keyword">import</span> okio.Okio;</div><div class="line"><span class="keyword">import</span> okio.Source;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by iZdo on 2017/5/12.</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProgressResponseBody</span> <span class="keyword">extends</span> <span class="title">ResponseBody</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> ResponseBody mResponseBody;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> BufferedSource mBufferedSource;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> ProgressListener mProgressListener;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ProgressResponseBody</span><span class="params">(ResponseBody responseBody, ProgressListener listener)</span> </span>&#123;</div><div class="line">        mResponseBody = responseBody;</div><div class="line">        mProgressListener = listener;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> MediaType <span class="title">contentType</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mResponseBody.contentType();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">contentLength</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mResponseBody.contentLength();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> BufferedSource <span class="title">source</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">// 当BufferedSource为空时才将Source赋给mBufferedSource</span></div><div class="line">        <span class="keyword">if</span> (mBufferedSource == <span class="keyword">null</span>)</div><div class="line">            mBufferedSource = Okio.buffer(getSource((mResponseBody.source())));</div><div class="line"></div><div class="line">        <span class="keyword">return</span> mBufferedSource;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> Source <span class="title">getSource</span><span class="params">(Source source)</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ForwardingSource(source()) &#123;</div><div class="line"></div><div class="line">            <span class="comment">// 文件总大小</span></div><div class="line">            <span class="keyword">long</span> totalSize = <span class="number">0l</span>;</div><div class="line">            <span class="comment">// 当前已下载大小</span></div><div class="line">            <span class="keyword">long</span> sum = <span class="number">0l</span>;</div><div class="line"></div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">read</span><span class="params">(Buffer sink, <span class="keyword">long</span> byteCount)</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line"></div><div class="line">                <span class="keyword">if</span> (totalSize == <span class="number">0</span>) &#123;</div><div class="line">                    <span class="comment">// 当totalSize为空时，将总大小设置为文件总大小</span></div><div class="line">                    totalSize = contentLength();</div><div class="line">                &#125;</div><div class="line">                </div><div class="line">                <span class="keyword">long</span> len = <span class="keyword">super</span>.read(sink, byteCount);</div><div class="line"></div><div class="line">                <span class="comment">// 判断是否已读到结尾，如果不是，累加到sum中</span></div><div class="line">                sum += (len == -<span class="number">1</span> ? <span class="number">0</span> : len);</div><div class="line">                <span class="comment">// 计算当前进度</span></div><div class="line">                <span class="keyword">int</span> progress = (<span class="keyword">int</span>) ((sum * <span class="number">1.0f</span> / totalSize) * <span class="number">100</span>);</div><div class="line"></div><div class="line">                <span class="comment">// 如果读取到结尾，则完成下载，否则继续更新进度</span></div><div class="line">                <span class="keyword">if</span> (len == -<span class="number">1</span>)</div><div class="line">                    mProgressListener.onDone(totalSize);</div><div class="line">                <span class="keyword">else</span></div><div class="line">                    mProgressListener.onProgress(progress);</div><div class="line"></div><div class="line">                <span class="keyword">return</span> len;</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>这里只是添加了自定义的监听器和进行更新等简单操作，不多阐述。<br>接下来在FileDownloadActivity类中调用拦截器。</p>
+</blockquote>
+<h4 id="修改FileDownloadActivity中的代码："><a href="#修改FileDownloadActivity中的代码：" class="headerlink" title="修改FileDownloadActivity中的代码："></a>修改FileDownloadActivity中的代码：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.izdo.okhttpdemo;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.Manifest;</div><div class="line"><span class="keyword">import</span> android.content.pm.PackageManager;</div><div class="line"><span class="keyword">import</span> android.os.Bundle;</div><div class="line"><span class="keyword">import</span> android.os.Environment;</div><div class="line"><span class="keyword">import</span> android.support.annotation.NonNull;</div><div class="line"><span class="keyword">import</span> android.support.v4.app.ActivityCompat;</div><div class="line"><span class="keyword">import</span> android.support.v4.content.ContextCompat;</div><div class="line"><span class="keyword">import</span> android.support.v7.app.AppCompatActivity;</div><div class="line"><span class="keyword">import</span> android.util.Log;</div><div class="line"><span class="keyword">import</span> android.widget.Button;</div><div class="line"><span class="keyword">import</span> android.widget.ProgressBar;</div><div class="line"><span class="keyword">import</span> android.widget.Toast;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.izdo.okhttpdemo.okhttp.ProgressListener;</div><div class="line"><span class="keyword">import</span> com.izdo.okhttpdemo.okhttp.ProgressResponseBody;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.File;</div><div class="line"><span class="keyword">import</span> java.io.FileNotFoundException;</div><div class="line"><span class="keyword">import</span> java.io.FileOutputStream;</div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"><span class="keyword">import</span> java.io.InputStream;</div><div class="line"></div><div class="line"><span class="keyword">import</span> butterknife.BindView;</div><div class="line"><span class="keyword">import</span> butterknife.ButterKnife;</div><div class="line"><span class="keyword">import</span> butterknife.OnClick;</div><div class="line"><span class="keyword">import</span> okhttp3.Call;</div><div class="line"><span class="keyword">import</span> okhttp3.Callback;</div><div class="line"><span class="keyword">import</span> okhttp3.Interceptor;</div><div class="line"><span class="keyword">import</span> okhttp3.OkHttpClient;</div><div class="line"><span class="keyword">import</span> okhttp3.Request;</div><div class="line"><span class="keyword">import</span> okhttp3.Response;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileDownloadActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// 文件地址</span></div><div class="line">    <span class="keyword">public</span> String url = <span class="string">"http://download.moji001.com/download/MojiWeather-V6.0304.02-release-c8888.apk"</span>;</div><div class="line">    <span class="comment">// 文件名</span></div><div class="line">    <span class="keyword">public</span> String fileName = <span class="string">"mojiweather.apk"</span>;</div><div class="line"></div><div class="line">    <span class="meta">@BindView</span>(R.id.btn_download)</div><div class="line">    Button mBtnDownload;</div><div class="line">    <span class="meta">@BindView</span>(R.id.progressBar)</div><div class="line">    ProgressBar mProgressBar;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> OkHttpClient httpClient;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_file_download);</div><div class="line">        ButterKnife.bind(<span class="keyword">this</span>);</div><div class="line"></div><div class="line">        requestPermission();</div><div class="line">        initOKhttp();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initOKhttp</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">//        httpClient = new OkHttpClient();</span></div><div class="line"></div><div class="line">        <span class="comment">// 创建拦截器</span></div><div class="line">        httpClient = <span class="keyword">new</span> OkHttpClient.Builder().addNetworkInterceptor(<span class="keyword">new</span> Interceptor() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> Response <span class="title">intercept</span><span class="params">(Chain chain)</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">                <span class="comment">// 通过chain.proceed()方法获取Response</span></div><div class="line">                Response response = chain.proceed(chain.request());</div><div class="line"></div><div class="line">                <span class="keyword">return</span> response.newBuilder().body(<span class="keyword">new</span> ProgressResponseBody(response.body(), <span class="keyword">new</span> Prg())).build();</div><div class="line">            &#125;</div><div class="line">        &#125;).build();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Prg</span> <span class="keyword">implements</span> <span class="title">ProgressListener</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onProgress</span><span class="params">(<span class="keyword">final</span> <span class="keyword">int</span> progress)</span> </span>&#123;</div><div class="line">            <span class="comment">//在UI线程更新UI</span></div><div class="line">            runOnUiThread(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">                <span class="meta">@Override</span></div><div class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                    mProgressBar.setProgress(progress);</div><div class="line">                &#125;</div><div class="line">            &#125;);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDone</span><span class="params">(<span class="keyword">long</span> totalSize)</span> </span>&#123;</div><div class="line">            runOnUiThread(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">                <span class="meta">@Override</span></div><div class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                    Toast.makeText(FileDownloadActivity.<span class="keyword">this</span>, <span class="string">"下载完成"</span>, Toast.LENGTH_SHORT).show();</div><div class="line">                &#125;</div><div class="line">            &#125;);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> EXTERNAL_STORAGE_REQ_CODE = <span class="number">10</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">requestPermission</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">// 判断当前Activity是否已经获得了该权限</span></div><div class="line">        <span class="keyword">if</span> (ContextCompat.checkSelfPermission(<span class="keyword">this</span>, Manifest.permission.WRITE_EXTERNAL_STORAGE)</div><div class="line">                != PackageManager.PERMISSION_GRANTED) &#123;</div><div class="line"></div><div class="line">            <span class="comment">// 如果App的权限申请曾经被用户拒绝过，就需要在这里跟用户做出解释</span></div><div class="line">            <span class="keyword">if</span> (ActivityCompat.shouldShowRequestPermissionRationale(<span class="keyword">this</span>, Manifest.permission.WRITE_EXTERNAL_STORAGE)) &#123;</div><div class="line">                Toast.makeText(<span class="keyword">this</span>, <span class="string">"please give me the permission"</span>, Toast.LENGTH_SHORT).show();</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="comment">// 进行权限请求</span></div><div class="line">                ActivityCompat.requestPermissions(<span class="keyword">this</span>,</div><div class="line">                        <span class="keyword">new</span> String[]&#123;Manifest.permission.WRITE_EXTERNAL_STORAGE&#125;,</div><div class="line">                        EXTERNAL_STORAGE_REQ_CODE);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onRequestPermissionsResult</span><span class="params">(<span class="keyword">int</span> requestCode, @NonNull String[] permissions, @NonNull <span class="keyword">int</span>[] grantResults)</span> </span>&#123;</div><div class="line">        <span class="keyword">switch</span> (requestCode) &#123;</div><div class="line">            <span class="keyword">case</span> EXTERNAL_STORAGE_REQ_CODE:</div><div class="line">                <span class="comment">// 如果请求被拒绝，那么通常grantResults数组为空</span></div><div class="line">                <span class="keyword">if</span> (grantResults.length &gt; <span class="number">0</span></div><div class="line">                        &amp;&amp; grantResults[<span class="number">0</span>] == PackageManager.PERMISSION_GRANTED) &#123;</div><div class="line">                    <span class="comment">// 申请成功，进行相应操作</span></div><div class="line">                    Toast.makeText(FileDownloadActivity.<span class="keyword">this</span>, <span class="string">"已获取权限"</span>, Toast.LENGTH_SHORT).show();</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    <span class="comment">//申请失败，可以继续向用户解释。</span></div><div class="line">                &#125;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">default</span>:</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@OnClick</span>(R.id.btn_download)</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onViewClicked</span><span class="params">()</span> </span>&#123;</div><div class="line">        downloadAPK();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 文件下载</span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">downloadAPK</span><span class="params">()</span> </span>&#123;</div><div class="line">        Request request = <span class="keyword">new</span> Request.Builder()</div><div class="line">                .url(url)</div><div class="line">                .build();</div><div class="line"></div><div class="line">        httpClient.newCall(request).enqueue(<span class="keyword">new</span> Callback() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFailure</span><span class="params">(Call call, IOException e)</span> </span>&#123;</div><div class="line">                Log.d(<span class="string">"FileDownloadActivity"</span>, <span class="string">"请求文件出错"</span>);</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(Call call, Response response)</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">                writeFile(response);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//    Handler mHandler = new Handler() &#123;</span></div><div class="line">    <span class="comment">//        @Override</span></div><div class="line">    <span class="comment">//        public void handleMessage(Message msg) &#123;</span></div><div class="line">    <span class="comment">//            if (msg.what == 1) &#123;</span></div><div class="line">    <span class="comment">//                int progress = msg.arg1;</span></div><div class="line">    <span class="comment">//                mProgressBar.setProgress(progress);</span></div><div class="line">    <span class="comment">//            &#125;</span></div><div class="line">    <span class="comment">//        &#125;</span></div><div class="line">    <span class="comment">//    &#125;;</span></div><div class="line"></div><div class="line">    <span class="comment">// 文件读取</span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">writeFile</span><span class="params">(Response response)</span> </span>&#123;</div><div class="line">        InputStream is = <span class="keyword">null</span>;</div><div class="line">        FileOutputStream fos = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">        <span class="comment">// 读取返回的数据流</span></div><div class="line">        is = response.body().byteStream();</div><div class="line"></div><div class="line">        <span class="comment">// 获取SD卡路径</span></div><div class="line">        String path = Environment.getExternalStorageDirectory().getAbsolutePath();</div><div class="line"></div><div class="line">        <span class="comment">// 创建新文件</span></div><div class="line">        File file = <span class="keyword">new</span> File(path, fileName);</div><div class="line"></div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            fos = <span class="keyword">new</span> FileOutputStream(file);</div><div class="line"></div><div class="line">            <span class="keyword">byte</span>[] bytes = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span>];</div><div class="line"></div><div class="line">            <span class="keyword">int</span> len = <span class="number">0</span>;</div><div class="line"></div><div class="line">            <span class="comment">//            // 请求文件的总大小</span></div><div class="line">            <span class="comment">//            long totalSize = response.body().contentLength();</span></div><div class="line">            <span class="comment">//</span></div><div class="line">            <span class="comment">//            // 当前已下载的大小</span></div><div class="line">            <span class="comment">//            long sum = 0;</span></div><div class="line"></div><div class="line">            <span class="comment">// 每次以1kb的大小写入文件</span></div><div class="line">            <span class="keyword">while</span> ((len = is.read(bytes)) != -<span class="number">1</span>) &#123;</div><div class="line"></div><div class="line">                fos.write(bytes);</div><div class="line"></div><div class="line">                <span class="comment">//                sum += len;</span></div><div class="line">                <span class="comment">//</span></div><div class="line">                <span class="comment">//                int progress = (int) ((sum * 1.0f / totalSize) * 100);</span></div><div class="line">                <span class="comment">//</span></div><div class="line">                <span class="comment">//                Message msg = mHandler.obtainMessage(1);</span></div><div class="line">                <span class="comment">//                msg.arg1 = progress;</span></div><div class="line">                <span class="comment">//</span></div><div class="line">                <span class="comment">//                mHandler.sendMessage(msg);</span></div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; <span class="keyword">finally</span> &#123;</div><div class="line">            <span class="comment">// 关闭流</span></div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                <span class="keyword">if</span> (is != <span class="keyword">null</span>)</div><div class="line">                    is.close();</div><div class="line">                <span class="keyword">if</span> (fos != <span class="keyword">null</span>)</div><div class="line">                    fos.close();</div><div class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>这里的主要修改部分集中在initOKhttp()的拦截器创建中，逻辑比较简单，接下来还是部署到模拟器上查看是否能够下载文件。</p>
+</blockquote>
+<h4 id="效果图：-1"><a href="#效果图：-1" class="headerlink" title="效果图："></a>效果图：</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog7/Blog7_3.gif?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="完善逻辑"><a href="#完善逻辑" class="headerlink" title="完善逻辑"></a>完善逻辑</h2><blockquote>
+<p>严格上来讲，我们是不建议每次需要网络请求时都去初始化一个OKHttp的，而是只初始化一次。</p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-05-13T14:35:26.754Z" itemprop="dateUpdated">2017年5月13日 22:35</time>
+</span><br>
+
+
+        这里写留言或版权声明：<a href="/2017/05/13/OKHttp3框架(中)/" target="_blank" rel="external">https://izdo.github.io/2017/05/13/OKHttp3框架(中)/</a>
+    </div>
+    <footer>
+        <a href="https://izdo.github.io">
+            <img src="/img/heizi.jpg" alt="iZdo">
+            iZdo
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://izdo.github.io/2017/05/13/OKHttp3框架(中)/&title=《OKHttp3框架(中)》 — iZdo's Blog&pic=https://izdo.github.io/img/heizi.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://izdo.github.io/2017/05/13/OKHttp3框架(中)/&title=《OKHttp3框架(中)》 — iZdo's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://izdo.github.io/2017/05/13/OKHttp3框架(中)/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《OKHttp3框架(中)》 — iZdo's Blog&url=https://izdo.github.io/2017/05/13/OKHttp3框架(中)/&via=https://izdo.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://izdo.github.io/2017/05/13/OKHttp3框架(中)/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/05/13/OKHttp3框架(下)/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">OKHttp3框架(下)</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+<div class="comments" id="comments">
+    <div class="ds-thread" data-thread-key="OKHttp3框架(中)" data-title="OKHttp3框架(中)" data-url="https://izdo.github.io/2017/05/13/OKHttp3框架(中)/"></div>
+</div>
+<script>
+lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
+
+var duoshuoQuery = {short_name:'ysblog', theme: 'none'};
+lazyScripts.push('/js/embed.min.js?v=1.4.14');
+
+
+</script>
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>iZdo's Blog &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://izdo.github.io/2017/05/13/OKHttp3框架(中)/&title=《OKHttp3框架(中)》 — iZdo's Blog&pic=https://izdo.github.io/img/heizi.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://izdo.github.io/2017/05/13/OKHttp3框架(中)/&title=《OKHttp3框架(中)》 — iZdo's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://izdo.github.io/2017/05/13/OKHttp3框架(中)/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《OKHttp3框架(中)》 — iZdo's Blog&url=https://izdo.github.io/2017/05/13/OKHttp3框架(中)/&via=https://izdo.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://izdo.github.io/2017/05/13/OKHttp3框架(中)/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLElEQVR42u3aQY4CMQwEQP7/afYBaKDbgZUmqZxWIkymOHgd249HvJ4v62rP6/7kye23hgsDA+O2jOfbdXXA1afJnqtPkydfUjEwMA5gJKGw3fOMV0L98M4YGBgY5eu+T/WSp2FgYGCsM6J0Lbi4Xv0cGBgYGLNLbH7kt9K+n9zFMTAwbshoQ+R//v2T/gYGBsatGM9yrfDyp9VvhYGBsTUjD3BtYvf+mXk7M38CBgbGOYy8xZjvKV4laBVEVUMMDIyNGO2Rs/Da/kB1OQ8DA+MARnLkrME5SzfrBgAGBsbWjLw9mbzirJ3ZhvKi3IaBgbEFox13SK6Us5Lc0k4MDIytGfXWUSaWF9dWGqUYGBi7MmajErNWZZ5W1kkqBgbGMYwW05by2yyuCM0YGBhbM5Ikry3f5+CV8Ys6V8XAwLgtoy2TtZfPNtFsr7tFhouBgXFbRp4CfqthOUs6o38VGBgYBzNmaWU7+JW/QzQzgoGBsR0jOSBP6driWt5aiBoSGBgYmzJya/7prGG5NHaGgYFxGKMtlrXhNR/yWLrEYmBgbMeYFcjaUNuOZeSBGAMDY1fG+sW1HdFICmftuRgYGHsz8rVSbmtHvvLEsYZhYGDcljELsnkK2Fbv2zYqBgbGOYx28GulYTArrkV5LgYGBkY5AJGH1Lzkh4GBgdEy2kvpSlv0w34MDIwDGLPwlzQm2/bAbKQDAwNjb8bs6pgH3CSI583R/CwMDIwtGH/7YLJQrNHX3gAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.14"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.14" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
