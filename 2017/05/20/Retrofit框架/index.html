@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Retrofit框架 | iZdo&#39;s Blog | bonbolu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Android">
+    <meta name="description" content="Retrofit框架Retrofit框架介绍
+Retrofit框架是一个针对Android和Java类型安全的http客户端，它可以将HTTP API转化成Java接口。   
+以下摘自[简书]部分内容(http://www.jianshu.com/p/1ef0ba0bccc6)：
+
+通俗理解Retrofit
+我们来通俗的理解Retrofit，它是一个可以用于Android和java的网络库，使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Retrofit框架">
+<meta property="og:url" content="https://izdo.github.io/2017/05/20/Retrofit框架/index.html">
+<meta property="og:site_name" content="iZdo's Blog">
+<meta property="og:description" content="Retrofit框架Retrofit框架介绍
+Retrofit框架是一个针对Android和Java类型安全的http客户端，它可以将HTTP API转化成Java接口。   
+以下摘自[简书]部分内容(http://www.jianshu.com/p/1ef0ba0bccc6)：
+
+通俗理解Retrofit
+我们来通俗的理解Retrofit，它是一个可以用于Android和java的网络库，使用">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog9/Blog9_1.png?raw=true">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog9/Blog9_2.png?raw=true">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog9/Blog9_3.png?raw=true">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog9/Blog9_4.gif?raw=true">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog9/Blog9_5.png?raw=true">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog9/Blog9_6.png?raw=true">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog9/Blog9_7.png?raw=true">
+<meta property="og:updated_time" content="2017-05-20T07:44:18.379Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Retrofit框架">
+<meta name="twitter:description" content="Retrofit框架Retrofit框架介绍
+Retrofit框架是一个针对Android和Java类型安全的http客户端，它可以将HTTP API转化成Java接口。   
+以下摘自[简书]部分内容(http://www.jianshu.com/p/1ef0ba0bccc6)：
+
+通俗理解Retrofit
+我们来通俗的理解Retrofit，它是一个可以用于Android和java的网络库，使用">
+<meta name="twitter:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog9/Blog9_1.png?raw=true">
+    
+        <link rel="alternative" href="/atom.xml" title="iZdo&#39;s Blog" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.14">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/heizi.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">iZdo</h5>
+          <a href="mailto:401135451@qq.com" title="401135451@qq.com" class="mail">401135451@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/iZdo" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/u/2597276811" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://music.163.com/#/user/home?id=384832070" target="_blank" >
+                <i class="icon icon-lg icon-music"></i>
+                cloudmusic
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://steamcommunity.com/id/401135451/" target="_blank" >
+                <i class="icon icon-lg icon-steam"></i>
+                Steam
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Retrofit框架</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Retrofit框架</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-05-20T07:44:35.922Z" itemprop="datePublished" class="page-time">
+  2017-05-20
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Retrofit框架"><span class="post-toc-number">1.</span> <span class="post-toc-text">Retrofit框架</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Retrofit框架介绍"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Retrofit框架介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Retrofit简单例子"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Retrofit简单例子</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#新建工程RetrofitDemo"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">新建工程RetrofitDemo</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#activity-main布局文件"><span class="post-toc-number">1.2.1.1.</span> <span class="post-toc-text">activity_main布局文件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#定义接口Api"><span class="post-toc-number">1.2.1.2.</span> <span class="post-toc-text">定义接口Api</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#MainActivity"><span class="post-toc-number">1.2.1.3.</span> <span class="post-toc-text">MainActivity</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#效果图："><span class="post-toc-number">1.2.1.4.</span> <span class="post-toc-text">效果图：</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#将返回的数据转化为JavaBean"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">将返回的数据转化为JavaBean</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#扩展：GsonFormat插件"><span class="post-toc-number">1.2.2.1.</span> <span class="post-toc-text">扩展：GsonFormat插件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#通过使用GsonFormat实现JavaBean-Info"><span class="post-toc-number">1.2.2.2.</span> <span class="post-toc-text">通过使用GsonFormat实现JavaBean Info</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#修改Api接口Call泛型类为Info"><span class="post-toc-number">1.2.2.3.</span> <span class="post-toc-text">修改Api接口Call泛型类为Info</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#修改MAinActivity的RequestAPI-方法"><span class="post-toc-number">1.2.2.4.</span> <span class="post-toc-text">修改MAinActivity的RequestAPI()方法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#配置转换器"><span class="post-toc-number">1.2.2.5.</span> <span class="post-toc-text">配置转换器</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#效果图：-1"><span class="post-toc-number">1.2.2.6.</span> <span class="post-toc-text">效果图：</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GET请求"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">GET请求</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#普通方式"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">普通方式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Query"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">@Query</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#修改Api中的代码"><span class="post-toc-number">1.3.2.1.</span> <span class="post-toc-text">修改Api中的代码</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#修改MAinActivity中的代码"><span class="post-toc-number">1.3.2.2.</span> <span class="post-toc-text">修改MAinActivity中的代码</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#效果图"><span class="post-toc-number">1.3.2.3.</span> <span class="post-toc-text">效果图</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Path"><span class="post-toc-number">1.3.3.</span> <span class="post-toc-text">@Path</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#修改Api中的代码-1"><span class="post-toc-number">1.3.3.1.</span> <span class="post-toc-text">修改Api中的代码</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#修改MAinActivity中的代码-1"><span class="post-toc-number">1.3.3.2.</span> <span class="post-toc-text">修改MAinActivity中的代码</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#QueryMap"><span class="post-toc-number">1.3.4.</span> <span class="post-toc-text">@QueryMap</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#修改Api中的代码-2"><span class="post-toc-number">1.3.4.1.</span> <span class="post-toc-text">修改Api中的代码</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#修改MAinActivity中的代码-2"><span class="post-toc-number">1.3.4.2.</span> <span class="post-toc-text">修改MAinActivity中的代码</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#POST请求"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">POST请求</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Body"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">@Body</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#在Api中新增saveInfo-方法"><span class="post-toc-number">1.4.1.1.</span> <span class="post-toc-text">在Api中新增saveInfo()方法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#新建BaseResult类"><span class="post-toc-number">1.4.1.2.</span> <span class="post-toc-text">新建BaseResult类</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#在Info中新增构造器"><span class="post-toc-number">1.4.1.3.</span> <span class="post-toc-text">在Info中新增构造器</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#修改MainActivity的requertAPI-方法"><span class="post-toc-number">1.4.1.4.</span> <span class="post-toc-text">修改MainActivity的requertAPI()方法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#效果图-1"><span class="post-toc-number">1.4.1.5.</span> <span class="post-toc-text">效果图</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Field"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">@Field</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#修改MainActivity的requertAPI-方法-1"><span class="post-toc-number">1.4.2.1.</span> <span class="post-toc-text">修改MainActivity的requertAPI()方法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#修改MainActivity的requertAPI-方法-2"><span class="post-toc-number">1.4.2.2.</span> <span class="post-toc-text">修改MainActivity的requertAPI()方法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#效果图-2"><span class="post-toc-number">1.4.2.3.</span> <span class="post-toc-text">效果图</span></a></li></ol></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Retrofit框架"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Retrofit框架</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年05月20日 15:44" datetime="2017-05-20T07:44:35.922Z"  itemprop="datePublished">2017-05-20</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Retrofit框架"><a href="#Retrofit框架" class="headerlink" title="Retrofit框架"></a>Retrofit框架</h1><h2 id="Retrofit框架介绍"><a href="#Retrofit框架介绍" class="headerlink" title="Retrofit框架介绍"></a>Retrofit框架介绍</h2><blockquote>
+<p>Retrofit框架是一个针对Android和Java类型安全的http客户端，它可以将HTTP API转化成Java接口。   </p>
+<p>以下摘自[简书]部分内容(<a href="http://www.jianshu.com/p/1ef0ba0bccc6)：" target="_blank" rel="external">http://www.jianshu.com/p/1ef0ba0bccc6)：</a></p>
+<ul>
+<li>通俗理解Retrofit</li>
+<li>我们来通俗的理解Retrofit，它是一个可以用于Android和java的网络库，使用它可以简化我们网络操作的工作，提高效率和正确率。</li>
+<li>我们需要牢牢的记住：所有的第三方库能实现的功能，我们使用原生的API只要花时间和精力也能实现，但是可能会出现很多的bug而且会花费较多的时间和精力，而且性能也不一定很好，第三方的库会帮我们封装底层的一些代码，避免我们做重复多余易出错的事情，让我们专注于业务逻辑，所以学习任何一个第三方库都将是简单的，我们不应心生畏惧。</li>
+<li>那么，同样的道理，Retrofit是Square公司开源的一个高质量高效率的http库，它将我们自己开发的底层的代码和细节都封装了起来。在没有Retrofit，okHttp等库的时候，我们可能要自己去写put，get,post,delete请求。但有了这些库之后对于这些请求我们就只需要一行代码或者是一个注解。</li>
+<li><p>所有的网络通信，其核心任务只有一个就是：Client端与Server端进行数据的交互和操作。所以Retrofit就将底层的代码都封装起来只是暴露出了我们业务中的数据模型和操作方法。<br>这样理解之后，我们学习Retrofit就简单明了很多了。应该从以下这几点开始学习：  </p>
+<ul>
+<li>如何传入我们业务需求的URL以及变量参数</li>
+<li>如何将我们业务中从服务器获取的Jason数据封装为与Retrofit向对应的类或者接口</li>
+<li>如何使用Retrofit进行get,post,delete,put等操作。</li>
+<li>还有就是如何在我们项目中配置Retrofit</li>
+</ul>
+</li>
+<li><p><a href="http://square.github.io/retrofit/" target="_blank" rel="external">Retrofit官网</a></p>
+</li>
+<li><a href="https://github.com/square/retrofit" target="_blank" rel="external">Retrofit github官网</a></li>
+</ul>
+</blockquote>
+<h2 id="Retrofit简单例子"><a href="#Retrofit简单例子" class="headerlink" title="Retrofit简单例子"></a>Retrofit简单例子</h2><h3 id="新建工程RetrofitDemo"><a href="#新建工程RetrofitDemo" class="headerlink" title="新建工程RetrofitDemo"></a>新建工程RetrofitDemo</h3><h4 id="activity-main布局文件"><a href="#activity-main布局文件" class="headerlink" title="activity_main布局文件"></a>activity_main布局文件</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">RelativeLayout</span></span></div><div class="line">    <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/activity_main"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:paddingBottom</span>=<span class="string">"@dimen/activity_vertical_margin"</span></div><div class="line">    <span class="attr">android:paddingLeft</span>=<span class="string">"@dimen/activity_horizontal_margin"</span></div><div class="line">    <span class="attr">android:paddingRight</span>=<span class="string">"@dimen/activity_horizontal_margin"</span></div><div class="line">    <span class="attr">android:paddingTop</span>=<span class="string">"@dimen/activity_vertical_margin"</span></div><div class="line">    <span class="attr">tools:context</span>=<span class="string">"com.izdo.retrofitdemo.MainActivity"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/get"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_alignParentLeft</span>=<span class="string">"true"</span></div><div class="line">        <span class="attr">android:layout_alignParentStart</span>=<span class="string">"true"</span></div><div class="line">        <span class="attr">android:layout_alignParentTop</span>=<span class="string">"true"</span></div><div class="line">        <span class="attr">android:onClick</span>=<span class="string">"requestAPI"</span></div><div class="line">        <span class="attr">android:text</span>=<span class="string">"点我"</span>/&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>布局比较简单，只有一个按钮。<br>要使用Retrofit需要在build.gradle中配置：&gt; * compile ‘com.squareup.retrofit2:retrofit:2.3.0’<br>接下来我们根据官网说明的用法来做一个例子使用Retrofit。</p>
+</blockquote>
+<h4 id="定义接口Api"><a href="#定义接口Api" class="headerlink" title="定义接口Api"></a>定义接口Api</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.izdo.retrofitdemo;</div><div class="line"></div><div class="line"><span class="keyword">import</span> okhttp3.ResponseBody;</div><div class="line"><span class="keyword">import</span> retrofit2.Call;</div><div class="line"><span class="keyword">import</span> retrofit2.http.GET;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by iZdo on 2017/5/15.</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Api</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@GET</span>(<span class="string">"myserver"</span>)</div><div class="line">    <span class="function">Call&lt;ResponseBody&gt; <span class="title">getUserInfo</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>我们仿照官方文档说明，定义接口Api，接下来同样仿照官方文档，调用这个接口。</p>
+</blockquote>
+<h4 id="MainActivity"><a href="#MainActivity" class="headerlink" title="MainActivity"></a>MainActivity</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.izdo.retrofitdemo;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.os.Bundle;</div><div class="line"><span class="keyword">import</span> android.support.v7.app.AppCompatActivity;</div><div class="line"><span class="keyword">import</span> android.view.View;</div><div class="line"><span class="keyword">import</span> android.widget.Toast;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"></div><div class="line"><span class="keyword">import</span> okhttp3.ResponseBody;</div><div class="line"><span class="keyword">import</span> retrofit2.Call;</div><div class="line"><span class="keyword">import</span> retrofit2.Callback;</div><div class="line"><span class="keyword">import</span> retrofit2.Response;</div><div class="line"><span class="keyword">import</span> retrofit2.Retrofit;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> Api api;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line"></div><div class="line">        Retrofit retrofit = <span class="keyword">new</span> Retrofit.Builder()</div><div class="line">                .baseUrl(<span class="string">"http://192.168.1.53:8080/"</span>)</div><div class="line">                .build();</div><div class="line"></div><div class="line">        api = retrofit.create(Api.class);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">requestAPI</span><span class="params">(View view)</span> </span>&#123;</div><div class="line"></div><div class="line">        Call&lt;ResponseBody&gt; call = api.getUserInfo();</div><div class="line"></div><div class="line">        call.enqueue(<span class="keyword">new</span> Callback&lt;ResponseBody&gt;() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(Call&lt;ResponseBody&gt; call, Response&lt;ResponseBody&gt; response)</span> </span>&#123;</div><div class="line"></div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                    String result = response.body().string();</div><div class="line"></div><div class="line">                    Toast.makeText(MainActivity.<span class="keyword">this</span>, result, Toast.LENGTH_SHORT).show();</div><div class="line">                &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">                    e.printStackTrace();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFailure</span><span class="params">(Call&lt;ResponseBody&gt; call, Throwable t)</span> </span>&#123;</div><div class="line"></div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>首先需要在onCreate()方法中实例化Retrofit，然后调用retrofit的create()方法将其赋给Api接口实例(注：这里并非把Api实例化，而是通过一种动态代理的方式赋给api)，接着在按钮点击事件中处理请求，这部分与okhttp的用法类似。</p>
+</blockquote>
+<h4 id="效果图："><a href="#效果图：" class="headerlink" title="效果图："></a>效果图：</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog9/Blog9_1.png?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<blockquote>
+<p>可以看到，服务器返回的JSON格式的数据已经通过Toast显示出来。</p>
+</blockquote>
+<h3 id="将返回的数据转化为JavaBean"><a href="#将返回的数据转化为JavaBean" class="headerlink" title="将返回的数据转化为JavaBean"></a>将返回的数据转化为JavaBean</h3><h4 id="扩展：GsonFormat插件"><a href="#扩展：GsonFormat插件" class="headerlink" title="扩展：GsonFormat插件"></a>扩展：GsonFormat插件</h4><blockquote>
+<p>这是AndroidStudio中的一个能够快速将JSON格式的数据转化为JavaBean的插件，具体使用方法可以点击后方链接：<a href="http://blog.csdn.net/dakaring/article/details/46300963" target="_blank" rel="external">GsonFormat插件</a>  </p>
+</blockquote>
+<h4 id="通过使用GsonFormat实现JavaBean-Info"><a href="#通过使用GsonFormat实现JavaBean-Info" class="headerlink" title="通过使用GsonFormat实现JavaBean Info"></a>通过使用GsonFormat实现JavaBean Info</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.izdo.retrofitdemo;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by iZdo on 2017/5/15.</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Info</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * id : 1</div><div class="line">     * name : 香菜</div><div class="line">     * img : https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1035293498,3690663067&amp;fm=23&amp;gp=0.jpg</div><div class="line">     */</div><div class="line"></div><div class="line">    <span class="keyword">private</span> String id;</div><div class="line">    <span class="keyword">private</span> String name;</div><div class="line">    <span class="keyword">private</span> String img;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getId</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> id;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(String id)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.id = id;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getImg</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> img;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setImg</span><span class="params">(String img)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.img = img;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="修改Api接口Call泛型类为Info"><a href="#修改Api接口Call泛型类为Info" class="headerlink" title="修改Api接口Call泛型类为Info"></a>修改Api接口Call泛型类为Info</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@GET</span>(<span class="string">"myserver"</span>)</div><div class="line"><span class="function">Call&lt;Info&gt; <span class="title">getUserInfo</span><span class="params">()</span></span>;</div></pre></td></tr></table></figure>
+<h4 id="修改MAinActivity的RequestAPI-方法"><a href="#修改MAinActivity的RequestAPI-方法" class="headerlink" title="修改MAinActivity的RequestAPI()方法"></a>修改MAinActivity的RequestAPI()方法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">requestAPI</span><span class="params">(View view)</span> </span>&#123;</div><div class="line"></div><div class="line">        api.getUserInfo().enqueue(<span class="keyword">new</span> Callback&lt;Info&gt;() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(Call&lt;Info&gt; call, Response&lt;Info&gt; response)</span> </span>&#123;</div><div class="line">                Toast.makeText(MainActivity.<span class="keyword">this</span>, <span class="string">"username="</span> + response.body().getName(), Toast.LENGTH_SHORT).show();</div><div class="line">                Toast.makeText(MainActivity.<span class="keyword">this</span>, <span class="string">"id="</span> + response.body().getId(), Toast.LENGTH_SHORT).show();</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFailure</span><span class="params">(Call&lt;Info&gt; call, Throwable t)</span> </span>&#123;</div><div class="line"></div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>修改之后部署，这时候点击按钮会发现程序崩溃了。</p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog9/Blog9_2.png?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<blockquote>
+<p>通过查看官方说明我们发现：</p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog9/Blog9_3.png?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<blockquote>
+<p>这段文字的意思大概是：默认情况下，Retrofit只能反序列化Http体到OkHttp的ResponseBody类型，它也只能接收ResponseBody类型，而转换器可以使它支持其他类型。<br>官方文档中也提供了六种类型的转换器供我们使用。<br>所以我们还需要配置一个转换器，这里我们就使用Gson转换器。</p>
+</blockquote>
+<h4 id="配置转换器"><a href="#配置转换器" class="headerlink" title="配置转换器"></a>配置转换器</h4><blockquote>
+<p>在build.gradle中加入<strong>compile ‘com.squareup.retrofit2:converter-gson:2.3.0’</strong>。<br>然后将MainActivity的onCreate()方法中初始化Retrofit的代码<strong>Retrofit retrofit = new Retrofit.Builder().baseUrl(“<a href="http://192.168.1.53:8080/&quot;).build(" target="_blank" rel="external">http://192.168.1.53:8080/&quot;).build(</a>);</strong> 修改为<strong>Retrofit retrofit = new Retrofit.Builder().baseUrl(“<a href="http://192.168.1.53:8080/&quot;).addConverterFactory(GsonConverterFactory.create()).build(" target="_blank" rel="external">http://192.168.1.53:8080/&quot;).addConverterFactory(GsonConverterFactory.create()).build(</a>);</strong><br>再次部署项目。</p>
+</blockquote>
+<h4 id="效果图：-1"><a href="#效果图：-1" class="headerlink" title="效果图："></a>效果图：</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog9/Blog9_4.gif?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<blockquote>
+<p>可以看到，这次成功地取到了name和id。</p>
+</blockquote>
+<h2 id="GET请求"><a href="#GET请求" class="headerlink" title="GET请求"></a>GET请求</h2><blockquote>
+<p>在官方文档中，我们可以看到，官方提供的GET请求的方式不止一种，接下来就来介绍官方文档中提供的各种GET请求。</p>
+</blockquote>
+<h3 id="普通方式"><a href="#普通方式" class="headerlink" title="普通方式"></a>普通方式</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@GET</span>(<span class="string">"users/list"</span>)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>这种方式是最简单的GET请求的方式，而上文用到的就是这种，这里不详细讲解。</p>
+</blockquote>
+<h3 id="Query"><a href="#Query" class="headerlink" title="@Query"></a>@Query</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@GET</span>(<span class="string">"users/list?sort=desc"</span>)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>这种方式是直接在URL中拼接参数，但是这样的话只能在拼接的时候将参数写死了，那么要如何动态地拼接参数呢？官方提供了@Query用于动态拼接参数，接下来看实际的例子：</p>
+</blockquote>
+<h4 id="修改Api中的代码"><a href="#修改Api中的代码" class="headerlink" title="修改Api中的代码"></a>修改Api中的代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Api</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@GET</span>(<span class="string">"myserver"</span>)</div><div class="line">    <span class="function">Call&lt;Info&gt; <span class="title">getUserInfo</span><span class="params">(@Query(<span class="string">"id"</span>)</span> <span class="keyword">int</span> id)</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>这里通过@Query对id参数进行赋值，只要在调用时传入相应类型的数据即可，接下来修改调用时的代码：</p>
+</blockquote>
+<h4 id="修改MAinActivity中的代码"><a href="#修改MAinActivity中的代码" class="headerlink" title="修改MAinActivity中的代码"></a>修改MAinActivity中的代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">requestAPI</span><span class="params">(View view)</span> </span>&#123;</div><div class="line"></div><div class="line">       api.getUserInfo(<span class="number">2</span>).enqueue(<span class="keyword">new</span> Callback&lt;Info&gt;() &#123;</div><div class="line"></div><div class="line">           <span class="meta">@Override</span></div><div class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(Call&lt;Info&gt; call, Response&lt;Info&gt; response)</span> </span>&#123;</div><div class="line">               <span class="comment">// Toast.makeText(MainActivity.this, "username=" + response.body().getName(), Toast.LENGTH_SHORT).show();</span></div><div class="line">                Toast.makeText(MainActivity.<span class="keyword">this</span>, <span class="string">"id="</span> + response.body().getId(), Toast.LENGTH_SHORT).show();</div><div class="line">           &#125;</div><div class="line"></div><div class="line">           <span class="meta">@Override</span></div><div class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFailure</span><span class="params">(Call&lt;Info&gt; call, Throwable t)</span> </span>&#123;</div><div class="line">               Toast.makeText(MainActivity.<span class="keyword">this</span>, t.getMessage(), Toast.LENGTH_SHORT).show();</div><div class="line">           &#125;</div><div class="line">       &#125;);</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>这里传入数字2作为参数，同时在Response()中通过Toast显示出id值。</p>
+</blockquote>
+<h4 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog9/Blog9_5.png?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="Path"><a href="#Path" class="headerlink" title="@Path"></a>@Path</h3><h4 id="修改Api中的代码-1"><a href="#修改Api中的代码-1" class="headerlink" title="修改Api中的代码"></a>修改Api中的代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Api</span> </span>&#123;</div><div class="line"></div><div class="line">   ...</div><div class="line"></div><div class="line">    <span class="meta">@GET</span>(<span class="string">"myserver/&#123;id&#125;"</span>)</div><div class="line">    <span class="function">Call&lt;Info&gt; <span class="title">getUserInfoWithPath</span><span class="params">(@Path(<span class="string">"id"</span>)</span> <span class="keyword">int</span> id)</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>这里主要新增了一个getUserInfoWithPath()方法，在@GET中增加了一个{id}，表明想要传入的参数为id，而方法参数中的@Query也改为了@Path，注意{}中的参数和@Path()中的参数需要一致，否则会出现错误。</p>
+</blockquote>
+<h4 id="修改MAinActivity中的代码-1"><a href="#修改MAinActivity中的代码-1" class="headerlink" title="修改MAinActivity中的代码"></a>修改MAinActivity中的代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">api.getUserInfoWithPath(<span class="number">3</span>).enqueue(<span class="keyword">new</span> Callback&lt;Info&gt;() &#123;</div><div class="line">  ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>在调用时只需将getUserInfo()改为getUserInfoWithPath()即可。<br>效果图与使用@Query时是一致的，这里就不贴效果图了。</p>
+</blockquote>
+<h3 id="QueryMap"><a href="#QueryMap" class="headerlink" title="@QueryMap"></a>@QueryMap</h3><blockquote>
+<p>这种方式的参数形式是一个Map集合，这里同样简单地介绍一下。</p>
+</blockquote>
+<h4 id="修改Api中的代码-2"><a href="#修改Api中的代码-2" class="headerlink" title="修改Api中的代码"></a>修改Api中的代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Api</span> </span>&#123;</div><div class="line"></div><div class="line">    ...</div><div class="line">    </div><div class="line">    <span class="meta">@GET</span>(<span class="string">"myserver/&#123;id&#125;"</span>)</div><div class="line">    <span class="function">Call&lt;Info&gt; <span class="title">getUserInfoWithMap</span><span class="params">(@QueryMap Map&lt;String,String&gt; params)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="修改MAinActivity中的代码-2"><a href="#修改MAinActivity中的代码-2" class="headerlink" title="修改MAinActivity中的代码"></a>修改MAinActivity中的代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Map&lt;String,String&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line"></div><div class="line">   map.put(<span class="string">"id"</span>,<span class="string">"3"</span>);</div><div class="line">   map.put(<span class="string">"name"</span>,<span class="string">"aaa"</span>);</div><div class="line"></div><div class="line">   api.getUserInfoWithMap(map).enqueue(<span class="keyword">new</span> Callback&lt;Info&gt;() &#123;</div><div class="line">    ...</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>通过上面的介绍，相信这里已经很好理解了，所以不多做解释，效果同样与之前没什么差异。<br>以上就是Retrofit的多种方式的GET请求。</p>
+</blockquote>
+<h2 id="POST请求"><a href="#POST请求" class="headerlink" title="POST请求"></a>POST请求</h2><blockquote>
+<p>POST请求也不难理解，下面直接上代码。</p>
+</blockquote>
+<h3 id="Body"><a href="#Body" class="headerlink" title="@Body"></a>@Body</h3><h4 id="在Api中新增saveInfo-方法"><a href="#在Api中新增saveInfo-方法" class="headerlink" title="在Api中新增saveInfo()方法"></a>在Api中新增saveInfo()方法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Api</span> </span>&#123;</div><div class="line"></div><div class="line">    ...</div><div class="line"></div><div class="line">    <span class="meta">@POST</span>(<span class="string">"myserver"</span>)</div><div class="line">    <span class="function">Call&lt;BaseResult&gt; <span class="title">saveInfo</span><span class="params">(@Body Info info)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>这里需要一个BaseResult类</p>
+<h4 id="新建BaseResult类"><a href="#新建BaseResult类" class="headerlink" title="新建BaseResult类"></a>新建BaseResult类</h4></blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.izdo.retrofitdemo;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by iZdo on 2017/5/18.</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseResult</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> succerss;</div><div class="line">    <span class="keyword">private</span> String message;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSuccerss</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> succerss;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSuccerss</span><span class="params">(<span class="keyword">int</span> succerss)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.succerss = succerss;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMessage</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> message;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMessage</span><span class="params">(String message)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.message = message;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="在Info中新增构造器"><a href="#在Info中新增构造器" class="headerlink" title="在Info中新增构造器"></a>在Info中新增构造器</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Info</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * id : 1</div><div class="line">     * name : 香菜</div><div class="line">     * img : https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1035293498,3690663067&amp;fm=23&amp;gp=0.jpg</div><div class="line">     */</div><div class="line"></div><div class="line">    <span class="keyword">private</span> String id;</div><div class="line">    <span class="keyword">private</span> String name;</div><div class="line">    <span class="keyword">private</span> String img;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Info</span><span class="params">(String id, String name, String img)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.id = id;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">        <span class="keyword">this</span>.img = img;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Info</span><span class="params">(String id, String name)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.id = id;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Info</span><span class="params">()</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    ...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="修改MainActivity的requertAPI-方法"><a href="#修改MainActivity的requertAPI-方法" class="headerlink" title="修改MainActivity的requertAPI()方法"></a>修改MainActivity的requertAPI()方法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">requestAPI</span><span class="params">(View view)</span> </span>&#123;</div><div class="line"></div><div class="line">       api.saveInfo(<span class="keyword">new</span> Info(<span class="string">"1"</span>, <span class="string">"admin"</span>)).enqueue(<span class="keyword">new</span> Callback&lt;BaseResult&gt;() &#123;</div><div class="line"></div><div class="line">           <span class="meta">@Override</span></div><div class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(Call&lt;BaseResult&gt; call, Response&lt;BaseResult&gt; response)</span> </span>&#123;</div><div class="line">               Toast.makeText(MainActivity.<span class="keyword">this</span>, response.body().getMessage(), Toast.LENGTH_SHORT).show();</div><div class="line">               <span class="comment">//Toast.makeText(MainActivity.this,  response.body()+"", Toast.LENGTH_SHORT).show();</span></div><div class="line">               <span class="comment">// Toast.makeText(MainActivity.this, "username=" + response.body().getName(), Toast.LENGTH_SHORT).show();</span></div><div class="line">               <span class="comment">// Toast.makeText(MainActivity.this, "id=" + response.body().getId(), Toast.LENGTH_SHORT).show();</span></div><div class="line">           &#125;</div><div class="line"></div><div class="line">           <span class="meta">@Override</span></div><div class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFailure</span><span class="params">(Call&lt;BaseResult&gt; call, Throwable t)</span> </span>&#123;</div><div class="line">               Toast.makeText(MainActivity.<span class="keyword">this</span>, t.getMessage(), Toast.LENGTH_SHORT).show();</div><div class="line">           &#125;</div><div class="line">       &#125;);</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>服务器端也进行相应的改动。<br>注意:这里需要解释一下，当请求发送成功时，服务器端会返回一串JSON格式的数据给客户端，JSON格式的内容为一个success(1)和一个message(“保存用户成功”),这里Toast打印出的是message所携带的内容。</p>
+</blockquote>
+<h4 id="效果图-1"><a href="#效果图-1" class="headerlink" title="效果图"></a>效果图</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog9/Blog9_6.png?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="Field"><a href="#Field" class="headerlink" title="@Field"></a>@Field</h3><blockquote>
+<p>这种方式区别与上种方式在于这种事通过Form表单形式提交的。</p>
+</blockquote>
+<h4 id="修改MainActivity的requertAPI-方法-1"><a href="#修改MainActivity的requertAPI-方法-1" class="headerlink" title="修改MainActivity的requertAPI()方法"></a>修改MainActivity的requertAPI()方法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Api</span> </span>&#123;</div><div class="line"></div><div class="line">    ...</div><div class="line">    </div><div class="line">    <span class="meta">@FormUrlEncoded</span></div><div class="line">    <span class="meta">@POST</span>(<span class="string">"myserver"</span>)</div><div class="line">    <span class="function">Call&lt;BaseResult&gt; <span class="title">editInfo</span><span class="params">(@Field(<span class="string">"id"</span>)</span> <span class="keyword">int</span> id, @<span class="title">Field</span><span class="params">(<span class="string">"username"</span>)</span>String username)</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="修改MainActivity的requertAPI-方法-2"><a href="#修改MainActivity的requertAPI-方法-2" class="headerlink" title="修改MainActivity的requertAPI()方法"></a>修改MainActivity的requertAPI()方法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">requestAPI</span><span class="params">(View view)</span> </span>&#123;</div><div class="line"></div><div class="line">        api.editInfo(<span class="number">1</span>,<span class="string">"new_Info"</span>).enqueue(<span class="keyword">new</span> Callback&lt;BaseResult&gt;() &#123;</div><div class="line"></div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(Call&lt;BaseResult&gt; call, Response&lt;BaseResult&gt; response)</span> </span>&#123;</div><div class="line">                 Toast.makeText(MainActivity.<span class="keyword">this</span>, response.body().getMessage(), Toast.LENGTH_SHORT).show();</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFailure</span><span class="params">(Call&lt;BaseResult&gt; call, Throwable t)</span> </span>&#123;</div><div class="line">                Toast.makeText(MainActivity.<span class="keyword">this</span>, t.getMessage(), Toast.LENGTH_SHORT).show();</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>同样对服务器端做出相应的改动。  </p>
+</blockquote>
+<h4 id="效果图-2"><a href="#效果图-2" class="headerlink" title="效果图"></a>效果图</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog9/Blog9_7.png?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<blockquote>
+<p>当然官方提供的方式还不止这几种，这里就不一一介绍了。  </p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-05-20T07:44:18.379Z" itemprop="dateUpdated">2017年5月20日 15:44</time>
+</span><br>
+
+
+        这里写留言或版权声明：<a href="/2017/05/20/Retrofit框架/" target="_blank" rel="external">https://izdo.github.io/2017/05/20/Retrofit框架/</a>
+    </div>
+    <footer>
+        <a href="https://izdo.github.io">
+            <img src="/img/heizi.jpg" alt="iZdo">
+            iZdo
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://izdo.github.io/2017/05/20/Retrofit框架/&title=《Retrofit框架》 — iZdo's Blog&pic=https://izdo.github.io/img/heizi.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://izdo.github.io/2017/05/20/Retrofit框架/&title=《Retrofit框架》 — iZdo's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://izdo.github.io/2017/05/20/Retrofit框架/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Retrofit框架》 — iZdo's Blog&url=https://izdo.github.io/2017/05/20/Retrofit框架/&via=https://izdo.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://izdo.github.io/2017/05/20/Retrofit框架/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/05/14/OKHttp3框架(下)/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">OKHttp3框架(下)</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>iZdo's Blog &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://izdo.github.io/2017/05/20/Retrofit框架/&title=《Retrofit框架》 — iZdo's Blog&pic=https://izdo.github.io/img/heizi.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://izdo.github.io/2017/05/20/Retrofit框架/&title=《Retrofit框架》 — iZdo's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://izdo.github.io/2017/05/20/Retrofit框架/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Retrofit框架》 — iZdo's Blog&url=https://izdo.github.io/2017/05/20/Retrofit框架/&via=https://izdo.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://izdo.github.io/2017/05/20/Retrofit框架/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJUlEQVR42u3aQY6DMAwF0N7/0sx2pE7pt02rIXlZIWghLwvLcfx4xOP4NZKnx9M4f3PylQsGBgbGbRnH6cgnmv+ren3+FQwMjH0YSSg8D6bP7znikbDfzBkDAwMjfnWS6iWJJgYGBsaEkd9Jpp6njxgYGBhJ0panhtWnk60yBgbGDoy86v7964+cb2BgYNyKcRRHvlmtHkzmQfaPWWFgYCzNyAPchJQX5nrzwcDA2IHRy7vyY8s86byqtIeBgbEqY1Igu2o5zt8fhXUMDIwNGL3SfzU1TBau2tiBgYGxKqPQyhAkar1yW+8+BgbGPoxrp3jVFjc/cnh8YqUxMDD+GWPymWpZf74NfvktDAyMpRnJ1rHXWpG0TUzSxOgkFgMDYwlGbxPbDIhxIa+8kcbAwNiAcZ60TY4eJ/8qLCsGBsZmjGq4rIbOScB9uRAYGBgbMKpxbN5+cQSjcICBgYGxDSMPtdWif68AlyedGBgYazPmJbPLGrlidrNzBAMD4+aMXvls3pEVpX351zEwMLZh5M0TeTiubpWby4GBgbEBo1pKqx4PTKjJSSUGBsaqjKM4JoEyL9WVlwYDA2NpRj56B429IJscV/TmgIGBcV9Gr6ki2WpO7pQXCwMDYwNGNfBN2iMm4ftNnouBgYExKO7npGYOi4GBgVG8zpej15zxchOLgYGxNKMa/pKAmP+mV5LDwMDYh1HNuy5I4+J0sxfiMTAwFmL8AH4UIuDfJ3enAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.14"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.14" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
