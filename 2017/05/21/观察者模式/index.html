@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>观察者模式 | iZdo&#39;s Blog | bonbolu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Android,设计模式">
+    <meta name="description" content="观察者模式什么是观察者模式
+观察者模式是对象的行为模式（有时又被称为发布（publish ）-订阅（Subscribe）模式、模型-视图（View）模式、源-收听者(Listener)模式或从属者模式）,是软件设计模式的一种。在此种模式中，一个目标物件管理所有相依于它的观察者物件，并且在它本身的状态改变时主动发出通知。这通常透过呼叫各观察者所提供的方法来实现。此种模式通常被用来实现事件处理系统。观">
+<meta property="og:type" content="article">
+<meta property="og:title" content="观察者模式">
+<meta property="og:url" content="https://izdo.github.io/2017/05/21/观察者模式/index.html">
+<meta property="og:site_name" content="iZdo's Blog">
+<meta property="og:description" content="观察者模式什么是观察者模式
+观察者模式是对象的行为模式（有时又被称为发布（publish ）-订阅（Subscribe）模式、模型-视图（View）模式、源-收听者(Listener)模式或从属者模式）,是软件设计模式的一种。在此种模式中，一个目标物件管理所有相依于它的观察者物件，并且在它本身的状态改变时主动发出通知。这通常透过呼叫各观察者所提供的方法来实现。此种模式通常被用来实现事件处理系统。观">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Bolg10/Blog10_1.png?raw=true">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Bolg10/Blog10_2.png?raw=true">
+<meta property="og:updated_time" content="2017-05-21T05:36:18.683Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="观察者模式">
+<meta name="twitter:description" content="观察者模式什么是观察者模式
+观察者模式是对象的行为模式（有时又被称为发布（publish ）-订阅（Subscribe）模式、模型-视图（View）模式、源-收听者(Listener)模式或从属者模式）,是软件设计模式的一种。在此种模式中，一个目标物件管理所有相依于它的观察者物件，并且在它本身的状态改变时主动发出通知。这通常透过呼叫各观察者所提供的方法来实现。此种模式通常被用来实现事件处理系统。观">
+<meta name="twitter:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Bolg10/Blog10_1.png?raw=true">
+    
+        <link rel="alternative" href="/atom.xml" title="iZdo&#39;s Blog" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.14">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/heizi.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">iZdo</h5>
+          <a href="mailto:401135451@qq.com" title="401135451@qq.com" class="mail">401135451@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/iZdo" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/u/2597276811" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://music.163.com/#/user/home?id=384832070" target="_blank" >
+                <i class="icon icon-lg icon-music"></i>
+                cloudmusic
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://steamcommunity.com/id/401135451/" target="_blank" >
+                <i class="icon icon-lg icon-steam"></i>
+                Steam
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">观察者模式</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">观察者模式</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-05-21T05:36:51.560Z" itemprop="datePublished" class="page-time">
+  2017-05-21
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#观察者模式"><span class="post-toc-number">1.</span> <span class="post-toc-text">观察者模式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么是观察者模式"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">什么是观察者模式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#观察者模式中的角色"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">观察者模式中的角色</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#观察者模式图例"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">观察者模式图例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模拟观察者模式"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">模拟观察者模式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#新建Java工程ObserverDemo"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">新建Java工程ObserverDemo</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#新建Observer类-作为观察者"><span class="post-toc-number">1.4.1.1.</span> <span class="post-toc-text">新建Observer类 作为观察者</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#新建Subject类-作为被观察者-被观察的主题"><span class="post-toc-number">1.4.1.2.</span> <span class="post-toc-text">新建Subject类 作为被观察者(被观察的主题)</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#新建PoliceObserver类-作为警察观察者"><span class="post-toc-number">1.4.1.3.</span> <span class="post-toc-text">新建PoliceObserver类 作为警察观察者</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#新建ThiefSubject-作为罪犯类"><span class="post-toc-number">1.4.1.4.</span> <span class="post-toc-text">新建ThiefSubject 作为罪犯类</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#新建Test类-作为测试类"><span class="post-toc-number">1.4.1.5.</span> <span class="post-toc-text">新建Test类 作为测试类</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#运行Java工程"><span class="post-toc-number">1.4.1.6.</span> <span class="post-toc-text">运行Java工程</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#总结"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">总结</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-观察者模式"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">观察者模式</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年05月21日 13:36" datetime="2017-05-21T05:36:51.560Z"  itemprop="datePublished">2017-05-21</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="观察者模式"><a href="#观察者模式" class="headerlink" title="观察者模式"></a>观察者模式</h1><h2 id="什么是观察者模式"><a href="#什么是观察者模式" class="headerlink" title="什么是观察者模式"></a>什么是观察者模式</h2><blockquote>
+<p>观察者模式是对象的行为模式（有时又被称为发布（publish ）-订阅（Subscribe）模式、模型-视图（View）模式、源-收听者(Listener)模式或从属者模式）,是软件设计模式的一种。在此种模式中，一个目标物件管理所有相依于它的观察者物件，并且在它本身的状态改变时主动发出通知。这通常透过呼叫各观察者所提供的方法来实现。此种模式通常被用来实现事件处理系统。<br>观察者模式（Observer）完美的将观察者和被观察的对象分离开。举个例子，用户界面可以作为一个观察者，业务数据是被观察者，用户界面观察业务数据的变化，发现数据变化后，就显示在界面上。面向对象设计的一个原则是：系统中的每个类将重点放在某一个功能上，而不是其他方面。一个对象只做一件事情，并且将他做好。观察者模式在模块之间划定了清晰的界限，提高了应用程序的可维护性和重用性。<br>观察者设计模式定义了对象间的一种一对多的依赖关系，让多个观察者对象同时监听某一个主题对象，以便一个对象的状态发生变化时，所有依赖于它的对象都得到通知并自动刷新。</p>
+</blockquote>
+<h2 id="观察者模式中的角色"><a href="#观察者模式中的角色" class="headerlink" title="观察者模式中的角色"></a>观察者模式中的角色</h2><blockquote>
+<p> 抽象主题（Subject）：它把所有观察者对象的引用保存到一个聚集里，每个主题都可以有任何数量的观察者。抽象主题提供一个接口，可以增加和删除观察者对象。<br>具体主题（ConcreteSubject）：将有关状态存入具体观察者对象；在具体主题内部状态改变时，给所有登记过的观察者发出通知。<br>抽象观察者（Observer）：为所有的具体观察者定义一个接口，在得到主题通知时更新自己。<br>具体观察者（ConcreteObserver）：实现抽象观察者角色所要求的更新接口，以便使本身的状态与主题状态协调。  </p>
+</blockquote>
+<h2 id="观察者模式图例"><a href="#观察者模式图例" class="headerlink" title="观察者模式图例"></a>观察者模式图例</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Bolg10/Blog10_1.png?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="模拟观察者模式"><a href="#模拟观察者模式" class="headerlink" title="模拟观察者模式"></a>模拟观察者模式</h2><blockquote>
+<p>观察者模式的介绍会比较抽象，接下来还是用实例来演示一下什么是观察者模式。<br>PS：这里用的编译工具是Eclipse。</p>
+<p>比如说：Subject是一个罪犯，而Observer是警察，而警察需要观察罪犯的一举一动，并且罪犯可能是一个穷凶极恶的罪犯，所以需要一个警察团队来监视的这个罪犯，所以警察可以放在一个整体中(例如集合)，当罪犯的状态发生改变时，警察会收到通知。</p>
+</blockquote>
+<h3 id="新建Java工程ObserverDemo"><a href="#新建Java工程ObserverDemo" class="headerlink" title="新建Java工程ObserverDemo"></a>新建Java工程ObserverDemo</h3><h4 id="新建Observer类-作为观察者"><a href="#新建Observer类-作为观察者" class="headerlink" title="新建Observer类 作为观察者"></a>新建Observer类 作为观察者</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> iZdo;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Observer</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span></span>;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(String state)</span></span>;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="新建Subject类-作为被观察者-被观察的主题"><a href="#新建Subject类-作为被观察者-被观察的主题" class="headerlink" title="新建Subject类 作为被观察者(被观察的主题)"></a>新建Subject类 作为被观察者(被观察的主题)</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> iZdo;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.ArrayList;</div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Subject</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 保存警察的集合</div><div class="line">	 */</div><div class="line">	<span class="keyword">private</span> List&lt;Observer&gt; observers = <span class="keyword">new</span> ArrayList&lt;Observer&gt;();</div><div class="line"></div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 添加一个监视罪犯的警察</div><div class="line">	 * <span class="doctag">@param</span> observer</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">attach</span><span class="params">(Observer observer)</span> </span>&#123;</div><div class="line">		observers.add(observer);</div><div class="line">		System.out.println(<span class="string">"您的好友"</span>+observer.getName()+<span class="string">"已上线"</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 移除一个监视的警察</div><div class="line">	 * <span class="doctag">@param</span> observer</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dettch</span><span class="params">(Observer observer)</span> </span>&#123;</div><div class="line">		observers.remove(observer);</div><div class="line">		System.out.println(<span class="string">"警察"</span>+observer.getName()+<span class="string">"已GG"</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 通知所有警察更新罪犯的状态</div><div class="line">	 * <span class="doctag">@param</span> state</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyObservers</span><span class="params">(String state)</span> </span>&#123;</div><div class="line">		<span class="keyword">for</span> (Observer observer : observers) &#123;</div><div class="line">			observer.update(state);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="新建PoliceObserver类-作为警察观察者"><a href="#新建PoliceObserver类-作为警察观察者" class="headerlink" title="新建PoliceObserver类 作为警察观察者"></a>新建PoliceObserver类 作为警察观察者</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> iZdo;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PoliceObserver</span> <span class="keyword">implements</span> <span class="title">Observer</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="keyword">private</span> String name;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">PoliceObserver</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.name = name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">// 罪犯状态更新时通知警察</span></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(String state)</span> </span>&#123;</div><div class="line">		System.out.println(<span class="keyword">this</span>.name+<span class="string">"接收到消息，基德最新状态："</span> + state);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="新建ThiefSubject-作为罪犯类"><a href="#新建ThiefSubject-作为罪犯类" class="headerlink" title="新建ThiefSubject 作为罪犯类"></a>新建ThiefSubject 作为罪犯类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> iZdo;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ThiefSubject</span> <span class="keyword">extends</span> <span class="title">Subject</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="comment">// 罪犯状态改变</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(String state)</span> </span>&#123;</div><div class="line">		notifyObservers(state);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="新建Test类-作为测试类"><a href="#新建Test类-作为测试类" class="headerlink" title="新建Test类 作为测试类"></a>新建Test类 作为测试类</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> iZdo;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		<span class="comment">// 创建警察</span></div><div class="line">		Observer observer1 = <span class="keyword">new</span> PoliceObserver(<span class="string">"黑猫警长"</span>);</div><div class="line">		Observer observer2 = <span class="keyword">new</span> PoliceObserver(<span class="string">"威威猫"</span>);</div><div class="line">		Observer observer3 = <span class="keyword">new</span> PoliceObserver(<span class="string">"柯南"</span>);</div><div class="line"></div><div class="line">		<span class="comment">// 创建罪犯</span></div><div class="line">		ThiefSubject subject = <span class="keyword">new</span> ThiefSubject();</div><div class="line"></div><div class="line">		<span class="comment">// 添加警察</span></div><div class="line">		subject.attach(observer1);</div><div class="line">		subject.attach(observer2);</div><div class="line">		subject.attach(observer3);</div><div class="line"></div><div class="line">		<span class="comment">// 罪犯状态改变</span></div><div class="line">		subject.onClick(<span class="string">"正在抢劫珠宝"</span>);</div><div class="line"></div><div class="line">		<span class="comment">// 移除警察</span></div><div class="line">		subject.dettch(observer3);</div><div class="line"></div><div class="line">		<span class="comment">// 罪犯状态改变</span></div><div class="line">		subject.onClick(<span class="string">"飞走了"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="运行Java工程"><a href="#运行Java工程" class="headerlink" title="运行Java工程"></a>运行Java工程</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Bolg10/Blog10_2.png?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><blockquote>
+<p>这个例子相信不会很难懂，主要想描述的是，一个罪犯(被观察者)可以被多个警察(观察者)监视，而每当一个警察(观察者)监视罪犯(被观察者)的时候，需要去将这个警察(观察者)添加到团队(集合)中，当某个警察(观察者)牺牲了，就需要将他(从集合中)移除，而当罪犯(被观察者)状态发生改变时，团队(集合)中所有警察(观察者)都能得到通知。<br>所以总结起来就是：观察者将自己注册到被观察者的容器中时，被观察者不应该过问观察者的具体类型，而是应该使用观察者的接口。这样的优点是：假定程序中还有别的观察者，那么只要这个观察者也是相同的接口实现即可。一个被观察者可以对应多个观察者，当被观察者发生变化的时候，他可以将消息一一通知给所有的观察者。基于接口，而不是具体的实现——这一点为程序提供了更大的灵活性。<br>当然这只是一个模拟观察者模式的例子，而Java同样提供了观察者Observer类供我们使用，这里就不多做介绍了。</p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-05-21T05:36:18.683Z" itemprop="dateUpdated">2017年5月21日 13:36</time>
+</span><br>
+
+
+        这里写留言或版权声明：<a href="/2017/05/21/观察者模式/" target="_blank" rel="external">https://izdo.github.io/2017/05/21/观察者模式/</a>
+    </div>
+    <footer>
+        <a href="https://izdo.github.io">
+            <img src="/img/heizi.jpg" alt="iZdo">
+            iZdo
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://izdo.github.io/2017/05/21/观察者模式/&title=《观察者模式》 — iZdo's Blog&pic=https://izdo.github.io/img/heizi.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://izdo.github.io/2017/05/21/观察者模式/&title=《观察者模式》 — iZdo's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://izdo.github.io/2017/05/21/观察者模式/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《观察者模式》 — iZdo's Blog&url=https://izdo.github.io/2017/05/21/观察者模式/&via=https://izdo.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://izdo.github.io/2017/05/21/观察者模式/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/05/20/Retrofit框架/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Retrofit框架</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>iZdo's Blog &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://izdo.github.io/2017/05/21/观察者模式/&title=《观察者模式》 — iZdo's Blog&pic=https://izdo.github.io/img/heizi.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://izdo.github.io/2017/05/21/观察者模式/&title=《观察者模式》 — iZdo's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://izdo.github.io/2017/05/21/观察者模式/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《观察者模式》 — iZdo's Blog&url=https://izdo.github.io/2017/05/21/观察者模式/&via=https://izdo.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://izdo.github.io/2017/05/21/观察者模式/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLElEQVR42u3aS5KDMAxF0ex/084KMPdJTqoQ16OuLgicDBT9Ph981sUh1/NryF2tI0OGjMcy1vZcXUMeTK68+kz+bjJkyHgPg7zEnrS/iwTuPenmnWXIkCGj9tFhqG09S4YMGTK2D+Phkl8jQ4YMGbUiljDS5hovfY/V4jJkyHggg3fd///3T+YbMmTIeBRjhafWeuPhcpWODBkyZjN4gCOYNEHsBFwZMmS8jVF7AC81Caz/HxkyZExlpMPFffDlI8n+6sZlhitDhoxxjLQQ7bTPDv8+7MOuDBkyxjFq7XgSOjsBPS2DZciQMZvBk7l+sUrSRL6KEVTDMmTIeCyDJ228r9Vv28WJqQwZMkYzyEiAt8N4i632BaHUUIYMGUMZ6YPTpa50dYMEX5TnypAhYxAjvaEzquyknqj/J0OGjHEMkrTV1i/SuQR/h2BnRIYMGYMYHJAWmZ0hQfAjIUOGjNcwePHZTzTT8efN1ypDhozRDN4yqy2B8cDKB5yILUOGjHGM9GGdoFwL2Wh4IEOGjBcwOIkHwf6aRTAclSFDxgsYfAGi0ybjyxbxMocMGTKGMlZ4UIqGQyQvj2+oMmTIGM3ohMhaWVtbqiAprAwZMmYz+kGWrIudberFvx4yZMgYwfhF/O4MNePRggwZMmTgwjXFpOH4WMCVIUPGaAYPoOmwgb/JZRErQ4aM0Yx+wVlrsZFljuIkVoYMGYMYp/KuNKVLwzRPRmXIkDGI8QXS+pNhSkqszAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.14"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.14" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
