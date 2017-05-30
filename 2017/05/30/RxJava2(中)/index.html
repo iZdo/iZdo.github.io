@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>RxJava2 | iZdo&#39;s Blog | bonbolu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Android">
+    <meta name="description" content="RxJava2(中)操作符
+RxJava中的操作符有很多种，而前面用到的From、just也是操作符。想要更深入地了解操作符可以参考以下博客：[转]深入浅出RxJava(一：基础篇)[转]深入浅出RxJava(二：操作符)[转]RxJava操作符学习笔记  
+接下来简单介绍一下变换操作符。
+Map操作符Map操作符对原始Observable发射的每一项数据应用一个你选择的函数，然后返回一个发射这些">
+<meta property="og:type" content="article">
+<meta property="og:title" content="RxJava2">
+<meta property="og:url" content="https://izdo.github.io/2017/05/30/RxJava2(中)/index.html">
+<meta property="og:site_name" content="iZdo's Blog">
+<meta property="og:description" content="RxJava2(中)操作符
+RxJava中的操作符有很多种，而前面用到的From、just也是操作符。想要更深入地了解操作符可以参考以下博客：[转]深入浅出RxJava(一：基础篇)[转]深入浅出RxJava(二：操作符)[转]RxJava操作符学习笔记  
+接下来简单介绍一下变换操作符。
+Map操作符Map操作符对原始Observable发射的每一项数据应用一个你选择的函数，然后返回一个发射这些">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog12/Blog12_1.gif?raw=true">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog12/Blog12_2.gif?raw=true">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog12/Blog12_3.png?raw=true">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog12/Blog12_4.gif?raw=true">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog12/Blog12_5.gif?raw=true">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog12/Blog12_6.gif?raw=true">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog12/Blog12_7.gif?raw=true">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog12/Blog12_8.gif?raw=true">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog12/Blog12_9.gif?raw=true">
+<meta property="og:updated_time" content="2017-05-30T15:03:07.777Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="RxJava2">
+<meta name="twitter:description" content="RxJava2(中)操作符
+RxJava中的操作符有很多种，而前面用到的From、just也是操作符。想要更深入地了解操作符可以参考以下博客：[转]深入浅出RxJava(一：基础篇)[转]深入浅出RxJava(二：操作符)[转]RxJava操作符学习笔记  
+接下来简单介绍一下变换操作符。
+Map操作符Map操作符对原始Observable发射的每一项数据应用一个你选择的函数，然后返回一个发射这些">
+<meta name="twitter:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog12/Blog12_1.gif?raw=true">
+    
+        <link rel="alternative" href="/atom.xml" title="iZdo&#39;s Blog" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.14">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/heizi.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">iZdo</h5>
+          <a href="mailto:401135451@qq.com" title="401135451@qq.com" class="mail">401135451@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/iZdo" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/u/2597276811" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://music.163.com/#/user/home?id=384832070" target="_blank" >
+                <i class="icon icon-lg icon-music"></i>
+                cloudmusic
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://steamcommunity.com/id/401135451/" target="_blank" >
+                <i class="icon icon-lg icon-steam"></i>
+                Steam
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">RxJava2</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">RxJava2</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-05-30T15:04:17.026Z" itemprop="datePublished" class="page-time">
+  2017-05-30
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#RxJava2-中"><span class="post-toc-number">1.</span> <span class="post-toc-text">RxJava2(中)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#操作符"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">操作符</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Map操作符"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">Map操作符</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#新建MapActivity"><span class="post-toc-number">1.1.1.1.</span> <span class="post-toc-text">新建MapActivity</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#修改click-map-中的代码"><span class="post-toc-number">1.1.1.2.</span> <span class="post-toc-text">修改click_map()中的代码</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#FlatMap操作符"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">FlatMap操作符</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#新建BaseResult类用于保存登录返回的结果"><span class="post-toc-number">1.1.2.1.</span> <span class="post-toc-text">新建BaseResult类用于保存登录返回的结果</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#修改Api中的代码"><span class="post-toc-number">1.1.2.2.</span> <span class="post-toc-text">修改Api中的代码</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#新建UserParam保存用户名和密码"><span class="post-toc-number">1.1.2.3.</span> <span class="post-toc-text">新建UserParam保存用户名和密码</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#修改MapActivity中的代码"><span class="post-toc-number">1.1.2.4.</span> <span class="post-toc-text">修改MapActivity中的代码</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#部署项目"><span class="post-toc-number">1.1.2.5.</span> <span class="post-toc-text">部署项目</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Debounce操作符"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">Debounce操作符</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#新建工程RxJavaOp"><span class="post-toc-number">1.1.3.1.</span> <span class="post-toc-text">新建工程RxJavaOp</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#布局文件"><span class="post-toc-number">1.1.3.2.</span> <span class="post-toc-text">布局文件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#MainActivity"><span class="post-toc-number">1.1.3.3.</span> <span class="post-toc-text">MainActivity</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#效果图"><span class="post-toc-number">1.1.3.4.</span> <span class="post-toc-text">效果图</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#switchMap操作符"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">switchMap操作符</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#修改MAinActivity"><span class="post-toc-number">1.1.4.1.</span> <span class="post-toc-text">修改MAinActivity</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ThrottleFirst操作符"><span class="post-toc-number">1.1.5.</span> <span class="post-toc-text">ThrottleFirst操作符</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#新建ExampleActivity类-修改ExampleActivity类为默认启动的Activity"><span class="post-toc-number">1.1.5.1.</span> <span class="post-toc-text">新建ExampleActivity类(修改ExampleActivity类为默认启动的Activity)</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Merge操作符"><span class="post-toc-number">1.1.6.</span> <span class="post-toc-text">Merge操作符</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#新建Api接口"><span class="post-toc-number">1.1.6.1.</span> <span class="post-toc-text">新建Api接口</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#新建Commodity类用于保存商品的名称和id"><span class="post-toc-number">1.1.6.2.</span> <span class="post-toc-text">新建Commodity类用于保存商品的名称和id</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#新建MergeActivity"><span class="post-toc-number">1.1.6.3.</span> <span class="post-toc-text">新建MergeActivity</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#效果图-1"><span class="post-toc-number">1.1.6.4.</span> <span class="post-toc-text">效果图</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Interval操作符"><span class="post-toc-number">1.1.7.</span> <span class="post-toc-text">Interval操作符</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#新建IntervalActivity"><span class="post-toc-number">1.1.7.1.</span> <span class="post-toc-text">新建IntervalActivity</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#布局文件-1"><span class="post-toc-number">1.1.7.2.</span> <span class="post-toc-text">布局文件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#效果图-2"><span class="post-toc-number">1.1.7.3.</span> <span class="post-toc-text">效果图</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#修改IntervalActivity中的代码"><span class="post-toc-number">1.1.7.4.</span> <span class="post-toc-text">修改IntervalActivity中的代码</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#效果图-3"><span class="post-toc-number">1.1.7.5.</span> <span class="post-toc-text">效果图</span></a></li></ol></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-RxJava2(中)"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">RxJava2</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年05月30日 23:04" datetime="2017-05-30T15:04:17.026Z"  itemprop="datePublished">2017-05-30</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="RxJava2-中"><a href="#RxJava2-中" class="headerlink" title="RxJava2(中)"></a>RxJava2(中)</h1><h2 id="操作符"><a href="#操作符" class="headerlink" title="操作符"></a>操作符</h2><blockquote>
+<p>RxJava中的操作符有很多种，而前面用到的From、just也是操作符。<br>想要更深入地了解操作符可以参考以下博客：<br><a href="http://blog.csdn.net/lzyzsd/article/details/41833541" target="_blank" rel="external">[转]深入浅出RxJava(一：基础篇)</a><br><a href="http://blog.csdn.net/lzyzsd/article/details/44094895" target="_blank" rel="external">[转]深入浅出RxJava(二：操作符)</a><br><a href="http://www.jianshu.com/p/88779bda6691" target="_blank" rel="external">[转]RxJava操作符学习笔记</a>  </p>
+<p>接下来简单介绍一下变换操作符。</p>
+<h3 id="Map操作符"><a href="#Map操作符" class="headerlink" title="Map操作符"></a>Map操作符</h3><p>Map操作符对原始Observable发射的每一项数据应用一个你选择的函数，然后返回一个发射这些结果的Observable。<br>RxJava将这个操作符实现为Map函数，这个操作符默认不在任何特定的调度器上执行。<br>Map操作符就是用于变换Observable对象的。</p>
+</blockquote>
+<h4 id="新建MapActivity"><a href="#新建MapActivity" class="headerlink" title="新建MapActivity"></a>新建MapActivity</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.izdo.rxjava2demo;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.os.Bundle;</div><div class="line"><span class="keyword">import</span> android.support.v7.app.AppCompatActivity;</div><div class="line"><span class="keyword">import</span> android.view.View;</div><div class="line"><span class="keyword">import</span> android.widget.TextView;</div><div class="line"></div><div class="line"><span class="keyword">import</span> io.reactivex.Observable;</div><div class="line"><span class="keyword">import</span> io.reactivex.functions.Consumer;</div><div class="line"><span class="keyword">import</span> io.reactivex.functions.Function;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MapActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> Api api;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> TextView mTextView;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_map);</div><div class="line"></div><div class="line">        mTextView = (TextView) findViewById(R.id.text);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">click_map</span><span class="params">(View view)</span> </span>&#123;</div><div class="line"></div><div class="line">        Observable observable = Observable.just(<span class="number">1</span>);</div><div class="line"></div><div class="line">        <span class="comment">// 使用map进行转换</span></div><div class="line">        <span class="comment">// Integer -&gt; String</span></div><div class="line">        Observable observableMap = observable.map(<span class="keyword">new</span> Function&lt;Integer, String&gt;() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> String <span class="title">apply</span><span class="params">(Integer integer)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">                <span class="keyword">return</span> <span class="number">1</span> + <span class="string">"lalala"</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">        <span class="comment">// 订阅</span></div><div class="line">        observableMap.subscribe(<span class="keyword">new</span> Consumer&lt;String&gt;() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">accept</span><span class="params">(String s)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line"></div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>PS:布局文件文件只有一个按钮，点击事件为”click_map”。<br>代码中使用map将原始的Observable的Integer类型的数据转换为String类型，并且得到的结果成为一个新的Observable，而订阅这个Observable需要用新的Observable调用subscribe方法，也就是说通过map转换的Observable和原始的Observable成为两个独立的Observable了。  </p>
+<p>那么也许有人就会问了，如果单纯地只是想把Integer数据类型转化为String类型，那何必这么麻烦呢？<br>当然没有必要，但是，转换的强大之处在于泛型中可以是任意数据类型，可以是基本数据类型，当然也可以是引用类型，只要在转换中处理得当。</p>
+</blockquote>
+<h4 id="修改click-map-中的代码"><a href="#修改click-map-中的代码" class="headerlink" title="修改click_map()中的代码"></a>修改click_map()中的代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">click_map</span><span class="params">(View view)</span> </span>&#123;</div><div class="line"></div><div class="line">    Observable.just(<span class="number">1</span>).map(<span class="keyword">new</span> Function&lt;Integer,Info&gt;() &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> Info <span class="title">apply</span><span class="params">(Integer integer)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line"></div><div class="line">            <span class="comment">// do something</span></div><div class="line"></div><div class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="comment">/*Observable observable = Observable.just(1);</span></div><div class="line"></div><div class="line">    // 使用map进行转换</div><div class="line">    // Integer -&gt; String</div><div class="line">    Observable observableMap = observable.map(new Function&lt;Integer, String&gt;() &#123;</div><div class="line">        @Override</div><div class="line">        public String apply(Integer integer) throws Exception &#123;</div><div class="line">            return 1 + "lalala";</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    // 订阅</div><div class="line">    observableMap.subscribe(new Consumer&lt;String&gt;() &#123;</div><div class="line">        @Override</div><div class="line">        public void accept(String s) throws Exception &#123;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">    &#125;);*/</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>这里使用链式编程让代码简洁一些，同时将原先的Intege-&gt;String修改为Integer-&gt;Info，而具体的逻辑就暂时不实现了。(我们甚至可以转换为一个Obsevable，这里就不多做解释了,后面会有例子详细地介绍。)</p>
+</blockquote>
+<h3 id="FlatMap操作符"><a href="#FlatMap操作符" class="headerlink" title="FlatMap操作符"></a>FlatMap操作符</h3><blockquote>
+<p>FlatMap将一个发射数据的Observable变换为多个Observables，然后将它们发射的数据合并后放进一个单独的Observable。<br>接下来做一个实际的案例。</p>
+</blockquote>
+<h4 id="新建BaseResult类用于保存登录返回的结果"><a href="#新建BaseResult类用于保存登录返回的结果" class="headerlink" title="新建BaseResult类用于保存登录返回的结果"></a>新建BaseResult类用于保存登录返回的结果</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.izdo.rxjava2demo;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by iZdo on 2017/5/18.</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseResult</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> succerss;</div><div class="line">    <span class="keyword">private</span> String message;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getId</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> id;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(<span class="keyword">int</span> id)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.id = id;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> id;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSuccerss</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> succerss;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSuccerss</span><span class="params">(<span class="keyword">int</span> succerss)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.succerss = succerss;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getMessage</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> message;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMessage</span><span class="params">(String message)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.message = message;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="修改Api中的代码"><a href="#修改Api中的代码" class="headerlink" title="修改Api中的代码"></a>修改Api中的代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Api</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@GET</span>(<span class="string">"myserver"</span>)</div><div class="line">    <span class="function">Call&lt;Info&gt; <span class="title">getUserInfo</span><span class="params">(@Query(<span class="string">"id"</span>)</span> <span class="keyword">int</span> id)</span>;</div><div class="line"></div><div class="line">    <span class="meta">@POST</span>(<span class="string">"myserver/Json"</span>)</div><div class="line">    <span class="function">Call&lt;BaseResult&gt; <span class="title">login</span><span class="params">(@Body UserParam param)</span></span>;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="新建UserParam保存用户名和密码"><a href="#新建UserParam保存用户名和密码" class="headerlink" title="新建UserParam保存用户名和密码"></a>新建UserParam保存用户名和密码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.izdo.rxjava2demo;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by iZdo on 2017/5/28.</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserParam</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> String username;</div><div class="line">    <span class="keyword">private</span> String password;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">UserParam</span><span class="params">(String username, String password)</span> </span>&#123;\</div><div class="line">        <span class="keyword">this</span>.username = username;</div><div class="line">        <span class="keyword">this</span>.password = password;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getUsername</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> username;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUsername</span><span class="params">(String username)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.username = username;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getPassword</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> password;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPassword</span><span class="params">(String password)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.password = password;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="修改MapActivity中的代码"><a href="#修改MapActivity中的代码" class="headerlink" title="修改MapActivity中的代码"></a>修改MapActivity中的代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MapActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> Api api;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> TextView mTextView;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_map);</div><div class="line"></div><div class="line">        Retrofit retrofit = <span class="keyword">new</span> Retrofit.Builder()</div><div class="line">                .baseUrl(<span class="string">"http://192.168.1.53:8080/"</span>)</div><div class="line">                .addConverterFactory(GsonConverterFactory.create())</div><div class="line">                .build();</div><div class="line"></div><div class="line">        api = retrofit.create(Api.class);</div><div class="line"></div><div class="line">        mTextView = (TextView) findViewById(R.id.text);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> UserParam <span class="title">getUserParam</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">        UserParam param = <span class="keyword">new</span> UserParam(<span class="string">"admin"</span>, <span class="string">"123456"</span>);</div><div class="line">        <span class="keyword">return</span> param;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">click_map</span><span class="params">(View view)</span> </span>&#123;</div><div class="line"></div><div class="line">        Observable.just(getUserParam()).flatMap(<span class="keyword">new</span> Function&lt;UserParam, ObservableSource&lt;BaseResult&gt;&gt;() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> ObservableSource&lt;BaseResult&gt; <span class="title">apply</span><span class="params">(UserParam userParam)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line"></div><div class="line">                BaseResult result = api.login(userParam).execute().body();</div><div class="line"></div><div class="line">                <span class="keyword">return</span> Observable.just(result);</div><div class="line">            &#125;</div><div class="line">        &#125;).flatMap(<span class="keyword">new</span> Function&lt;BaseResult, ObservableSource&lt;Info&gt;&gt;() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> ObservableSource&lt;Info&gt; <span class="title">apply</span><span class="params">(BaseResult baseResult)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line"></div><div class="line">                Info info = api.getUserInfo(baseResult.getId()).execute().body();</div><div class="line"></div><div class="line">                <span class="keyword">return</span> Observable.just(info);</div><div class="line">            &#125;</div><div class="line">        &#125;).subscribeOn(Schedulers.io())</div><div class="line">                .observeOn(AndroidSchedulers.mainThread())</div><div class="line">                .subscribe(<span class="keyword">new</span> Consumer&lt;Info&gt;() &#123;</div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">accept</span><span class="params">(Info info)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">                        mTextView.setText(info.getName());</div><div class="line">                    &#125;</div><div class="line">                &#125;);</div><div class="line"></div><div class="line">       <span class="comment">/* Observable.just(1).map(new Function&lt;Integer,Info&gt;() &#123;</span></div><div class="line">            @Override</div><div class="line">            public Info apply(Integer integer) throws Exception &#123;</div><div class="line"></div><div class="line">                // do something</div><div class="line"></div><div class="line">                return null;</div><div class="line">            &#125;</div><div class="line">        &#125;);*/</div><div class="line"></div><div class="line">        <span class="comment">/*Observable observable = Observable.just(1);</span></div><div class="line"></div><div class="line">        // 使用map进行转换</div><div class="line">        // Integer -&gt; String</div><div class="line">        Observable observableMap = observable.map(new Function&lt;Integer, String&gt;() &#123;</div><div class="line">            @Override</div><div class="line">            public String apply(Integer integer) throws Exception &#123;</div><div class="line">                return 1 + "lalala";</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">        // 订阅</div><div class="line">        observableMap.subscribe(new Consumer&lt;String&gt;() &#123;</div><div class="line">            @Override</div><div class="line">            public void accept(String s) throws Exception &#123;</div><div class="line"></div><div class="line">            &#125;</div><div class="line">        &#125;);*/</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>这里主要是通过Retrofit发起网络请求，首先将username为”admin”,password为”123456”的UserParam对象传入Api的login方法中，通过Retrofit发起网络请求，接收到的Json数据已通过BaseResult封装好，通过flatMap()将其转换为BaseResult后再次转换为Info对象，而这也证实了Map操作符的强大之处，可以随心所欲地转换对象。<br>PS：网络请求等耗时操作记得放到子线程中执行：<strong>subscribeOn(Schedulers.io())</strong> ，UI操作需要切换回主线程：<strong>observeOn(AndroidSchedulers.mainThread())</strong></p>
+</blockquote>
+<h4 id="部署项目"><a href="#部署项目" class="headerlink" title="部署项目"></a>部署项目</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog12/Blog12_1.gif?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="Debounce操作符"><a href="#Debounce操作符" class="headerlink" title="Debounce操作符"></a>Debounce操作符</h3><blockquote>
+<p>当我们在搜索(例如百度)的时候，每当输入一个关键字，下方选择框就会出现相应的搜索选项。</p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog12/Blog12_2.gif?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog12/Blog12_3.png?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<blockquote>
+<p>就如图中红框所示的部分，而如何实现这个功能呢？一般的情况下是通过监听EditText控件，当控件中的值发生改变时去请求搜索接口，但是这样的做法有两个缺点，一个是因为控件的值没改变一次立即就会去请求网络，可能会导致很多没有意义的请求，耗费用户流量；另一个是可能会导致最终搜索的结果不是用户想要的，例如当你想搜索”手机”这个关键词的时候，假如你输入”手’的时候发起的网络请求因为网络问题而导致请求缓慢，在输入”机”之后，成功获取到了”手机”关键词的搜索内容，但是这个时候刚才搜集”手”的请求结果返回了，这时候就会出现”手”的请求结果把”手机”的请求结果覆盖了的情况，从而导致搜索结果不正确。<br>这个时候就可以使用RxJava的Debounce操作符来解决这一问题。  </p>
+</blockquote>
+<h4 id="新建工程RxJavaOp"><a href="#新建工程RxJavaOp" class="headerlink" title="新建工程RxJavaOp"></a>新建工程RxJavaOp</h4><h4 id="布局文件"><a href="#布局文件" class="headerlink" title="布局文件"></a>布局文件</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">RelativeLayout</span></span></div><div class="line">    <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/activity_main"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:paddingBottom</span>=<span class="string">"@dimen/activity_vertical_margin"</span></div><div class="line">    <span class="attr">android:paddingLeft</span>=<span class="string">"@dimen/activity_horizontal_margin"</span></div><div class="line">    <span class="attr">android:paddingRight</span>=<span class="string">"@dimen/activity_horizontal_margin"</span></div><div class="line">    <span class="attr">android:paddingTop</span>=<span class="string">"@dimen/activity_vertical_margin"</span></div><div class="line">    <span class="attr">tools:context</span>=<span class="string">"com.izdo.rxjavaop.MainActivity"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">EditText</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/edit_search"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:hint</span>=<span class="string">"请输入查询"</span>/&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="MainActivity"><a href="#MainActivity" class="headerlink" title="MainActivity"></a>MainActivity</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.izdo.rxjavaop;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.os.Bundle;</div><div class="line"><span class="keyword">import</span> android.support.v7.app.AppCompatActivity;</div><div class="line"><span class="keyword">import</span> android.util.Log;</div><div class="line"><span class="keyword">import</span> android.widget.EditText;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.jakewharton.rxbinding2.widget.RxTextView;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.ArrayList;</div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"><span class="keyword">import</span> java.util.concurrent.TimeUnit;</div><div class="line"></div><div class="line"><span class="keyword">import</span> io.reactivex.Observable;</div><div class="line"><span class="keyword">import</span> io.reactivex.ObservableSource;</div><div class="line"><span class="keyword">import</span> io.reactivex.android.schedulers.AndroidSchedulers;</div><div class="line"><span class="keyword">import</span> io.reactivex.functions.Consumer;</div><div class="line"><span class="keyword">import</span> io.reactivex.functions.Function;</div><div class="line"><span class="keyword">import</span> io.reactivex.schedulers.Schedulers;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> EditText mEditText;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line"></div><div class="line">        mEditText = (EditText) findViewById(R.id.edit_search);</div><div class="line"></div><div class="line">        RxTextView.textChanges(<span class="keyword">this</span>.mEditText)</div><div class="line">                .debounce(<span class="number">200</span>, TimeUnit.MILLISECONDS)</div><div class="line"></div><div class="line">                <span class="comment">// UI更新在主线程执行</span></div><div class="line">                .subscribeOn(AndroidSchedulers.mainThread())</div><div class="line"></div><div class="line">                .flatMap(<span class="keyword">new</span> Function&lt;CharSequence, ObservableSource&lt;List&lt;String&gt;&gt;&gt;() &#123;</div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="keyword">public</span> ObservableSource&lt;List&lt;String&gt;&gt; apply(CharSequence charSequence) <span class="keyword">throws</span> Exception &#123;</div><div class="line"></div><div class="line">                        Log.d(<span class="string">"MainActivity"</span>, <span class="string">"flatMap== "</span> + charSequence);</div><div class="line">                        <span class="comment">// search</span></div><div class="line">                        List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line">                        list.add(<span class="string">"abc"</span>);</div><div class="line">                        list.add(<span class="string">"acb"</span>);</div><div class="line"></div><div class="line">                        <span class="keyword">return</span> Observable.just(list);</div><div class="line">                    &#125;</div><div class="line">                &#125;)</div><div class="line">                <span class="comment">// 网络请求在子线程执行</span></div><div class="line">                .subscribeOn(Schedulers.io())</div><div class="line"></div><div class="line">                <span class="comment">// 切换回主线程</span></div><div class="line">                .observeOn(AndroidSchedulers.mainThread())</div><div class="line"></div><div class="line">                .subscribe(<span class="keyword">new</span> Consumer&lt;List&lt;String&gt;&gt;() &#123;</div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">accept</span><span class="params">(List&lt;String&gt; strings)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">                        <span class="comment">// 输出结果</span></div><div class="line">                        Log.d(<span class="string">"MainActivity"</span>, <span class="string">"subscribe: "</span> + strings);</div><div class="line">                    &#125;</div><div class="line">                &#125;, <span class="keyword">new</span> Consumer&lt;Throwable&gt;() &#123;</div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">accept</span><span class="params">(Throwable throwable)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">                        <span class="comment">// 输出错误信息</span></div><div class="line">                        throwable.printStackTrace();</div><div class="line">                    &#125;</div><div class="line">                &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>这里主要通过RxTextView的textChanges方法进行监听，并调用debounce()方法设置每隔200毫秒后才发出请求，这样就解决了多次请求的问题，接着通过filter()过滤空数据，其他的操作都是RxJava的操作，这里不多解释，主要还是要强调一下，相应的操作应该放在对应的线程中执行。</p>
+</blockquote>
+<h4 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog12/Blog12_4.gif?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<blockquote>
+<p>接下来需要解决上文所说的第二个问题，这时候就需要用到switchMap操作符了。</p>
+</blockquote>
+<h3 id="switchMap操作符"><a href="#switchMap操作符" class="headerlink" title="switchMap操作符"></a>switchMap操作符</h3><blockquote>
+<p>switchMAP()将Observable发射的数据集合变换为Observables集合，然后只发射这些Observables最近发射的数据。  </p>
+</blockquote>
+<h4 id="修改MAinActivity"><a href="#修改MAinActivity" class="headerlink" title="修改MAinActivity"></a>修改MAinActivity</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> EditText mEditText;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        </div><div class="line">        ...</div><div class="line">        </div><div class="line">        RxTextView.textChanges(<span class="keyword">this</span>.mEditText)</div><div class="line">                .debounce(<span class="number">200</span>, TimeUnit.MILLISECONDS)</div><div class="line"></div><div class="line">                <span class="comment">// UI更新在主线程执行</span></div><div class="line">                .subscribeOn(AndroidSchedulers.mainThread())</div><div class="line">                <span class="comment">// 过滤数据</span></div><div class="line">                .filter(<span class="keyword">new</span> Predicate&lt;CharSequence&gt;() &#123;</div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">test</span><span class="params">(CharSequence charSequence)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">                        <span class="keyword">if</span> (charSequence.toString().trim().length() &gt; <span class="number">0</span>)</div><div class="line">                            <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">                        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">                    &#125;</div><div class="line">                &#125;)</div><div class="line"></div><div class="line">                .switchMap(<span class="keyword">new</span> Function&lt;CharSequence, ObservableSource&lt;List&lt;String&gt;&gt;&gt;() &#123;</div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="keyword">public</span> ObservableSource&lt;List&lt;String&gt;&gt; apply(CharSequence charSequence) <span class="keyword">throws</span> Exception &#123;</div><div class="line"></div><div class="line">                        Log.d(<span class="string">"MainActivity"</span>, <span class="string">"flatMap== "</span> + charSequence);</div><div class="line">                        <span class="comment">// search</span></div><div class="line">                        List&lt;String&gt; list = <span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line">                        list.add(<span class="string">"abc"</span>);</div><div class="line">                        list.add(<span class="string">"acb"</span>);</div><div class="line"></div><div class="line">                        <span class="keyword">return</span> Observable.just(list);</div><div class="line">                    &#125;</div><div class="line">                &#125;)</div><div class="line">                <span class="comment">/*.flatMap(new Function&lt;CharSequence, ObservableSource&lt;List&lt;String&gt;&gt;&gt;() &#123;</span></div><div class="line">                    @Override</div><div class="line">                    public ObservableSource&lt;List&lt;String&gt;&gt; apply(CharSequence charSequence) throws Exception &#123;</div><div class="line"></div><div class="line">                        Log.d("MainActivity", "flatMap== " + charSequence);</div><div class="line">                        // search</div><div class="line">                        List&lt;String&gt; list = new ArrayList&lt;String&gt;();</div><div class="line">                        list.add("abc");</div><div class="line">                        list.add("acb");</div><div class="line"></div><div class="line">                        return Observable.just(list);</div><div class="line">                    &#125;</div><div class="line">                &#125;)*/</div><div class="line">                </div><div class="line">                ...</div><div class="line">                </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>也就是说switchMap操作符会以最后一次输入的值为基准，将上一次的值给清空掉，这样就解决了因为网络缓慢导致的结果覆盖问题。  </p>
+</blockquote>
+<h3 id="ThrottleFirst操作符"><a href="#ThrottleFirst操作符" class="headerlink" title="ThrottleFirst操作符"></a>ThrottleFirst操作符</h3><blockquote>
+<p>当我们到一个网站注册用户时，在相关资料输入完毕后，我们需要点击注册按钮注册，当我们点击按钮之后，它就会向服务器端发送数据，而有时候有的人可能会(恶意)重复点击按钮，这时候就会不断向服务器发送重复数据，而这些重复的垃圾数据会浪费服务器的资源，那我们该如何解决重复点击按钮呢？一般的做法是计算两次点击的时间差，如果时间差太小则判定为重复点击，用这样的方式来防止重复点击按钮，而在RxJava中，可以通过throttleFirst操作符来实现这个功能。<br>throttleFirst操作符允许设置一个时间长度，之后它会发送固定时间长度内的第一个事件，而屏蔽其它时间，在间隔达到设置的时间后，可以再发送下一个事件。</p>
+</blockquote>
+<h4 id="新建ExampleActivity类-修改ExampleActivity类为默认启动的Activity"><a href="#新建ExampleActivity类-修改ExampleActivity类为默认启动的Activity" class="headerlink" title="新建ExampleActivity类(修改ExampleActivity类为默认启动的Activity)"></a>新建ExampleActivity类(修改ExampleActivity类为默认启动的Activity)</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.izdo.rxjavaop;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.os.Bundle;</div><div class="line"><span class="keyword">import</span> android.support.v7.app.AppCompatActivity;</div><div class="line"><span class="keyword">import</span> android.util.Log;</div><div class="line"><span class="keyword">import</span> android.view.View;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExampleActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_example);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">click</span><span class="params">(View view)</span> </span>&#123;</div><div class="line">        Log.d(<span class="string">"ExampleActivity"</span>, <span class="string">"我被点击了"</span>);</div><div class="line"></div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>现在来看一下当我们正常点击时所打印的log。<br>PS:布局文件只有一个按钮。</p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog12/Blog12_5.gif?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<blockquote>
+<p>下来使用throttleFirst操作符进行重复限制。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExampleActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_example);</div><div class="line"></div><div class="line">        Button button = (Button) findViewById(R.id.btn);</div><div class="line"></div><div class="line">        RxView.clicks(button).throttleFirst(<span class="number">1</span>, TimeUnit.SECONDS).subscribe(<span class="keyword">new</span> Observer&lt;Object&gt;() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSubscribe</span><span class="params">(Disposable d)</span> </span>&#123;</div><div class="line"></div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onNext</span><span class="params">(Object value)</span> </span>&#123;</div><div class="line">                Log.d(<span class="string">"ExampleActivity"</span>, <span class="string">"我被点击了"</span>);</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onError</span><span class="params">(Throwable e)</span> </span>&#123;</div><div class="line"></div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onComplete</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>用法非常简单，首先调用RxView的clicks()方法将想要监听的按钮绑定好，然后调用throttleFirst()将间隔设置为1秒，最后调用subscribe()订阅即可。</p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog12/Blog12_6.gif?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<blockquote>
+<p>可以看到，不管多么快速的点击，都只会在隔一秒打印出新的log，而这个log响应的是第一次点击按钮时的操作。<br>这样我们就通过了throttleFirst操作符防止重复点击操作(也叫防抖操作)。<br>PS：微信有些地方也没有做防抖操作处理，快速点击朋友圈按钮也会出现重复的页面。</p>
+</blockquote>
+<h3 id="Merge操作符"><a href="#Merge操作符" class="headerlink" title="Merge操作符"></a>Merge操作符</h3><blockquote>
+<p>当我们在使用淘宝购物时，需要将想要购买的物品放入购物车，然后进行付款操作才算购买完成。<br>假设小明现在用手机淘宝购买一件衣服和一件裤子，然后将它们加入购物车，但是小明忘了自己的手机没有联网，所以手机的本地数据并没有上传的云端，接着小明使用电脑淘宝将一件帽子和一双鞋子放入购物车，那么这时候本地的数据和云端的数据需要同步，才能将这四件物品同时展示在购物车中，否则电脑端的购物车只会显示帽子和鞋子，而手机端的购物车只会显示衣服和裤子。<br>这歌时候就需要用到Merge操作符来实现合并的功能了。<br>Merge操作符能够合并多个Observables的发射物。<br>使用Merge操作符可以将多个Observables的输出合并，就好像它们是一个单个的Observable一样。<br>Merge操作符可能会让合并的Observables发射的数据交错(另一个类似的操作符Concat不会让数据交错，它会按顺序一个接着一个发射多个Observables的发射物)。</p>
+</blockquote>
+<h4 id="新建Api接口"><a href="#新建Api接口" class="headerlink" title="新建Api接口"></a>新建Api接口</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.izdo.rxjavaop;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"></div><div class="line"><span class="keyword">import</span> io.reactivex.Observable;</div><div class="line"><span class="keyword">import</span> retrofit2.http.GET;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by iZdo on 2017/5/30.</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Api</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@GET</span>(<span class="string">"myserver"</span>)</div><div class="line">    Observable&lt;List&lt;Commodity&gt;&gt; getCommodity();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>Api接口前面已经用过很多次了，这里不多解释。</p>
+</blockquote>
+<h4 id="新建Commodity类用于保存商品的名称和id"><a href="#新建Commodity类用于保存商品的名称和id" class="headerlink" title="新建Commodity类用于保存商品的名称和id"></a>新建Commodity类用于保存商品的名称和id</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.izdo.rxjavaop;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by iZdo on 2017/5/30.</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Commodity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> id;</div><div class="line">    <span class="keyword">private</span> String name;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Commodity</span><span class="params">()</span> </span>&#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Commodity</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getId</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> id;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(<span class="keyword">int</span> id)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.id = id;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="新建MergeActivity"><a href="#新建MergeActivity" class="headerlink" title="新建MergeActivity"></a>新建MergeActivity</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.izdo.rxjavaop;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.os.Bundle;</div><div class="line"><span class="keyword">import</span> android.support.v7.app.AppCompatActivity;</div><div class="line"><span class="keyword">import</span> android.util.Log;</div><div class="line"><span class="keyword">import</span> android.view.View;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.ArrayList;</div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"></div><div class="line"><span class="keyword">import</span> io.reactivex.Observable;</div><div class="line"><span class="keyword">import</span> io.reactivex.Observer;</div><div class="line"><span class="keyword">import</span> io.reactivex.disposables.Disposable;</div><div class="line"><span class="keyword">import</span> io.reactivex.schedulers.Schedulers;</div><div class="line"><span class="keyword">import</span> retrofit2.Retrofit;</div><div class="line"><span class="keyword">import</span> retrofit2.converter.gson.GsonConverterFactory;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MergeActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> Api api;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_merge);</div><div class="line"></div><div class="line">        Retrofit retrofit = <span class="keyword">new</span> Retrofit.Builder()</div><div class="line">                .baseUrl(<span class="string">"http://192.168.1.53:8080/"</span>)</div><div class="line">                .addConverterFactory(GsonConverterFactory.create())</div><div class="line">                .build();</div><div class="line"></div><div class="line">        api = retrofit.create(Api.class);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">click</span><span class="params">(View view)</span> </span>&#123;</div><div class="line"></div><div class="line">        Observable.merge(getDataFromLocal(), getDataFromNetwork()).subscribe(<span class="keyword">new</span> Observer&lt;List&lt;Commodity&gt;&gt;() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSubscribe</span><span class="params">(Disposable d)</span> </span>&#123;</div><div class="line"></div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onNext</span><span class="params">(List&lt;Commodity&gt; commodity)</span> </span>&#123;</div><div class="line"></div><div class="line">                <span class="keyword">for</span> (Commodity c : commodity) &#123;</div><div class="line">                    Log.d(<span class="string">"MergeActivity"</span>, <span class="string">"name: "</span> + c.getName());</div><div class="line">                &#125;</div><div class="line"></div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onError</span><span class="params">(Throwable e)</span> </span>&#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onComplete</span><span class="params">()</span> </span>&#123;</div><div class="line">                Log.d(<span class="string">"MergeActivity"</span>, <span class="string">"onComplete "</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line"></div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 本地数据</span></div><div class="line">    <span class="keyword">private</span> Observable&lt;List&lt;Commodity&gt;&gt; getDataFromLocal() &#123;</div><div class="line"></div><div class="line">        List&lt;Commodity&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">        list.add(<span class="keyword">new</span> Commodity(<span class="string">"衣服"</span>));</div><div class="line">        list.add(<span class="keyword">new</span> Commodity(<span class="string">"裤子"</span>));</div><div class="line"></div><div class="line">        <span class="keyword">return</span> Observable.just(list);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 云端数据</span></div><div class="line">    <span class="keyword">private</span> Observable&lt;List&lt;Commodity&gt;&gt; getDataFromNetwork() &#123;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> api.getCommodity().subscribeOn(Schedulers.io());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>PS：布局文件同样只有一个按钮。<br>服务器端的数据已经预先准备好。</p>
+</blockquote>
+<h4 id="效果图-1"><a href="#效果图-1" class="headerlink" title="效果图"></a>效果图</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog12/Blog12_7.gif?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<blockquote>
+<p>这样服务器端和本地的数据已经合并在一起了。</p>
+</blockquote>
+<h3 id="Interval操作符"><a href="#Interval操作符" class="headerlink" title="Interval操作符"></a>Interval操作符</h3><blockquote>
+<p>在日常生活中，我们经常会通过手机获取验证码，而这个时候，验证码输入框旁边的按钮就会出现倒计时，如果倒计时结束后还未输入验证码，则可以重新获取验证码，接下来就通过RxJava的interval操作符实现这个功能。<br>Interval操作符创建一个按固定时间间隔发射整数序列的Observable。<br>Interval返回一个Observable，它按固定的时间间隔发射一个无限递增的整数序列。</p>
+</blockquote>
+<h4 id="新建IntervalActivity"><a href="#新建IntervalActivity" class="headerlink" title="新建IntervalActivity"></a>新建IntervalActivity</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.izdo.rxjavaop;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.support.v7.app.AppCompatActivity;</div><div class="line"><span class="keyword">import</span> android.os.Bundle;</div><div class="line"><span class="keyword">import</span> android.util.Log;</div><div class="line"><span class="keyword">import</span> android.view.View;</div><div class="line"><span class="keyword">import</span> android.widget.Button;</div><div class="line"><span class="keyword">import</span> android.widget.EditText;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.concurrent.TimeUnit;</div><div class="line"></div><div class="line"><span class="keyword">import</span> io.reactivex.Observable;</div><div class="line"><span class="keyword">import</span> io.reactivex.Observer;</div><div class="line"><span class="keyword">import</span> io.reactivex.disposables.Disposable;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IntervalActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> EditText mEditText;</div><div class="line">    <span class="keyword">private</span> Button mButton;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_interval);</div><div class="line"></div><div class="line">        mEditText = (EditText) findViewById(R.id.edit_mobi);</div><div class="line">        mButton = (Button) findViewById(R.id.btn_send);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">click</span><span class="params">(View view)</span> </span>&#123;</div><div class="line"></div><div class="line">        Observable.interval(<span class="number">0</span>, <span class="number">1</span>, TimeUnit.SECONDS).subscribe(<span class="keyword">new</span> Observer&lt;Long&gt;() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSubscribe</span><span class="params">(Disposable d)</span> </span>&#123;</div><div class="line"></div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onNext</span><span class="params">(Long value)</span> </span>&#123;</div><div class="line">                Log.d(<span class="string">"IntervalActivity"</span>, <span class="string">"onNext"</span> + value);</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onError</span><span class="params">(Throwable e)</span> </span>&#123;</div><div class="line"></div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onComplete</span><span class="params">()</span> </span>&#123;</div><div class="line">                Log.d(<span class="string">"IntervalActivity"</span>, <span class="string">"onComplete"</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="布局文件-1"><a href="#布局文件-1" class="headerlink" title="布局文件"></a>布局文件</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">    <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/activity_interval"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span></div><div class="line">    <span class="attr">android:paddingBottom</span>=<span class="string">"@dimen/activity_vertical_margin"</span></div><div class="line">    <span class="attr">android:paddingLeft</span>=<span class="string">"@dimen/activity_horizontal_margin"</span></div><div class="line">    <span class="attr">android:paddingRight</span>=<span class="string">"@dimen/activity_horizontal_margin"</span></div><div class="line">    <span class="attr">android:paddingTop</span>=<span class="string">"@dimen/activity_vertical_margin"</span></div><div class="line">    <span class="attr">tools:context</span>=<span class="string">"com.izdo.rxjavaop.IntervalActivity"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">EditText</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/edit_mobi"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:hint</span>=<span class="string">"请输入验证码"</span>/&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/btn_send"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:background</span>=<span class="string">"#fc3778"</span></div><div class="line">        <span class="attr">android:onClick</span>=<span class="string">"click"</span></div><div class="line">        <span class="attr">android:text</span>=<span class="string">"发送验证码"</span></div><div class="line">        <span class="attr">android:textColor</span>=<span class="string">"#ffffff"</span>/&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="效果图-2"><a href="#效果图-2" class="headerlink" title="效果图"></a>效果图</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog12/Blog12_8.gif?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<blockquote>
+<p>这是一个无限递增的”计时器”，但是目前存在一些问题：</p>
+<ul>
+<li>计时器一般是倒计时</li>
+<li>倒计时时按钮应该设为不可点击</li>
+<li>倒计时时按钮上的文字应该设为对应的数字</li>
+<li>计时是从0开始的，这点需要注意</li>
+</ul>
+<p>接下来就一个一个地解决这些问题，首先计时器不能为无限递增，需要设置一个限制，这时候就要用到<strong>Take操作符</strong>了，而想要在倒计时时按钮设置为不可点击则可以在订阅时进行设置，可以使用<strong>doONSubscribe()</strong> 方法。</p>
+</blockquote>
+<h4 id="修改IntervalActivity中的代码"><a href="#修改IntervalActivity中的代码" class="headerlink" title="修改IntervalActivity中的代码"></a>修改IntervalActivity中的代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.izdo.rxjavaop;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.os.Bundle;</div><div class="line"><span class="keyword">import</span> android.support.v7.app.AppCompatActivity;</div><div class="line"><span class="keyword">import</span> android.util.Log;</div><div class="line"><span class="keyword">import</span> android.view.View;</div><div class="line"><span class="keyword">import</span> android.widget.Button;</div><div class="line"><span class="keyword">import</span> android.widget.EditText;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.concurrent.TimeUnit;</div><div class="line"></div><div class="line"><span class="keyword">import</span> io.reactivex.Observable;</div><div class="line"><span class="keyword">import</span> io.reactivex.Observer;</div><div class="line"><span class="keyword">import</span> io.reactivex.android.schedulers.AndroidSchedulers;</div><div class="line"><span class="keyword">import</span> io.reactivex.disposables.Disposable;</div><div class="line"><span class="keyword">import</span> io.reactivex.functions.Consumer;</div><div class="line"><span class="keyword">import</span> io.reactivex.functions.Function;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IntervalActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> EditText mEditText;</div><div class="line">    <span class="keyword">private</span> Button mButton;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_interval);</div><div class="line"></div><div class="line">        mEditText = (EditText) findViewById(R.id.edit_mobi);</div><div class="line">        mButton = (Button) findViewById(R.id.btn_send);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">click</span><span class="params">(View view)</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="comment">// 时限</span></div><div class="line">        <span class="keyword">final</span> <span class="keyword">int</span> count = <span class="number">10</span>;</div><div class="line"></div><div class="line">        Observable.interval(<span class="number">0</span>, <span class="number">1</span>, TimeUnit.SECONDS)</div><div class="line">                <span class="comment">// 设置时限</span></div><div class="line">                .take(count + <span class="number">1</span>)</div><div class="line">                <span class="comment">// 转换当前倒计时的值</span></div><div class="line">                .map(<span class="keyword">new</span> Function&lt;Long, Long&gt;() &#123;</div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="function"><span class="keyword">public</span> Long <span class="title">apply</span><span class="params">(Long aLong)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">                        <span class="keyword">return</span> count - aLong;</div><div class="line">                    &#125;</div><div class="line">                &#125;)</div><div class="line">                <span class="comment">// UI更新需要在主线程执行</span></div><div class="line">                .observeOn(AndroidSchedulers.mainThread())</div><div class="line">                <span class="comment">// 在订阅时设置按钮不可点击</span></div><div class="line">                .doOnSubscribe(<span class="keyword">new</span> Consumer&lt;Disposable&gt;() &#123;</div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">accept</span><span class="params">(Disposable disposable)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">                        mButton.setEnabled(<span class="keyword">false</span>);</div><div class="line">                    &#125;</div><div class="line">                &#125;)</div><div class="line">                .subscribe(<span class="keyword">new</span> Observer&lt;Long&gt;() &#123;</div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSubscribe</span><span class="params">(Disposable d)</span> </span>&#123;</div><div class="line"></div><div class="line">                    &#125;</div><div class="line"></div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onNext</span><span class="params">(Long value)</span> </span>&#123;</div><div class="line">                        Log.d(<span class="string">"IntervalActivity"</span>, <span class="string">"onNext"</span> + value);</div><div class="line"></div><div class="line">                        <span class="comment">// 设置当前剩余时间</span></div><div class="line">                        mButton.setText(<span class="string">"剩余"</span> + value + <span class="string">"秒"</span>);</div><div class="line">                    &#125;</div><div class="line"></div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onError</span><span class="params">(Throwable e)</span> </span>&#123;</div><div class="line"></div><div class="line">                    &#125;</div><div class="line"></div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onComplete</span><span class="params">()</span> </span>&#123;</div><div class="line">                        Log.d(<span class="string">"IntervalActivity"</span>, <span class="string">"onComplete"</span>);</div><div class="line">                        <span class="comment">// 还原按钮初始化状态</span></div><div class="line">                        mButton.setEnabled(<span class="keyword">true</span>);</div><div class="line">                        mButton.setText(<span class="string">"发送验证码"</span>);</div><div class="line">                    &#125;</div><div class="line">                &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>一般倒计时都是60秒，但是这里因为时间问题就只设置10秒。</p>
+</blockquote>
+<h4 id="效果图-3"><a href="#效果图-3" class="headerlink" title="效果图"></a>效果图</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog12/Blog12_9.gif?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<blockquote>
+<p>现在倒计时就成功实现了，而且上述问题也都解决了，从图中可以看到，在倒计时时，无论怎么点击倒计时也不会重新开始，所以一个获取验证码倒计时的功能就完成了。</p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-05-30T15:03:07.777Z" itemprop="dateUpdated">2017年5月30日 23:03</time>
+</span><br>
+
+
+        这里写留言或版权声明：<a href="/2017/05/30/RxJava2(中)/" target="_blank" rel="external">https://izdo.github.io/2017/05/30/RxJava2(中)/</a>
+    </div>
+    <footer>
+        <a href="https://izdo.github.io">
+            <img src="/img/heizi.jpg" alt="iZdo">
+            iZdo
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://izdo.github.io/2017/05/30/RxJava2(中)/&title=《RxJava2》 — iZdo's Blog&pic=https://izdo.github.io/img/heizi.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://izdo.github.io/2017/05/30/RxJava2(中)/&title=《RxJava2》 — iZdo's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://izdo.github.io/2017/05/30/RxJava2(中)/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《RxJava2》 — iZdo's Blog&url=https://izdo.github.io/2017/05/30/RxJava2(中)/&via=https://izdo.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://izdo.github.io/2017/05/30/RxJava2(中)/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/05/30/RxJava2(上)/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">RxJava2</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>iZdo's Blog &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://izdo.github.io/2017/05/30/RxJava2(中)/&title=《RxJava2》 — iZdo's Blog&pic=https://izdo.github.io/img/heizi.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://izdo.github.io/2017/05/30/RxJava2(中)/&title=《RxJava2》 — iZdo's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://izdo.github.io/2017/05/30/RxJava2(中)/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《RxJava2》 — iZdo's Blog&url=https://izdo.github.io/2017/05/30/RxJava2(中)/&via=https://izdo.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://izdo.github.io/2017/05/30/RxJava2(中)/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJUlEQVR42u3aQY6DMAwFUO5/abodqQW+YxiJ5GVVdQrksfDYjrctXvuf9f390eejq47uef77GxYGBsZrGfvpSraVXPVNHXsdh1QMDIwFGNVb5+E42kSDjYGBgZFvPU/1kvCNgYGB0WdEty6WwRgYGBjnjKSIzdtqyR3y13dzLY6BgfFCRt51///Pj5xvYGBgvIqxF1e/uZ+/psKuMDAwpmZUC9ROiy0paMf2g4GBMTcjb/cnmKTp32/A/fgGAwNjasZYGtcPkY807DAwMCZlDIa2dsmah+BogAwDA2NqRh/QObDsX4WBgbECI2l7VYcw8rHXfID1IgRjYGAsw8jTsiRB7DTXqkEZAwNjTUZ19KEaXpM0sZCMYmBgLMDohL/8aHPsl9FRBAYGxgKMakitDlLko2Nj6SMGBsYKjM4wVqd9NnYkcJEaYmBgTMroHA/koxh5ypg3+7b8/wAGBsbLGdtNK99c9Zto2AIDA2NSRvXIsNoySx5877MwMDBmZVSDYH48kB9JJn+9wGBgYCzAyANlHmSfGxcb1GNgYLycUW11VZO8ZOut3hoGBsakjL24zrfbOQyoHnNiYGCswxjLuzqlaSetzA8PMDAw5mPcG2Sr6WMeiMtvGgMDYzrGWMsseVg/WBdqcQwMDIw2sloqJ8UtBgYGxlgrrfo68qHViyIWAwNjakYe/qrl7tjAWRWGgYExN6NaOlZHxPr3eWQCDgMD4x2MD9p6vCoGBJnOAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.14"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.14" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
