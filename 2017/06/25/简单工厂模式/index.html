@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>简单工厂模式 | iZdo&#39;s Blog | bonbolu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Android,Java,设计模式">
+    <meta name="description" content="简单工厂模式什么是简单工厂模式
+简单工厂模式属于类的创建型模式，又叫做静态工厂方法模式。通过专门定义一个类来负责创建其他类的实例，被创建的实例通常都具有共同的父类。  
+首先看一个例子
+新建SimpleFactory工程新建Apple类和Banana类
+12345678public class Apple &amp;#123;	/*	 * 采摘苹果	 */	public void get() &amp;#123;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="简单工厂模式">
+<meta property="og:url" content="https://izdo.github.io/2017/06/25/简单工厂模式/index.html">
+<meta property="og:site_name" content="iZdo's Blog">
+<meta property="og:description" content="简单工厂模式什么是简单工厂模式
+简单工厂模式属于类的创建型模式，又叫做静态工厂方法模式。通过专门定义一个类来负责创建其他类的实例，被创建的实例通常都具有共同的父类。  
+首先看一个例子
+新建SimpleFactory工程新建Apple类和Banana类
+12345678public class Apple &amp;#123;	/*	 * 采摘苹果	 */	public void get() &amp;#123;">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog14/Blog14_1.png?raw=true">
+<meta property="og:updated_time" content="2017-06-25T14:34:01.869Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="简单工厂模式">
+<meta name="twitter:description" content="简单工厂模式什么是简单工厂模式
+简单工厂模式属于类的创建型模式，又叫做静态工厂方法模式。通过专门定义一个类来负责创建其他类的实例，被创建的实例通常都具有共同的父类。  
+首先看一个例子
+新建SimpleFactory工程新建Apple类和Banana类
+12345678public class Apple &amp;#123;	/*	 * 采摘苹果	 */	public void get() &amp;#123;">
+<meta name="twitter:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog14/Blog14_1.png?raw=true">
+    
+        <link rel="alternative" href="/atom.xml" title="iZdo&#39;s Blog" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.14">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/heizi.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">iZdo</h5>
+          <a href="mailto:401135451@qq.com" title="401135451@qq.com" class="mail">401135451@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/iZdo" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/u/2597276811" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://music.163.com/#/user/home?id=384832070" target="_blank" >
+                <i class="icon icon-lg icon-music"></i>
+                cloudmusic
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://steamcommunity.com/id/401135451/" target="_blank" >
+                <i class="icon icon-lg icon-steam"></i>
+                Steam
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">简单工厂模式</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">简单工厂模式</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-06-25T14:36:08.100Z" itemprop="datePublished" class="page-time">
+  2017-06-25
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#简单工厂模式"><span class="post-toc-number">1.</span> <span class="post-toc-text">简单工厂模式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么是简单工厂模式"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">什么是简单工厂模式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#新建SimpleFactory工程"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">新建SimpleFactory工程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#新建Apple类和Banana类"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">新建Apple类和Banana类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#在主函数中实例化两个类"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">在主函数中实例化两个类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#运行结果"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">运行结果</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#新建Fruit接口"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">新建Fruit接口</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实现类实现接口"><span class="post-toc-number">1.2.5.</span> <span class="post-toc-text">实现类实现接口</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#修改main函数"><span class="post-toc-number">1.2.6.</span> <span class="post-toc-text">修改main函数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#运行结果-1"><span class="post-toc-number">1.2.7.</span> <span class="post-toc-text">运行结果</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#新建FruitFactory工厂类"><span class="post-toc-number">1.2.8.</span> <span class="post-toc-text">新建FruitFactory工厂类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#修改main方法"><span class="post-toc-number">1.2.9.</span> <span class="post-toc-text">修改main方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#运行结果-2"><span class="post-toc-number">1.2.10.</span> <span class="post-toc-text">运行结果</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#工厂模式中包含的角色及其职责"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">工厂模式中包含的角色及其职责</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#对照图"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">对照图</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#修改FruitFactory类"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">修改FruitFactory类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#修改main方法-1"><span class="post-toc-number">1.3.3.</span> <span class="post-toc-text">修改main方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#运行结果-3"><span class="post-toc-number">1.3.4.</span> <span class="post-toc-text">运行结果</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#修改FruitFactory类-1"><span class="post-toc-number">1.3.5.</span> <span class="post-toc-text">修改FruitFactory类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#修改main方法-2"><span class="post-toc-number">1.3.6.</span> <span class="post-toc-text">修改main方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#简单工厂模式的优缺点"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">简单工厂模式的优缺点</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-简单工厂模式"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">简单工厂模式</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年06月25日 22:36" datetime="2017-06-25T14:36:08.100Z"  itemprop="datePublished">2017-06-25</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h1><h2 id="什么是简单工厂模式"><a href="#什么是简单工厂模式" class="headerlink" title="什么是简单工厂模式"></a>什么是简单工厂模式</h2><blockquote>
+<p>简单工厂模式属于类的创建型模式，又叫做静态工厂方法模式。通过专门定义一个类来负责创建其他类的实例，被创建的实例通常都具有共同的父类。  </p>
+<p>首先看一个例子</p>
+<h2 id="新建SimpleFactory工程"><a href="#新建SimpleFactory工程" class="headerlink" title="新建SimpleFactory工程"></a>新建SimpleFactory工程</h2><h3 id="新建Apple类和Banana类"><a href="#新建Apple类和Banana类" class="headerlink" title="新建Apple类和Banana类"></a>新建Apple类和Banana类</h3></blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Apple</span> </span>&#123;</div><div class="line">	<span class="comment">/*</span></div><div class="line">	 * 采摘苹果</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">get</span><span class="params">()</span> </span>&#123;</div><div class="line">		System.out.println(<span class="string">"采摘苹果"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Banana</span> </span>&#123;</div><div class="line">	<span class="comment">/*</span></div><div class="line">	 * 采摘香蕉</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">get</span><span class="params">()</span> </span>&#123;</div><div class="line">		System.out.println(<span class="string">"采摘香蕉"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="在主函数中实例化两个类"><a href="#在主函数中实例化两个类" class="headerlink" title="在主函数中实例化两个类"></a>在主函数中实例化两个类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainClass</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		<span class="comment">// 实例化一个Apple</span></div><div class="line">		Apple apple = <span class="keyword">new</span> Apple();</div><div class="line">		<span class="comment">// 实例化一个Banana</span></div><div class="line">		Banana banana = <span class="keyword">new</span> Banana();</div><div class="line"></div><div class="line">		apple.get();</div><div class="line">		banana.get();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">采摘苹果</div><div class="line">采摘香蕉</div></pre></td></tr></table></figure>
+<blockquote>
+<p>这是Java基础，相信很容易看懂，而我们能看到Apple类和Banana类都是属于水果，里面都只有一个get()方法，那么我们可以定义一个Fruit接口，然后让具体的实现类去实现这个接口。</p>
+</blockquote>
+<h3 id="新建Fruit接口"><a href="#新建Fruit接口" class="headerlink" title="新建Fruit接口"></a>新建Fruit接口</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Fruit</span> </span>&#123;</div><div class="line">	<span class="comment">/*</span></div><div class="line">	 * 采摘</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">get</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="实现类实现接口"><a href="#实现类实现接口" class="headerlink" title="实现类实现接口"></a>实现类实现接口</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Apple</span> <span class="keyword">implements</span> <span class="title">Fruit</span></span>&#123;</div><div class="line">	</div><div class="line">	<span class="comment">/*</span></div><div class="line">	 * 采摘苹果</div><div class="line">	 */</div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">get</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="comment">// TODO Auto-generated method stub</span></div><div class="line">		System.out.println(<span class="string">"采摘苹果"</span>);</div><div class="line">		</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Banana</span> <span class="keyword">implements</span> <span class="title">Fruit</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="comment">/*</span></div><div class="line">	 * 采摘香蕉</div><div class="line">	 */</div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">get</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="comment">// TODO Auto-generated method stub</span></div><div class="line">		System.out.println(<span class="string">"采摘香蕉"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="修改main函数"><a href="#修改main函数" class="headerlink" title="修改main函数"></a>修改main函数</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainClass</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		<span class="comment">// // 实例化一个Apple</span></div><div class="line">		<span class="comment">// Apple apple = new Apple();</span></div><div class="line">		<span class="comment">// // 实例化一个Banana</span></div><div class="line">		<span class="comment">// Banana banana = new Banana();</span></div><div class="line"></div><div class="line">		<span class="comment">// apple.get();</span></div><div class="line">		<span class="comment">// banana.get();</span></div><div class="line">		</div><div class="line">		<span class="comment">// 使用多态实例化一个Apple</span></div><div class="line">		Fruit apple = <span class="keyword">new</span> Apple();</div><div class="line">		<span class="comment">// 使用多态实例化一个Banana</span></div><div class="line">		Fruit banana = <span class="keyword">new</span> Banana();</div><div class="line">		apple.get();</div><div class="line">		banana.get();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="运行结果-1"><a href="#运行结果-1" class="headerlink" title="运行结果"></a>运行结果</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">采摘苹果</div><div class="line">采摘香蕉</div></pre></td></tr></table></figure>
+<blockquote>
+<p>可以看到由于接口是不能实例化的，所以这里运用多态实例化了具体类，运行结果是一样的。<br>那么接下来进入正题，所谓工厂模式，就是需要一个工厂来生产出我们所需要的产品而不需要我们自己动手去做，所以我们现在需要一个创建出一个工厂。</p>
+</blockquote>
+<h3 id="新建FruitFactory工厂类"><a href="#新建FruitFactory工厂类" class="headerlink" title="新建FruitFactory工厂类"></a>新建FruitFactory工厂类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FruitFactory</span> </span>&#123;</div><div class="line">	<span class="comment">/*</span></div><div class="line">	 * 获得Apple类的实例</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> Fruit <span class="title">getApple</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">new</span> Apple();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">/*</span></div><div class="line">	 * 获得Banana类的实例</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> Fruit <span class="title">getBanana</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">new</span> Banana();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="修改main方法"><a href="#修改main方法" class="headerlink" title="修改main方法"></a>修改main方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainClass</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"></div><div class="line">		<span class="comment">// // 实例化一个Apple</span></div><div class="line">		<span class="comment">// Apple apple = new Apple();</span></div><div class="line">		<span class="comment">// // 实例化一个Banana</span></div><div class="line">		<span class="comment">// Banana banana = new Banana();</span></div><div class="line"></div><div class="line">		<span class="comment">// apple.get();</span></div><div class="line">		<span class="comment">// banana.get();</span></div><div class="line"></div><div class="line">		<span class="comment">// // 使用多态实例化一个Apple</span></div><div class="line">		<span class="comment">// Fruit apple = new Apple();</span></div><div class="line">		<span class="comment">// // 使用多态实例化一个Banana</span></div><div class="line">		<span class="comment">// Fruit banana = new Banana();</span></div><div class="line">		<span class="comment">// apple.get();</span></div><div class="line">		<span class="comment">// banana.get();</span></div><div class="line"></div><div class="line">		<span class="comment">// 实例化一个Apple</span></div><div class="line">		Fruit apple = <span class="keyword">new</span> FruitFactory().getApple();</div><div class="line">		<span class="comment">// 实例化一个Banana</span></div><div class="line">		Fruit banana = <span class="keyword">new</span> FruitFactory().getBanana();</div><div class="line">		apple.get();</div><div class="line">		banana.get();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="运行结果-2"><a href="#运行结果-2" class="headerlink" title="运行结果"></a>运行结果</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">采摘苹果</div><div class="line">采摘香蕉</div></pre></td></tr></table></figure>
+<blockquote>
+<p>运行结果还是一样的。<br>但是我们发现要实例化一个具体类我们需要<strong>new FruitFactory().getXXX();</strong> 创建一个匿名对象，这样未免也太麻烦了，所以我们可以将FruitFacotory中的两个方法都改为静态方法，这样就可以直接通过类名调用该方法，而不需要去创建对象了。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FruitFactory</span> </span>&#123;</div><div class="line">	<span class="comment">/*</span></div><div class="line">	 * 获得Apple类的实例</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Fruit <span class="title">getApple</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">new</span> Apple();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">/*</span></div><div class="line">	 * 获得Banana类的实例</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Fruit <span class="title">getBanana</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">new</span> Banana();</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainClass</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"></div><div class="line">	...</div><div class="line"></div><div class="line">		<span class="comment">// 实例化一个Apple</span></div><div class="line">		Fruit apple = FruitFactory.getApple();</div><div class="line">		<span class="comment">// 实例化一个Banana</span></div><div class="line">		Fruit banana = FruitFactory.getBanana();</div><div class="line">		apple.get();</div><div class="line">		banana.get();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="工厂模式中包含的角色及其职责"><a href="#工厂模式中包含的角色及其职责" class="headerlink" title="工厂模式中包含的角色及其职责"></a>工厂模式中包含的角色及其职责</h2><blockquote>
+<ul>
+<li>工厂(Creator)角色: 简单工厂模式的核心，它负责实现创建所有实例的内部逻辑。工厂类可以被外界直接调用，创建所需的产品对象。</li>
+<li>抽象产品(Product)角色:简单工厂模式所创建的所有对象的父类，它负责描述所有实例所共有的公共接口。</li>
+<li>具体产品(Concrete Product)角色:简单工厂模式所创建的具体实例对象。  <h3 id="对照图"><a href="#对照图" class="headerlink" title="对照图"></a>对照图</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog14/Blog14_1.png?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+</li>
+</ul>
+<p>回到刚才的工程中，我们在Fruit工厂类中定义了两个方法，一个用于获取Apple的实例，另一个用于获取Banana的实例，但是水果有很多种，如果我们要获取许多种类的水果的实例，那我们岂不是需要写一堆方法了吗？所以我们可以将这些水果放在一个方法中。</p>
+</blockquote>
+<h3 id="修改FruitFactory类"><a href="#修改FruitFactory类" class="headerlink" title="修改FruitFactory类"></a>修改FruitFactory类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FruitFactory</span> </span>&#123;</div><div class="line">	...</div><div class="line"></div><div class="line">	<span class="comment">/*</span></div><div class="line">	 * 获得所有产品对象</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Fruit <span class="title">getFruit</span><span class="params">(String type)</span> <span class="keyword">throws</span> InstantiationException, IllegalAccessException </span>&#123;</div><div class="line">		<span class="keyword">if</span> (type.equalsIgnoreCase(<span class="string">"apple"</span>)) &#123;</div><div class="line">			<span class="keyword">return</span> Apple.class.newInstance();</div><div class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (type.equalsIgnoreCase(<span class="string">"banana"</span>)) &#123;</div><div class="line">			<span class="keyword">return</span> Banana.class.newInstance();</div><div class="line">		&#125; <span class="keyword">else</span> &#123;</div><div class="line">			System.out.println(<span class="string">"找不到相应的实例化类"</span>);</div><div class="line">			<span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>现在我们将获取Apple和Banana实例的方法都放在getFruit()方法中，通过传入的type判断所需要的是什么类型的水果的实例再将其实例返回给调用者，这样就避免的方法过多的情况。</p>
+</blockquote>
+<h3 id="修改main方法-1"><a href="#修改main方法-1" class="headerlink" title="修改main方法"></a>修改main方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainClass</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InstantiationException, IllegalAccessException </span>&#123;</div><div class="line"></div><div class="line">		...</div><div class="line"></div><div class="line">		Fruit apple = FruitFactory.getFruit(<span class="string">"apple"</span>);</div><div class="line">		Fruit banana = FruitFactory.getFruit(<span class="string">"banana"</span>);</div><div class="line">		apple.get();</div><div class="line">		banana.get();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="运行结果-3"><a href="#运行结果-3" class="headerlink" title="运行结果"></a>运行结果</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">采摘苹果</div><div class="line">采摘香蕉</div></pre></td></tr></table></figure>
+<blockquote>
+<p>除了这种方式，我们还可以用另一种方式来获取实例。</p>
+</blockquote>
+<h3 id="修改FruitFactory类-1"><a href="#修改FruitFactory类-1" class="headerlink" title="修改FruitFactory类"></a>修改FruitFactory类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FruitFactory</span> </span>&#123;</div><div class="line"></div><div class="line">    ...</div><div class="line"></div><div class="line">	<span class="comment">/*</span></div><div class="line">	 * 获得所有产品对象</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Fruit <span class="title">getFruit</span><span class="params">(String type)</span></span></div><div class="line">			<span class="keyword">throws</span> InstantiationException, IllegalAccessException, ClassNotFoundException &#123;</div><div class="line">		<span class="comment">// if (type.equalsIgnoreCase("apple")) &#123;</span></div><div class="line">		<span class="comment">// return Apple.class.newInstance();</span></div><div class="line">		<span class="comment">// &#125; else if (type.equalsIgnoreCase("banana")) &#123;</span></div><div class="line">		<span class="comment">// return Banana.class.newInstance();</span></div><div class="line">		<span class="comment">// &#125; else &#123;</span></div><div class="line">		<span class="comment">// System.out.println("找不到相应的实例化类");</span></div><div class="line">		<span class="comment">// return null;</span></div><div class="line">		<span class="comment">// &#125;</span></div><div class="line"></div><div class="line">		Class fruit = Class.forName(type);</div><div class="line">		<span class="keyword">return</span> (Fruit) fruit.newInstance();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="修改main方法-2"><a href="#修改main方法-2" class="headerlink" title="修改main方法"></a>修改main方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainClass</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InstantiationException, IllegalAccessException, ClassNotFoundException </span>&#123;</div><div class="line"></div><div class="line">	    ...</div><div class="line"></div><div class="line">		<span class="comment">// // 实例化一个Apple</span></div><div class="line">		<span class="comment">// Fruit apple = FruitFactory.getApple();</span></div><div class="line">		<span class="comment">// // 实例化一个Banana</span></div><div class="line">		<span class="comment">// Fruit banana = FruitFactory.getBanana();</span></div><div class="line">		<span class="comment">// apple.get();</span></div><div class="line">		<span class="comment">// banana.get();</span></div><div class="line"></div><div class="line">		Fruit apple = FruitFactory.getFruit(<span class="string">"Apple"</span>);</div><div class="line">		Fruit banana = FruitFactory.getFruit(<span class="string">"Banana"</span>);</div><div class="line">		apple.get();</div><div class="line">		banana.get();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>这里我们将getFruit()方法更改为由传入的type类型查找相应的Class并实例化，这样虽然将步骤简单化了，我们不再需要去判断对应的类型，但是也有局限性，<br>我们传入的type必须和类名大小写一致，否则会出现<br>NoClassDefFoundError这个异常，减少了灵活性。  </p>
+</blockquote>
+<h2 id="简单工厂模式的优缺点"><a href="#简单工厂模式的优缺点" class="headerlink" title="简单工厂模式的优缺点"></a>简单工厂模式的优缺点</h2><blockquote>
+<p>在这个模式中，工厂类是整个模式的关键所在。它包含必要的判断逻辑，能够根据外界给定的信息，决定究竟应该创建哪个具体类的对象。用户在使用时可以直接根据工厂类去创建所需的实例，而无需了解这些对象是如何创建以及如何组织的，有利于整个软件体系结构的优化。<br>不难发现，简单工厂模式的缺点也正体现在其工厂类上，由于工厂类集中了所有实例的创建逻辑，所以”高内聚”方面做的并不好，另外，当系统中的具体产品类不断增多时，可能会出现要求工厂类也要做相应的修改，扩展性并不是很好。</p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-06-25T14:34:01.869Z" itemprop="dateUpdated">2017年6月25日 22:34</time>
+</span><br>
+
+
+        这里写留言或版权声明：<a href="/2017/06/25/简单工厂模式/" target="_blank" rel="external">https://izdo.github.io/2017/06/25/简单工厂模式/</a>
+    </div>
+    <footer>
+        <a href="https://izdo.github.io">
+            <img src="/img/heizi.jpg" alt="iZdo">
+            iZdo
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://izdo.github.io/2017/06/25/简单工厂模式/&title=《简单工厂模式》 — iZdo's Blog&pic=https://izdo.github.io/img/heizi.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://izdo.github.io/2017/06/25/简单工厂模式/&title=《简单工厂模式》 — iZdo's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://izdo.github.io/2017/06/25/简单工厂模式/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《简单工厂模式》 — iZdo's Blog&url=https://izdo.github.io/2017/06/25/简单工厂模式/&via=https://izdo.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://izdo.github.io/2017/06/25/简单工厂模式/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/06/04/RxJava2(下)/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">RxJava2(下)</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>iZdo's Blog &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://izdo.github.io/2017/06/25/简单工厂模式/&title=《简单工厂模式》 — iZdo's Blog&pic=https://izdo.github.io/img/heizi.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://izdo.github.io/2017/06/25/简单工厂模式/&title=《简单工厂模式》 — iZdo's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://izdo.github.io/2017/06/25/简单工厂模式/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《简单工厂模式》 — iZdo's Blog&url=https://izdo.github.io/2017/06/25/简单工厂模式/&via=https://izdo.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://izdo.github.io/2017/06/25/简单工厂模式/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJklEQVR42u3aSw7CMAxFUfa/6bAARHqfTZHq3IyQ6CenA8uO/Xrhtb6sz2s+ryfP5He1lgwZMh7LWNtFXrm/a/8E8pt8RBkyZJzA+BbB9tfsn7PwItSLPcuQIUPGNhFMUz3+ZBkyZMioMUgiyEMzTxllyJAhg5ej5GislvbVSmUZMmScwKiFyP/8vqW/IUOGjEcxVrhqB/dpOzPelQwZMkYz0kP/fsrYKVwv3iJDhozRDF5A8kM6XmrylgN5uwwZMuYxSJLHByl+VWmmzQkZMmScxqgleeldPEFEb5chQ8ZoRprY8VeSf/kgRVzuypAhYxCDHOXvSZ1xihsHwmTIkDGOwbceHNC3xzWCFoIMGTKOYdQO3fqBe/85ULtChgwZoxm1AQhegvJN87blRYiXIUPGUEbncbyKrPH4oJgMGTJmM8jqNBRJYpeOgvHiWYYMGTMYfHPp0T8vRHlQRu0BGTJkDGKk4S8ta9MkMg39aNhChgwZD2fUyloeNNODvNbIhQwZMkYz+IY6qV6nVEafQIYMGUcy0oKzM/jFm6YyZMiQwUNhJ6VLD9fQHmTIkDGUscKVNgz4EV6tzYlyWxkyZDyccV952Rn5SpNFGTJknMBIRx9qQbnW+Ay+twwZMg5g/KqR2UlAO7uVIUOGjLRAJXlo2myQIUOGjDTg8nDJi9vWCJoMGTIOYHTCX22ArBbWZciQcSajVjrWGoq1dDNOE2XIkDGH8QYlc/oIKoZttAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.14"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.14" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
