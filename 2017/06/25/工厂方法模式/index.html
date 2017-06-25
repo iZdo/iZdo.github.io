@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>工厂方法模式 | iZdo&#39;s Blog | bonbolu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Java,Android,设计模式">
+    <meta name="description" content="工厂方法模式什么是工厂方法模式
+工厂方法模式同样属于类的创建型模式又被称为多态工厂模式。工厂方法模式我的意义是定义一个创建产品对象的工厂接口，将实际创建工作推迟到子类当中。核心工厂类不再负责产品的创建，这样核心类称为一个抽象工厂角色，仅负责具体工厂子类必须实现的接口，这样进一步抽象化的好处是使得工厂方法模式可以使系统在不修改具体工厂角色的情况下引进新的产品。
+同样先看一个例子。
+新建Factory">
+<meta property="og:type" content="article">
+<meta property="og:title" content="工厂方法模式">
+<meta property="og:url" content="https://izdo.github.io/2017/06/25/工厂方法模式/index.html">
+<meta property="og:site_name" content="iZdo's Blog">
+<meta property="og:description" content="工厂方法模式什么是工厂方法模式
+工厂方法模式同样属于类的创建型模式又被称为多态工厂模式。工厂方法模式我的意义是定义一个创建产品对象的工厂接口，将实际创建工作推迟到子类当中。核心工厂类不再负责产品的创建，这样核心类称为一个抽象工厂角色，仅负责具体工厂子类必须实现的接口，这样进一步抽象化的好处是使得工厂方法模式可以使系统在不修改具体工厂角色的情况下引进新的产品。
+同样先看一个例子。
+新建Factory">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog15/Blog15_1.png?raw=true">
+<meta property="og:updated_time" content="2017-06-25T14:35:04.193Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="工厂方法模式">
+<meta name="twitter:description" content="工厂方法模式什么是工厂方法模式
+工厂方法模式同样属于类的创建型模式又被称为多态工厂模式。工厂方法模式我的意义是定义一个创建产品对象的工厂接口，将实际创建工作推迟到子类当中。核心工厂类不再负责产品的创建，这样核心类称为一个抽象工厂角色，仅负责具体工厂子类必须实现的接口，这样进一步抽象化的好处是使得工厂方法模式可以使系统在不修改具体工厂角色的情况下引进新的产品。
+同样先看一个例子。
+新建Factory">
+<meta name="twitter:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog15/Blog15_1.png?raw=true">
+    
+        <link rel="alternative" href="/atom.xml" title="iZdo&#39;s Blog" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.14">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/heizi.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">iZdo</h5>
+          <a href="mailto:401135451@qq.com" title="401135451@qq.com" class="mail">401135451@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/iZdo" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/u/2597276811" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://music.163.com/#/user/home?id=384832070" target="_blank" >
+                <i class="icon icon-lg icon-music"></i>
+                cloudmusic
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://steamcommunity.com/id/401135451/" target="_blank" >
+                <i class="icon icon-lg icon-steam"></i>
+                Steam
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">工厂方法模式</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">工厂方法模式</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-06-25T14:36:23.291Z" itemprop="datePublished" class="page-time">
+  2017-06-25
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#工厂方法模式"><span class="post-toc-number">1.</span> <span class="post-toc-text">工厂方法模式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么是工厂方法模式"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">什么是工厂方法模式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#新建FactoryMethod工程"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">新建FactoryMethod工程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#新建Pear类"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">新建Pear类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#修改FruitFactory类"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">修改FruitFactory类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#修改main方法"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">修改main方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#将FruitFactory修改为接口"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">将FruitFactory修改为接口</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#新建AppleFactory类和BananaFactory类"><span class="post-toc-number">1.2.5.</span> <span class="post-toc-text">新建AppleFactory类和BananaFactory类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#修改main方法-1"><span class="post-toc-number">1.2.6.</span> <span class="post-toc-text">修改main方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#运行结果"><span class="post-toc-number">1.2.7.</span> <span class="post-toc-text">运行结果</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#新建PearFactory类"><span class="post-toc-number">1.2.8.</span> <span class="post-toc-text">新建PearFactory类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#修改main方法-2"><span class="post-toc-number">1.2.9.</span> <span class="post-toc-text">修改main方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#运行效果"><span class="post-toc-number">1.2.10.</span> <span class="post-toc-text">运行效果</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#工厂方法模式中包含的角色及其职责"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">工厂方法模式中包含的角色及其职责</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#对照图"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">对照图</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#工厂方法模式和简单工厂模式比较"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">工厂方法模式和简单工厂模式比较</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-工厂方法模式"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">工厂方法模式</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年06月25日 22:36" datetime="2017-06-25T14:36:23.291Z"  itemprop="datePublished">2017-06-25</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="工厂方法模式"><a href="#工厂方法模式" class="headerlink" title="工厂方法模式"></a>工厂方法模式</h1><h2 id="什么是工厂方法模式"><a href="#什么是工厂方法模式" class="headerlink" title="什么是工厂方法模式"></a>什么是工厂方法模式</h2><blockquote>
+<p>工厂方法模式同样属于类的创建型模式又被称为多态工厂模式。工厂方法模式我的意义是定义一个创建产品对象的工厂接口，将实际创建工作推迟到子类当中。<strong>核心工厂类不再负责产品的创建</strong>，这样核心类称为一个抽象工厂角色，仅负责具体工厂子类必须实现的接口，这样进一步抽象化的好处是使得工厂方法模式可以使系统在不修改具体工厂角色的情况下引进新的产品。</p>
+<p>同样先看一个例子。</p>
+<h2 id="新建FactoryMethod工程"><a href="#新建FactoryMethod工程" class="headerlink" title="新建FactoryMethod工程"></a>新建FactoryMethod工程</h2><p>将上一篇简单工厂模式工程中的所有类都拷贝过来。<br>回顾一下简单工厂模式，如果我们要添加一种水果，应该怎样做？</p>
+</blockquote>
+<h3 id="新建Pear类"><a href="#新建Pear类" class="headerlink" title="新建Pear类"></a>新建Pear类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Pear</span> <span class="keyword">implements</span> <span class="title">Fruit</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">get</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="comment">// TODO Auto-generated method stub</span></div><div class="line">		System.out.println(<span class="string">"采摘梨子"</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="修改FruitFactory类"><a href="#修改FruitFactory类" class="headerlink" title="修改FruitFactory类"></a>修改FruitFactory类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FruitFactory</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Fruit <span class="title">getFruit</span><span class="params">(String type)</span> <span class="keyword">throws</span> InstantiationException, IllegalAccessException </span>&#123;</div><div class="line">		<span class="keyword">if</span> (type.equalsIgnoreCase(<span class="string">"apple"</span>)) &#123;</div><div class="line">			<span class="keyword">return</span> Apple.class.newInstance();</div><div class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (type.equalsIgnoreCase(<span class="string">"banana"</span>)) &#123;</div><div class="line">			<span class="keyword">return</span> Banana.class.newInstance();</div><div class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (type.equalsIgnoreCase(<span class="string">"pear"</span>)) &#123;</div><div class="line">			<span class="keyword">return</span> Pear.class.newInstance();</div><div class="line">		&#125; <span class="keyword">else</span> &#123;</div><div class="line">			System.out.println(<span class="string">"找不到相应的实例化类"</span>);</div><div class="line">			<span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="修改main方法"><a href="#修改main方法" class="headerlink" title="修改main方法"></a>修改main方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainClass</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InstantiationException, IllegalAccessException </span>&#123;</div><div class="line"></div><div class="line">		Fruit apple = FruitFactory.getFruit(<span class="string">"Apple"</span>);</div><div class="line">		Fruit banana = FruitFactory.getFruit(<span class="string">"Banana"</span>);</div><div class="line">		Fruit pear = FruitFactory.getFruit(<span class="string">"pear"</span>);</div><div class="line">		apple.get();</div><div class="line">		banana.get();</div><div class="line">		pear.get();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>这就是简单工厂模式，而上一篇文章结尾也说了简单工厂模式的缺点是有时候需要我们去修改工厂类，扩展性并不好。<br>那么这个时候工厂方法模式就起作用了。</p>
+</blockquote>
+<h3 id="将FruitFactory修改为接口"><a href="#将FruitFactory修改为接口" class="headerlink" title="将FruitFactory修改为接口"></a>将FruitFactory修改为接口</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">FruitFactory</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> Fruit <span class="title">getFruit</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="新建AppleFactory类和BananaFactory类"><a href="#新建AppleFactory类和BananaFactory类" class="headerlink" title="新建AppleFactory类和BananaFactory类"></a>新建AppleFactory类和BananaFactory类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AppleFactory</span> <span class="keyword">implements</span> <span class="title">FruitFactory</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> Fruit <span class="title">getFruit</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="comment">// TODO Auto-generated method stub</span></div><div class="line">		<span class="keyword">return</span> <span class="keyword">new</span> Apple();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BananaFactory</span> <span class="keyword">implements</span> <span class="title">FruitFactory</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> Fruit <span class="title">getFruit</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="comment">// TODO Auto-generated method stub</span></div><div class="line">		<span class="keyword">return</span> <span class="keyword">new</span> Banana();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="修改main方法-1"><a href="#修改main方法-1" class="headerlink" title="修改main方法"></a>修改main方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainClass</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		<span class="comment">// 获得AppleFactory</span></div><div class="line">		FruitFactory ff = <span class="keyword">new</span> AppleFactory();</div><div class="line">		<span class="comment">// 通过AppleFactory获得Apple实例对象</span></div><div class="line">		Fruit apple = ff.getFruit();</div><div class="line">		apple.get();</div><div class="line"></div><div class="line">		<span class="comment">// 获得BananaFactory</span></div><div class="line">		FruitFactory ff2 = <span class="keyword">new</span> BananaFactory();</div><div class="line">		<span class="comment">// 通过AppleFactory获得Apple实例对象</span></div><div class="line">		Fruit banana = ff2.getFruit();</div><div class="line">		banana.get();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">采摘苹果</div><div class="line">采摘香蕉</div></pre></td></tr></table></figure>
+<blockquote>
+<p>可以看到，我们将FruitFactory修改为接口后，想要加入一种水果的话，只要新建相对应的具体水果类和水果工厂并实现FruitFactory接口，然后通过该水果工厂的实例去获取相应水果的实例即可。<br>那么如果我们要加入Pear这种水果应该怎么做？</p>
+</blockquote>
+<h3 id="新建PearFactory类"><a href="#新建PearFactory类" class="headerlink" title="新建PearFactory类"></a>新建PearFactory类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PearFactory</span> <span class="keyword">implements</span> <span class="title">FruitFactory</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> Fruit <span class="title">getFruit</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="comment">// TODO Auto-generated method stub</span></div><div class="line">		<span class="keyword">return</span> <span class="keyword">new</span> Pear();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="修改main方法-2"><a href="#修改main方法-2" class="headerlink" title="修改main方法"></a>修改main方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainClass</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		<span class="comment">// 获得AppleFactory</span></div><div class="line">		FruitFactory ff = <span class="keyword">new</span> AppleFactory();</div><div class="line">		<span class="comment">// 通过AppleFactory获得Apple实例对象</span></div><div class="line">		Fruit apple = ff.getFruit();</div><div class="line">		apple.get();</div><div class="line"></div><div class="line">		<span class="comment">// 获得BananaFactory</span></div><div class="line">		FruitFactory ff2 = <span class="keyword">new</span> BananaFactory();</div><div class="line">		<span class="comment">// 通过BananaFactory获得Apple实例对象</span></div><div class="line">		Fruit banana = ff2.getFruit();</div><div class="line">		banana.get();</div><div class="line"></div><div class="line">		<span class="comment">// 获得Pearactory</span></div><div class="line">		FruitFactory ff3 = <span class="keyword">new</span> PearFactory();</div><div class="line">		<span class="comment">// 通过PearFactory获得Apple实例对象</span></div><div class="line">		Fruit pear = ff3.getFruit();</div><div class="line">		pear.get();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="运行效果"><a href="#运行效果" class="headerlink" title="运行效果"></a>运行效果</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">采摘苹果</div><div class="line">采摘香蕉</div><div class="line">采摘梨子</div></pre></td></tr></table></figure>
+<blockquote>
+<p>可以看到，当我们需要加入一种新的水果时，完全不需要修改FruitFactory类，只需要加入相应的工厂并实现FruitFactory和一个具体对象即可，当我们需要修改某种特定水果的方法时，只需要找出其工厂类并做出相应的修改。</p>
+</blockquote>
+<h2 id="工厂方法模式中包含的角色及其职责"><a href="#工厂方法模式中包含的角色及其职责" class="headerlink" title="工厂方法模式中包含的角色及其职责"></a>工厂方法模式中包含的角色及其职责</h2><blockquote>
+<ul>
+<li>抽象工厂(Creator)角色:工厂方法模式的核心，任何工厂类都必须实现这个接口。</li>
+<li>具体工厂(Concrete Creator)角色:具体工厂类是抽象工厂的一个实现，负责实例化产品对象。</li>
+<li>抽象(Product)产品角色:工厂方法模式所创建的所有对象的父类，它负责描述所有实例所共有的公共接口。</li>
+<li>具体产品(Concrete Product)角色:工厂方法模式所创建的具体实例对象。</li>
+</ul>
+</blockquote>
+<h3 id="对照图"><a href="#对照图" class="headerlink" title="对照图"></a>对照图</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog15/Blog15_1.png?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="工厂方法模式和简单工厂模式比较"><a href="#工厂方法模式和简单工厂模式比较" class="headerlink" title="工厂方法模式和简单工厂模式比较"></a>工厂方法模式和简单工厂模式比较</h2><blockquote>
+<p>工厂方法模式与简单工厂模式在结构上的不同不是很明显。<br>工厂方法类的核心是一个抽象工厂类，而简单工厂模式把核心放在一个具体类上。<br>工厂方法模式之所以有一个别名叫多态性工厂模式是因为具体工厂类都有共同的接口，或者有共同的抽象父类。<br>当系统扩展需要添加新的产品对象时，仅仅需要添加一个具体对象以及一个具体工厂对象，原有工厂对象不需要进行任何修改，也不需要修改客户端，很好的符合了”开放-封闭”原则。而简单工厂模式在添加新产品对象后不得不修改工厂方法，扩展性不好。<br>工厂方法模式退化后可以演变成简单工厂模式。</p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-06-25T14:35:04.193Z" itemprop="dateUpdated">2017年6月25日 22:35</time>
+</span><br>
+
+
+        这里写留言或版权声明：<a href="/2017/06/25/工厂方法模式/" target="_blank" rel="external">https://izdo.github.io/2017/06/25/工厂方法模式/</a>
+    </div>
+    <footer>
+        <a href="https://izdo.github.io">
+            <img src="/img/heizi.jpg" alt="iZdo">
+            iZdo
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://izdo.github.io/2017/06/25/工厂方法模式/&title=《工厂方法模式》 — iZdo's Blog&pic=https://izdo.github.io/img/heizi.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://izdo.github.io/2017/06/25/工厂方法模式/&title=《工厂方法模式》 — iZdo's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://izdo.github.io/2017/06/25/工厂方法模式/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《工厂方法模式》 — iZdo's Blog&url=https://izdo.github.io/2017/06/25/工厂方法模式/&via=https://izdo.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://izdo.github.io/2017/06/25/工厂方法模式/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/06/25/抽象工厂模式/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">抽象工厂模式</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/06/25/简单工厂模式/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">简单工厂模式</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>iZdo's Blog &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://izdo.github.io/2017/06/25/工厂方法模式/&title=《工厂方法模式》 — iZdo's Blog&pic=https://izdo.github.io/img/heizi.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://izdo.github.io/2017/06/25/工厂方法模式/&title=《工厂方法模式》 — iZdo's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://izdo.github.io/2017/06/25/工厂方法模式/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《工厂方法模式》 — iZdo's Blog&url=https://izdo.github.io/2017/06/25/工厂方法模式/&via=https://izdo.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://izdo.github.io/2017/06/25/工厂方法模式/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3ay5LDIAxE0fz/TzNVs8oG090ik0FcVq7EcTheqNDj9ZLX+F3v1++f6PdkT962YMCAcSxjPK464/m3yrfPe4MBA8Y9DDcUzq4//e30cxgwYMCQH52FZuVlwYABA8bexHXvb2HAgAFDT2KfN5SVyb6Qi8OAAeNARvZnf3P98f4GDBgw/j1jmEvn6f+rHBMXu4IBA0ZrhlKad8tk2T1Zy3OR18KAAaMFw00glZTVTTWVl7j4BAYMGK0ZzzdVmov1ZFV/PgwYMG5g6Klj1k7QG5lu88DucsCAAeNARuWh9WEvfZBiEbJhwIDRmuEe7Nw2pBu43U3DgAHjHkZW1ld4yoFST18XQR8GDBhNGW6IVApkLj4r3sGAAeNOhj7OpYROHZAV42DAgHEPw91u9ugsBOvtVRgwYNzAyHJfPVjro2bZ64ABA0ZvxpCXG5Sz46ZCnSaxMGDAaM0whhiERmaGdIPvdGYEBgwY7RhuqpkNe+njFPoLXUyLwIABoxEjK8e74xfuK5DalvWuAgwYMI5iuFt3E9Rd7clFuQ0GDBhNGW6xTG9tKlvc1WaAAQNGb8Ywl5KaZs3ILEzDgAHjBkal0eiW2NxnuiEeBgwYvRl6G0BnVFqbyqiHlDHDgAGjHaOesmYd1Cx9nQZcGDBgXM9wg6keQCuvDAYMGDCUolh2ZqsjtwVcGDBgHMLIBrP23lk5JsKAAaM3ozSpYbYzKwU76YAIAwaMbowfL968KlrgtEQAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.14"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.14" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
