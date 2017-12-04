@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>No title | iZdo&#39;s Blog | bonbolu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="layout: posttitle: Android基础九tags: [Android,note]
+categories: AndroidAndroid基础(九)Activity的生命周期123456789101112131415161718192021222324252627282930313233343536373839404142434445public class MainActivit">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="https://izdo.github.io/2017/12/04/Android基础九/index.html">
+<meta property="og:site_name" content="iZdo's Blog">
+<meta property="og:description" content="layout: posttitle: Android基础九tags: [Android,note]
+categories: AndroidAndroid基础(九)Activity的生命周期123456789101112131415161718192021222324252627282930313233343536373839404142434445public class MainActivit">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog28/Blog28_1.png?raw=true">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog28/Blog28_2.png?raw=true">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog28/Blog28_3.png?raw=true">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog28/Blog28_4.png?raw=true">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog28/Blog28_5.png?raw=true">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog28/Blog28_6.png?raw=true">
+<meta property="og:updated_time" content="2017-12-04T13:10:03.085Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="layout: posttitle: Android基础九tags: [Android,note]
+categories: AndroidAndroid基础(九)Activity的生命周期123456789101112131415161718192021222324252627282930313233343536373839404142434445public class MainActivit">
+<meta name="twitter:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog28/Blog28_1.png?raw=true">
+    
+        <link rel="alternative" href="/atom.xml" title="iZdo&#39;s Blog" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.14">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/heizi.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">iZdo</h5>
+          <a href="mailto:401135451@qq.com" title="401135451@qq.com" class="mail">401135451@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/iZdo" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">No title</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">No title</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-12-04T13:13:01.093Z" itemprop="datePublished" class="page-time">
+  2017-12-04
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#categories-Android"><span class="post-toc-number">1.</span> <span class="post-toc-text">categories: Android</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Android基础-九"><span class="post-toc-number"></span> <span class="post-toc-text">Android基础(九)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Activity的生命周期"><span class="post-toc-number">1.</span> <span class="post-toc-text">Activity的生命周期</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#横竖屏切换影响生命周期"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">横竖屏切换影响生命周期</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#AndroidMenifest-xml"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">AndroidMenifest.xml</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#任务栈与启动模式"><span class="post-toc-number">2.</span> <span class="post-toc-text">任务栈与启动模式</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#standard"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">standard</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#singleTop"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">singleTop</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#singleTask"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">singleTask</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#singleInstance"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">singleInstance</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Intent补充"><span class="post-toc-number">3.</span> <span class="post-toc-text">Intent补充</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用Intent开启一个新的Activity的方式"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">使用Intent开启一个新的Activity的方式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#为系统注册一个名为com-izdo-intent-action-ABC的Action，该Action对应的行为是跳转到MyActivity"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">为系统注册一个名为com.izdo.intent.action.ABC的Action，该Action对应的行为是跳转到MyActivity</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#AndroidMenifest-xml-1"><span class="post-toc-number">3.2.1.</span> <span class="post-toc-text">AndroidMenifest.xml</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#创建Intent，使其匹配ABC-Action"><span class="post-toc-number">3.2.2.</span> <span class="post-toc-text">创建Intent，使其匹配ABC Action</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Android基础九"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">No title</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年12月04日 21:13" datetime="2017-12-04T13:13:01.093Z"  itemprop="datePublished">2017-12-04</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <hr>
+<p>layout: post<br>title: Android基础九<br>tags: [Android,note]</p>
+<h2 id="categories-Android"><a href="#categories-Android" class="headerlink" title="categories: Android"></a>categories: Android</h2><h1 id="Android基础-九"><a href="#Android基础-九" class="headerlink" title="Android基础(九)"></a>Android基础(九)</h1><h2 id="Activity的生命周期"><a href="#Activity的生命周期" class="headerlink" title="Activity的生命周期"></a>Activity的生命周期</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line">        Log.i(<span class="string">"abc"</span>, <span class="string">"onCreate: "</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onStart</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onStart();</div><div class="line">        Log.i(<span class="string">"abc"</span>, <span class="string">"onStart: "</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onResume</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onResume();</div><div class="line">        Log.i(<span class="string">"abc"</span>, <span class="string">"onStart: "</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onRestart</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onRestart();</div><div class="line">        Log.i(<span class="string">"abc"</span>, <span class="string">"onRestart: "</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onPause</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onPause();</div><div class="line">        Log.i(<span class="string">"abc"</span>, <span class="string">"onPause: "</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onStop</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onStop();</div><div class="line">        Log.i(<span class="string">"abc"</span>, <span class="string">"onStop: "</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onDestroy();</div><div class="line">        Log.i(<span class="string">"abc"</span>, <span class="string">"onDestroy: "</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<ul>
+<li>通过打印log可以发现，当Activity第一次打开时，会依次调用onCreate() -&gt; onStart() -&gt; onResume()  </li>
+<li>当退出应用时，会依次调用onPause() -&gt; onStop() -&gt; onDestroy()  </li>
+<li>当开启一个新Activity2时，Activity2覆盖了原来的Activity1，导致Activity1不可见，Activity1会依次调用onPasue() -&gt; onStop()  </li>
+<li>当Activity2关闭返回Activity1时，Activity1会依次调用onStart() -&gt; onResume()  </li>
+<li>而当Acitivity2是一个透明的界面，不会阻挡住Activity1时，此时Activity1只是无法获取焦点，并不是不可见的，这时Activity1就只会调用onPause()  </li>
+<li>当Activity2退出时，Activity1就会调用onResume()</li>
+</ul>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog28/Blog28_1.png?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="横竖屏切换影响生命周期"><a href="#横竖屏切换影响生命周期" class="headerlink" title="横竖屏切换影响生命周期"></a>横竖屏切换影响生命周期</h3><blockquote>
+<p>当页面上有一些数据时，比如应用程序界面上有一个数字10，通过某些操作(如按钮点击)数字发生了变成了5，而此时手机进行横竖屏切换后，可以发现界面上的数字会变为原来的10<br>这是由于当Android应用进行横竖屏切换时，影响了Activity的生命周期，导致了界面发生了销毁和创建，相当于界面被重新打开了一次<br>而这时如果不想界面被重新创建，可以在清单文件中配置</p>
+</blockquote>
+<h4 id="AndroidMenifest-xml"><a href="#AndroidMenifest-xml" class="headerlink" title="AndroidMenifest.xml"></a>AndroidMenifest.xml</h4><ul>
+<li>强制规定界面的方向</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">application</span></span></div><div class="line">        <span class="attr">android:allowBackup</span>=<span class="string">"true"</span></div><div class="line">        <span class="attr">android:icon</span>=<span class="string">"@drawable/ic_launcher"</span></div><div class="line">        <span class="attr">android:label</span>=<span class="string">"@string/app_name"</span></div><div class="line">        <span class="attr">android:theme</span>=<span class="string">"@style/AppTheme"</span> &gt;</div><div class="line">    <span class="tag">&lt;<span class="name">activity</span></span></div><div class="line">        <span class="attr">android:name</span>=<span class="string">"com.m520it.ac04.MainActivity"</span></div><div class="line">        <span class="attr">android:label</span>=<span class="string">"@string/app_name"</span></div><div class="line">        <span class="attr">android:screenOrientation</span>=<span class="string">"portrait"</span> &gt;</div><div class="line">        <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.MAIN"</span> /&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.LAUNCHER"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">activity</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">application</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>这里为activity配置了一个android:screenOrientation=”portrait”，表示此Activity只允许竖屏显示，参数包括portrait(竖屏)，landscape(横屏)</p>
+</blockquote>
+<ul>
+<li>忽略横竖屏切换对声明周期的影响</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">application</span></span></div><div class="line">        <span class="attr">android:allowBackup</span>=<span class="string">"true"</span></div><div class="line">        <span class="attr">android:icon</span>=<span class="string">"@drawable/ic_launcher"</span></div><div class="line">        <span class="attr">android:label</span>=<span class="string">"@string/app_name"</span></div><div class="line">        <span class="attr">android:theme</span>=<span class="string">"@style/AppTheme"</span> &gt;</div><div class="line">    <span class="tag">&lt;<span class="name">activity</span></span></div><div class="line">        <span class="attr">android:name</span>=<span class="string">"com.m520it.ac04.MainActivity"</span></div><div class="line">        <span class="attr">android:label</span>=<span class="string">"@string/app_name"</span></div><div class="line">        <span class="attr">android:configChanges</span>=<span class="string">"orientation|screenSize|keyboardHidden"</span> &gt;</div><div class="line">        <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"android.intent.action.MAIN"</span> /&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.LAUNCHER"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">intent-filter</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">activity</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">application</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>这里为activity配置了一个android:configChanges=”orientation|screenSize|keyboardHidden”，configChanges表示当其配置的参数配置发生改变时不影响Activity的生命周期，orientation|screenSize|keyboardHidden分别表示横竖屏切换、屏幕大小变化、键盘被隐藏，也就是说，当这三者发生改变时均不会影响Activity的生命周期  </p>
+</blockquote>
+<h2 id="任务栈与启动模式"><a href="#任务栈与启动模式" class="headerlink" title="任务栈与启动模式"></a>任务栈与启动模式</h2><blockquote>
+<p>Android中Activity界面的管理容器是一个栈，而栈遵循先进后出的原则，当一个Activity创建时，就会被压入栈底，而新的Activity会依次压入，慢慢往上叠加，而当前手机显示的界面则是栈顶的Activity，当退出Activity时，Activity会依次从栈顶出栈(也叫弹栈)，当栈中没有Activity可以出栈时，应用程序也就退出了  </p>
+</blockquote>
+<p><img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog28/Blog28_2.png?raw=true" alt=""></p>
+<blockquote>
+<p>任务栈有四种属性：</p>
+<ul>
+<li>standard </li>
+<li>singleTop </li>
+<li>singleTask </li>
+<li>singleInstance</li>
+</ul>
+<p>这四种属性就是Activity的四种启动模式，而standard是默认的启动模式，如果想设置一个Activity的启动模式，可以在AndroidManifest文件中进行设置</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">activity</span></span></div><div class="line">    <span class="attr">android:name</span>=<span class="string">"com.izdo.MyActivity"</span></div><div class="line">    <span class="attr">android:label</span>=<span class="string">"@string/app_name"</span></div><div class="line">    <span class="attr">android:launchMode</span>=<span class="string">"singleInstance"</span> &gt;</div><div class="line"><span class="tag">&lt;/<span class="name">activity</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>下面用图示来解释四种启动模式(图中的Activity配置的启动模式是相同的)</p>
+<h3 id="standard"><a href="#standard" class="headerlink" title="standard"></a>standard</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog28/Blog28_3.png?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>standard启动模式是Activity的默认启动模式，当开启一个新的Activity时，不管栈中是否从在该Activity的实例，新的Activity都会从栈顶压入栈</p>
+</blockquote>
+<h3 id="singleTop"><a href="#singleTop" class="headerlink" title="singleTop"></a>singleTop</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog28/Blog28_4.png?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<blockquote>
+<p>singleTop启动模式表示栈顶只能存在一个相同的Activity实例，如图所示，当栈顶为Activity2，创建一个新的Activity2时，由于栈顶已经存在一个Activity2的实例，所以不会再创建一次，而此时创建一个新的Activity1，虽然栈中存在Activity1的实例，但由于其不在栈顶所以会在栈顶创建一个新的Activity1</p>
+</blockquote>
+<h3 id="singleTask"><a href="#singleTask" class="headerlink" title="singleTask"></a>singleTask</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog28/Blog28_5.png?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<blockquote>
+<p>singleTask启动模式表示栈中只能存在一个实例，如图所示，当栈中存在Activity1和Activity2，创建一个新的Activity3时，由于栈中不存在Activity3的实例，所以会在栈顶创建一个新的Activity3，而创建Activity1时，由于栈中已经存在Activity1的实例，所以不会再创建一次，而会去判断此Activity上方是否存在其他的Activity实例，如果有则会将上方所有的Activity实例全部销毁，保证Activity1在栈顶</p>
+</blockquote>
+<h3 id="singleInstance"><a href="#singleInstance" class="headerlink" title="singleInstance"></a>singleInstance</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog28/Blog28_6.png?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<blockquote>
+<p>singleInstance启动模式如图所示，当任务栈中只有Activity1，创建一个新的Activity2时，由于Activity2的启动模式为singleInstance(Activity1也是)，系统会为其新创建一个任务栈，并将其放到其他任务栈之前，而此时创建新的Activity1，由于第一个任务栈中已经存在了Activity1的实例，所以不会去创建新的Activity1，而是将Activity1所在的任务栈提前，也就是说，singleInstance模式下的Activity会单独占用一个任务栈，具有全局唯一性，整个系统中只有一个实例</p>
+</blockquote>
+<p>以下博客清晰地解释了Activity的启动模式：<br><a href="http://blog.csdn.net/mynameishuangshuai/article/details/51491074" target="_blank" rel="external">彻底弄懂Activity四大启动模式
+</a></p>
+<h2 id="Intent补充"><a href="#Intent补充" class="headerlink" title="Intent补充"></a>Intent补充</h2><h3 id="使用Intent开启一个新的Activity的方式"><a href="#使用Intent开启一个新的Activity的方式" class="headerlink" title="使用Intent开启一个新的Activity的方式"></a>使用Intent开启一个新的Activity的方式</h3><ul>
+<li><p>第一种方式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Intent intent = <span class="keyword">new</span> Intent(<span class="keyword">this</span>,MyActivity.class);</div><div class="line">startActivity(intent);</div></pre></td></tr></table></figure>
+</li>
+<li><p>第二种方式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Intent intent = <span class="keyword">new</span> Intent();</div><div class="line">intent.setComponent(<span class="keyword">new</span> ComponentName(<span class="keyword">this</span>,MyActivity.class));</div><div class="line">startActivity(intent);</div></pre></td></tr></table></figure>
+</li>
+<li><p>第三种方式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Intent intent = <span class="keyword">new</span> Intent();</div><div class="line">intent.setClass(<span class="keyword">this</span>,MyActivity.class);</div><div class="line">startActivity(intent);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="为系统注册一个名为com-izdo-intent-action-ABC的Action，该Action对应的行为是跳转到MyActivity"><a href="#为系统注册一个名为com-izdo-intent-action-ABC的Action，该Action对应的行为是跳转到MyActivity" class="headerlink" title="为系统注册一个名为com.izdo.intent.action.ABC的Action，该Action对应的行为是跳转到MyActivity"></a>为系统注册一个名为com.izdo.intent.action.ABC的Action，该Action对应的行为是跳转到MyActivity</h3><h4 id="AndroidMenifest-xml-1"><a href="#AndroidMenifest-xml-1" class="headerlink" title="AndroidMenifest.xml"></a>AndroidMenifest.xml</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">activity</span></span></div><div class="line">    <span class="attr">android:name</span>=<span class="string">"com.izdo.MyActivity"</span></div><div class="line">    <span class="attr">android:label</span>=<span class="string">"@string/title"</span>&gt;</div><div class="line">    <span class="tag">&lt;<span class="name">intent-filter</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">android:name</span>=<span class="string">"com.izdo.intent.action.ABC"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">category</span> <span class="attr">android:name</span>=<span class="string">"android.intent.category.DEFAULT"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">intent-fileter</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">activity</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="创建Intent，使其匹配ABC-Action"><a href="#创建Intent，使其匹配ABC-Action" class="headerlink" title="创建Intent，使其匹配ABC Action"></a>创建Intent，使其匹配ABC Action</h4><ul>
+<li><p>第一种方式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Intent intent = <span class="keyword">new</span> Intent(<span class="string">"com.izdo.intent.action.ABC"</span>);</div><div class="line">startActivity(intent);</div></pre></td></tr></table></figure>
+</li>
+<li><p>第二种方式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Intent intent = <span class="keyword">new</span> Intent();</div><div class="line">intent.setAction(<span class="string">"com.izdo.intent.action.ABC"</span>);</div><div class="line">startActivity(intent);</div></pre></td></tr></table></figure></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-12-04T13:10:03.085Z" itemprop="dateUpdated">2017年12月4日 21:10</time>
+</span><br>
+
+
+        这里写留言或版权声明：<a href="/2017/12/04/Android基础九/" target="_blank" rel="external">https://izdo.github.io/2017/12/04/Android基础九/</a>
+    </div>
+    <footer>
+        <a href="https://izdo.github.io">
+            <img src="/img/heizi.jpg" alt="iZdo">
+            iZdo
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://izdo.github.io/2017/12/04/Android基础九/&title=《No title》 — iZdo's Blog&pic=https://izdo.github.io/img/heizi.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://izdo.github.io/2017/12/04/Android基础九/&title=《No title》 — iZdo's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://izdo.github.io/2017/12/04/Android基础九/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — iZdo's Blog&url=https://izdo.github.io/2017/12/04/Android基础九/&via=https://izdo.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://izdo.github.io/2017/12/04/Android基础九/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/12/04/Android基础十/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">No title</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/12/04/Android基础八/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">No title</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>iZdo's Blog &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://izdo.github.io/2017/12/04/Android基础九/&title=《No title》 — iZdo's Blog&pic=https://izdo.github.io/img/heizi.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://izdo.github.io/2017/12/04/Android基础九/&title=《No title》 — iZdo's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://izdo.github.io/2017/12/04/Android基础九/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — iZdo's Blog&url=https://izdo.github.io/2017/12/04/Android基础九/&via=https://izdo.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://izdo.github.io/2017/12/04/Android基础九/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIElEQVR42u3aQXKDMAwF0Nz/0nSbRSBfEukM9vMqQ1LwY6FKll6veB1v6+z6+7dn18/ufP2U2xYGBsZjGcflyrd1TZ18vt4bBgbGPowkFF5vOgnH11tJ7nl6HQMDAyMOgkmql2AwMDAw5gG3V6wmm8bAwMCYFLH5g5M75K/v5locAwPjgYz81P3/P/+kv4GBgfEoxlFc1eDYa0yWd4WBgbE0Iw9wVVivoO3tBwMDYx9GchyW/z4PsvkTy8dtGBgYyzEmzcVeyJ4/8fT/BgYGxqKMapNykhqOAisGBgZGMR2ctDl7Qfz0NxgYGIsyqiMROTV/HTcMimFgYGzASArR6hbzlLFXDH8IuBgYGIsy8jCaHMxVj9Ly5mX0yjAwMBZljI63iuzeQEY51GJgYCzH6KV0eSF6V1MhGn7FwMDYgNErI6vXr1/K5D4YGBhrM5KiNAmsvSvVoIyBgbEno/fHkzGLHv7LER4GBsZmjPlQxb0jHc2RCwwMjEUZ5f5n/OBJ3hrtEAMDYxtGXmpWg2byaiaDGhgYGDsw8gIyb3z2ksW8hP4QcDEwMJZjHMU1QU6GOb5QMTAwlmbkK29D9obP8lS1ejcMDIw1GL3Rh0nJ2mxS9jJHDAyMhRh54JuUrKMDtSTPxcDAwCima78bC8PAwMCotjarQxvVRDBJXjEwMHZg5M2Aasp4Vwj+cniHgYGxNKNaOv6uHL33JWJgYCzB+AME9iLgeyN/VAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.14"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.14" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

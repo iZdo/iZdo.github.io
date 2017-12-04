@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>No title | iZdo&#39;s Blog | bonbolu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="layout: posttitle: Android基础八tags: [Android,note]
+categories: AndroidAndroid基础(八)应用程序的国际化
+国际化步骤
+
+
+找到对应的res文件夹
+创建对应环境下的文件夹
+英文环境文件夹命名 values-en
+美国英文环境文件夹命名 values-en-rUS
+中文环境文件夹命名 values-zh
+大陆地区中文环境文件夹">
+<meta property="og:type" content="article">
+<meta property="og:title" content="No title">
+<meta property="og:url" content="https://izdo.github.io/2017/12/04/Android基础八/index.html">
+<meta property="og:site_name" content="iZdo's Blog">
+<meta property="og:description" content="layout: posttitle: Android基础八tags: [Android,note]
+categories: AndroidAndroid基础(八)应用程序的国际化
+国际化步骤
+
+
+找到对应的res文件夹
+创建对应环境下的文件夹
+英文环境文件夹命名 values-en
+美国英文环境文件夹命名 values-en-rUS
+中文环境文件夹命名 values-zh
+大陆地区中文环境文件夹">
+<meta property="og:updated_time" content="2017-12-04T13:09:58.702Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="No title">
+<meta name="twitter:description" content="layout: posttitle: Android基础八tags: [Android,note]
+categories: AndroidAndroid基础(八)应用程序的国际化
+国际化步骤
+
+
+找到对应的res文件夹
+创建对应环境下的文件夹
+英文环境文件夹命名 values-en
+美国英文环境文件夹命名 values-en-rUS
+中文环境文件夹命名 values-zh
+大陆地区中文环境文件夹">
+    
+        <link rel="alternative" href="/atom.xml" title="iZdo&#39;s Blog" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.14">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/heizi.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">iZdo</h5>
+          <a href="mailto:401135451@qq.com" title="401135451@qq.com" class="mail">401135451@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/iZdo" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">No title</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">No title</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-12-04T13:12:59.505Z" itemprop="datePublished" class="page-time">
+  2017-12-04
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#categories-Android"><span class="post-toc-number">1.</span> <span class="post-toc-text">categories: Android</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Android基础-八"><span class="post-toc-number"></span> <span class="post-toc-text">Android基础(八)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#应用程序的国际化"><span class="post-toc-number">1.</span> <span class="post-toc-text">应用程序的国际化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#风格与主题"><span class="post-toc-number">2.</span> <span class="post-toc-text">风格与主题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#案例"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">案例</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#style-xml文件"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">style.xml文件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#布局文件"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">布局文件</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#对话框"><span class="post-toc-number">3.</span> <span class="post-toc-text">对话框</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Android基本对话框"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">Android基本对话框</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#打开一个新的Activity"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">打开一个新的Activity</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#通过Intent传递数据"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">通过Intent传递数据</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#通过隐式意图打开界面"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">通过隐式意图打开界面</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#新界面返回值"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">新界面返回值</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Activity返回数据案例"><span class="post-toc-number">3.5.1.</span> <span class="post-toc-text">Activity返回数据案例</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Android基础八"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">No title</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年12月04日 21:12" datetime="2017-12-04T13:12:59.505Z"  itemprop="datePublished">2017-12-04</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <hr>
+<p>layout: post<br>title: Android基础八<br>tags: [Android,note]</p>
+<h2 id="categories-Android"><a href="#categories-Android" class="headerlink" title="categories: Android"></a>categories: Android</h2><h1 id="Android基础-八"><a href="#Android基础-八" class="headerlink" title="Android基础(八)"></a>Android基础(八)</h1><h2 id="应用程序的国际化"><a href="#应用程序的国际化" class="headerlink" title="应用程序的国际化"></a>应用程序的国际化</h2><ul>
+<li>国际化步骤</li>
+</ul>
+<ol>
+<li>找到对应的res文件夹</li>
+<li>创建对应环境下的文件夹<ol>
+<li>英文环境文件夹命名 values-en</li>
+<li>美国英文环境文件夹命名 values-en-rUS</li>
+<li>中文环境文件夹命名 values-zh</li>
+<li>大陆地区中文环境文件夹命名 values-zh-cn</li>
+</ol>
+</li>
+<li>在对应的values文件夹下创建不同的string.xml文件<blockquote>
+<p>国际化部分的知识可参考以下博客<br><a href="http://blog.csdn.net/qiuhu0793/article/details/8689685" target="_blank" rel="external">android国际化（多语言）</a></p>
+</blockquote>
+</li>
+</ol>
+<h2 id="风格与主题"><a href="#风格与主题" class="headerlink" title="风格与主题"></a>风格与主题</h2><blockquote>
+<p>在很多情况下，一个布局中有许多控件都拥有相同的颜色，大小等属性，而当更换这些属性时，需要一个一个地更换，这样就会显得非常麻烦，而通过style风格，就能够统一地修改这些样式  </p>
+</blockquote>
+<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><h4 id="style-xml文件"><a href="#style-xml文件" class="headerlink" title="style.xml文件"></a>style.xml文件</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"text_style"</span>&gt;</span><span class="xml"></span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:layout_width"</span>&gt;</span>wrap_content<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:layout_height"</span>&gt;</span>wrap_content<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:textColor"</span>&gt;</span>#0f0<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:textSize"</span>&gt;</span>20sp<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="布局文件"><a href="#布局文件" class="headerlink" title="布局文件"></a>布局文件</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">TextView</span> </span></div><div class="line">    <span class="attr">style</span>=<span class="string">"@style/text_style"</span></div><div class="line">    <span class="attr">android:text</span>=<span class="string">"@string/hello_world"</span>/&gt;</div><div class="line">    </div><div class="line"><span class="tag">&lt;<span class="name">TextView</span> </span></div><div class="line">    <span class="attr">style</span>=<span class="string">"@style/text_style"</span></div><div class="line">    <span class="attr">android:text</span>=<span class="string">"@string/hello_world"</span>/&gt;</div><div class="line">    </div><div class="line"><span class="tag">&lt;<span class="name">TextView</span> </span></div><div class="line">    <span class="attr">style</span>=<span class="string">"@style/text_style"</span></div><div class="line">    <span class="attr">android:text</span>=<span class="string">"@string/hello_world"</span>/&gt;</div><div class="line">    </div><div class="line"><span class="tag">&lt;<span class="name">TextView</span> </span></div><div class="line">    <span class="attr">style</span>=<span class="string">"@style/text_style"</span></div><div class="line">    <span class="attr">android:text</span>=<span class="string">"@string/hello_world"</span>/&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>这样一来，如果想要统一更改xml中四个TextView的样式，可以通过style直接修改</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"wrap_content_style"</span>&gt;</span><span class="xml"></span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:layout_width"</span>&gt;</span>wrap_content<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:layout_height"</span>&gt;</span>wrap_content<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"text_style"</span> <span class="attr">parent</span>=<span class="string">"@style/wrap_content_style"</span>&gt;</span><span class="xml"></span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:textColor"</span>&gt;</span>#0f0<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"android:textSize"</span>&gt;</span>20sp<span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>而style中也允许存在类似于Java类继承的那种关系，通过parent实现<br>同理，可以通过style为应用程序所有的界面都设置上同一种风格，相当于更换了一个主题</p>
+</blockquote>
+<h2 id="对话框"><a href="#对话框" class="headerlink" title="对话框"></a>对话框</h2><h3 id="Android基本对话框"><a href="#Android基本对话框" class="headerlink" title="Android基本对话框"></a>Android基本对话框</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div></pre></td><td class="code"><pre><div class="line">public class MainActivity extends Activity &#123;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</div><div class="line">        super.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 普通对话框</div><div class="line">     */</div><div class="line">    public void openDialog(View v) &#123;</div><div class="line">        // 建造者模式</div><div class="line">        Builder builder = new Builder(this);</div><div class="line">        builder.setMessage("是否退出应用？");</div><div class="line">        builder.setPositiveButton("是", new DialogInterface.OnClickListener() &#123;</div><div class="line">            @Override</div><div class="line">            public void onClick(DialogInterface dialog, int which) &#123;</div><div class="line">                // 退出应用</div><div class="line">                MainActivity.this.finish();</div><div class="line">                // 强制关闭dialog</div><div class="line">                // dialog.dismiss();</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        // 设置取消按钮</div><div class="line">        // builder.setNegativeButton("否",null);</div><div class="line"></div><div class="line">        AlertDialog dialog = builder.create();</div><div class="line">        dialog.show();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 普通对话框</div><div class="line">     */</div><div class="line">    public void openDialog2(View v) &#123;</div><div class="line">        // 链式编程</div><div class="line">        AlertDialog dialog = new Builder(this).setTitle("提示")</div><div class="line">                .setMessage("是否退出应用？")</div><div class="line">                .setPositiveButton("是", new DialogInterface.OnClickListener() &#123;</div><div class="line"></div><div class="line">                    @Override</div><div class="line">                    public void onClick(DialogInterface dialog, int which) &#123;</div><div class="line">                        MainActivity.this.finish();</div><div class="line">                    &#125;</div><div class="line">                &#125;).setNegativeButton("否", null).create();</div><div class="line">        dialog.show();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    String[] items = new String[]&#123;"苹果", "香蕉"&#125;;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 单选对话框</div><div class="line">     */</div><div class="line">    public void openDialog3(View v) &#123;</div><div class="line">        AlertDialog dialog = new Builder(this).setTitle("请选择你喜欢的水果")</div><div class="line">                .setSingleChoiceItems(items, 1, new DialogInterface.OnClickListener() &#123;</div><div class="line">                    @Override</div><div class="line">                    public void onClick(DialogInterface dialog, int which) &#123;</div><div class="line">                        String text = "当前选中的是:" + items[which];</div><div class="line">                        Toast.makeText(MainActivity.this, text, Toast.LENGTH_LONG).show();</div><div class="line">                        dialog.dismiss();</div><div class="line">                    &#125;</div><div class="line">                &#125;)</div><div class="line">                .setPositiveButton("取消", null)</div><div class="line">                .create();</div><div class="line">        dialog.show();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    String[] multiItems = new String[]&#123;"苹果", "香蕉", "梨子"&#125;;</div><div class="line">    boolean[] checkedItems = new boolean[]&#123;false, true, false&#125;;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 多选对话框</div><div class="line">     */</div><div class="line">    public void openDialog4(View v) &#123;</div><div class="line">        AlertDialog dialog = new Builder(this)</div><div class="line">                .setTitle("请选择你喜欢的水果")</div><div class="line">                .setMultiChoiceItems(multiItems, checkedItems, new DialogInterface.OnMultiChoiceClickListener() &#123;</div><div class="line">                    // which 索引</div><div class="line">                    // isChecked 当前索引是否被选中</div><div class="line">                    @Override</div><div class="line">                    public void onClick(DialogInterface dialog, int which, boolean isChecked) &#123;</div><div class="line">                        // 根据索引修改是否选中</div><div class="line">                        checkedItems[which] = isChecked;</div><div class="line">                    &#125;</div><div class="line">                &#125;)</div><div class="line">                .setPositiveButton("确定", new DialogInterface.OnClickListener() &#123;</div><div class="line"></div><div class="line">                    @Override</div><div class="line">                    public void onClick(DialogInterface dialog, int which) &#123;</div><div class="line">                        String toastText = "";</div><div class="line">                        for (int i = 0; i &lt; checkedItems.length; i++) &#123;</div><div class="line">                            if (checkedItems[i]) &#123;</div><div class="line">                                toastText += multiItems[i] + "  ";</div><div class="line">                            &#125;</div><div class="line">                        &#125;</div><div class="line">                        Toast.makeText(MainActivity.this, toastText, Toast.LENGTH_LONG).show();</div><div class="line">                    &#125;</div><div class="line">                &#125;).setNegativeButton("取消", null).create();</div><div class="line">        dialog.show();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 进度条对话框</div><div class="line">     */</div><div class="line">    public void openDialog5(View v) &#123;</div><div class="line">        final ProgressDialog dialog = new ProgressDialog(this);</div><div class="line">        dialog.setTitle("提示");</div><div class="line">        dialog.setMessage("请耐心等待...");</div><div class="line">        dialog.show();</div><div class="line">        // 创建一个定时器</div><div class="line">        Timer timer = new Timer();</div><div class="line">        timer.schedule(new TimerTask() &#123;</div><div class="line">            @Override</div><div class="line">            public void run() &#123;</div><div class="line">                // 返回主线程</div><div class="line">                runOnUiThread(new Runnable() &#123;</div><div class="line">                    public void run() &#123;</div><div class="line">                        dialog.dismiss();</div><div class="line">                    &#125;</div><div class="line">                &#125;);</div><div class="line">            &#125;</div><div class="line">        &#125;, 5000);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">``` </div><div class="line"></div><div class="line">### 案例效果图</div><div class="line"></div><div class="line">* 一般对话框  </div><div class="line">![](https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog27/Blog27_1.png?raw=true)</div><div class="line">* 一般对话框2  </div><div class="line">![](https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog27/Blog27_2.png?raw=true)</div><div class="line">* 单选对话框  </div><div class="line">![](https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog27/Blog27_3.png?raw=true)</div><div class="line">* 多选对话框  </div><div class="line">![](https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog27/Blog27_4.png?raw=true)</div><div class="line">* 进度条对话框  </div><div class="line">![](https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog27/Blog27_5.png?raw=true)</div><div class="line"></div><div class="line">## Activity</div><div class="line"></div><div class="line">```xml</div><div class="line">&lt;intent-filter&gt;</div><div class="line">    &lt;action android:name="android.intent.action.MAIN"/&gt;</div><div class="line">    &lt;category android:name="android.intent.category.LAUNCHER"/&gt;</div><div class="line">&lt;/intent-filter&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>上方这段在AndroidManifest.xml文件中的代码表示配置了这段代码的Activity是应用程序的入口</p>
+<h3 id="打开一个新的Activity"><a href="#打开一个新的Activity" class="headerlink" title="打开一个新的Activity"></a>打开一个新的Activity</h3></blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">myClick</span><span class="params">(View v)</span></span>&#123;</div><div class="line">    Intent intent = <span class="keyword">new</span> Intent(<span class="keyword">this</span>,MyActivity.class);</div><div class="line">    startActivity(intent);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>通过意图对象Intent能够打开一个新的Activity</p>
+</blockquote>
+<h3 id="通过Intent传递数据"><a href="#通过Intent传递数据" class="headerlink" title="通过Intent传递数据"></a>通过Intent传递数据</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">myClick</span><span class="params">(View v)</span></span>&#123;</div><div class="line">    Intent intent = <span class="keyword">new</span> Intent(<span class="keyword">this</span>,MyActivity.class);</div><div class="line">    <span class="comment">// 基本数据类型都可以传递</span></div><div class="line">    intent.putExtra(<span class="string">"id"</span>,<span class="number">123</span>);</div><div class="line">    startActivity(intent);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>在新的Activity中取出数据<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span></span>&#123;</div><div class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">    setContentView(R.layout.activity_my);</div><div class="line">    </div><div class="line">    <span class="comment">// 获取上一个界面传递过来的数据</span></div><div class="line">    <span class="comment">// getIntent() 获取打开该界面的意图对象</span></div><div class="line">    Intent intent = getIntent();</div><div class="line">    <span class="comment">// defaultValue 当无数据时的默认值</span></div><div class="line">    <span class="keyword">int</span> intExtra = intent.getIntExtra(<span class="string">"id"</span>,<span class="number">0</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>Intent可以携带八大基本属性，但是如果想要传递对象，需要让传递的对象的类去实现Serializable接口或者Parcelable接口，经过一系列的处理(序列化)之后才可传递对象</p>
+<p>上述打开一个新的Activity的方式称为通过显式意图打开界面，而Android中不仅可以通过显式意图打开界面，还可以通过隐式意图打开界面  </p>
+<h3 id="通过隐式意图打开界面"><a href="#通过隐式意图打开界面" class="headerlink" title="通过隐式意图打开界面"></a>通过隐式意图打开界面</h3></blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">myClick</span><span class="params">(View v)</span></span>&#123;</div><div class="line">    Intent intent = <span class="keyword">new</span> Intent();</div><div class="line">    <span class="comment">// 通知系统启动一个带有浏览器Action的界面</span></div><div class="line">    intent.setAction(<span class="string">"android.intent.action.VIEW"</span>);</div><div class="line">    <span class="comment">// Uri包含URL </span></div><div class="line">    Uri data = Uri.parse(<span class="string">"http://www.baidu.com"</span>);</div><div class="line">    <span class="comment">// 通知系统展示的格式</span></div><div class="line">    intent.setDataAndType(data,<span class="string">"text/html"</span>);</div><div class="line">    startActivity(intent);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>以下博客很清晰的说明了这两种意图以及其区别:<br><a href="http://blog.csdn.net/loongggdroid/article/details/17887975" target="_blank" rel="external">Intent中显示意图和隐式意图的用法</a><br>简单地说，显式意图明确指定了Intent应该传递给哪个组件，而隐式意图没有明确指定组件名，Android系统会根据隐式意图中设置的动作(action)、类别(category)、数据(URL和数据类型)找到最合适的组件来处理这个意图，如果能够匹配到这个隐式意图的组件有多个，则会通过展示一个列表供用户选择<br>举个简单的例子:当用户拍完一张照片，想要发送给好友，点击发送按钮后，系统会找到能够匹配这个隐式意图(发送图片)的应用，而这时手机上就会弹出一个列表供用户选择，列表中为能够发送图片的应用，比如QQ，微信，支付宝等应用</p>
+</blockquote>
+<h3 id="新界面返回值"><a href="#新界面返回值" class="headerlink" title="新界面返回值"></a>新界面返回值</h3><blockquote>
+<p>通常情况下，通过Intent开启一个新的Activity之后做了一系列操作，经常需要将操作结果的数据返回给原来的页面，而这时就需要原来的页面接收返回的数据，也就是说Activity之间不仅可以在开启时传递数据，也能在关闭时返回数据</p>
+<h4 id="Activity返回数据案例"><a href="#Activity返回数据案例" class="headerlink" title="Activity返回数据案例"></a>Activity返回数据案例</h4></blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">chooseIcon</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">        Intent intent = <span class="keyword">new</span> Intent(<span class="keyword">this</span>, FirstActivity.class);</div><div class="line">        <span class="comment">// startActivity(intent);</span></div><div class="line">        <span class="comment">// 要调用startActivityForResult 表示返回时携带数据</span></div><div class="line">        startActivityForResult(intent, <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">chooseSex</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">        Intent intent = <span class="keyword">new</span> Intent(<span class="keyword">this</span>, SecondActivity.class);</div><div class="line">        startActivityForResult(intent, <span class="number">2</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 获取新页面的传递过来的数据 需重写此方法</span></div><div class="line">    <span class="comment">// data 传递的数据都是通过该Intent对象来操作的</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onActivityResult</span><span class="params">(<span class="keyword">int</span> requestCode, <span class="keyword">int</span> resultCode, Intent data)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (data != <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">if</span> (requestCode == <span class="number">1</span>) &#123;</div><div class="line">                <span class="keyword">int</span> first = data.getIntExtra(<span class="string">"first"</span>, <span class="number">0</span>);</div><div class="line">                Log.i(<span class="string">"abc"</span>, <span class="string">"onActivityResult: "</span> + first);</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (requestCode == <span class="number">2</span>) &#123;</div><div class="line">                String second = data.getStringExtra(<span class="string">"second"</span>);</div><div class="line">                Log.i(<span class="string">"abc"</span>, <span class="string">"onActivityResult: "</span> + second);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FirstActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> <span class="keyword">implements</span> <span class="title">View</span>.<span class="title">OnClickListener</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_choose_icon);</div><div class="line"></div><div class="line">        findViewById(R.id.f0).setOnClickListener(<span class="keyword">this</span>);</div><div class="line">        findViewById(R.id.f1).setOnClickListener(<span class="keyword">this</span>);</div><div class="line">        findViewById(R.id.f2).setOnClickListener(<span class="keyword">this</span>);</div><div class="line">        findViewById(R.id.f3).setOnClickListener(<span class="keyword">this</span>);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">        Intent intent=<span class="keyword">new</span> Intent();</div><div class="line">        <span class="keyword">switch</span> (v.getId()) &#123;</div><div class="line">            <span class="keyword">case</span> R.id.f0:</div><div class="line">                <span class="comment">// int类型的数据</span></div><div class="line">                intent.putExtra(<span class="string">"first"</span>, R.drawable.f0);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> R.id.f1:</div><div class="line">                intent.putExtra(<span class="string">"first"</span>, R.drawable.f1);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> R.id.f2:</div><div class="line">                intent.putExtra(<span class="string">"first"</span>, R.drawable.f2);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> R.id.f3:</div><div class="line">                intent.putExtra(<span class="string">"first"</span>, R.drawable.f3);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">// 返回数据</span></div><div class="line">        setResult(<span class="number">0</span>, intent);</div><div class="line">        finish();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SecondActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> <span class="keyword">implements</span> <span class="title">View</span>.<span class="title">OnClickListener</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_sex);</div><div class="line"></div><div class="line">        findViewById(R.id.male_btn).setOnClickListener(<span class="keyword">this</span>);</div><div class="line">        findViewById(R.id.female_btn).setOnClickListener(<span class="keyword">this</span>);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">        Intent intent=<span class="keyword">new</span> Intent();</div><div class="line">        <span class="keyword">switch</span> (v.getId()) &#123;</div><div class="line">            <span class="keyword">case</span> R.id.male_btn:</div><div class="line">                intent.putExtra(<span class="string">"sex"</span>, <span class="string">"男"</span>);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> R.id.female_btn:</div><div class="line">                intent.putExtra(<span class="string">"sex"</span>, <span class="string">"女"</span>);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">        setResult(<span class="number">0</span>, intent);</div><div class="line">        finish();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>若开启一个Activity需要返回数据，应该调用startActivityForResult()方法而不是startActivity()方法，而当新的Activity关闭返回数据时，需要重写Activity的onActivityResult()方法来获取返回的数据<br>requestCode请求码可以用来区分向不同界面发出请求时返回的数据<br>resultCode结果码可以用来区分向同一界面发出不同请求时返回不同的数据</p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-12-04T13:09:58.702Z" itemprop="dateUpdated">2017年12月4日 21:09</time>
+</span><br>
+
+
+        这里写留言或版权声明：<a href="/2017/12/04/Android基础八/" target="_blank" rel="external">https://izdo.github.io/2017/12/04/Android基础八/</a>
+    </div>
+    <footer>
+        <a href="https://izdo.github.io">
+            <img src="/img/heizi.jpg" alt="iZdo">
+            iZdo
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://izdo.github.io/2017/12/04/Android基础八/&title=《No title》 — iZdo's Blog&pic=https://izdo.github.io/img/heizi.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://izdo.github.io/2017/12/04/Android基础八/&title=《No title》 — iZdo's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://izdo.github.io/2017/12/04/Android基础八/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — iZdo's Blog&url=https://izdo.github.io/2017/12/04/Android基础八/&via=https://izdo.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://izdo.github.io/2017/12/04/Android基础八/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/12/04/Android基础九/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">No title</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/12/04/Android基础七/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Android基础七</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>iZdo's Blog &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://izdo.github.io/2017/12/04/Android基础八/&title=《No title》 — iZdo's Blog&pic=https://izdo.github.io/img/heizi.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://izdo.github.io/2017/12/04/Android基础八/&title=《No title》 — iZdo's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://izdo.github.io/2017/12/04/Android基础八/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — iZdo's Blog&url=https://izdo.github.io/2017/12/04/Android基础八/&via=https://izdo.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://izdo.github.io/2017/12/04/Android基础八/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACGklEQVR42u3aO3LDMAwFQN//0krrRvIDIGVG5LLyMB6LqwIhPp9PvI6vdbb//dez/bNfvn7KbQsDA+O1jONy5Q+4pk4+X58NAwNjH0YSCqvfOYJ1/SKS52JgYGBUg2ASphMMBgYGxjzg5sGxenHEwMDAmCSx16SkAJekxI/n4hgYGC9k5FX3///8SH8DAwPjVYyjuJ7rG45OhYGBsTQjD3CT4n6e0PbOg4GBsTYjP1a1rJ8H2fyJpzsYGBjbMHrNgEnInrQzTwMuBgbGcoy8kdlLa58ItRgYGBjVu1avYTlpD/z4DgYGxnKM5GG9MYs8Ab5hUAwDA2MzRl7Kr7YEqmlqYewDAwNjacakoZgH6ElaW3hlGBgYizLy4a3eUSa/VgjNGBgYGzCqgOpwWJSITlqkGBgYGzB64bK33yvqRTMjGBgYSzPyga0kJ+4ltzkGAwNjN0av7JWX5/ICXLJTLuFhYGAsxOiloHnCOR8aK49cYGBgLMrIE9pJ27J34YvSZgwMjG0Y1WtcEhCTFzQf1MDAwNiBMbll5WlwtRmQX1gxMDBWZRzF9cRBq4G+4MPAwFiCka9qQb/ZdBwkzxgYGGsz7kpK8ybBvFFa/u+BgYGxBKMX+JJgmjdEJ6fFwMDAyANlHoh7PAwMDIyckQfNvDBXDdk/+hsYGBjLMfLwV73G5dfK6qvBwMDYh1FNHSfIOWnU1MTAwHgf4w9gHNsZ3pcOBQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.14"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.14" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
