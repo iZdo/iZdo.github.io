@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Android基础六 | iZdo&#39;s Blog | bonbolu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Android,note">
+    <meta name="description" content="Android基础(六)使用HttpURLConnection访问网络图片案例布局文件1234567891011121314151617181920212223242526272829&amp;lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;    xmlns:tools=&quot;http://schemas.a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android基础六">
+<meta property="og:url" content="https://izdo.github.io/2017/12/04/Android基础六/index.html">
+<meta property="og:site_name" content="iZdo's Blog">
+<meta property="og:description" content="Android基础(六)使用HttpURLConnection访问网络图片案例布局文件1234567891011121314151617181920212223242526272829&amp;lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;    xmlns:tools=&quot;http://schemas.a">
+<meta property="og:updated_time" content="2017-11-26T08:07:28.432Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android基础六">
+<meta name="twitter:description" content="Android基础(六)使用HttpURLConnection访问网络图片案例布局文件1234567891011121314151617181920212223242526272829&amp;lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;    xmlns:tools=&quot;http://schemas.a">
+    
+        <link rel="alternative" href="/atom.xml" title="iZdo&#39;s Blog" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.14">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/heizi.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">iZdo</h5>
+          <a href="mailto:401135451@qq.com" title="401135451@qq.com" class="mail">401135451@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/iZdo" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Android基础六</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Android基础六</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-12-04T12:52:19.514Z" itemprop="datePublished" class="page-time">
+  2017-12-04
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Android基础-六"><span class="post-toc-number">1.</span> <span class="post-toc-text">Android基础(六)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用HttpURLConnection访问网络图片案例"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">使用HttpURLConnection访问网络图片案例</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#布局文件"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">布局文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#MainActivity"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">MainActivity</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#网络请求的通用步骤"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">网络请求的通用步骤</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用Handler在子线程更新UI"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">使用Handler在子线程更新UI</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Handler源码分析"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">Handler源码分析</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Handler补充"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">Handler补充</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Android基础六"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Android基础六</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年12月04日 20:52" datetime="2017-12-04T12:52:19.514Z"  itemprop="datePublished">2017-12-04</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Android基础-六"><a href="#Android基础-六" class="headerlink" title="Android基础(六)"></a>Android基础(六)</h1><h2 id="使用HttpURLConnection访问网络图片案例"><a href="#使用HttpURLConnection访问网络图片案例" class="headerlink" title="使用HttpURLConnection访问网络图片案例"></a>使用HttpURLConnection访问网络图片案例</h2><h3 id="布局文件"><a href="#布局文件" class="headerlink" title="布局文件"></a>布局文件</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>  &gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">ImageView</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/center_iv"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"0dp"</span></div><div class="line">        <span class="attr">android:layout_weight</span>=<span class="string">"1"</span>  /&gt;</div><div class="line">	<span class="tag">&lt;<span class="name">LinearLayout</span> </span></div><div class="line">	    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">	    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">	    <span class="attr">android:orientation</span>=<span class="string">"horizontal"</span> &gt;</div><div class="line">	    <span class="tag">&lt;<span class="name">Button</span> </span></div><div class="line">	        <span class="attr">android:layout_width</span>=<span class="string">"0dp"</span></div><div class="line">	        <span class="attr">android:layout_weight</span>=<span class="string">"1"</span></div><div class="line">	        <span class="attr">android:layout_height</span>=<span class="string">"45dp"</span></div><div class="line">	        <span class="attr">android:onClick</span>=<span class="string">"preClick"</span></div><div class="line">	        <span class="attr">android:text</span>=<span class="string">"上一张"</span> /&gt;</div><div class="line">	    <span class="tag">&lt;<span class="name">Button</span> </span></div><div class="line">	        <span class="attr">android:layout_width</span>=<span class="string">"0dp"</span></div><div class="line">	        <span class="attr">android:layout_weight</span>=<span class="string">"1"</span></div><div class="line">	        <span class="attr">android:layout_height</span>=<span class="string">"45dp"</span></div><div class="line">	        <span class="attr">android:onClick</span>=<span class="string">"nextClick"</span></div><div class="line">	        <span class="attr">android:text</span>=<span class="string">"下一张"</span> /&gt;</div><div class="line">	<span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="MainActivity"><a href="#MainActivity" class="headerlink" title="MainActivity"></a>MainActivity</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="keyword">private</span> ImageView mImageView;</div><div class="line">	<span class="keyword">private</span> ArrayList&lt;String&gt; mImageUrlPaths=<span class="keyword">new</span> ArrayList&lt;String&gt;();</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> mCurrentIndex;</div><div class="line">	</div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">		<span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">		setContentView(R.layout.activity_main);</div><div class="line">		</div><div class="line">		mImageView =(ImageView) findViewById(R.id.center_iv);</div><div class="line">		</div><div class="line">        <span class="comment">// android.os.NetworkOnMainThreadException</span></div><div class="line">        <span class="comment">// 网络请求应在子线程中进行</span></div><div class="line">		<span class="keyword">new</span> Thread()&#123;</div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">				<span class="comment">// 从网络上读取photo.txt 并封装成为ArrayList&lt;String&gt;</span></div><div class="line">				loadImageUrls();</div><div class="line">				<span class="comment">// 创建一个索引变量 用来控制当前的显示的图片索引</span></div><div class="line">				<span class="comment">// 根据索引 从ArrayList取出某一个字符串(图片网址) 根据网址获取图片 显示到控件上</span></div><div class="line">				loadImageByUrl(mCurrentIndex);</div><div class="line">			&#125;</div><div class="line">		&#125;.start();</div><div class="line">		</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 根据索引显示图片</div><div class="line">	 * <span class="doctag">@param</span> currIndex</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">loadImageByUrl</span><span class="params">(<span class="keyword">int</span> currIndex)</span> </span>&#123;</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			<span class="comment">// 获取图片Url地址</span></div><div class="line">			String imageUrl = mImageUrlPaths.get(currIndex);</div><div class="line">			<span class="comment">// 获取图片名</span></div><div class="line">			<span class="comment">// 获取图片存储时的全路径 判断文件是否存在</span></div><div class="line">			File file=<span class="keyword">new</span> File(getFilesDir(), getImageName(imageUrl));</div><div class="line">			<span class="comment">// 如果当前的图片被缓存了 就不需要在执行网络请求</span></div><div class="line">			<span class="keyword">if</span> (file.exists()&amp;&amp;file.length()&gt;<span class="number">0</span>) &#123;</div><div class="line">				<span class="comment">// 文件存在 从文件里面读取图片</span></div><div class="line">				<span class="keyword">final</span> Bitmap bmp = BitmapFactory.decodeFile(file.getAbsolutePath());</div><div class="line">				runOnUiThread(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">					<span class="meta">@Override</span></div><div class="line">					<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">						mImageView.setImageBitmap(bmp);</div><div class="line">					&#125;</div><div class="line">				&#125;);</div><div class="line">				<span class="keyword">return</span>;</div><div class="line">			&#125;</div><div class="line">			URL url=<span class="keyword">new</span> URL(imageUrl);</div><div class="line">			HttpURLConnection conn = (HttpURLConnection) url.openConnection();</div><div class="line">			<span class="keyword">int</span> responseCode = conn.getResponseCode();</div><div class="line">			<span class="keyword">if</span> (responseCode==<span class="number">200</span>) &#123;</div><div class="line">				InputStream is = conn.getInputStream();</div><div class="line">				<span class="keyword">final</span> Bitmap bitmap = BitmapFactory.decodeStream(is);</div><div class="line">				<span class="comment">// 将bitmap写到文件中  flies目录</span></div><div class="line">				<span class="comment">// format 文件的类型</span></div><div class="line">				<span class="comment">// quality 图片从流转换成文件保存的质量 范围0~100</span></div><div class="line">				<span class="comment">// stream 流</span></div><div class="line">				FileOutputStream fos = openFileOutput(getImageName(imageUrl), MODE_PRIVATE);</div><div class="line">				bitmap.compress(CompressFormat.PNG, <span class="number">100</span>, fos);</div><div class="line">				</div><div class="line">				<span class="comment">// 回到主线程更新UI</span></div><div class="line">				runOnUiThread(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">					<span class="meta">@Override</span></div><div class="line">					<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">						mImageView.setImageBitmap(bitmap);</div><div class="line">					&#125;</div><div class="line">				&#125;);</div><div class="line">				</div><div class="line">			&#125;</div><div class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">			e.printStackTrace();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 加载图片的URL地址</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">loadImageUrls</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">try</span> &#123;</div><div class="line">			<span class="comment">// 创建一个Url对象</span></div><div class="line">			URL url=<span class="keyword">new</span> URL(getImageUrls());</div><div class="line">			<span class="comment">// 打开一个链接</span></div><div class="line">			HttpURLConnection conn = (HttpURLConnection) url.openConnection();</div><div class="line">			<span class="comment">// 通过状态码判断是否能够获取资源 </span></div><div class="line">			<span class="keyword">int</span> responseCode = conn.getResponseCode();</div><div class="line">			<span class="keyword">if</span> (responseCode==<span class="number">200</span>) &#123;</div><div class="line">				<span class="comment">// 返回一个流数据 输入流</span></div><div class="line">				InputStream is = conn.getInputStream();</div><div class="line">				<span class="comment">// 读取字符串 字符流</span></div><div class="line">				BufferedReader reader=<span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(is));</div><div class="line">				String line=<span class="keyword">null</span>;</div><div class="line">				<span class="keyword">while</span> ((line=reader.readLine())!=<span class="keyword">null</span>) &#123;</div><div class="line">					<span class="comment">// 读取数据</span></div><div class="line">					mImageUrlPaths.add(line);</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">			e.printStackTrace();</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">preClick</span><span class="params">(View v)</span></span>&#123;</div><div class="line">		mCurrentIndex--;</div><div class="line">		<span class="keyword">if</span> (mCurrentIndex&lt;<span class="number">0</span>) &#123;</div><div class="line">			mCurrentIndex=mImageUrlPaths.size()-<span class="number">1</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">new</span> Thread()&#123;</div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">				loadImageByUrl(mCurrentIndex);</div><div class="line">			&#125;</div><div class="line">		&#125;.start();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">nextClick</span><span class="params">(View v)</span></span>&#123;</div><div class="line">		mCurrentIndex++;</div><div class="line">		<span class="keyword">if</span> (mCurrentIndex&gt;mImageUrlPaths.size()-<span class="number">1</span>) &#123;</div><div class="line">			mCurrentIndex=<span class="number">0</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">new</span> Thread()&#123;</div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">				loadImageByUrl(mCurrentIndex);</div><div class="line">			&#125;</div><div class="line">		&#125;.start();</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="comment">/**</span></div><div class="line">	 * 获取网络地址</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">private</span> String <span class="title">getImageUrls</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="string">"http://localhost:8080/img/photo.txt"</span>;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getImageName</span><span class="params">(String urlPath)</span></span>&#123;</div><div class="line">		<span class="comment">// 获取最后/的位置</span></div><div class="line">		<span class="keyword">int</span> lastIndexOf = urlPath.lastIndexOf(<span class="string">"/"</span>);</div><div class="line">		<span class="comment">// 返回截取到/后面的文件名</span></div><div class="line">		<span class="keyword">return</span> urlPath.substring(lastIndexOf+<span class="number">1</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>Android中主线程(UI线程)是不建议进行耗时操作的(网络请求等)，当需要耗时操作时，可将其放在子线程中操作，而子线程是不能更新UI的，所以想在子线程中更新UI可以调用runOnUIThread()方法回到主线程中更新UI</li>
+</ul>
+<h2 id="网络请求的通用步骤"><a href="#网络请求的通用步骤" class="headerlink" title="网络请求的通用步骤"></a>网络请求的通用步骤</h2><ol>
+<li><p>创建URL地址 -&gt; String urlPath  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">URL url = <span class="keyword">new</span> URL(urlPath);</div></pre></td></tr></table></figure>
+</li>
+<li><p>打开一个网络链接</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">HttpUrlConnection conn = url.openConnection();</div></pre></td></tr></table></figure>
+</li>
+<li><p>判断数据返回的状态码(响应码)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> resCode = conn.getResponseCode();</div></pre></td></tr></table></figure>
+</li>
+<li><p>当响应码为200时 说明资源请求成功 需要将资源读取进手机</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">InputStream is = conn.getInputStream();</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>注意：<ol>
+<li>访问网络需要在清单文件中申请访问网络的权限</li>
+<li>网络请求应放在子线程中 new Thread()</li>
+<li>更新UI应返回主线程中 runOnUIThread()</li>
+</ol>
+</li>
+</ul>
+<h2 id="使用Handler在子线程更新UI"><a href="#使用Handler在子线程更新UI" class="headerlink" title="使用Handler在子线程更新UI"></a>使用Handler在子线程更新UI</h2><ol>
+<li><p>在主线程中创建一个Handler对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> Handler mHandler = <span class="keyword">new</span> Handler()&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span></span>&#123;</div><div class="line">        </div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+<li><p>在子线程中发送一条消息告诉主线程需要更新UI</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Message msg = <span class="keyword">new</span> Message();</div><div class="line">mHandler.sendMessage(msg);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<ul>
+<li>若需要传递数据，Message提供了arg1和arg2两个int类型的参数和obj一个Object类型的参数，方便传递信息<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Message msg = <span class="keyword">new</span> Message();</div><div class="line">msg.obj = bitmap;</div><div class="line">mHandler.sendMessage(msg);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol>
+<li>在Handler的handleMessage()方法中处理传递过来的消息<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">private</span> Handler mHandler = <span class="keyword">new</span> Handler()&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span></span>&#123;</div><div class="line">        imageView.setImageBitmap((Bitmap)msg.obj);</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="Handler源码分析"><a href="#Handler源码分析" class="headerlink" title="Handler源码分析"></a>Handler源码分析</h2><p><a href="http://blog.csdn.net/iispring/article/details/47180325" target="_blank" rel="external">深入源码解析Android中的Handler,Message,MessageQueue,Looper</a></p>
+<h2 id="Handler补充"><a href="#Handler补充" class="headerlink" title="Handler补充"></a>Handler补充</h2><blockquote>
+<p>当有多个线程向Handler发送Message，而它们需要进行不同方式的处理时可以使用Message的what参数，使用这个参数进行标识，Handler在处理消息时可以根据这个what的标识对不同的线程发送的消息进行不同的处理</p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-11-26T08:07:28.432Z" itemprop="dateUpdated">2017年11月26日 16:07</time>
+</span><br>
+
+
+        这里写留言或版权声明：<a href="/2017/12/04/Android基础六/" target="_blank" rel="external">https://izdo.github.io/2017/12/04/Android基础六/</a>
+    </div>
+    <footer>
+        <a href="https://izdo.github.io">
+            <img src="/img/heizi.jpg" alt="iZdo">
+            iZdo
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/note/">note</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://izdo.github.io/2017/12/04/Android基础六/&title=《Android基础六》 — iZdo's Blog&pic=https://izdo.github.io/img/heizi.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://izdo.github.io/2017/12/04/Android基础六/&title=《Android基础六》 — iZdo's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://izdo.github.io/2017/12/04/Android基础六/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android基础六》 — iZdo's Blog&url=https://izdo.github.io/2017/12/04/Android基础六/&via=https://izdo.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://izdo.github.io/2017/12/04/Android基础六/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/12/04/Android基础五/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Android基础五</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/12/04/Android基础七/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Android基础七</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>iZdo's Blog &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://izdo.github.io/2017/12/04/Android基础六/&title=《Android基础六》 — iZdo's Blog&pic=https://izdo.github.io/img/heizi.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://izdo.github.io/2017/12/04/Android基础六/&title=《Android基础六》 — iZdo's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://izdo.github.io/2017/12/04/Android基础六/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android基础六》 — iZdo's Blog&url=https://izdo.github.io/2017/12/04/Android基础六/&via=https://izdo.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://izdo.github.io/2017/12/04/Android基础六/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACH0lEQVR42u3aSbLiMBAFQO5/afoAfOA9ld0RSKkVAXhIL8qq4fGI1/NlrX3/7syvRz3uWBgYGD/LeH5c+W29+/X1PO3nz/eGgYFxDiMJhe1/nsH6/CCS62JgYGCsBcckBLcBGgMDA2Mt4CbnaTeOGBgYGJMk9vMWMCnAJWW123NxDAyMH2TkVff///mW/gYGBsZPMZ7laoPjWmOyvisMDIytGW2CulbczxPatfvBwMDYm5HfVls+y4NscsUv32BgYGzNaBPIpJS2duzaSNnb9wYGBsZ2jPyAyRjrVaEWAwPjNEabmk5anle1B/74DwYGxpGMNuTlW8bJI/uSvmJgYGzNmDca83J/nqYWYx8YGBhbM+aXT4LjJK1NAjcGBsbejDbgtgWySUmuODMGBsbWjLWA2w6H5S3PNpHGwMA4jbFWml9LU+uC2mRmBAMDYyNGG1iT79uQvTaghoGBcQ5jrezVhsUJ/ksJDwMD4wDGPIC2zc7219HkCAYGxnaMvP/Zti3rDV/+AsDAwDiY0a62hNcmyVF/AwMDY1PGJLC26W67uYxapxgYGJsyJsH0qhttS3KFDwMDYwtGvlpqO3zWzncVW0YMDIwtGLeMPgTN0SQEF88bAwPjAMZa4FsrqE3eAF/2uRgYGBhLaWcOy4/FwMDAWMuD502CfLMY9TcwMDC2Y+ThrwXMhy2itBkDA2NrRps6Tka4rh0Rw8DAOIDxD6rn+ghME9UBAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.14"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.14" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

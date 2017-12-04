@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Android基础七 | iZdo&#39;s Blog | bonbolu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Android,note">
+    <meta name="description" content="Android基础(七)网络请求使用GET方式请求向服务器提交数据案例1234567891011121314151617181920212223242526272829303132public void loginClick(View v)&amp;#123;    final String username = usernameEt.getText().toString();    final Stri">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android基础七">
+<meta property="og:url" content="https://izdo.github.io/2017/12/04/Android基础七/index.html">
+<meta property="og:site_name" content="iZdo's Blog">
+<meta property="og:description" content="Android基础(七)网络请求使用GET方式请求向服务器提交数据案例1234567891011121314151617181920212223242526272829303132public void loginClick(View v)&amp;#123;    final String username = usernameEt.getText().toString();    final Stri">
+<meta property="og:updated_time" content="2017-11-27T09:08:57.266Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android基础七">
+<meta name="twitter:description" content="Android基础(七)网络请求使用GET方式请求向服务器提交数据案例1234567891011121314151617181920212223242526272829303132public void loginClick(View v)&amp;#123;    final String username = usernameEt.getText().toString();    final Stri">
+    
+        <link rel="alternative" href="/atom.xml" title="iZdo&#39;s Blog" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.14">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/heizi.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">iZdo</h5>
+          <a href="mailto:401135451@qq.com" title="401135451@qq.com" class="mail">401135451@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/iZdo" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Android基础七</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Android基础七</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-12-04T12:52:19.504Z" itemprop="datePublished" class="page-time">
+  2017-12-04
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Android基础-七"><span class="post-toc-number">1.</span> <span class="post-toc-text">Android基础(七)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#网络请求"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">网络请求</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用GET方式请求向服务器提交数据案例"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">使用GET方式请求向服务器提交数据案例</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用POST方式请求向服务器提交数据案例"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">使用POST方式请求向服务器提交数据案例</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#网络请求概述"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">网络请求概述</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用HttpClient进行网络请求"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">使用HttpClient进行网络请求</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用HttpClient的GET方式请求向服务器提交数据案例"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">使用HttpClient的GET方式请求向服务器提交数据案例</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用HttpClient的GET方式请求向服务器提交数据案例-1"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">使用HttpClient的GET方式请求向服务器提交数据案例</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#多线程下载"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">多线程下载</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#多线程下载文件案例"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">多线程下载文件案例</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#多线程断点下载案例"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">多线程断点下载案例</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Android基础七"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Android基础七</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年12月04日 20:52" datetime="2017-12-04T12:52:19.504Z"  itemprop="datePublished">2017-12-04</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Android基础-七"><a href="#Android基础-七" class="headerlink" title="Android基础(七)"></a>Android基础(七)</h1><h2 id="网络请求"><a href="#网络请求" class="headerlink" title="网络请求"></a>网络请求</h2><h3 id="使用GET方式请求向服务器提交数据案例"><a href="#使用GET方式请求向服务器提交数据案例" class="headerlink" title="使用GET方式请求向服务器提交数据案例"></a>使用GET方式请求向服务器提交数据案例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">loginClick</span><span class="params">(View v)</span></span>&#123;</div><div class="line">    <span class="keyword">final</span> String username = usernameEt.getText().toString();</div><div class="line">    <span class="keyword">final</span> String pwd = pwdEt.getText().toString();</div><div class="line">    <span class="keyword">new</span> Thread()&#123;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</div><div class="line">            <span class="keyword">try</span>&#123;</div><div class="line">                <span class="comment">// url地址</span></div><div class="line">                String urlPath = <span class="string">"http://localhost:8080/login/login?username="</span> + username + <span class="string">"&amp;pwd="</span> + pwd;</div><div class="line">                URL url = <span class="keyword">new</span> URL(urlPath);</div><div class="line">                <span class="comment">// 打开http链接</span></div><div class="line">                HttpURLConnection conn = (HttpURLConnection) url.openConnection();</div><div class="line">                <span class="comment">// 通过GET方式提交数据</span></div><div class="line">                conn.setRequestMethod(<span class="string">"GET"</span>);</div><div class="line">                <span class="comment">// 判断响应码</span></div><div class="line">                <span class="keyword">if</span>(conn.getResponseCode()==<span class="number">200</span>)&#123;</div><div class="line">                    <span class="comment">// 读取输入流</span></div><div class="line">                    InputStream is = conn.getInputStream();</div><div class="line">                    BufferedReader reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(is));</div><div class="line">                    String result = reader.readLine();</div><div class="line">                    <span class="comment">// 返回主线程显示UI</span></div><div class="line">                    runOnUIThread(<span class="keyword">new</span> Runnable()&#123;</div><div class="line">                        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</div><div class="line">                            Toast.makeText(MainActivity.<span class="keyword">this</span>,<span class="string">"登录结果："</span> + result,Toast.LENGTH_SHORT).show();</div><div class="line">                        &#125;</div><div class="line">                    );</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;<span class="keyword">catch</span>(Exception e)&#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>案例中的UI比较简单，只有两个输入框和一个按钮，通过输入用户名和密码并点击登录按钮后，获取两个输入框的参数，并拼接到url地址上后就可以发起GET方式的网络请求了</p>
+</blockquote>
+<h3 id="使用POST方式请求向服务器提交数据案例"><a href="#使用POST方式请求向服务器提交数据案例" class="headerlink" title="使用POST方式请求向服务器提交数据案例"></a>使用POST方式请求向服务器提交数据案例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">loginClick</span><span class="params">(View v)</span></span>&#123;</div><div class="line">    <span class="keyword">final</span> String username = usernameEt.getText().toString();</div><div class="line">    <span class="keyword">final</span> String pwd = pwdEt.getText().toString();</div><div class="line">    <span class="keyword">new</span> Thread()&#123;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</div><div class="line">            <span class="keyword">try</span>&#123;</div><div class="line">                <span class="comment">// url地址</span></div><div class="line">                String urlPath = <span class="string">"http://localhost:8080/login/login"</span>;</div><div class="line">                URL url = <span class="keyword">new</span> URL(urlPath);</div><div class="line">                <span class="comment">// 打开http链接</span></div><div class="line">                HttpURLConnection conn = (HttpURLConnection) url.openConnection();</div><div class="line">                <span class="comment">// 通过GET方式提交数据</span></div><div class="line">                conn.setRequestMethod(<span class="string">"POST"</span>);</div><div class="line">                </div><div class="line">                <span class="comment">// ---------------------------</span></div><div class="line">                </div><div class="line">                <span class="comment">// 两个请求头 表示参数通过表单提交</span></div><div class="line">                String params = <span class="string">"username="</span> + username + <span class="string">"&amp;pwd="</span> + pwd;</div><div class="line">                conn.setRequestProperty(<span class="string">"Content-Type"</span>,<span class="string">"application/x-www-form-urlencoded"</span>);</div><div class="line">                conn.setRequestProperty(<span class="string">"Content-Length"</span>,params.length()+<span class="string">""</span>);</div><div class="line">                </div><div class="line">                <span class="comment">// 向服务器提交数据</span></div><div class="line">                <span class="comment">// HttpURLConnection的输出流开关默认是关闭的</span></div><div class="line">                conn.setDoOutput(<span class="keyword">true</span>);</div><div class="line">                conn.getOutputStream().write(params.getBytes());</div><div class="line">                </div><div class="line">                <span class="comment">// ---------------------------</span></div><div class="line">                </div><div class="line">                <span class="comment">// 判断响应码</span></div><div class="line">                <span class="keyword">if</span>(conn.getResponseCode()==<span class="number">200</span>)&#123;</div><div class="line">                    <span class="comment">// 读取输入流</span></div><div class="line">                    InputStream is = conn.getInputStream();</div><div class="line">                    BufferedReader reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(is));</div><div class="line">                    String result = reader.readLine();</div><div class="line">                    <span class="comment">// 返回主线程显示UI</span></div><div class="line">                    runOnUIThread(<span class="keyword">new</span> Runnable()&#123;</div><div class="line">                        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</div><div class="line">                            Toast.makeText(MainActivity.<span class="keyword">this</span>,<span class="string">"登录结果："</span> + result,Toast.LENGTH_SHORT).show();</div><div class="line">                        &#125;</div><div class="line">                    );</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;<span class="keyword">catch</span>(Exception e)&#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;.start();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>案例中的方法和GET方式请求的方法大体上是一致的，主要区别在于参数不再是拼接在url地址后方，而是以表单方式提交<br>中间用注释框起来的部分：首先通过POST方式提交数据需要加入两个请求头，表示参数是通过表单提交的，”Content-Length”表示的是参数的长度，这里通过一些处理将其长度计算出来即可，然后向服务器提交数据需要通过输出流输出，而HttpURLConnection的输出流开关默认是关闭的，需要调用setDoOutput()方法将其打开，然后再通过输出流将参数提交即可</p>
+</blockquote>
+<h3 id="网络请求概述"><a href="#网络请求概述" class="headerlink" title="网络请求概述"></a>网络请求概述</h3><blockquote>
+<p>根据HTTP标准，HTTP请求可以使用多种请求方法<br>HTTP1.0定义了三种请求方法：GET,POST和HEAD方法<br>HTTP1.1新增了五种请求方法：OPTIONS，PUT,DELETE,TRACE和CONNECT方法<br>在客户机和服务器之间进行请求-响应时，GET和POST是最常用的方法</p>
+</blockquote>
+<h2 id="使用HttpClient进行网络请求"><a href="#使用HttpClient进行网络请求" class="headerlink" title="使用HttpClient进行网络请求"></a>使用HttpClient进行网络请求</h2><ul>
+<li>注意：HttpClient在Android6.0之后就已废弃<blockquote>
+<p>HttpUrlConnection请求网络的方式可以看成是一种面向过程的请求方式，而HttpClient请求网络的方式就可以看成是一种面向对象(接口)的请求方式  </p>
+</blockquote>
+</li>
+</ul>
+<h3 id="使用HttpClient的GET方式请求向服务器提交数据案例"><a href="#使用HttpClient的GET方式请求向服务器提交数据案例" class="headerlink" title="使用HttpClient的GET方式请求向服务器提交数据案例"></a>使用HttpClient的GET方式请求向服务器提交数据案例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">loginClickByGet</span><span class="params">(View v)</span></span>&#123;</div><div class="line">    <span class="keyword">final</span> String username = usernameEt.getText().toString();</div><div class="line">    <span class="keyword">final</span> String pwd = pwdEt.getText().toString();</div><div class="line"></div><div class="line">    <span class="keyword">new</span> Thread()&#123;</div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</div><div class="line">            <span class="keyword">try</span>&#123;</div><div class="line">                 <span class="comment">// 创建一个HttpClient对象</span></div><div class="line">                HttpClient client = <span class="keyword">new</span> DefaultHttpClient();</div><div class="line">                <span class="comment">// 声明一个GET请求</span></div><div class="line">                <span class="comment">// url地址</span></div><div class="line">                String urlPath = <span class="string">"http://localhost:8080/login/login?username="</span> + username + <span class="string">"&amp;pwd="</span> + pwd;</div><div class="line">                HttpGet request = <span class="keyword">new</span> HttpGet();</div><div class="line">                <span class="comment">// 执行HttpGet请求 返回一个HttpResponse响应对象</span></div><div class="line">                HttpResponse response = client.execute(request);</div><div class="line">                <span class="comment">// 判断响应码</span></div><div class="line">                <span class="keyword">int</span> responseCode = response.getStatusLine().getStatusCode();</div><div class="line">                <span class="keyword">if</span>(responseCode == <span class="number">200</span>)&#123;</div><div class="line">                    <span class="comment">// 获取响应数据 HttpEntity实体对象 该对象封装了返回的数据</span></div><div class="line">                    HttpEntity entity = response.getEntity();</div><div class="line">                    InputStream is = entity.getContent();</div><div class="line">                    BufferedReader reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(is));</div><div class="line">                    String line = reader.readLine();</div><div class="line">                    <span class="comment">// 返回主线程显示UI</span></div><div class="line">                    runOnUIThread(<span class="keyword">new</span> Runnable()&#123;</div><div class="line">                        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</div><div class="line">                            Toast.makeText(MainActivity.<span class="keyword">this</span>,line,Toast.LENGTH_SHORT).show();</div><div class="line">                        &#125;</div><div class="line">                    &#125;);</div><div class="line">                &#125;</div><div class="line">            &#125;<span class="keyword">catch</span>(Exception e)&#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;.start();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="使用HttpClient的GET方式请求向服务器提交数据案例-1"><a href="#使用HttpClient的GET方式请求向服务器提交数据案例-1" class="headerlink" title="使用HttpClient的GET方式请求向服务器提交数据案例"></a>使用HttpClient的GET方式请求向服务器提交数据案例</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">public void loginClickByPost(View v)&#123;</div><div class="line">    final String username = usernameEt.getText().toString();</div><div class="line">    final String pwd = pwdEt.getText().toString();</div><div class="line"></div><div class="line">    new Thread()&#123;</div><div class="line">        public void run()&#123;</div><div class="line">            try&#123;</div><div class="line">                 // 创建一个HttpClient对象</div><div class="line">                HttpClient client = new DefaultHttpClient();</div><div class="line">                // 声明一个POST请求</div><div class="line">                // url地址</div><div class="line">                String urlPath = "http://localhost:8080/login/login;</div><div class="line">                HttpPost request = new HttpPost();</div><div class="line">                // 将Post请求添加到Form表单中</div><div class="line">                // 不管是请求的数据 还是返回的数据 都封装在HtppEntity中</div><div class="line">                ArrayList&lt;BasicNameValuePair&gt; parameters = new ArrayList&lt;&gt;();</div><div class="line">                parameters.add(new BasicNameValuePair("username",username));</div><div class="line">                parameters.add(new BasicNameValuePair("pwd",pwd));</div><div class="line">                HttpEntity entity = new UrlEncodedFormEntity(parameters,"utf-8");</div><div class="line">                request.setEntity(entity);</div><div class="line">                // 执行HttpPost请求 返回一个HttpResponse响应对象</div><div class="line">                HttpResponse response = client.execute(request);</div><div class="line">                // 判断响应码</div><div class="line">                int responseCode = response.getStatusLine().getStatusCode();</div><div class="line">                if(responseCode == 200)&#123;</div><div class="line">                    // 获取响应数据 HttpEntity实体对象 该对象封装了返回的数据</div><div class="line">                    HttpEntity entity = response.getEntity();</div><div class="line">                    InputStream is = entity.getContent();</div><div class="line">                    BufferedReader reader = new BufferedReader(new InputStreamReader(is));</div><div class="line">                    String line = reader.readLine();</div><div class="line">                    // 返回主线程显示UI</div><div class="line">                    runOnUIThread(new Runnable()&#123;</div><div class="line">                        public void run()&#123;</div><div class="line">                            Toast.makeText(MainActivity.this,line,Toast.LENGTH_SHORT).show();</div><div class="line">                        &#125;</div><div class="line">                    &#125;);</div><div class="line">                &#125;</div><div class="line">            &#125;catch(Exception e)&#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;.start();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="多线程下载"><a href="#多线程下载" class="headerlink" title="多线程下载"></a>多线程下载</h2><h3 id="多线程下载文件案例"><a href="#多线程下载文件案例" class="headerlink" title="多线程下载文件案例"></a>多线程下载文件案例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> MAX_THREAD_COUNT = <span class="number">3</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> mReadCount;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 按钮点击事件</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">downloadClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">        <span class="keyword">new</span> Thread() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="keyword">try</span> &#123;</div><div class="line">                    <span class="comment">// 获取服务器中文件的大小 并在手机中创建一个大小一致的空文件</span></div><div class="line">                    URL url = <span class="keyword">new</span> URL(getUrlPath());</div><div class="line">                    HttpURLConnection connection = (HttpURLConnection) url.openConnection();</div><div class="line">                    <span class="keyword">if</span> (connection.getResponseCode() == <span class="number">200</span>) &#123;</div><div class="line">                        <span class="comment">// 资源文件的大小</span></div><div class="line">                        <span class="keyword">int</span> contentLength = connection.getContentLength();</div><div class="line">                        File file = <span class="keyword">new</span> File(getFilesDir(), getFileName(getUrlPath()));</div><div class="line">                        <span class="comment">// RandomAccessFile 可以创建带有空间大小的文件</span></div><div class="line">                        RandomAccessFile randomAccessFile = <span class="keyword">new</span> RandomAccessFile(file, <span class="string">"rw"</span>);</div><div class="line">                        randomAccessFile.setLength(contentLength);</div><div class="line"></div><div class="line">                        <span class="comment">// 创建MAX_THREAD_COUNT条线程 把文件分割成MAX_THREAD_COUNT等分 最后的线程应该把剩下的文件内容全部读取完</span></div><div class="line">                        <span class="comment">// 计算每条线程应读取的内容大小</span></div><div class="line">                        <span class="keyword">int</span> perSize = contentLength / MAX_THREAD_COUNT;</div><div class="line">                        mReadCount = <span class="number">0</span>;</div><div class="line">                        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; MAX_THREAD_COUNT; i++) &#123;</div><div class="line">                            <span class="comment">// startPosition 每条线程的起始位置</span></div><div class="line">                            <span class="keyword">int</span> startPosition = i * perSize;</div><div class="line">                            <span class="keyword">int</span> endPosition = (i + <span class="number">1</span>) * perSize - <span class="number">1</span>;</div><div class="line">                            <span class="keyword">if</span> (i == MAX_THREAD_COUNT - <span class="number">1</span>) &#123;</div><div class="line">                                endPosition = contentLength - <span class="number">1</span>;</div><div class="line">                            &#125;</div><div class="line">                            <span class="comment">// 创建MAX_THREAD_COUNT条子线程进行下载</span></div><div class="line">                            <span class="keyword">new</span> DownLoadThread(i, startPosition, endPosition).start();</div><div class="line">                        &#125;</div><div class="line">                    &#125;</div><div class="line">                &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">                    e.printStackTrace();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;.start();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">DownLoadThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</div><div class="line">        <span class="keyword">private</span> <span class="keyword">int</span> mStartPosition;</div><div class="line">        <span class="keyword">private</span> <span class="keyword">int</span> mEndPosition;</div><div class="line">        <span class="keyword">private</span> <span class="keyword">int</span> mThreadIndex;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="title">DownLoadThread</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> startPosition, <span class="keyword">int</span> endPosition)</span> </span>&#123;</div><div class="line">            mThreadIndex = i;</div><div class="line">            mStartPosition = startPosition;</div><div class="line">            mEndPosition = endPosition;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                URL url = <span class="keyword">new</span> URL(getUrlPath());</div><div class="line">                HttpURLConnection connection = (HttpURLConnection) url.openConnection();</div><div class="line">                <span class="comment">// 通知服务器 只想下载文件的某一部分</span></div><div class="line">                <span class="comment">// 通过请求头通知服务器</span></div><div class="line">                <span class="comment">// Range,"bytes=100-200" 100-200 表示下载文件的100-200字节部分</span></div><div class="line">                connection.setRequestProperty(<span class="string">"Range"</span>, <span class="string">"bytes="</span> + mStartPosition + <span class="string">"-"</span> + mEndPosition);</div><div class="line">                <span class="comment">// 只下载文件一部分的响应码为206</span></div><div class="line">                <span class="keyword">if</span> (connection.getResponseCode() == <span class="number">206</span>) &#123;</div><div class="line">                    InputStream is = connection.getInputStream();</div><div class="line">                    <span class="comment">// 将内容作为文件的一部分写入 File没有这样的功能</span></div><div class="line">                    <span class="comment">// 必须通过RandomAccessFile</span></div><div class="line">                    File file = <span class="keyword">new</span> File(getFilesDir(), getFileName(getUrlPath()));</div><div class="line">                    RandomAccessFile randomAccessFile = <span class="keyword">new</span> RandomAccessFile(file, <span class="string">"rw"</span>);</div><div class="line">                    <span class="comment">// 跳过mStartPosition个字节</span></div><div class="line">                    randomAccessFile.skipBytes(mStartPosition);</div><div class="line">                    <span class="comment">// 开始写入文件</span></div><div class="line">                    <span class="keyword">byte</span>[] buff = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">32</span>];</div><div class="line">                    <span class="keyword">int</span> readCount;</div><div class="line">                    <span class="keyword">while</span> ((readCount = is.read(buff)) &gt; <span class="number">0</span>) &#123;</div><div class="line">                        randomAccessFile.write(buff, <span class="number">0</span>, readCount);</div><div class="line">                    &#125;</div><div class="line">                    randomAccessFile.close();</div><div class="line">                &#125;</div><div class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125; <span class="keyword">finally</span> &#123;</div><div class="line">                mReadCount++;</div><div class="line">                <span class="keyword">if</span> (mReadCount == MAX_THREAD_COUNT) &#123;</div><div class="line">                    Log.i(<span class="string">"aaa"</span>, <span class="string">"download finish !"</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 获取网络地址</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">getUrlPath</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"http://localhost:8080/resource.rar"</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 获取文件名</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">getFileName</span><span class="params">(String urlPath)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> urlPath.substring(urlPath.lastIndexOf(<span class="string">"/"</span>) + <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>案例思路</li>
+</ul>
+<ol>
+<li>通过url地址发起网络请求</li>
+<li>获取资源文件的大小，创建一个具有同样大小的空文件</li>
+<li>将文件分成MAX_THREAD_COUNT等分并计算每个部分需要下载的大小，计算出开始位置和结束位置</li>
+<li>创建MAX_THREAD_COUNT条子线程DownLoadThread进行下载<blockquote>
+<p>注意：由于File类没有提供需要的功能，所以此处用到了一个RandomAccessFile类，RandomAccessFile类可以创建带有空间大小的文件，并且可以跳过字节写入文件</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="多线程断点下载案例"><a href="#多线程断点下载案例" class="headerlink" title="多线程断点下载案例"></a>多线程断点下载案例</h3><ul>
+<li><p>修改案例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    ...</div><div class="line">    <span class="keyword">private</span> LinearLayout mPbContainerLl;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line">        mPbContainerLl = (LinearLayout) findViewById(R.id.pbcontainer_ll);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 按钮点击事件</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">downloadClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">        <span class="comment">// 删除所有子控件</span></div><div class="line">        mPbContainerLl.removeAllViews();</div><div class="line">        <span class="comment">// 创建MAX_THREAD_COUNT个条横向的ProgressBar</span></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; MAX_THREAD_COUNT; i++) &#123;</div><div class="line">			View view = LayoutInflater.from(<span class="keyword">this</span>).inflate(R.layout.pb_layout, <span class="keyword">null</span>);</div><div class="line">			mPbContainerLl.addView(view);</div><div class="line">		&#125;</div><div class="line">    </div><div class="line">        <span class="keyword">new</span> Thread() &#123;</div><div class="line">            </div><div class="line">            ...</div><div class="line">            </div><div class="line">        &#125;.start();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">DownLoadThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</div><div class="line">        </div><div class="line">        ...</div><div class="line">        <span class="comment">// 用于记录上一次下载的位置</span></div><div class="line">        <span class="keyword">private</span> <span class="keyword">int</span> mLastPosition;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="title">DownLoadThread</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> startPosition, <span class="keyword">int</span> endPosition)</span> </span>&#123;</div><div class="line">            mThreadIndex = i;</div><div class="line">            mStartPosition = startPosition;</div><div class="line">            mEndPosition = endPosition;</div><div class="line">            mLastPosition=startPosition;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="comment">// 通过PbContaierLl的getChildAt方法找到容器中的子控件</span></div><div class="line">            <span class="keyword">final</span> ProgressBar pb =(ProgressBar) view.findViewById(R.id.progressBar1);</div><div class="line">            <span class="comment">// 回到UI线程更新UI 设置进度</span></div><div class="line">            runOnUiThread(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">				<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">					pb.setMax(mEndPosition-mStartPosition);</div><div class="line">				&#125;</div><div class="line">			&#125;);</div><div class="line">            </div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                <span class="comment">// 判断是否有记录线程进度的文件 有则读取</span></div><div class="line">                File lastRecordFile = getRecordFile(mThreadIndex,getFileName(getUrlPath)));</div><div class="line">                <span class="keyword">if</span>(lastRecordFile.exists()&amp;&amp;lastRecordFile.length()&gt;<span class="number">0</span>)&#123;</div><div class="line">                    FileInputStream fis = <span class="keyword">new</span> FileInputStream(lastRecordFile);</div><div class="line">                    BufferedReader reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(fis));</div><div class="line">                    mLastPosition = Integer.parseInt(reader.readLine());</div><div class="line">                &#125;</div><div class="line">                </div><div class="line">                ...</div><div class="line">                </div><div class="line">                <span class="comment">// 只下载文件一部分的响应码为206</span></div><div class="line">                <span class="keyword">if</span> (connection.getResponseCode() == <span class="number">206</span>) &#123;</div><div class="line">                    </div><div class="line">                    ...</div><div class="line">                    </div><div class="line">                    <span class="keyword">while</span> ((readCount = is.read(buff)) &gt; <span class="number">0</span>) &#123;</div><div class="line">                        randomAccessFile.write(buff, <span class="number">0</span>, readCount);</div><div class="line">                        </div><div class="line">                        mLastPosition += readCount;</div><div class="line">                        <span class="comment">// 保存mLastPosition</span></div><div class="line">                        File recordFile = getRecordFile(mThreadIndex,getFileName(getUrlPath)));</div><div class="line">                        <span class="comment">// RandomAccessFile 可以实时写文件到硬盘中</span></div><div class="line">                        RandomAccessFile recordRaf = <span class="keyword">new</span> RandomAccessFile(recordFile,<span class="string">"rwd"</span>);</div><div class="line">                        </div><div class="line">                        runOnUIThread(<span class="keyword">new</span> Runnable()&#123;</div><div class="line">                            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</div><div class="line">                                pb.setProgress(mLastPosition-mStartPosition);</div><div class="line">                            &#125;</div><div class="line">                        )&#125;;</div><div class="line">                    &#125;</div><div class="line">                    randomAccessFile.close();</div><div class="line">                &#125;</div><div class="line">            &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125; <span class="keyword">finally</span> &#123;</div><div class="line">                mReadCount++;</div><div class="line">                <span class="keyword">if</span> (mReadCount == MAX_THREAD_COUNT) &#123;</div><div class="line">                    runOnUIThread()&#123;</div><div class="line">                       <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</div><div class="line">                           Toast.makeText(MainActivity.<span class="keyword">this</span>,<span class="string">"download finish !"</span>, <span class="number">0</span>).show();</div><div class="line">                       &#125;</div><div class="line">                    &#125;);</div><div class="line">                    <span class="comment">// 删除记录文件</span></div><div class="line">					<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; MAX_THREAD_COUNT; i++) &#123;</div><div class="line">						File recordFile = getRecordFile(i,getFileName(getUrlPath()));</div><div class="line">						recordFile.delete();</div><div class="line">					&#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 获取网络地址</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">getUrlPath</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"http://localhost:8080/resource.rar"</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 获取文件名</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">private</span> String <span class="title">getFileName</span><span class="params">(String urlPath)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> urlPath.substring(urlPath.lastIndexOf(<span class="string">"/"</span>) + <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">/**</span></div><div class="line">	 * 为每一条线程创建一个记录当前进度文件 </div><div class="line">	 * */</div><div class="line">	<span class="function"><span class="keyword">private</span> File <span class="title">getRecordFile</span><span class="params">(<span class="keyword">int</span> threadIndex,String fileName)</span></span>&#123;</div><div class="line">        <span class="comment">// 原文件名 resource.rar   </span></div><div class="line">        <span class="comment">// 记录文件名 resource#2.txt</span></div><div class="line">		fileName=fileName.substring(<span class="number">0</span>, fileName.lastIndexOf(<span class="string">"."</span>));</div><div class="line">		fileName+=(<span class="string">"#"</span>+threadIndex+<span class="string">".txt"</span>);</div><div class="line">		<span class="keyword">return</span> <span class="keyword">new</span> File(getFilesDir(),fileName);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line">`</div></pre></td></tr></table></figure>
+</li>
+<li><p>案例思路</p>
+</li>
+</ul>
+<ol>
+<li>在文件下载过程中实时记录当前线程下载的位置</li>
+<li>将当前位置写入本地文件保存在手机中</li>
+<li>当因为某些原因导致下载被终止时，下次重新下载就会读取本地的文件，并将当前进度设置为上次位置</li>
+<li>下载完成后删除所有临时记录文件<blockquote>
+<p>注意：File类无法进行实时写入，当程序被强制终止时，会导致写入也终止，而RandomAccessFile类恰好能够解决这个问题</p>
+</blockquote>
+</li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-11-27T09:08:57.266Z" itemprop="dateUpdated">2017年11月27日 17:08</time>
+</span><br>
+
+
+        这里写留言或版权声明：<a href="/2017/12/04/Android基础七/" target="_blank" rel="external">https://izdo.github.io/2017/12/04/Android基础七/</a>
+    </div>
+    <footer>
+        <a href="https://izdo.github.io">
+            <img src="/img/heizi.jpg" alt="iZdo">
+            iZdo
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/note/">note</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://izdo.github.io/2017/12/04/Android基础七/&title=《Android基础七》 — iZdo's Blog&pic=https://izdo.github.io/img/heizi.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://izdo.github.io/2017/12/04/Android基础七/&title=《Android基础七》 — iZdo's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://izdo.github.io/2017/12/04/Android基础七/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android基础七》 — iZdo's Blog&url=https://izdo.github.io/2017/12/04/Android基础七/&via=https://izdo.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://izdo.github.io/2017/12/04/Android基础七/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/12/04/Android基础六/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Android基础六</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/12/04/Android基础八/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Android基础八</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>iZdo's Blog &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://izdo.github.io/2017/12/04/Android基础七/&title=《Android基础七》 — iZdo's Blog&pic=https://izdo.github.io/img/heizi.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://izdo.github.io/2017/12/04/Android基础七/&title=《Android基础七》 — iZdo's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://izdo.github.io/2017/12/04/Android基础七/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android基础七》 — iZdo's Blog&url=https://izdo.github.io/2017/12/04/Android基础七/&via=https://izdo.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://izdo.github.io/2017/12/04/Android基础七/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJklEQVR42u3aSw6DMAwFwN7/0u0BqsKzTSoRhhVCFDIs3PjzesXH++voXf/15O9fvVYcGBgYt2W8D4/8Bb/u+X5O9fx4bRgYGM9hJKEwP08WcXx/vjYMDAyM3hKTEFwN0BgYGBhVRn5PdeOIgYGBMUlij4NvUoBLUuLluTgGBsYNGXnV/f/nS/obGBgYt2K8i8e6vuFoVRgYGFsz8gA3Ke7nCW1vPRgYGHszqulrXtbPg+xxShxdwcDA2Jqxorifh+xJO/PkfwMDA2M7RnWcImkurgu1GBgYGNUxiLzQf1V74OQeDAyM7RiTkJcEwWoQr36CCyI3BgbGDRnVkYtes7NXJSsEXAwMjI0Yk0J/9UovrU0CNwYGxt6MfHirt5TJ0wqhGQMDY2tGXg6bj1xMeNEWFgMD4wGMXuWqFyjLBbXk42JgYGzKyAdYk+u9dLcalDEwMJ7GmJfm8+3jvHh3siXFwMDYmpEH0PxlkyQ5Z5+8DAMDYyNGXuTqDX7lhbPqr352YjEwMB7GmIxZVAtwk0ENDAyMJzCqgS8Zzkg2oNXkOcrFMTAwNmL0EtfeJi8fsPhT/o2BgXETRnWEogfOC3PH28pqmQ8DA2MnxlWjD5P0tdCk7H1pDAyMLRj54vLUtBqsJ6vFwMDAyIch8hbCZCwMAwMDo5cH502CaqsyCtMYGBgPYOShs9rIvCoEnxTvMDAwtmZUU8cLRriCIY8lTU0MDIz7MT7zpWqY05Mf4gAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.14"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.14" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

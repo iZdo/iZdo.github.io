@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Android基础四 | iZdo&#39;s Blog | bonbolu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Android,note">
+    <meta name="description" content="Android基础(四)Android中的数据存储的几种方式
+文件
+SharedPerference
+Sqlite数据库
+ContentProvider
+网络
+
+Xml序列化生成器手动写入xml文件案例1234567891011121314// 将&amp;lt;map&amp;gt;&amp;lt;string name=&quot;username&quot;&amp;gt;abc&amp;lt;/string&amp;gt;&amp;lt;string name=&quot;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android基础四">
+<meta property="og:url" content="https://izdo.github.io/2017/12/04/Android基础四/index.html">
+<meta property="og:site_name" content="iZdo's Blog">
+<meta property="og:description" content="Android基础(四)Android中的数据存储的几种方式
+文件
+SharedPerference
+Sqlite数据库
+ContentProvider
+网络
+
+Xml序列化生成器手动写入xml文件案例1234567891011121314// 将&amp;lt;map&amp;gt;&amp;lt;string name=&quot;username&quot;&amp;gt;abc&amp;lt;/string&amp;gt;&amp;lt;string name=&quot;">
+<meta property="og:updated_time" content="2017-11-22T14:29:47.087Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android基础四">
+<meta name="twitter:description" content="Android基础(四)Android中的数据存储的几种方式
+文件
+SharedPerference
+Sqlite数据库
+ContentProvider
+网络
+
+Xml序列化生成器手动写入xml文件案例1234567891011121314// 将&amp;lt;map&amp;gt;&amp;lt;string name=&quot;username&quot;&amp;gt;abc&amp;lt;/string&amp;gt;&amp;lt;string name=&quot;">
+    
+        <link rel="alternative" href="/atom.xml" title="iZdo&#39;s Blog" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.14">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/heizi.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">iZdo</h5>
+          <a href="mailto:401135451@qq.com" title="401135451@qq.com" class="mail">401135451@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/iZdo" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Android基础四</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Android基础四</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-12-04T12:52:19.516Z" itemprop="datePublished" class="page-time">
+  2017-12-04
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Android基础-四"><span class="post-toc-number">1.</span> <span class="post-toc-text">Android基础(四)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Android中的数据存储的几种方式"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Android中的数据存储的几种方式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Xml序列化生成器"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Xml序列化生成器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#手动写入xml文件案例"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">手动写入xml文件案例</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Xml序列化器生成xml文件案例"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">Xml序列化器生成xml文件案例</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#解析Xml文件"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">解析Xml文件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#解析Xml的方式"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">解析Xml的方式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用Pull解析器解析Xml文件案例"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">使用Pull解析器解析Xml文件案例</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用Pull解析器解析Android工程下assets目录中的xml文件案例"><span class="post-toc-number">1.3.3.</span> <span class="post-toc-text">使用Pull解析器解析Android工程下assets目录中的xml文件案例</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SQLite数据库"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">SQLite数据库</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建SQLite数据库案例"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">创建SQLite数据库案例</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#创建工具类DbOpenHelper"><span class="post-toc-number">1.4.1.1.</span> <span class="post-toc-text">创建工具类DbOpenHelper</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#调用DbOpenHelper类创建数据库"><span class="post-toc-number">1.4.1.2.</span> <span class="post-toc-text">调用DbOpenHelper类创建数据库</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#增删改查"><span class="post-toc-number">1.4.1.3.</span> <span class="post-toc-text">增删改查</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用SQLite3工具查看数据库"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">使用SQLite3工具查看数据库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用SQLiteDatabase的方法进行增删改查"><span class="post-toc-number">1.4.3.</span> <span class="post-toc-text">使用SQLiteDatabase的方法进行增删改查</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Android基础四"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Android基础四</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年12月04日 20:52" datetime="2017-12-04T12:52:19.516Z"  itemprop="datePublished">2017-12-04</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Android基础-四"><a href="#Android基础-四" class="headerlink" title="Android基础(四)"></a>Android基础(四)</h1><h2 id="Android中的数据存储的几种方式"><a href="#Android中的数据存储的几种方式" class="headerlink" title="Android中的数据存储的几种方式"></a>Android中的数据存储的几种方式</h2><ol>
+<li>文件</li>
+<li>SharedPerference</li>
+<li>Sqlite数据库</li>
+<li>ContentProvider</li>
+<li>网络</li>
+</ol>
+<h2 id="Xml序列化生成器"><a href="#Xml序列化生成器" class="headerlink" title="Xml序列化生成器"></a>Xml序列化生成器</h2><h3 id="手动写入xml文件案例"><a href="#手动写入xml文件案例" class="headerlink" title="手动写入xml文件案例"></a>手动写入xml文件案例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 将&lt;map&gt;&lt;string name="username"&gt;abc&lt;/string&gt;&lt;string name="password"&gt;123&lt;/string&gt;&lt;/map&gt;写入info.xml文件并保存在应用的files文件夹中</span></div><div class="line"><span class="comment">// 拼接字符串</span></div><div class="line">StringBuilder sb = <span class="keyword">new</span> StringBuilder();</div><div class="line">sb.append(<span class="string">"&lt;map&gt;"</span>);</div><div class="line">sb.append(<span class="string">"&lt;string name=\"username\"&gt;"</span>+username+<span class="string">"&lt;/string&gt;"</span>);</div><div class="line">sb.append(<span class="string">"&lt;string name=\"password\"&gt;"</span>+password+<span class="string">"&lt;/string&gt;"</span>);</div><div class="line">sb.append(<span class="string">"&lt;/map&gt;"</span>);</div><div class="line">String result = sb.toString();</div><div class="line"><span class="comment">// 创建文件对象</span></div><div class="line">File file = <span class="keyword">new</span> File(context.getFilesDir(),<span class="string">"info.xml"</span>);</div><div class="line"><span class="comment">// 创建输出流</span></div><div class="line">BufferedWriter writer = <span class="keyword">new</span> BufferedWriter(<span class="keyword">new</span> FileWriter(file));</div><div class="line">writer.write(result);</div><div class="line">writer.close();</div></pre></td></tr></table></figure>
+<blockquote>
+<p>虽然这样能够成功写入xml文件，但是一旦遇到很长的xml文件在写入时就会非常麻烦，而Android提供了Xml序列化器来帮助开发者生成xml文件</p>
+</blockquote>
+<h3 id="Xml序列化器生成xml文件案例"><a href="#Xml序列化器生成xml文件案例" class="headerlink" title="Xml序列化器生成xml文件案例"></a>Xml序列化器生成xml文件案例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 将&lt;map&gt;&lt;username&gt;abc&lt;/username&gt;&lt;password&gt;123&lt;/password&gt;&lt;/map&gt;写入info.xml文件并保存在应用的files文件夹中</span></div><div class="line"><span class="comment">//XmlSerializer 是用来创建xml文档的类</span></div><div class="line">XmlSerializer xmlSerializer = Xml.newSerializer();</div><div class="line"><span class="comment">// 创建输出流</span></div><div class="line">FileOutputStream fos = context.openFileOutput(<span class="string">"info.xml"</span>,Context.MODE_PRIVATE);</div><div class="line">xmlSerializer。setOutput(fos,<span class="string">"utf-8"</span>);</div><div class="line"></div><div class="line"><span class="comment">// 开始写文档</span></div><div class="line"><span class="comment">// startDocument中的两个参数表示xml的声明 &lt;?xml version='1.0' encoding='utf-8' standalone='yes' ?&gt;</span></div><div class="line">xmlSerializer.startDocument(<span class="string">"utf-8"</span>,<span class="keyword">true</span>);</div><div class="line"><span class="comment">// startTag中的第一个参数是命名空间 命名空间是用来避免多个文件中的标签命名冲突的 此处填null即可</span></div><div class="line">xmlSerializer.startTag(<span class="keyword">null</span>,<span class="string">"map"</span>);</div><div class="line"><span class="comment">// 下三行表示写入&lt;username&gt;abc&lt;/username&gt;</span></div><div class="line">xmlSerializer.startTag(<span class="keyword">null</span>,<span class="string">"username"</span>);</div><div class="line">xmlSerializer.text(<span class="string">"abc"</span>);</div><div class="line">xmlSerializer.endTag(<span class="keyword">null</span>,<span class="string">"username"</span>);</div><div class="line"></div><div class="line">xmlSerializer.startTag(<span class="keyword">null</span>,<span class="string">"password"</span>);</div><div class="line">xmlSerializer.text(<span class="string">"123"</span>);</div><div class="line">xmlSerializer.endTag(<span class="keyword">null</span>,<span class="string">"password"</span>);</div><div class="line"></div><div class="line">xmlSerializer.endTag(<span class="keyword">null</span>,<span class="string">"map"</span>);</div><div class="line"><span class="comment">// 结束写文档</span></div><div class="line">xmlSerializer.endDocument();</div></pre></td></tr></table></figure>
+<h2 id="解析Xml文件"><a href="#解析Xml文件" class="headerlink" title="解析Xml文件"></a>解析Xml文件</h2><h3 id="解析Xml的方式"><a href="#解析Xml的方式" class="headerlink" title="解析Xml的方式"></a>解析Xml的方式</h3><ol>
+<li>DOM解析</li>
+<li>SAX解析</li>
+<li>Pull解析(与SAX解析类似)</li>
+</ol>
+<h3 id="使用Pull解析器解析Xml文件案例"><a href="#使用Pull解析器解析Xml文件案例" class="headerlink" title="使用Pull解析器解析Xml文件案例"></a>使用Pull解析器解析Xml文件案例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 用于显示最后解析结果的字符串</span></div><div class="line">String result = <span class="string">""</span>;</div><div class="line"><span class="comment">// 创建Pull解析器</span></div><div class="line">XmlPullParser pullParser = Xml.newPullParser();</div><div class="line"><span class="comment">// 创建输入流</span></div><div class="line">FileInputStream fid = context.openFileInput(<span class="string">"info.xml"</span>);</div><div class="line"><span class="comment">// 绑定流</span></div><div class="line">pullParser.setInput(fix,<span class="string">"utf-8"</span>);</div><div class="line"><span class="comment">// 开始解析文件</span></div><div class="line"><span class="comment">// 1.获取事件的类型(类型包括：开标签 文本 闭标签 标签属性 开始文档的类型 结束文档的类型)</span></div><div class="line"><span class="keyword">int</span> eventType = pullParser.getEventType();</div><div class="line"></div><div class="line"><span class="comment">// 用while循环 循环解析文件 直至结尾</span></div><div class="line"><span class="keyword">while</span>(eventType!=XmlPullParser.END_DOCUMENT)&#123;</div><div class="line">    <span class="keyword">if</span>(eventType==XmlPullParser.START_TAG)&#123;</div><div class="line">        <span class="keyword">if</span>(pullParser.getName().equals(<span class="string">"username"</span>))&#123;</div><div class="line">            result += <span class="string">" username="</span>+pullParser.nextText();</div><div class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(pullParser.getName().equals(<span class="string">"passwrod"</span>))&#123;</div><div class="line">            result += <span class="string">" passwrod="</span>+pullParser.nextText();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 获取下一个标签</span></div><div class="line">    eventType = pullParser.next();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="使用Pull解析器解析Android工程下assets目录中的xml文件案例"><a href="#使用Pull解析器解析Android工程下assets目录中的xml文件案例" class="headerlink" title="使用Pull解析器解析Android工程下assets目录中的xml文件案例"></a>使用Pull解析器解析Android工程下assets目录中的xml文件案例</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 用于显示最后解析结果的字符串</span></div><div class="line">String result = <span class="string">""</span>;</div><div class="line"><span class="comment">// 获取AssetManager资源管理器</span></div><div class="line">AssetManager assets = getAssets();</div><div class="line"><span class="comment">// 读取文件</span></div><div class="line">InputStream fis = assets.open(<span class="string">"info.xml"</span>);</div><div class="line"><span class="comment">// 创建Pull解析器</span></div><div class="line">XmlPullParser pullParser = Xml.newPullParser();</div><div class="line"><span class="comment">// 创建输入流</span></div><div class="line">FileInputStream fid = context.openFileInput(<span class="string">"info.xml"</span>);</div><div class="line"><span class="comment">// 绑定流</span></div><div class="line">pullParser.setInput(fix,<span class="string">"utf-8"</span>);</div><div class="line"><span class="comment">// 开始解析文件</span></div><div class="line"><span class="comment">// 1.获取事件的类型(类型包括：开标签 文本 闭标签 标签属性 开始文档的类型 结束文档的类型)</span></div><div class="line"><span class="keyword">int</span> eventType = pullParser.getEventType();</div><div class="line"></div><div class="line"><span class="comment">// 用while循环 循环解析文件 直至结尾</span></div><div class="line"><span class="keyword">while</span>(eventType!=XmlPullParser.END_DOCUMENT)&#123;</div><div class="line">    <span class="keyword">if</span>(eventType==XmlPullParser.START_TAG)&#123;</div><div class="line">        <span class="keyword">if</span>(pullParser.getName().equals(<span class="string">"username"</span>))&#123;</div><div class="line">            result += <span class="string">" username="</span>+pullParser.nextText();</div><div class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(pullParser.getName().equals(<span class="string">"passwrod"</span>))&#123;</div><div class="line">            result += <span class="string">" passwrod="</span>+pullParser.nextText();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 获取下一个标签</span></div><div class="line">    eventType = pullParser.next();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="SQLite数据库"><a href="#SQLite数据库" class="headerlink" title="SQLite数据库"></a>SQLite数据库</h2><blockquote>
+<p>SQLite是一款轻型数据库，它包含在一个相对小的C库中，它的设计目标是嵌入式的，而且目前很多嵌入式产品中都使用了它,SQLite数据库占用资源相对较低，在嵌入式设备中可能只需要几百kb的内存就够了，并且它能够支持Windows/Linux/Unix等主流操作系统，同时能够跟很多编程语言相结合</p>
+</blockquote>
+<h3 id="创建SQLite数据库案例"><a href="#创建SQLite数据库案例" class="headerlink" title="创建SQLite数据库案例"></a>创建SQLite数据库案例</h3><h4 id="创建工具类DbOpenHelper"><a href="#创建工具类DbOpenHelper" class="headerlink" title="创建工具类DbOpenHelper"></a>创建工具类DbOpenHelper</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DbOpenHelper</span> <span class="keyword">extends</span> <span class="title">SQLiteOpenHelper</span> <span class="keyword">implements</span> <span class="title">BaseColumns</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// 数据库文件名</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String DB_NAME = <span class="string">"contact.db"</span>;</div><div class="line">    <span class="comment">// 数据库版本</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> DB_VERSION = <span class="number">1</span>;</div><div class="line">    <span class="comment">// 数据表</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String TABLE_NAME = <span class="string">"contactinfo"</span>;</div><div class="line">    <span class="comment">// 数据表的字段</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String _USERNAME = <span class="string">"username"</span>;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String _PHONE = <span class="string">"phone"</span>;</div><div class="line"></div><div class="line">    <span class="comment">// CursorFactory 游标工厂类</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">DbOpenHelper</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context, DB_NAME, <span class="keyword">null</span>, DB_VERSION);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 当数据库创建时会调用onCreate() 可以在这个方法中创建数据</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(SQLiteDatabase db)</span> </span>&#123;</div><div class="line">        <span class="comment">// 创建数据表sql语句</span></div><div class="line">        db.execSQL(<span class="string">"create table "</span> + TABLE_NAME + <span class="string">" ("</span> + _ID + <span class="string">" integer primary key autoincrement,"</span> +</div><div class="line">                _USERNAME + <span class="string">" text,"</span> + _PHONE + <span class="string">" text);"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 升级数据库 可以在这个方法中删除/添加/修改数据库表</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onUpgrade</span><span class="params">(SQLiteDatabase db, <span class="keyword">int</span> oldVersion, <span class="keyword">int</span> newVersion)</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>BaseColumns接口提供了自增长的主键id方便使用，因此让DbOpenHelper实现这个接口<br>onCreate()方法在创建数据库时调用，此后不再调用<br>onUpgrade()方法在数据库更新时调用</p>
+</blockquote>
+<h4 id="调用DbOpenHelper类创建数据库"><a href="#调用DbOpenHelper类创建数据库" class="headerlink" title="调用DbOpenHelper类创建数据库"></a>调用DbOpenHelper类创建数据库</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">DbOpenHelper helper = <span class="keyword">new</span> DbOpenHelper();</div><div class="line"><span class="comment">// helper.getReadableDatabase(this);</span></div><div class="line">helper.getWritableDatabase();</div></pre></td></tr></table></figure>
+<h4 id="增删改查"><a href="#增删改查" class="headerlink" title="增删改查"></a>增删改查</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 插入方法</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insertContact</span><span class="params">(String username,String phone)</span></span>&#123;</div><div class="line">	SQLiteDatabase db = mHelper.getWritableDatabase();</div><div class="line">	<span class="comment">//bindArgs 占位符所对应的值</span></div><div class="line">	db.execSQL(<span class="string">"insert into "</span>+DbOpenHelper.TABLE_NAME</div><div class="line">			+<span class="string">"("</span>+DbOpenHelper._USERNAME+<span class="string">","</span>+DbOpenHelper._PHONE+<span class="string">") values(?,?);"</span>,</div><div class="line">			<span class="keyword">new</span> String[]&#123;username,phone&#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 更新方法</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateContact</span><span class="params">(String username,String newPhone)</span></span>&#123;</div><div class="line">	SQLiteDatabase db = mHelper.getWritableDatabase();</div><div class="line">	db.execSQL(<span class="string">"update contactinfo set phone=? where username=?;"</span>, </div><div class="line">			<span class="keyword">new</span> String[]&#123;newPhone,username&#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 删除方法</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteContact</span><span class="params">(String username)</span></span>&#123;</div><div class="line">	SQLiteDatabase db = mHelper.getWritableDatabase();</div><div class="line">	db.execSQL(<span class="string">"delete from contactinfo where username=?;"</span>, </div><div class="line">			<span class="keyword">new</span> String[]&#123;username&#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 查询方法</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">queryContact</span><span class="params">(String phone)</span></span>&#123;</div><div class="line">	SQLiteDatabase db = mHelper.getReadableDatabase();</div><div class="line">	<span class="comment">// cursor 游标</span></div><div class="line">	Cursor cursor = db.rawQuery(<span class="string">"select username from contactinfo where phone=?;"</span>,</div><div class="line">			<span class="keyword">new</span> String[]&#123;phone&#125;);</div><div class="line">	<span class="keyword">while</span> (cursor.moveToNext()) &#123;</div><div class="line">		String username = cursor.getString(<span class="number">0</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="使用SQLite3工具查看数据库"><a href="#使用SQLite3工具查看数据库" class="headerlink" title="使用SQLite3工具查看数据库"></a>使用SQLite3工具查看数据库</h3><ol>
+<li>打开命令行</li>
+<li>使用命令进入手机终端</li>
+<li>进入数据库所在的应用程序的目录中</li>
+<li>使用sqlite3 xxx.db命令进入数据库</li>
+<li>命令行前缀变成”sqlite&gt;”表示已经成功进入数据库，此时可在命令行执行增删改查语句对数据库进行操作</li>
+</ol>
+<h3 id="使用SQLiteDatabase的方法进行增删改查"><a href="#使用SQLiteDatabase的方法进行增删改查" class="headerlink" title="使用SQLiteDatabase的方法进行增删改查"></a>使用SQLiteDatabase的方法进行增删改查</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line">   <span class="comment">// 插入方法</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insertContact</span><span class="params">(String username,String phone)</span></span>&#123;</div><div class="line">	SQLiteDatabase db = mHelper.getWritableDatabase();</div><div class="line">	<span class="comment">// ContentValues 内部维护了一个HashMap</span></div><div class="line">	ContentValues values=<span class="keyword">new</span> ContentValues();</div><div class="line">	<span class="comment">// key：字段名 value：值</span></div><div class="line">	values.put(DbOpenHelper._USERNAME, username);</div><div class="line">	values.put(DbOpenHelper._PHONE, phone);</div><div class="line">	</div><div class="line">	<span class="comment">// 返回值为新插入的行的id</span></div><div class="line">	db.insert(DbOpenHelper.TABLE_NAME, <span class="keyword">null</span> , values);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 更新方法</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">updateContact</span><span class="params">(String username,String newPhone)</span></span>&#123;</div><div class="line">	SQLiteDatabase db = mHelper.getWritableDatabase();</div><div class="line">	ContentValues values=<span class="keyword">new</span> ContentValues();</div><div class="line">	values.put(DbOpenHelper._PHONE, newPhone);</div><div class="line">	<span class="comment">// whereClause：where whereArgs：where语句的绑定值</span></div><div class="line">	<span class="comment">// 返回值为更新的行数</span></div><div class="line">	db.update(DbOpenHelper.TABLE_NAME,</div><div class="line">			values, DbOpenHelper._USERNAME+<span class="string">"=?"</span>, <span class="keyword">new</span> String[]&#123;username&#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 删除方法</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">deleteContact</span><span class="params">(String username)</span></span>&#123;</div><div class="line">	SQLiteDatabase db = mHelper.getWritableDatabase();</div><div class="line">	<span class="comment">// whereClause：where whereArgs：where语句的绑定值</span></div><div class="line">	<span class="comment">// 返回值为删除的行数</span></div><div class="line">	<span class="keyword">int</span> deleteRows = db.delete(DbOpenHelper.TABLE_NAME, <span class="string">"username=?"</span>, <span class="keyword">new</span> String[]&#123;username&#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 查询方法</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">queryContact</span><span class="params">(String searchPhone)</span></span>&#123;</div><div class="line">	SQLiteDatabase db = mHelper.getReadableDatabase();</div><div class="line">       <span class="comment">// columns String[] 返回的字段</span></div><div class="line">	Cursor cursor = db.query(DbOpenHelper.TABLE_NAME, </div><div class="line">			<span class="keyword">new</span> String[]&#123;DbOpenHelper._USERNAME,DbOpenHelper._PHONE&#125;,</div><div class="line">			<span class="string">"phone=?"</span>, <span class="keyword">new</span> String[]&#123;searchPhone&#125;, </div><div class="line">			<span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span>);</div><div class="line">	<span class="keyword">while</span> (cursor.moveToNext()) &#123;</div><div class="line">		<span class="comment">// 通过一个字段名获取该字段的索引</span></div><div class="line">		<span class="keyword">int</span> columnIndex = cursor.getColumnIndex(DbOpenHelper._USERNAME);</div><div class="line">		<span class="comment">// 通过一个字段的索引获取该字段的值</span></div><div class="line">		String username = cursor.getString(columnIndex);</div><div class="line">		</div><div class="line">		<span class="keyword">int</span> phoneColumnIndex = cursor.getColumnIndex(DbOpenHelper._PHONE);</div><div class="line">		String phone = cursor.getString(phoneColumnIndex);</div><div class="line">		</div><div class="line">		result+=(username+<span class="string">"  "</span>+phone+<span class="string">" \n"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-11-22T14:29:47.087Z" itemprop="dateUpdated">2017年11月22日 22:29</time>
+</span><br>
+
+
+        这里写留言或版权声明：<a href="/2017/12/04/Android基础四/" target="_blank" rel="external">https://izdo.github.io/2017/12/04/Android基础四/</a>
+    </div>
+    <footer>
+        <a href="https://izdo.github.io">
+            <img src="/img/heizi.jpg" alt="iZdo">
+            iZdo
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/note/">note</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://izdo.github.io/2017/12/04/Android基础四/&title=《Android基础四》 — iZdo's Blog&pic=https://izdo.github.io/img/heizi.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://izdo.github.io/2017/12/04/Android基础四/&title=《Android基础四》 — iZdo's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://izdo.github.io/2017/12/04/Android基础四/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android基础四》 — iZdo's Blog&url=https://izdo.github.io/2017/12/04/Android基础四/&via=https://izdo.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://izdo.github.io/2017/12/04/Android基础四/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/12/04/Android基础五/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Android基础五</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>iZdo's Blog &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://izdo.github.io/2017/12/04/Android基础四/&title=《Android基础四》 — iZdo's Blog&pic=https://izdo.github.io/img/heizi.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://izdo.github.io/2017/12/04/Android基础四/&title=《Android基础四》 — iZdo's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://izdo.github.io/2017/12/04/Android基础四/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android基础四》 — iZdo's Blog&url=https://izdo.github.io/2017/12/04/Android基础四/&via=https://izdo.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://izdo.github.io/2017/12/04/Android基础四/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACG0lEQVR42u3aS47bMBAFQN//0soBHDvvNaUAJosrw+OhWFo02J/XK17X25p9/2nn9/96PbEwMDB+lnF9XfmxPv31fZ/28/ezYWBgnMNIQmH7mytY319E8lwMDAyM2RGTENwGaAwMDIwZI9mnvThiYGBgrCSx7XGT1DQvwN2Wi2NgYPwgI6+6///Pj/Q3MDAwfopxlWu9zfnIqTAwMLZm5AFupbifJ7Sz82BgYJzDSJLPvHzWhun1bzAwMHZltNe4lbRzNnAWFewwMDC2ZuSNzFkq+0SoxcDAOI3RpqYrLc+72gN/+Q0GBsYBjDYsfg+OyTDZ7JX9IwvHwMA4hpEU9JMQ3JbnZq/1Y8DFwMDYiJFslI9QtKW0e4M7BgbGroy2JdAWyOqa32xnDAyMAxhtsSwf0bh3gGPYHcXAwNiIkaeR7ZpdKIt9MDAwjmGshM715LZ9oRgYGKcx2jSyHZ5ICnDJNx93wMDA2Jqx0gwYBsdynKJ4IgYGxjGMlXGK5JctuGhtYmBgHMCYXePyV5AUzlYGNTAwME5gJJe5djjj3p7j9/IcBgbGroyrXO3Y1mzAok6VMTAwtma0AxMrD8svebOWAwYGxt6MdvRh1tpM9hmmrxgYGMcwZoGvTVmThHl2WgwMDIzZpfC5sTAMDAyMuxjr4Ti/vGJgYJzASJLY2TVufdgi2hkDA2NrRps63ovMy3Y3NDUxMDB+j/EHy7GTYdNJyQEAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.14"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.14" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
