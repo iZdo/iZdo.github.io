@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Android基础三 | iZdo&#39;s Blog | bonbolu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Android,note">
+    <meta name="description" content="Android基础(三)尺寸单位px,dp,sp的概念
+px:电脑、电视上的分辨率的尺寸单位，像素是构成数码影像的基本单位，例如300x300分辨率，表示水平方向与垂直方向上每英寸长度上的像素数是300，也可表示为一平方英寸内有90000像素
+dp:由于安卓手机的分辨率有很多种，因此不使用px作为单位，Android中采用与分辨率无关的度量单位dp来开发程序，dp和平时所说的dpi是一样的
+sp:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android基础三">
+<meta property="og:url" content="https://izdo.github.io/2017/12/04/Android基础三/index.html">
+<meta property="og:site_name" content="iZdo's Blog">
+<meta property="og:description" content="Android基础(三)尺寸单位px,dp,sp的概念
+px:电脑、电视上的分辨率的尺寸单位，像素是构成数码影像的基本单位，例如300x300分辨率，表示水平方向与垂直方向上每英寸长度上的像素数是300，也可表示为一平方英寸内有90000像素
+dp:由于安卓手机的分辨率有很多种，因此不使用px作为单位，Android中采用与分辨率无关的度量单位dp来开发程序，dp和平时所说的dpi是一样的
+sp:">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog22/Blog22_1.png?raw=true">
+<meta property="og:updated_time" content="2017-11-22T09:09:48.278Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android基础三">
+<meta name="twitter:description" content="Android基础(三)尺寸单位px,dp,sp的概念
+px:电脑、电视上的分辨率的尺寸单位，像素是构成数码影像的基本单位，例如300x300分辨率，表示水平方向与垂直方向上每英寸长度上的像素数是300，也可表示为一平方英寸内有90000像素
+dp:由于安卓手机的分辨率有很多种，因此不使用px作为单位，Android中采用与分辨率无关的度量单位dp来开发程序，dp和平时所说的dpi是一样的
+sp:">
+<meta name="twitter:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog22/Blog22_1.png?raw=true">
+    
+        <link rel="alternative" href="/atom.xml" title="iZdo&#39;s Blog" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.14">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/heizi.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">iZdo</h5>
+          <a href="mailto:401135451@qq.com" title="401135451@qq.com" class="mail">401135451@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/iZdo" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Android基础三</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Android基础三</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-12-04T12:45:34.885Z" itemprop="datePublished" class="page-time">
+  2017-12-04
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Android基础-三"><span class="post-toc-number">1.</span> <span class="post-toc-text">Android基础(三)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#尺寸单位"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">尺寸单位</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#px-dp-sp的概念"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">px,dp,sp的概念</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#LogCat的使用"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">LogCat的使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#测试"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">测试</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#附加"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">附加</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#内部存储目录文件的访问模式"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">内部存储目录文件的访问模式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#应用访问模式"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">应用访问模式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#文件"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SharedPreferences"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">SharedPreferences</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Android基础三"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Android基础三</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年12月04日 20:45" datetime="2017-12-04T12:45:34.885Z"  itemprop="datePublished">2017-12-04</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Android基础-三"><a href="#Android基础-三" class="headerlink" title="Android基础(三)"></a>Android基础(三)</h1><h2 id="尺寸单位"><a href="#尺寸单位" class="headerlink" title="尺寸单位"></a>尺寸单位</h2><h3 id="px-dp-sp的概念"><a href="#px-dp-sp的概念" class="headerlink" title="px,dp,sp的概念"></a>px,dp,sp的概念</h3><ul>
+<li>px:电脑、电视上的分辨率的尺寸单位，像素是构成数码影像的基本单位，例如300x300分辨率，表示水平方向与垂直方向上每英寸长度上的像素数是300，也可表示为一平方英寸内有90000像素</li>
+<li>dp:由于安卓手机的分辨率有很多种，因此不使用px作为单位，Android中采用与分辨率无关的度量单位dp来开发程序，dp和平时所说的dpi是一样的</li>
+<li>sp:scaled pixels 放大像素，主要用于字体的大小<blockquote>
+<p>android中由于各个手机的分辨率有所不同，因此提供了不同的drawable(ldpi、mdpi、hdpi、xhdpi等)文件夹让我们存放不同尺寸的图片由此来适配不同的手机</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="LogCat的使用"><a href="#LogCat的使用" class="headerlink" title="LogCat的使用"></a>LogCat的使用</h2><ul>
+<li><p>日志的原理<br><img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog22/Blog22_1.png?raw=true" alt=""></p>
+</li>
+<li><p>等级拦截器  </p>
+<ol>
+<li>不同等级下显示的日志颜色不同</li>
+<li>等级从低到高为 verbose -&gt; debug -&gt; info -&gt; warn -&gt; error</li>
+<li>等级拦截器中，越高等级的拦截能不能拦截比它低等级的日志</li>
+</ol>
+</li>
+<li><p>过滤器</p>
+</li>
+</ul>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><ul>
+<li>根据是否通过源代码<ol>
+<li>白盒测试：通过源代码</li>
+<li>黑盒测试：不通过源代码</li>
+</ol>
+</li>
+<li>根据测试的精细程度(粒度)<ol>
+<li>方法测试：只测试某个方法的功能</li>
+<li>单元测试：测试一个/多个方法</li>
+<li>集成测试：测试某个功能</li>
+<li>系统测试：测试同一个产品下不同的软件</li>
+</ol>
+</li>
+<li>根据测试的暴力程度<ol>
+<li>压力测试：在某个时间点内做一个重复的频繁操作</li>
+<li>冒烟测试：在某个时间点内做一个随机的频繁操作</li>
+</ol>
+</li>
+</ul>
+<h2 id="附加"><a href="#附加" class="headerlink" title="附加"></a>附加</h2><ul>
+<li><p>获取控件上的值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">控件.getText();</div></pre></td></tr></table></figure>
+</li>
+<li><p>判断字符串是否为空</p>
+<blockquote>
+<p>if(TextUtils.isEmpty(xxx)) 相当于 if(xxx.equals(“”)||xxx==null)</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="内部存储目录文件的访问模式"><a href="#内部存储目录文件的访问模式" class="headerlink" title="内部存储目录文件的访问模式"></a>内部存储目录文件的访问模式</h2><ul>
+<li>drwxrwxrwx：<ol>
+<li>1    d</li>
+<li>2-4  rwx 用户权限</li>
+<li>5-7  rwx 组权限</li>
+<li>8-10 rwx 其他权限</li>
+</ol>
+</li>
+</ul>
+<h2 id="应用访问模式"><a href="#应用访问模式" class="headerlink" title="应用访问模式"></a>应用访问模式</h2><ul>
+<li>MODE_APPEND：当文件存在时再次写入在此文件结尾追加</li>
+<li>MODE_PRIVATE：对其他应用私有化，本应用可读可写</li>
+<li>MODE_WORLD_READABLE：任何应用都能读取</li>
+<li><p>MODE_WORLD_WRITEABLE：任何应用都能写入</p>
+</li>
+<li><p>手机内部存储文件夹通过Environment.getDataDirectory()获得</p>
+</li>
+<li>手机外部存储文件夹通过Environment.getExternalStorageDirectory()获得</li>
+<li>判断SD卡是否挂载：if(Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED))</li>
+</ul>
+<h2 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h2><blockquote>
+<p>可将文件写入cache(通过getCacheDir()方法)或者files(通过getFileDir()方法)文件夹方便读取</p>
+</blockquote>
+<h2 id="SharedPreferences"><a href="#SharedPreferences" class="headerlink" title="SharedPreferences"></a>SharedPreferences</h2><ul>
+<li><p>使用SharedPreferences存储数据</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">SharedPreferences sp = getSharedPreferences(<span class="string">"(文件名)"</span>,(模式，一般使用MODE_PRIVATE));</div><div class="line"><span class="comment">// 获取Editor</span></div><div class="line">Editor editor = sp.edit();</div><div class="line"><span class="comment">// 存储数据 键值对形式</span></div><div class="line">editor.putString(<span class="string">"username"</span>,username);</div><div class="line"><span class="comment">// 提交事务</span></div><div class="line">editor.commit();</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用SharedPreferences读取数据</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SharedPreferences sp = getSharedPreferences(<span class="string">"(文件名)"</span>,(模式，一般使用MODE_PRIVATE));</div><div class="line"><span class="comment">// 读取数据</span></div><div class="line">sp.getString(<span class="string">"username"</span>,<span class="string">"(默认值)"</span>);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-11-22T09:09:48.278Z" itemprop="dateUpdated">2017年11月22日 17:09</time>
+</span><br>
+
+
+        这里写留言或版权声明：<a href="/2017/12/04/Android基础三/" target="_blank" rel="external">https://izdo.github.io/2017/12/04/Android基础三/</a>
+    </div>
+    <footer>
+        <a href="https://izdo.github.io">
+            <img src="/img/heizi.jpg" alt="iZdo">
+            iZdo
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/note/">note</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://izdo.github.io/2017/12/04/Android基础三/&title=《Android基础三》 — iZdo's Blog&pic=https://izdo.github.io/img/heizi.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://izdo.github.io/2017/12/04/Android基础三/&title=《Android基础三》 — iZdo's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://izdo.github.io/2017/12/04/Android基础三/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android基础三》 — iZdo's Blog&url=https://izdo.github.io/2017/12/04/Android基础三/&via=https://izdo.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://izdo.github.io/2017/12/04/Android基础三/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/12/04/Android基础二/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Android基础二</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>iZdo's Blog &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://izdo.github.io/2017/12/04/Android基础三/&title=《Android基础三》 — iZdo's Blog&pic=https://izdo.github.io/img/heizi.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://izdo.github.io/2017/12/04/Android基础三/&title=《Android基础三》 — iZdo's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://izdo.github.io/2017/12/04/Android基础三/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android基础三》 — iZdo's Blog&url=https://izdo.github.io/2017/12/04/Android基础三/&via=https://izdo.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://izdo.github.io/2017/12/04/Android基础三/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLElEQVR42u3awXICIRAEUP//p801B3fTDZiqhcfJUhN5e5iaoXm94vX+ta7e//3p1ftX//n+V5YtDAyMxzLet+v+Ozl15nXy6xgYGCcwklKYFNn8ASUPItkbBgYGRstIWr0Eg4GBgTHDyDc01jhiYGBgzAyx9y1g3jjes78+i2NgYDyQkZ+6///rr+QbGBgYj2K8y9UWx7Fgst4VBgbG1oy8wLWwsYF2bD8YGBh7M/JYsT3Wz4ts/ouX72BgYBzAyMOA/JpFHiGMxZkfCi4GBsYBjPmQsh1Zx0otBgbGaYy24ZuJPFfFA398BwMDYztGspWxA/28uVxwUQwDA+MARt6KteFl0syNDcMfCi4GBsamjPaILSmvLW/mIWJgYJzAaBvB9oBs/kLGYKnFwMDYiJEfh7XjaH4Y17aPgzM0BgbGYxkz1yZe8crbxzYS+BAMYGBgbMdYVTrbgKENQaPSjIGBcQAjGS/HSm1yAJcHqJdHeBgYGAczxkrhzJCcs7/SgWJgYDyEMTNM5le+5o/boiQWAwNjO8baxm6G3V7UwMDAOI2RFL62QVyVOUZDLAYGxkaMd7naa1tjFyzqqAADA2NrxtgR/6rt5pcz2gADAwNjP8baqw/3fzUVUo51jhgYGBsx2sLXhgFt61mPxxgYGBjl61XRQhGCYmBgYNxu5b5o5g1iMgAX+QYGBsZ2jGSIHWvj5i9bRId3GBgYWzPa0fF742j7EDEwMA5g/ADwQGqYU+k8JgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.14"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.14" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

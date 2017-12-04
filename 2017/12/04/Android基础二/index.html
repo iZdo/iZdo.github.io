@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Android基础二 | iZdo&#39;s Blog | bonbolu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Android,note">
+    <meta name="description" content="Android基础(二)View的属性
+控件的宽高
+android:layout_width=”30dp”：固定值(单位dp)
+android:layout_width=”wrap_content”：包裹内容
+android:layout_width=”match_parent”：填充父窗体
+
+
+控件的可见度
+android:visibility=”visible”：可见 
+android:vis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android基础二">
+<meta property="og:url" content="https://izdo.github.io/2017/12/04/Android基础二/index.html">
+<meta property="og:site_name" content="iZdo's Blog">
+<meta property="og:description" content="Android基础(二)View的属性
+控件的宽高
+android:layout_width=”30dp”：固定值(单位dp)
+android:layout_width=”wrap_content”：包裹内容
+android:layout_width=”match_parent”：填充父窗体
+
+
+控件的可见度
+android:visibility=”visible”：可见 
+android:vis">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog21/Blog21_1.png?raw=true">
+<meta property="og:updated_time" content="2017-11-21T11:52:16.818Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android基础二">
+<meta name="twitter:description" content="Android基础(二)View的属性
+控件的宽高
+android:layout_width=”30dp”：固定值(单位dp)
+android:layout_width=”wrap_content”：包裹内容
+android:layout_width=”match_parent”：填充父窗体
+
+
+控件的可见度
+android:visibility=”visible”：可见 
+android:vis">
+<meta name="twitter:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog21/Blog21_1.png?raw=true">
+    
+        <link rel="alternative" href="/atom.xml" title="iZdo&#39;s Blog" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.14">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/heizi.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">iZdo</h5>
+          <a href="mailto:401135451@qq.com" title="401135451@qq.com" class="mail">401135451@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/iZdo" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Android基础二</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Android基础二</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-12-04T12:45:32.885Z" itemprop="datePublished" class="page-time">
+  2017-12-04
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Android基础-二"><span class="post-toc-number">1.</span> <span class="post-toc-text">Android基础(二)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#View的属性"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">View的属性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ViewGroup的子类–五大布局"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">ViewGroup的子类–五大布局</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#LinearLayout"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">LinearLayout</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#属性"><span class="post-toc-number">1.2.1.1.</span> <span class="post-toc-text">属性</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#RelativeLayout"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">RelativeLayout</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#属性-1"><span class="post-toc-number">1.2.2.1.</span> <span class="post-toc-text">属性</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#FrameLayout"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">FrameLayout</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#TableLayout"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">TableLayout</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#属性-2"><span class="post-toc-number">1.2.4.1.</span> <span class="post-toc-text">属性</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TextView"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">TextView</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#属性-3"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">属性</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#EditText"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">EditText</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#属性-4"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">属性</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ToggleButton"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">ToggleButton</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#属性-5"><span class="post-toc-number">1.5.1.</span> <span class="post-toc-text">属性</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#RadioButton"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">RadioButton</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#属性-6"><span class="post-toc-number">1.6.1.</span> <span class="post-toc-text">属性</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#CheckBox"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">CheckBox</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#属性-7"><span class="post-toc-number">1.7.1.</span> <span class="post-toc-text">属性</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ProgressBar"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">ProgressBar</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#属性-8"><span class="post-toc-number">1.8.1.</span> <span class="post-toc-text">属性</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SeekBar"><span class="post-toc-number">1.9.</span> <span class="post-toc-text">SeekBar</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#RatingBar"><span class="post-toc-number">1.10.</span> <span class="post-toc-text">RatingBar</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#属性-9"><span class="post-toc-number">1.10.1.</span> <span class="post-toc-text">属性</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Imageview"><span class="post-toc-number">1.11.</span> <span class="post-toc-text">Imageview</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#属性-10"><span class="post-toc-number">1.11.1.</span> <span class="post-toc-text">属性</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ScrollView和HorizontalScrollView"><span class="post-toc-number">1.12.</span> <span class="post-toc-text">ScrollView和HorizontalScrollView</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#DatePicker"><span class="post-toc-number">1.13.</span> <span class="post-toc-text">DatePicker</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TimePicker"><span class="post-toc-number">1.14.</span> <span class="post-toc-text">TimePicker</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#WebView"><span class="post-toc-number">1.15.</span> <span class="post-toc-text">WebView</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#WebView的方法"><span class="post-toc-number">1.15.1.</span> <span class="post-toc-text">WebView的方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Shape属性"><span class="post-toc-number">1.16.</span> <span class="post-toc-text">Shape属性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Selector属性"><span class="post-toc-number">1.17.</span> <span class="post-toc-text">Selector属性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#layer-list属性"><span class="post-toc-number">1.18.</span> <span class="post-toc-text">layer-list属性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#9patch-9图片"><span class="post-toc-number">1.19.</span> <span class="post-toc-text">9patch .9图片</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Android基础二"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Android基础二</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年12月04日 20:45" datetime="2017-12-04T12:45:32.885Z"  itemprop="datePublished">2017-12-04</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Android基础-二"><a href="#Android基础-二" class="headerlink" title="Android基础(二)"></a>Android基础(二)</h1><h2 id="View的属性"><a href="#View的属性" class="headerlink" title="View的属性"></a>View的属性</h2><ul>
+<li>控件的宽高<ol>
+<li>android:layout_width=”30dp”：固定值(单位dp)</li>
+<li>android:layout_width=”wrap_content”：包裹内容</li>
+<li>android:layout_width=”match_parent”：填充父窗体</li>
+</ol>
+</li>
+<li>控件的可见度<ol>
+<li>android:visibility=”visible”：可见 </li>
+<li>android:visibility=”invisible”：不可见，控件占据位置</li>
+<li>android:visibility=”gone”：不可见，控件不占据位置</li>
+</ol>
+</li>
+<li>控件的背景<ol>
+<li>android:background=”#F00”：填充颜色(可填充3/4/6/8位颜色值(8位颜色前两位表示透明度))</li>
+<li>android:background=”@drawable/icon”：填充图片</li>
+</ol>
+</li>
+<li>控件的微调<ol>
+<li>android:layout_margin=”xxdp”：外边距</li>
+<li>android:padding=”xxdo”：内边距</li>
+</ol>
+</li>
+</ul>
+<h2 id="ViewGroup的子类–五大布局"><a href="#ViewGroup的子类–五大布局" class="headerlink" title="ViewGroup的子类–五大布局"></a>ViewGroup的子类–五大布局</h2><ol>
+<li>LinearLayout 线性布局</li>
+<li>RelativeLayout 相对布局</li>
+<li>FrameLayout 帧布局</li>
+<li>AbsoluteLayout 绝对布局</li>
+<li>TableLayout 表格布局</li>
+</ol>
+<h3 id="LinearLayout"><a href="#LinearLayout" class="headerlink" title="LinearLayout"></a>LinearLayout</h3><h4 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h4><ul>
+<li>指定布局方向<ol>
+<li>android:orientation=”vertical”:垂直布局</li>
+<li>android:orientation=”horizontal”:水平布局</li>
+</ol>
+</li>
+<li>权重(只能在LinearLayout的子控件中使用):android:layout_weight=”(数字)”</li>
+</ul>
+<h3 id="RelativeLayout"><a href="#RelativeLayout" class="headerlink" title="RelativeLayout"></a>RelativeLayout</h3><h4 id="属性-1"><a href="#属性-1" class="headerlink" title="属性"></a>属性</h4><ul>
+<li>相对于父控件<ol>
+<li>android:layout_centerHorizontal=”true”：水平居中</li>
+<li>android:layout_centerVertical=”true”：垂直居中</li>
+<li>android:layout_centerInParent=”true”：相对于父控件居中</li>
+<li>android:layout_alignParentLeft=”true”：相对于父控件左方向对齐</li>
+<li>android:layout_alignParentRight=”true”：相对于父控件右方向对齐</li>
+<li>android:layout_alignParentTop=”true”：相对于父控件顶部对齐</li>
+<li>android:layout_alignParentBottom=”true”：相对于父控件底部对齐</li>
+</ol>
+</li>
+<li>相对于同等级控件<ol>
+<li>android:layout_above=”(某控件id)”：位于某控件顶部</li>
+<li>android:layout_below=”(某控件id)”：位于某控件底部</li>
+<li>android:layout_toLeftOf=”(某控件id)”：位于某控件左方</li>
+<li>android:layout_toRightOf=”(某控件id)”：位于某控件右方</li>
+<li>android:layout_alignLeft=”(某控件id)”：与某控件左方对齐</li>
+<li>android:layout_alignRight=”(某控件id)”：与某控件右方对齐</li>
+<li>android:layout_alignTop=”(某控件id)”：与某控件顶部对齐</li>
+<li>android:layout_alignBottom=”(某控件id)”：与某控件底部对齐</li>
+</ol>
+</li>
+</ul>
+<h3 id="FrameLayout"><a href="#FrameLayout" class="headerlink" title="FrameLayout"></a>FrameLayout</h3><blockquote>
+<p>所有控件位于左上角(坐标系原点)，并一层一层往上覆盖</p>
+</blockquote>
+<h3 id="TableLayout"><a href="#TableLayout" class="headerlink" title="TableLayout"></a>TableLayout</h3><h4 id="属性-2"><a href="#属性-2" class="headerlink" title="属性"></a>属性</h4><ul>
+<li><tablerow>标签：添加一行</tablerow></li>
+</ul>
+<h2 id="TextView"><a href="#TextView" class="headerlink" title="TextView"></a>TextView</h2><h3 id="属性-3"><a href="#属性-3" class="headerlink" title="属性"></a>属性</h3><ul>
+<li>android:text=””：文本文字</li>
+<li>android:textSize=”xxsp”：文字大小(单位sp)</li>
+<li>android:textColor=“(颜色值)”：文字颜色</li>
+<li>android:textStyle=”normal/bold/italic”：文字样式(normal：正常/bold：粗体/italic：斜体)，默认为normal</li>
+<li>android:lines=”(数字)”：控制行数</li>
+<li>android:ellipsize=”end”：尾部若为显示完全则添加省略号</li>
+<li>android:singleLine=”true”：单行并且尾部若为显示完全则添加省略号</li>
+<li>android:typeface=”normal/sans/serif/monospace”：字体风格</li>
+<li>android:clickable=”true”：设置TextView可点击(TextView也可设置点击事件)</li>
+</ul>
+<h2 id="EditText"><a href="#EditText" class="headerlink" title="EditText"></a>EditText</h2><h3 id="属性-4"><a href="#属性-4" class="headerlink" title="属性"></a>属性</h3><ul>
+<li>android:hint=”(提示信息)”：提示文本</li>
+<li>android:editable=”false”：设置不可编辑</li>
+<li>android:maxLength=”10”：最大输入字数</li>
+<li>android:inputType=”textPassword/numberPassword/number等”：输入风格</li>
+</ul>
+<h2 id="ToggleButton"><a href="#ToggleButton" class="headerlink" title="ToggleButton"></a>ToggleButton</h2><h3 id="属性-5"><a href="#属性-5" class="headerlink" title="属性"></a>属性</h3><ul>
+<li>android:textOn=””：按钮打开时的文本信息</li>
+<li>android:textOff=””：按钮关闭时的文本信息</li>
+</ul>
+<h2 id="RadioButton"><a href="#RadioButton" class="headerlink" title="RadioButton"></a>RadioButton</h2><h3 id="属性-6"><a href="#属性-6" class="headerlink" title="属性"></a>属性</h3><ul>
+<li>android:cchecked=”true”：默认选中<blockquote>
+<p>使用多个RadioButton需要用RadioGroup将其包起来<br>通过RadioGroup设置CheckedChangeListener获取用户选择的RadioButton</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="CheckBox"><a href="#CheckBox" class="headerlink" title="CheckBox"></a>CheckBox</h2><h3 id="属性-7"><a href="#属性-7" class="headerlink" title="属性"></a>属性</h3><ul>
+<li>android:button=””：选择框样式<blockquote>
+<p>通过CheckBox设置CheckedChangeListener获取用户勾选的CheckBox</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="ProgressBar"><a href="#ProgressBar" class="headerlink" title="ProgressBar"></a>ProgressBar</h2><blockquote>
+<p>ProgressBar分为圆型和直线型，直线型可直观的看出当前进度，原型不能。</p>
+<h3 id="属性-8"><a href="#属性-8" class="headerlink" title="属性"></a>属性</h3><ul>
+<li>style=””：进度条的样式</li>
+<li>android:max=”(数字)”：总进度</li>
+<li>android:progress=”(数字)”：当前进度</li>
+</ul>
+</blockquote>
+<h2 id="SeekBar"><a href="#SeekBar" class="headerlink" title="SeekBar"></a>SeekBar</h2><blockquote>
+<p>可拖动的进度条</p>
+</blockquote>
+<h2 id="RatingBar"><a href="#RatingBar" class="headerlink" title="RatingBar"></a>RatingBar</h2><blockquote>
+<p>星星进度条</p>
+<h3 id="属性-9"><a href="#属性-9" class="headerlink" title="属性"></a>属性</h3><ul>
+<li>android:numStars=”(数字)”：星星个数</li>
+<li>android:raing=”(数字)”：默认选中星星个数</li>
+<li>stepSize=”(数字)”：步长</li>
+</ul>
+</blockquote>
+<h2 id="Imageview"><a href="#Imageview" class="headerlink" title="Imageview"></a>Imageview</h2><h3 id="属性-10"><a href="#属性-10" class="headerlink" title="属性"></a>属性</h3><ul>
+<li>android:src=””：设置图片资源</li>
+<li>android:scaleType=””：设置缩放模式<br><img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog21/Blog21_1.png?raw=true" alt=""><blockquote>
+<p>在Java代码中可通过ImageView.setImageResource()设置图片资源<br>中可通过ImageView.setImageBitmap()设置位图，位图可通过文件获取，也可通过网络获取</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="ScrollView和HorizontalScrollView"><a href="#ScrollView和HorizontalScrollView" class="headerlink" title="ScrollView和HorizontalScrollView"></a>ScrollView和HorizontalScrollView</h2><blockquote>
+<p>上下滑动和左右滑动的控件，将需要滑动的控件包含到ScrollView中即可实现滑动，但是不能直接包含2个子控件</p>
+</blockquote>
+<h2 id="DatePicker"><a href="#DatePicker" class="headerlink" title="DatePicker"></a>DatePicker</h2><blockquote>
+<p>日期选择器，不同Android版本的DatePicker有不同的风格<br>DatePicker在init时，注意Month的取值是从0~11</p>
+</blockquote>
+<h2 id="TimePicker"><a href="#TimePicker" class="headerlink" title="TimePicker"></a>TimePicker</h2><blockquote>
+<p>TimePicker的setIs24HourView()方法可将其改为24小时制</p>
+</blockquote>
+<h2 id="WebView"><a href="#WebView" class="headerlink" title="WebView"></a>WebView</h2><ul>
+<li>在使用WebView之前需先添加上网的权限，在清单文件中添加：<uses-permission android:name="android.permission.INTERNET"><h3 id="WebView的方法"><a href="#WebView的方法" class="headerlink" title="WebView的方法"></a>WebView的方法</h3></uses-permission></li>
+<li>loadUrl(String url)：接收一个网址并加载此网页</li>
+<li>处理跳转时打开新的浏览器的问题</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">webView.setWebViewClient(<span class="keyword">new</span> WebViewClient()&#123;</div><div class="line">    <span class="meta">@override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">shouldOverrideUrlLoading</span><span class="params">(WebView view,String url)</span></span>&#123;</div><div class="line">        view.loadUrl(url);</div><div class="line">        <span class="comment">// 通知系统不需要打开新的浏览器 返回true</span></div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<ul>
+<li>让WebView支持JavaScript<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">webView.getSettings().setJavaScriptEnabled(<span class="keyword">true</span>);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Shape属性"><a href="#Shape属性" class="headerlink" title="Shape属性"></a>Shape属性</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">shape</span> <span class="attr">...</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- stroke 边框 color 边框的颜色 width 边框的粗细 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">stoke</span> <span class="attr">android:color</span>=<span class="string">"#fff"</span> <span class="attr">android:width</span>=<span class="string">"1dp"</span> /&gt;</span></div><div class="line">    <span class="comment">&lt;!-- solid 填充颜色 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">solid</span> <span class="attr">android:color</span>=<span class="string">"#fff"</span> /&gt;</span></div><div class="line">     <span class="comment">&lt;!-- corners 设置圆角 radius 圆角半径 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">corners</span> <span class="attr">android:radius</span>=<span class="string">"2dp"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">shape</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="Selector属性"><a href="#Selector属性" class="headerlink" title="Selector属性"></a>Selector属性</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">selector</span> <span class="attr">...</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 当点击时 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">andoid:state_pressed</span>=<span class="string">"true"</span> <span class="attr">android:drawable</span>=<span class="string">"@drawable/xxx"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">selector</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>selector可在item中嵌套shape</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">selector</span> <span class="attr">...</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 当点击时 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">shape</span>&gt;</span></div><div class="line">            ...</div><div class="line">        <span class="tag">&lt;/<span class="name">shape</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">selector</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="layer-list属性"><a href="#layer-list属性" class="headerlink" title="layer-list属性"></a>layer-list属性</h2><blockquote>
+<p>一般用于progressBar</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">layer-list</span> <span class="attr">...</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 进度条 背景图 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">android:drawable</span>=<span class="string">"@drawable/xxx"</span> <span class="attr">android:id</span>=<span class="string">"@android:id/background"</span>/&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 进度条 进度图 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">android:drawable</span>=<span class="string">"@drawable/xxx"</span> <span class="attr">android:id</span>=<span class="string">"@android:id/progress"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">layer-list</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="9patch-9图片"><a href="#9patch-9图片" class="headerlink" title="9patch .9图片"></a>9patch .9图片</h2><blockquote>
+<p>为了避免图片和控件的尺寸不匹配而导致被拉伸的问题，Android提供了draw9patch.bat工具，此工具可将普通图片改造成.9图片，由我们自己指定一个拉伸的区域(矩形)，当图片被拉伸时，系统会拉伸我们指定的区域而不是将整张图片拉伸</p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-11-21T11:52:16.818Z" itemprop="dateUpdated">2017年11月21日 19:52</time>
+</span><br>
+
+
+        这里写留言或版权声明：<a href="/2017/12/04/Android基础二/" target="_blank" rel="external">https://izdo.github.io/2017/12/04/Android基础二/</a>
+    </div>
+    <footer>
+        <a href="https://izdo.github.io">
+            <img src="/img/heizi.jpg" alt="iZdo">
+            iZdo
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/note/">note</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://izdo.github.io/2017/12/04/Android基础二/&title=《Android基础二》 — iZdo's Blog&pic=https://izdo.github.io/img/heizi.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://izdo.github.io/2017/12/04/Android基础二/&title=《Android基础二》 — iZdo's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://izdo.github.io/2017/12/04/Android基础二/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android基础二》 — iZdo's Blog&url=https://izdo.github.io/2017/12/04/Android基础二/&via=https://izdo.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://izdo.github.io/2017/12/04/Android基础二/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/12/04/Android基础三/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Android基础三</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/12/04/Android基础一/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Android基础一</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>iZdo's Blog &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://izdo.github.io/2017/12/04/Android基础二/&title=《Android基础二》 — iZdo's Blog&pic=https://izdo.github.io/img/heizi.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://izdo.github.io/2017/12/04/Android基础二/&title=《Android基础二》 — iZdo's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://izdo.github.io/2017/12/04/Android基础二/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android基础二》 — iZdo's Blog&url=https://izdo.github.io/2017/12/04/Android基础二/&via=https://izdo.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://izdo.github.io/2017/12/04/Android基础二/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKElEQVR42u3ay46DMAwF0P7/TzPbdgG9tulIJCcr1CLCYWHFj9crXsfbOvv9/d+z38+efL3LbQsDA+OxjONyXd+TUyfXye4YGBg7MJJQeP3SSTiufojk3TAwMDCqjOSol2AwMDAw5ozkUNg7OGJgYGBMktgqKUlN8wLcbbk4BgbGAxl51f3/r3/S38DAwHgU4yiuanDsNSbLb4WBgbE0Iw9wk+J+Nemtvg8GBsY+jKQclt+fB9l8x3K5DQMDYwlGNVxO0s584Czf8eOEi4GBsTQjD515c/F3oRYDA2M3Rn6Yqx4E8xGKahA/vQcDA2NRRrJZXlZLgnJesMufiYGBsQ9jPn4xCdnVZPg04GJgYCzH6AXW3phFL60tVP4xMDAWZeTlrRsCYmsgoxBqMTAwlmZUj3TJiNi9TYUvnw8DA2MDRq8BOQmU5YLavTMjGBgYj2JUk9gk1PZaDjkGAwNjT0a17NU7ROaFud54BwYGxj6MPJhWy/2TobFqOMbAwFiPcf2IpNw/GSablNtOuxwYGBiLMpIt87Sz+gnmgxoYGBi7MSbl+16xrHrE/FI1xMDAWIhxFNe8Vdkb5vhCxcDAWJpRHaGYDGdU70yuyzAMDIzHMqqjDzmmGpSb6SsGBsY2jGrg6zUD8qNnOT3GwMDAGBf98zZAr52JgYGBMdlgMpyRH14xMDB2YCRJbA/QY5QHyDAwMJZmVFPHG0a4gqPkT5qaGBgYz2P8Abg0k2GCIvONAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.14"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.14" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

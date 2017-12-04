@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://izdo.github.io/"/>
-  <updated>2017-09-03T07:23:51.030Z</updated>
+  <updated>2017-11-22T09:09:48.278Z</updated>
   <id>https://izdo.github.io/</id>
   
   <author>
@@ -14,6 +14,399 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android基础三</title>
+    <link href="https://izdo.github.io/2017/12/04/Android%E5%9F%BA%E7%A1%80%E4%B8%89/"/>
+    <id>https://izdo.github.io/2017/12/04/Android基础三/</id>
+    <published>2017-12-04T12:45:34.885Z</published>
+    <updated>2017-11-22T09:09:48.278Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Android基础-三"><a href="#Android基础-三" class="headerlink" title="Android基础(三)"></a>Android基础(三)</h1><h2 id="尺寸单位"><a href="#尺寸单位" class="headerlink" title="尺寸单位"></a>尺寸单位</h2><h3 id="px-dp-sp的概念"><a href="#px-dp-sp的概念" class="headerlink" title="px,dp,sp的概念"></a>px,dp,sp的概念</h3><ul>
+<li>px:电脑、电视上的分辨率的尺寸单位，像素是构成数码影像的基本单位，例如300x300分辨率，表示水平方向与垂直方向上每英寸长度上的像素数是300，也可表示为一平方英寸内有90000像素</li>
+<li>dp:由于安卓手机的分辨率有很多种，因此不使用px作为单位，Android中采用与分辨率无关的度量单位dp来开发程序，dp和平时所说的dpi是一样的</li>
+<li>sp:scaled pixels 放大像素，主要用于字体的大小<blockquote>
+<p>android中由于各个手机的分辨率有所不同，因此提供了不同的drawable(ldpi、mdpi、hdpi、xhdpi等)文件夹让我们存放不同尺寸的图片由此来适配不同的手机</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="LogCat的使用"><a href="#LogCat的使用" class="headerlink" title="LogCat的使用"></a>LogCat的使用</h2><ul>
+<li><p>日志的原理<br><img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog22/Blog22_1.png?raw=true" alt=""></p>
+</li>
+<li><p>等级拦截器  </p>
+<ol>
+<li>不同等级下显示的日志颜色不同</li>
+<li>等级从低到高为 verbose -&gt; debug -&gt; info -&gt; warn -&gt; error</li>
+<li>等级拦截器中，越高等级的拦截能不能拦截比它低等级的日志</li>
+</ol>
+</li>
+<li><p>过滤器</p>
+</li>
+</ul>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><ul>
+<li>根据是否通过源代码<ol>
+<li>白盒测试：通过源代码</li>
+<li>黑盒测试：不通过源代码</li>
+</ol>
+</li>
+<li>根据测试的精细程度(粒度)<ol>
+<li>方法测试：只测试某个方法的功能</li>
+<li>单元测试：测试一个/多个方法</li>
+<li>集成测试：测试某个功能</li>
+<li>系统测试：测试同一个产品下不同的软件</li>
+</ol>
+</li>
+<li>根据测试的暴力程度<ol>
+<li>压力测试：在某个时间点内做一个重复的频繁操作</li>
+<li>冒烟测试：在某个时间点内做一个随机的频繁操作</li>
+</ol>
+</li>
+</ul>
+<h2 id="附加"><a href="#附加" class="headerlink" title="附加"></a>附加</h2><ul>
+<li><p>获取控件上的值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">控件.getText();</div></pre></td></tr></table></figure>
+</li>
+<li><p>判断字符串是否为空</p>
+<blockquote>
+<p>if(TextUtils.isEmpty(xxx)) 相当于 if(xxx.equals(“”)||xxx==null)</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="内部存储目录文件的访问模式"><a href="#内部存储目录文件的访问模式" class="headerlink" title="内部存储目录文件的访问模式"></a>内部存储目录文件的访问模式</h2><ul>
+<li>drwxrwxrwx：<ol>
+<li>1    d</li>
+<li>2-4  rwx 用户权限</li>
+<li>5-7  rwx 组权限</li>
+<li>8-10 rwx 其他权限</li>
+</ol>
+</li>
+</ul>
+<h2 id="应用访问模式"><a href="#应用访问模式" class="headerlink" title="应用访问模式"></a>应用访问模式</h2><ul>
+<li>MODE_APPEND：当文件存在时再次写入在此文件结尾追加</li>
+<li>MODE_PRIVATE：对其他应用私有化，本应用可读可写</li>
+<li>MODE_WORLD_READABLE：任何应用都能读取</li>
+<li><p>MODE_WORLD_WRITEABLE：任何应用都能写入</p>
+</li>
+<li><p>手机内部存储文件夹通过Environment.getDataDirectory()获得</p>
+</li>
+<li>手机外部存储文件夹通过Environment.getExternalStorageDirectory()获得</li>
+<li>判断SD卡是否挂载：if(Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED))</li>
+</ul>
+<h2 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h2><blockquote>
+<p>可将文件写入cache(通过getCacheDir()方法)或者files(通过getFileDir()方法)文件夹方便读取</p>
+</blockquote>
+<h2 id="SharedPreferences"><a href="#SharedPreferences" class="headerlink" title="SharedPreferences"></a>SharedPreferences</h2><ul>
+<li><p>使用SharedPreferences存储数据</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">SharedPreferences sp = getSharedPreferences(<span class="string">"(文件名)"</span>,(模式，一般使用MODE_PRIVATE));</div><div class="line"><span class="comment">// 获取Editor</span></div><div class="line">Editor editor = sp.edit();</div><div class="line"><span class="comment">// 存储数据 键值对形式</span></div><div class="line">editor.putString(<span class="string">"username"</span>,username);</div><div class="line"><span class="comment">// 提交事务</span></div><div class="line">editor.commit();</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用SharedPreferences读取数据</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SharedPreferences sp = getSharedPreferences(<span class="string">"(文件名)"</span>,(模式，一般使用MODE_PRIVATE));</div><div class="line"><span class="comment">// 读取数据</span></div><div class="line">sp.getString(<span class="string">"username"</span>,<span class="string">"(默认值)"</span>);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Android基础-三&quot;&gt;&lt;a href=&quot;#Android基础-三&quot; class=&quot;headerlink&quot; title=&quot;Android基础(三)&quot;&gt;&lt;/a&gt;Android基础(三)&lt;/h1&gt;&lt;h2 id=&quot;尺寸单位&quot;&gt;&lt;a href=&quot;#尺寸单位&quot; class
+    
+    </summary>
+    
+      <category term="Android" scheme="https://izdo.github.io/categories/Android/"/>
+    
+    
+      <category term="Android" scheme="https://izdo.github.io/tags/Android/"/>
+    
+      <category term="note" scheme="https://izdo.github.io/tags/note/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android基础二</title>
+    <link href="https://izdo.github.io/2017/12/04/Android%E5%9F%BA%E7%A1%80%E4%BA%8C/"/>
+    <id>https://izdo.github.io/2017/12/04/Android基础二/</id>
+    <published>2017-12-04T12:45:32.885Z</published>
+    <updated>2017-11-21T11:52:16.818Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Android基础-二"><a href="#Android基础-二" class="headerlink" title="Android基础(二)"></a>Android基础(二)</h1><h2 id="View的属性"><a href="#View的属性" class="headerlink" title="View的属性"></a>View的属性</h2><ul>
+<li>控件的宽高<ol>
+<li>android:layout_width=”30dp”：固定值(单位dp)</li>
+<li>android:layout_width=”wrap_content”：包裹内容</li>
+<li>android:layout_width=”match_parent”：填充父窗体</li>
+</ol>
+</li>
+<li>控件的可见度<ol>
+<li>android:visibility=”visible”：可见 </li>
+<li>android:visibility=”invisible”：不可见，控件占据位置</li>
+<li>android:visibility=”gone”：不可见，控件不占据位置</li>
+</ol>
+</li>
+<li>控件的背景<ol>
+<li>android:background=”#F00”：填充颜色(可填充3/4/6/8位颜色值(8位颜色前两位表示透明度))</li>
+<li>android:background=”@drawable/icon”：填充图片</li>
+</ol>
+</li>
+<li>控件的微调<ol>
+<li>android:layout_margin=”xxdp”：外边距</li>
+<li>android:padding=”xxdo”：内边距</li>
+</ol>
+</li>
+</ul>
+<h2 id="ViewGroup的子类–五大布局"><a href="#ViewGroup的子类–五大布局" class="headerlink" title="ViewGroup的子类–五大布局"></a>ViewGroup的子类–五大布局</h2><ol>
+<li>LinearLayout 线性布局</li>
+<li>RelativeLayout 相对布局</li>
+<li>FrameLayout 帧布局</li>
+<li>AbsoluteLayout 绝对布局</li>
+<li>TableLayout 表格布局</li>
+</ol>
+<h3 id="LinearLayout"><a href="#LinearLayout" class="headerlink" title="LinearLayout"></a>LinearLayout</h3><h4 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h4><ul>
+<li>指定布局方向<ol>
+<li>android:orientation=”vertical”:垂直布局</li>
+<li>android:orientation=”horizontal”:水平布局</li>
+</ol>
+</li>
+<li>权重(只能在LinearLayout的子控件中使用):android:layout_weight=”(数字)”</li>
+</ul>
+<h3 id="RelativeLayout"><a href="#RelativeLayout" class="headerlink" title="RelativeLayout"></a>RelativeLayout</h3><h4 id="属性-1"><a href="#属性-1" class="headerlink" title="属性"></a>属性</h4><ul>
+<li>相对于父控件<ol>
+<li>android:layout_centerHorizontal=”true”：水平居中</li>
+<li>android:layout_centerVertical=”true”：垂直居中</li>
+<li>android:layout_centerInParent=”true”：相对于父控件居中</li>
+<li>android:layout_alignParentLeft=”true”：相对于父控件左方向对齐</li>
+<li>android:layout_alignParentRight=”true”：相对于父控件右方向对齐</li>
+<li>android:layout_alignParentTop=”true”：相对于父控件顶部对齐</li>
+<li>android:layout_alignParentBottom=”true”：相对于父控件底部对齐</li>
+</ol>
+</li>
+<li>相对于同等级控件<ol>
+<li>android:layout_above=”(某控件id)”：位于某控件顶部</li>
+<li>android:layout_below=”(某控件id)”：位于某控件底部</li>
+<li>android:layout_toLeftOf=”(某控件id)”：位于某控件左方</li>
+<li>android:layout_toRightOf=”(某控件id)”：位于某控件右方</li>
+<li>android:layout_alignLeft=”(某控件id)”：与某控件左方对齐</li>
+<li>android:layout_alignRight=”(某控件id)”：与某控件右方对齐</li>
+<li>android:layout_alignTop=”(某控件id)”：与某控件顶部对齐</li>
+<li>android:layout_alignBottom=”(某控件id)”：与某控件底部对齐</li>
+</ol>
+</li>
+</ul>
+<h3 id="FrameLayout"><a href="#FrameLayout" class="headerlink" title="FrameLayout"></a>FrameLayout</h3><blockquote>
+<p>所有控件位于左上角(坐标系原点)，并一层一层往上覆盖</p>
+</blockquote>
+<h3 id="TableLayout"><a href="#TableLayout" class="headerlink" title="TableLayout"></a>TableLayout</h3><h4 id="属性-2"><a href="#属性-2" class="headerlink" title="属性"></a>属性</h4><ul>
+<li><tablerow>标签：添加一行</tablerow></li>
+</ul>
+<h2 id="TextView"><a href="#TextView" class="headerlink" title="TextView"></a>TextView</h2><h3 id="属性-3"><a href="#属性-3" class="headerlink" title="属性"></a>属性</h3><ul>
+<li>android:text=””：文本文字</li>
+<li>android:textSize=”xxsp”：文字大小(单位sp)</li>
+<li>android:textColor=“(颜色值)”：文字颜色</li>
+<li>android:textStyle=”normal/bold/italic”：文字样式(normal：正常/bold：粗体/italic：斜体)，默认为normal</li>
+<li>android:lines=”(数字)”：控制行数</li>
+<li>android:ellipsize=”end”：尾部若为显示完全则添加省略号</li>
+<li>android:singleLine=”true”：单行并且尾部若为显示完全则添加省略号</li>
+<li>android:typeface=”normal/sans/serif/monospace”：字体风格</li>
+<li>android:clickable=”true”：设置TextView可点击(TextView也可设置点击事件)</li>
+</ul>
+<h2 id="EditText"><a href="#EditText" class="headerlink" title="EditText"></a>EditText</h2><h3 id="属性-4"><a href="#属性-4" class="headerlink" title="属性"></a>属性</h3><ul>
+<li>android:hint=”(提示信息)”：提示文本</li>
+<li>android:editable=”false”：设置不可编辑</li>
+<li>android:maxLength=”10”：最大输入字数</li>
+<li>android:inputType=”textPassword/numberPassword/number等”：输入风格</li>
+</ul>
+<h2 id="ToggleButton"><a href="#ToggleButton" class="headerlink" title="ToggleButton"></a>ToggleButton</h2><h3 id="属性-5"><a href="#属性-5" class="headerlink" title="属性"></a>属性</h3><ul>
+<li>android:textOn=””：按钮打开时的文本信息</li>
+<li>android:textOff=””：按钮关闭时的文本信息</li>
+</ul>
+<h2 id="RadioButton"><a href="#RadioButton" class="headerlink" title="RadioButton"></a>RadioButton</h2><h3 id="属性-6"><a href="#属性-6" class="headerlink" title="属性"></a>属性</h3><ul>
+<li>android:cchecked=”true”：默认选中<blockquote>
+<p>使用多个RadioButton需要用RadioGroup将其包起来<br>通过RadioGroup设置CheckedChangeListener获取用户选择的RadioButton</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="CheckBox"><a href="#CheckBox" class="headerlink" title="CheckBox"></a>CheckBox</h2><h3 id="属性-7"><a href="#属性-7" class="headerlink" title="属性"></a>属性</h3><ul>
+<li>android:button=””：选择框样式<blockquote>
+<p>通过CheckBox设置CheckedChangeListener获取用户勾选的CheckBox</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="ProgressBar"><a href="#ProgressBar" class="headerlink" title="ProgressBar"></a>ProgressBar</h2><blockquote>
+<p>ProgressBar分为圆型和直线型，直线型可直观的看出当前进度，原型不能。</p>
+<h3 id="属性-8"><a href="#属性-8" class="headerlink" title="属性"></a>属性</h3><ul>
+<li>style=””：进度条的样式</li>
+<li>android:max=”(数字)”：总进度</li>
+<li>android:progress=”(数字)”：当前进度</li>
+</ul>
+</blockquote>
+<h2 id="SeekBar"><a href="#SeekBar" class="headerlink" title="SeekBar"></a>SeekBar</h2><blockquote>
+<p>可拖动的进度条</p>
+</blockquote>
+<h2 id="RatingBar"><a href="#RatingBar" class="headerlink" title="RatingBar"></a>RatingBar</h2><blockquote>
+<p>星星进度条</p>
+<h3 id="属性-9"><a href="#属性-9" class="headerlink" title="属性"></a>属性</h3><ul>
+<li>android:numStars=”(数字)”：星星个数</li>
+<li>android:raing=”(数字)”：默认选中星星个数</li>
+<li>stepSize=”(数字)”：步长</li>
+</ul>
+</blockquote>
+<h2 id="Imageview"><a href="#Imageview" class="headerlink" title="Imageview"></a>Imageview</h2><h3 id="属性-10"><a href="#属性-10" class="headerlink" title="属性"></a>属性</h3><ul>
+<li>android:src=””：设置图片资源</li>
+<li>android:scaleType=””：设置缩放模式<br><img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog21/Blog21_1.png?raw=true" alt=""><blockquote>
+<p>在Java代码中可通过ImageView.setImageResource()设置图片资源<br>中可通过ImageView.setImageBitmap()设置位图，位图可通过文件获取，也可通过网络获取</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="ScrollView和HorizontalScrollView"><a href="#ScrollView和HorizontalScrollView" class="headerlink" title="ScrollView和HorizontalScrollView"></a>ScrollView和HorizontalScrollView</h2><blockquote>
+<p>上下滑动和左右滑动的控件，将需要滑动的控件包含到ScrollView中即可实现滑动，但是不能直接包含2个子控件</p>
+</blockquote>
+<h2 id="DatePicker"><a href="#DatePicker" class="headerlink" title="DatePicker"></a>DatePicker</h2><blockquote>
+<p>日期选择器，不同Android版本的DatePicker有不同的风格<br>DatePicker在init时，注意Month的取值是从0~11</p>
+</blockquote>
+<h2 id="TimePicker"><a href="#TimePicker" class="headerlink" title="TimePicker"></a>TimePicker</h2><blockquote>
+<p>TimePicker的setIs24HourView()方法可将其改为24小时制</p>
+</blockquote>
+<h2 id="WebView"><a href="#WebView" class="headerlink" title="WebView"></a>WebView</h2><ul>
+<li>在使用WebView之前需先添加上网的权限，在清单文件中添加：<uses-permission android:name="android.permission.INTERNET"><h3 id="WebView的方法"><a href="#WebView的方法" class="headerlink" title="WebView的方法"></a>WebView的方法</h3></uses-permission></li>
+<li>loadUrl(String url)：接收一个网址并加载此网页</li>
+<li>处理跳转时打开新的浏览器的问题</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">webView.setWebViewClient(<span class="keyword">new</span> WebViewClient()&#123;</div><div class="line">    <span class="meta">@override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">shouldOverrideUrlLoading</span><span class="params">(WebView view,String url)</span></span>&#123;</div><div class="line">        view.loadUrl(url);</div><div class="line">        <span class="comment">// 通知系统不需要打开新的浏览器 返回true</span></div><div class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<ul>
+<li>让WebView支持JavaScript<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">webView.getSettings().setJavaScriptEnabled(<span class="keyword">true</span>);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Shape属性"><a href="#Shape属性" class="headerlink" title="Shape属性"></a>Shape属性</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">shape</span> <span class="attr">...</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- stroke 边框 color 边框的颜色 width 边框的粗细 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">stoke</span> <span class="attr">android:color</span>=<span class="string">"#fff"</span> <span class="attr">android:width</span>=<span class="string">"1dp"</span> /&gt;</span></div><div class="line">    <span class="comment">&lt;!-- solid 填充颜色 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">solid</span> <span class="attr">android:color</span>=<span class="string">"#fff"</span> /&gt;</span></div><div class="line">     <span class="comment">&lt;!-- corners 设置圆角 radius 圆角半径 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">corners</span> <span class="attr">android:radius</span>=<span class="string">"2dp"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">shape</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="Selector属性"><a href="#Selector属性" class="headerlink" title="Selector属性"></a>Selector属性</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">selector</span> <span class="attr">...</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 当点击时 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">andoid:state_pressed</span>=<span class="string">"true"</span> <span class="attr">android:drawable</span>=<span class="string">"@drawable/xxx"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">selector</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>selector可在item中嵌套shape</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">selector</span> <span class="attr">...</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 当点击时 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">shape</span>&gt;</span></div><div class="line">            ...</div><div class="line">        <span class="tag">&lt;/<span class="name">shape</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">selector</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="layer-list属性"><a href="#layer-list属性" class="headerlink" title="layer-list属性"></a>layer-list属性</h2><blockquote>
+<p>一般用于progressBar</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">layer-list</span> <span class="attr">...</span>&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 进度条 背景图 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">android:drawable</span>=<span class="string">"@drawable/xxx"</span> <span class="attr">android:id</span>=<span class="string">"@android:id/background"</span>/&gt;</span></div><div class="line">    <span class="comment">&lt;!-- 进度条 进度图 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">android:drawable</span>=<span class="string">"@drawable/xxx"</span> <span class="attr">android:id</span>=<span class="string">"@android:id/progress"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">layer-list</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="9patch-9图片"><a href="#9patch-9图片" class="headerlink" title="9patch .9图片"></a>9patch .9图片</h2><blockquote>
+<p>为了避免图片和控件的尺寸不匹配而导致被拉伸的问题，Android提供了draw9patch.bat工具，此工具可将普通图片改造成.9图片，由我们自己指定一个拉伸的区域(矩形)，当图片被拉伸时，系统会拉伸我们指定的区域而不是将整张图片拉伸</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Android基础-二&quot;&gt;&lt;a href=&quot;#Android基础-二&quot; class=&quot;headerlink&quot; title=&quot;Android基础(二)&quot;&gt;&lt;/a&gt;Android基础(二)&lt;/h1&gt;&lt;h2 id=&quot;View的属性&quot;&gt;&lt;a href=&quot;#View的属性&quot;
+    
+    </summary>
+    
+      <category term="Android" scheme="https://izdo.github.io/categories/Android/"/>
+    
+    
+      <category term="Android" scheme="https://izdo.github.io/tags/Android/"/>
+    
+      <category term="note" scheme="https://izdo.github.io/tags/note/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android基础一</title>
+    <link href="https://izdo.github.io/2017/12/04/Android%E5%9F%BA%E7%A1%80%E4%B8%80/"/>
+    <id>https://izdo.github.io/2017/12/04/Android基础一/</id>
+    <published>2017-12-04T12:45:25.006Z</published>
+    <updated>2017-11-21T11:44:39.125Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Android基础-一"><a href="#Android基础-一" class="headerlink" title="Android基础(一)"></a>Android基础(一)</h1><h2 id="移动通讯技术"><a href="#移动通讯技术" class="headerlink" title="移动通讯技术"></a>移动通讯技术</h2><h3 id="第一代通讯技术"><a href="#第一代通讯技术" class="headerlink" title="第一代通讯技术"></a>第一代通讯技术</h3><blockquote>
+<p>大哥大<br>模拟信号 工作频段<br>缺点：保密性差</p>
+</blockquote>
+<h3 id="第二代通讯技术"><a href="#第二代通讯技术" class="headerlink" title="第二代通讯技术"></a>第二代通讯技术</h3><blockquote>
+<p>从模拟信号转变为数字信号<br>拥有发送短信、彩信的功能(某些2G系统中也支持资料传输与传真)。</p>
+</blockquote>
+<h3 id="第三代通讯技术"><a href="#第三代通讯技术" class="headerlink" title="第三代通讯技术"></a>第三代通讯技术</h3><blockquote>
+<p>采用数字通讯的方式<br>可处理图像、音乐、视频等多种媒体形式</p>
+</blockquote>
+<h3 id="第四代通讯技术"><a href="#第四代通讯技术" class="headerlink" title="第四代通讯技术"></a>第四代通讯技术</h3><blockquote>
+<p>集3G和无线局域网络于一体  </p>
+</blockquote>
+<h2 id="Android发展史"><a href="#Android发展史" class="headerlink" title="Android发展史"></a>Android发展史</h2><blockquote>
+<p>安迪-鲁宾(Andy Rubin)：Android创始人</p>
+<h3 id="Android版本"><a href="#Android版本" class="headerlink" title="Android版本"></a>Android版本</h3><p>1.5 Cupcake：纸杯蛋糕<br>1.6 Donut：甜甜圈<br>2.1 Éclair：闪电泡芙、法式奶油夹心甜点、松饼<br>2.2 Froyo：冻酸奶<br>2.3 Gingerbread：姜饼<br>3.0 Honeycomb：蜂巢<br>4.0 Ice Cream Sandwich：冰激凌三明治<br>4.1、4.2 Jelly Bean：果冻豆<br>4.4 KitKat：奇巧巧克力棒<br>5.0 Lolipop：棒棒糖<br>6.0 Marshmallow：棉花糖<br>7.0 Nougat：牛轧糖<br>8.0 Oreo：奥利奥</p>
+</blockquote>
+<h2 id="Android系统体系结"><a href="#Android系统体系结" class="headerlink" title="Android系统体系结"></a>Android系统体系结</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog20/Blog20_1.jpg?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>  
+<p><a href="https://www.cnblogs.com/xiaoluo501395377/p/3389411.html" target="_blank" rel="external">Android的系统体系架构</a></p>
+<h2 id="Android虚拟机"><a href="#Android虚拟机" class="headerlink" title="Android虚拟机"></a>Android虚拟机</h2><blockquote>
+<p>Dalvik Virtual Machine(DVM)</p>
+<h3 id="JVM与DVM的区别"><a href="#JVM与DVM的区别" class="headerlink" title="JVM与DVM的区别"></a>JVM与DVM的区别</h3><ul>
+<li>编译方式<br>jvm: .java -&gt; .class -&gt; .jar<br>dvm: .java -&gt; .class -&gt; .dex(相比.jar文件更小) </li>
+<li>架构<br>jvm: 基于栈的结构<br>dvm：基于寄存器的结构(离CPU更接近)</li>
+</ul>
+</blockquote>
+<h2 id="Android开发工具介绍"><a href="#Android开发工具介绍" class="headerlink" title="Android开发工具介绍"></a>Android开发工具介绍</h2><ul>
+<li>Android SDK:Android standard develop kits 安卓开发工具集  </li>
+<li>build-tools:编译工具</li>
+<li>extras:兼容低版本开发</li>
+<li>platforms:主要储存不同的安卓版本</li>
+<li>platform-tools:Android开发所需工具</li>
+<li>sources:Android(Java层)应用层的源代码</li>
+<li>DDMS:Dalvik Debug Monitor Service,是Android开发环境中的Dalvik虚拟机调试监控服务。</li>
+</ul>
+<h2 id="Android工程目录解析"><a href="#Android工程目录解析" class="headerlink" title="Android工程目录解析"></a>Android工程目录解析</h2><ul>
+<li>src：放置Java源代码的目录</li>
+<li>gen：放置自动生成的Java文件的目录</li>
+<li>assets：放置资源文件的目录</li>
+<li>res：<ol>
+<li>drawable–图片资源文件</li>
+<li>layout–布局文件</li>
+<li>menu–菜单文件</li>
+<li>values<ol>
+<li>colors–颜色文件  </li>
+<li>dimens–尺寸文件</li>
+<li>strings–文字(字符串)文件</li>
+<li>styles–样式文件</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>AndroidManifest：清单文件</li>
+</ul>
+<h2 id="应用程序编译安装过程"><a href="#应用程序编译安装过程" class="headerlink" title="应用程序编译安装过程"></a>应用程序编译安装过程</h2><ol>
+<li>把所有的.java文件编译成.class文件(通过jdk的javac.exe)</li>
+<li>把所有的.class字节码文件打包合成一个文件classes.dex(通过dx.bat)</li>
+<li>根据资源id，生成一个resources.ap_文件，保存所有的资源信息</li>
+<li>res目录下的资源文件，resources.ap_文件，asset目录下的文件合成一起打包成一个apk文件(通过appt.exe)</li>
+<li>adb.exe负责把生成好的apk文件上传安装到手机里面(通过Adb(Android debug bridge：安卓调试桥)负责上传安装apk)</li>
+</ol>
+<h2 id="adb命令"><a href="#adb命令" class="headerlink" title="adb命令"></a>adb命令</h2><ul>
+<li>安装一个应用程序：adb install xxx.apk</li>
+<li>卸载一个应用程序：adb uninstall com.xxx.xxx</li>
+<li>进入手机终端(由于安卓系统基于Linux系统，所以可执行Linux终端命令)：adb shell</li>
+<li>杀死adb调试桥(当调试桥不稳定的时候)：adb kill-server</li>
+<li>启动adb调试桥：adb start-server</li>
+<li>查看连接到电脑上的设备：adb devices</li>
+<li>指定设备执行的adb指令：adb -s xxx install xxx.apk</li>
+</ul>
+<h2 id="按钮的四种点击事件"><a href="#按钮的四种点击事件" class="headerlink" title="按钮的四种点击事件"></a>按钮的四种点击事件</h2><ol>
+<li>在xml布局对应的按钮中添加onclick属性，属性值为xxx，在Java代码中实现onclick方法(public void xxx(View v))</li>
+<li>button.setOnclickListener(this)，并实现OnclickListener接口，实现onClick方法</li>
+<li>button.setOnclickListener(new OnclickListener)，使用匿名方式实现onClick方法</li>
+<li>自定义MyOnclickListener类并实现OnclickListener接口，需要时继承此类即可</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Android基础-一&quot;&gt;&lt;a href=&quot;#Android基础-一&quot; class=&quot;headerlink&quot; title=&quot;Android基础(一)&quot;&gt;&lt;/a&gt;Android基础(一)&lt;/h1&gt;&lt;h2 id=&quot;移动通讯技术&quot;&gt;&lt;a href=&quot;#移动通讯技术&quot; c
+    
+    </summary>
+    
+      <category term="Android" scheme="https://izdo.github.io/categories/Android/"/>
+    
+    
+      <category term="Android" scheme="https://izdo.github.io/tags/Android/"/>
+    
+      <category term="note" scheme="https://izdo.github.io/tags/note/"/>
+    
+  </entry>
   
   <entry>
     <title>内存优化(下)</title>
@@ -2370,257 +2763,6 @@
     
     
       <category term="Java" scheme="https://izdo.github.io/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何做一个简单的通讯录</title>
-    <link href="https://izdo.github.io/2017/03/26/%E5%88%B6%E4%BD%9C%E9%80%9A%E8%AE%AF%E5%BD%95/"/>
-    <id>https://izdo.github.io/2017/03/26/制作通讯录/</id>
-    <published>2017-03-26T14:05:59.635Z</published>
-    <updated>2017-04-06T12:42:17.986Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="如何做一个简单的通讯录"><a href="#如何做一个简单的通讯录" class="headerlink" title="如何做一个简单的通讯录"></a>如何做一个简单的通讯录</h1><h2 id="获取手机通讯录信息"><a href="#获取手机通讯录信息" class="headerlink" title="获取手机通讯录信息"></a>获取手机通讯录信息</h2><h3 id="创建新工程GetMyPhoneContacts"><a href="#创建新工程GetMyPhoneContacts" class="headerlink" title="创建新工程GetMyPhoneContacts"></a>创建新工程GetMyPhoneContacts</h3><h3 id="为了模拟通讯录的效果，现在genymotion模拟器中添加几个联系人"><a href="#为了模拟通讯录的效果，现在genymotion模拟器中添加几个联系人" class="headerlink" title="为了模拟通讯录的效果，现在genymotion模拟器中添加几个联系人"></a>为了模拟通讯录的效果，现在genymotion模拟器中添加几个联系人</h3><ul>
-<li><h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图:"></a>效果图:</h3><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog2/Blog2_1.png?raw=true" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-</li>
-</ul>
-<h3 id="创建Java类-GetNumber"><a href="#创建Java类-GetNumber" class="headerlink" title="创建Java类 GetNumber"></a>创建Java类 GetNumber</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.getmyphonecontacts;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.content.Context;</div><div class="line"><span class="keyword">import</span> android.database.Cursor;</div><div class="line"><span class="keyword">import</span> android.provider.ContactsContract.CommonDataKinds.Phone;</div><div class="line"><span class="keyword">import</span> android.util.Log;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by iZdo on 2017/3/26.</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GetNumber</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getNumber</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        <span class="comment">// 查询系统通讯录</span></div><div class="line">        Cursor cursor = context.getContentResolver().query(Phone.CONTENT_URI, <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span>);</div><div class="line"></div><div class="line">        <span class="comment">// 定义两个字符串用于获取姓名和电话号码</span></div><div class="line">        String phoneName;</div><div class="line">        String phoneNumber;</div><div class="line"></div><div class="line">        <span class="comment">// 循环遍历</span></div><div class="line">        <span class="keyword">while</span> (cursor.moveToNext()) &#123;</div><div class="line">            phoneName = cursor.getString(cursor.getColumnIndex(Phone.DISPLAY_NAME));</div><div class="line">            phoneNumber = cursor.getString(cursor.getColumnIndex(Phone.NUMBER));</div><div class="line">             Log.d(<span class="string">"MainActivity"</span>, <span class="string">"phoneName= "</span> + phoneName + <span class="string">",phoneNumber= "</span> + phoneNumber);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li>类中只有一个getNumber方法，这个方法用于获取手机通讯录的联系人</li>
-<li>这个方法需要一个上下文Context对象作为参数，首先调用上下文的getContentResolver()方法获取一个内容解析者ContentResolver对象并且调用其query()方法查询系统联系人</li>
-<li>query()方法第一个参数为一个Uri，这里传入Phone.CONTENT_URI即可，后面的四个参数为查询条件，目前我们不需要筛选联系人，因此全部传入null即可。</li>
-<li>query()返回的是一个游标Cursor，用while循环不断遍历Cursor，从Cursor中取出联系人的姓名和号码。</li>
-</ul>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.getmyphonecontacts;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.support.v7.app.AppCompatActivity;</div><div class="line"><span class="keyword">import</span> android.os.Bundle;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line">        GetNumber.getNumber(<span class="keyword">this</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li>在MAinActivity中调用GetNumber的getNumber()方法。</li>
-</ul>
-</blockquote>
-<h4 id="打印日志如下"><a href="#打印日志如下" class="headerlink" title="打印日志如下:"></a>打印日志如下:</h4><blockquote>
-<p>D/MainActivity: <strong>phoneName= zhangsan,phoneNumber= 110</strong></p>
-<p>D/MainActivity: <strong>phoneName= lisi,phoneNumber= 119</strong></p>
-<p>D/MainActivity: <strong>phoneName= lin,phoneNumber= 666</strong></p>
-<ul>
-<li>可以看到，打印的结果和通讯录中的联系人吻合。</li>
-</ul>
-</blockquote>
-<h1 id="封装数据"><a href="#封装数据" class="headerlink" title="封装数据"></a>封装数据</h1><blockquote>
-<ul>
-<li>现在要做的是将得到的数据封装起来<h2 id="新建Java类ContactInfo"><a href="#新建Java类ContactInfo" class="headerlink" title="新建Java类ContactInfo"></a>新建Java类ContactInfo</h2></li>
-</ul>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.getmyphonecontacts;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by iZdo on 2017/3/27.</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ContactInfo</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> String name;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> String number;</div><div class="line"></div><div class="line">    <span class="comment">// 构造器</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ContactInfo</span><span class="params">(String name, String number)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">        <span class="keyword">this</span>.number = number;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 对应的getter、setter方法</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getNumber</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> number;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setNumber</span><span class="params">(String number)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.number = number;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li>简单的JavaBean类，不多做解释 </li>
-<li>ps:number使用String类型而不适用int类型是因为号码会有地区之分，所以会出现”+86”的情况，所以不能只用int类型来存储。</li>
-</ul>
-</blockquote>
-<h2 id="修改GetNumber中的代码"><a href="#修改GetNumber中的代码" class="headerlink" title="修改GetNumber中的代码:"></a>修改GetNumber中的代码:</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GetNumber</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> List&lt;ContactInfo&gt; contactInfoList = <span class="keyword">new</span> ArrayList&lt;ContactInfo&gt;();</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">getNumber</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line"></div><div class="line">        ...</div><div class="line"></div><div class="line">        <span class="comment">// 循环遍历</span></div><div class="line">        <span class="keyword">while</span> (cursor.moveToNext()) &#123;</div><div class="line">            phoneName = cursor.getString(cursor.getColumnIndex(Phone.DISPLAY_NAME));</div><div class="line">            phoneNumber = cursor.getString(cursor.getColumnIndex(Phone.NUMBER));</div><div class="line">            ContactInfo contactInfo = <span class="keyword">new</span> ContactInfo(phoneName, phoneNumber);</div><div class="line">            contactInfoList.add(contactInfo);</div><div class="line">            Log.d(<span class="string">"MainActivity"</span>, <span class="string">"phoneName= "</span> + phoneName + <span class="string">",phoneNumber= "</span> + phoneNumber);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li><p>GetNumber中新创建了一个数据类型为ContactInfo的List集合，在getNumber()方法的while循环中，每一次循环都将新创建一个ContactInfo对象，并将获取的联系人姓名和号码存入ContactInfo对象中，再将其加入到List集合里，这样就将所有的联系人都存入到了List集合，实现了数据的封装。</p>
-</li>
-<li><p>ps:显示中的通讯录实际上不止姓名和号码两项，还有地址，电子邮箱等信息，这里为了方便救只使用姓名和号码这两项。</p>
-</li>
-</ul>
-</blockquote>
-<h1 id="UI适配"><a href="#UI适配" class="headerlink" title="UI适配"></a>UI适配</h1><h2 id="修改activity-main-xml文件"><a href="#修改activity-main-xml文件" class="headerlink" title="修改activity_main.xml文件"></a>修改activity_main.xml文件</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">RelativeLayout</span></span></div><div class="line">    <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/activity_main"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">tools:context</span>=<span class="string">"com.getmyphonecontacts.MainActivity"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">ListView</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/lv"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        /&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></div></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li>这里使用ListView用于联系人数据的显示。</li>
-</ul>
-</blockquote>
-<h2 id="自定义适配器"><a href="#自定义适配器" class="headerlink" title="自定义适配器"></a>自定义适配器</h2><h3 id="新建MyAdapter继承自BaseAdapter"><a href="#新建MyAdapter继承自BaseAdapter" class="headerlink" title="新建MyAdapter继承自BaseAdapter"></a>新建MyAdapter继承自BaseAdapter</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.getmyphonecontacts;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.content.Context;</div><div class="line"><span class="keyword">import</span> android.view.View;</div><div class="line"><span class="keyword">import</span> android.view.ViewGroup;</div><div class="line"><span class="keyword">import</span> android.widget.BaseAdapter;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by iZdo on 2017/3/27.</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyAdapter</span> <span class="keyword">extends</span> <span class="title">BaseAdapter</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> List&lt;ContactInfo&gt; mContactInfoList;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> Context mContext;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyAdapter</span><span class="params">(List&lt;ContactInfo&gt; contactInfoList, Context context)</span> </span>&#123;</div><div class="line">        mContactInfoList = contactInfoList;</div><div class="line">        mContext = context;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mContactInfoList.size();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">getItem</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mContactInfoList.get(i);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">getItemId</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> i;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> View <span class="title">getView</span><span class="params">(<span class="keyword">int</span> i, View view, ViewGroup viewGroup)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li>此处需要创建一个数据类型为ContactInfo的List集合和一个上下文对象COntext。</li>
-<li>再创建一个构造器，其参数为一个List集合和一个上下文对象。</li>
-<li>继承BaseAdapter需要重写四个方法:getCount()、getItem()、getItemId()、getView():<ul>
-<li>public int getCount():用于得到Item的总数，这里返回我们创建的List集合的长度即可。</li>
-<li>public Object getItem(int i):用于根据i得到某个Item的对象，这里需要返回List集合对应位置i的对象。</li>
-<li>public long getItemId(int i):用于根据i得到某个Item的id，由于位置i代表的就是其相应Item的id，这里返回i即可。</li>
-<li>public View getView(int i, View view, ViewGroup viewGroup):用于得到相应的i对应的Item视图，i当前的位置以及converView复用的View对象，在写这个方法之前，我们需要再新建一个Item布局来展示具体数据。</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<h2 id="新建布局文件contact-xml"><a href="#新建布局文件contact-xml" class="headerlink" title="新建布局文件contact.xml"></a>新建布局文件contact.xml</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">              <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">              <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">              <span class="attr">android:orientation</span>=<span class="string">"horizontal"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">RelativeLayout</span></span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span>&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">ImageView</span></span></div><div class="line">            <span class="attr">android:id</span>=<span class="string">"@+id/iv"</span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:src</span>=<span class="string">"@mipmap/ic_launcher"</span>/&gt;</div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">            <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">            <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">            <span class="attr">android:layout_alignBottom</span>=<span class="string">"@id/iv"</span></div><div class="line">            <span class="attr">android:layout_alignTop</span>=<span class="string">"@id/iv"</span></div><div class="line">            <span class="attr">android:layout_toRightOf</span>=<span class="string">"@id/iv"</span></div><div class="line">            <span class="attr">android:gravity</span>=<span class="string">"center_vertical"</span></div><div class="line">            <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>&gt;</div><div class="line"></div><div class="line">            <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">                <span class="attr">android:id</span>=<span class="string">"@+id/name"</span></div><div class="line">                <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">                <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">                <span class="attr">android:text</span>=<span class="string">"111"</span></div><div class="line">                <span class="attr">android:textSize</span>=<span class="string">"15sp"</span>/&gt;</div><div class="line"></div><div class="line">            <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">                <span class="attr">android:id</span>=<span class="string">"@+id/number"</span></div><div class="line">                <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">                <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">                <span class="attr">android:text</span>=<span class="string">"222"</span></div><div class="line">                <span class="attr">android:textSize</span>=<span class="string">"10sp"</span>/&gt;</div><div class="line">        <span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
-<ul>
-<li><h3 id="效果图如下"><a href="#效果图如下" class="headerlink" title="效果图如下:"></a>效果图如下:</h3><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog2/Blog2_2.png?raw=true" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<blockquote>
-<ul>
-<li>简单的布局，左边是一个ImageView，右边是两个TextView，具体实现如代码所示，此处不再阐述。</li>
-</ul>
-</blockquote>
-</li>
-</ul>
-<h2 id="修改MyAdapter的代码"><a href="#修改MyAdapter的代码" class="headerlink" title="修改MyAdapter的代码"></a>修改MyAdapter的代码</h2><h3 id="将getView-方法的内容补充完整"><a href="#将getView-方法的内容补充完整" class="headerlink" title="将getView()方法的内容补充完整"></a>将getView()方法的内容补充完整</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> View <span class="title">getView</span><span class="params">(<span class="keyword">int</span> i, View view, ViewGroup viewGroup)</span> </span>&#123;</div><div class="line">    LayoutInflater inflater = LayoutInflater.from(mContext);</div><div class="line">    LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.contact, <span class="keyword">null</span>);</div><div class="line">    TextView nametv = (TextView) layout.findViewById(R.id.name);</div><div class="line">    TextView numbertv = (TextView) layout.findViewById(R.id.number);</div><div class="line">    nametv.setText(mContactInfoList.get(i).getName());</div><div class="line">    numbertv.setText(mContactInfoList.get(i).getNumber());</div><div class="line">    <span class="keyword">return</span> layout;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li>首先创建一个打气筒将刚才创建的Item布局文件转化为一个View，然后初始化两个TextView控件并为其填充相应位置的联系人信息，最后将layout返回。</li>
-<li>ps:LayoutInflater.from()方法需要传入一个上下文对象Context，这里就需要用到此前创建的成员变量mContext，而mContext是通过构造器得到的，因此在构造器里设置Context为参数的好处就是当某个活动创建我们自定义的适配器MyAdapter的时候就会同时将其上下文传入，使得活动与适配器联系了起来。</li>
-</ul>
-</blockquote>
-<h2 id="修改MainActivity中的代码"><a href="#修改MainActivity中的代码" class="headerlink" title="修改MainActivity中的代码"></a>修改MainActivity中的代码</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.getmyphonecontacts;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.support.v7.app.AppCompatActivity;</div><div class="line"><span class="keyword">import</span> android.os.Bundle;</div><div class="line"><span class="keyword">import</span> android.widget.ListView;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> ListView lv;</div><div class="line">    <span class="keyword">private</span> MyAdapter mAdapter;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line">        GetNumber.getNumber(<span class="keyword">this</span>);</div><div class="line">        lv = (ListView) findViewById(R.id.lv);</div><div class="line">        mAdapter = <span class="keyword">new</span> MyAdapter(GetNumber.contactInfoList, <span class="keyword">this</span>);</div><div class="line">        lv.setAdapter(mAdapter);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<ol>
-<li>创建一个ListView</li>
-<li>创建一个MyAdapter适配器</li>
-</ol>
-<ul>
-<li>这里没什么好说的，需要注意的一点是MyAdapter的两个参数分别传入GetNumber中的List集合(静态成员变量，可通过类名直接调用)和this即可。</li>
-</ul>
-</blockquote>
-<h2 id="部署到Genymotion模拟器上观看效果"><a href="#部署到Genymotion模拟器上观看效果" class="headerlink" title="部署到Genymotion模拟器上观看效果"></a>部署到Genymotion模拟器上观看效果</h2><h3 id="效果如下"><a href="#效果如下" class="headerlink" title="效果如下:"></a>效果如下:</h3><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog2/Blog2_3.png?raw=true" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<blockquote>
-<ul>
-<li>可以看到，联系人的信息都显示在了每一行Item上了。</li>
-<li>ps:ImageView上的图片事先并无准备，所以就用了系统自带的ic_launcher图片。</li>
-</ul>
-</blockquote>
-<h2 id="复用历史缓存对象进行优化"><a href="#复用历史缓存对象进行优化" class="headerlink" title="复用历史缓存对象进行优化"></a>复用历史缓存对象进行优化</h2><blockquote>
-<ul>
-<li>ListView其实是一个比较难用的控件，因为它有很多细节可以优化，运行效率就是其中很重要的一点，我们上面写的ListView运行效率是很低的，因为在getView()方法中，每次都将布局重新加载了一遍，当ListView快速滚动的时候，会明显出现卡顿的现象(由于我们的数据量比较少，无法体现出卡顿效果，当数据量比较大的时候能够明显看出)，这时候我们就需要优化ListView的，我们可以发现getView()方法里还有一个view(原先是convertView)是我们没用到的，这是一个缓存对象，就是用于优化ListView的。</li>
-</ul>
-</blockquote>
-<h3 id="修改MyAdapter中的代码"><a href="#修改MyAdapter中的代码" class="headerlink" title="修改MyAdapter中的代码:"></a>修改MyAdapter中的代码:</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyAdapter</span> <span class="keyword">extends</span> <span class="title">BaseAdapter</span> </span>&#123;</div><div class="line"></div><div class="line">   ...</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> View <span class="title">getView</span><span class="params">(<span class="keyword">int</span> i, View view, ViewGroup viewGroup)</span> </span>&#123;</div><div class="line">        <span class="comment">//        LayoutInflater inflater = LayoutInflater.from(mContext);</span></div><div class="line">        <span class="comment">//        LinearLayout layout = (LinearLayout) inflater.inflate(R.layout.contact, null);</span></div><div class="line">        <span class="comment">//        TextView nametv = (TextView) layout.findViewById(R.id.name);</span></div><div class="line">        <span class="comment">//        TextView numbertv = (TextView) layout.findViewById(R.id.number);</span></div><div class="line">        <span class="comment">//        nametv.setText(mContactInfoList.get(i).getName());</span></div><div class="line">        <span class="comment">//        numbertv.setText(mContactInfoList.get(i).getNumber());</span></div><div class="line">        ViewHolder holder;</div><div class="line">        <span class="keyword">if</span> (view == <span class="keyword">null</span>) &#123;</div><div class="line">            view = LayoutInflater.from(mContext).inflate(R.layout.contact, <span class="keyword">null</span>);</div><div class="line">            holder = <span class="keyword">new</span> ViewHolder();</div><div class="line">            holder.nametv = (TextView) view.findViewById(R.id.name);</div><div class="line">            holder.numbertv = (TextView) view.findViewById(R.id.number);</div><div class="line">            holder.nametv.setText(mContactInfoList.get(i).getName());</div><div class="line">            holder.numbertv.setText(mContactInfoList.get(i).getNumber());</div><div class="line">            view.setTag(holder);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            holder = (ViewHolder) view.getTag();</div><div class="line">            holder.nametv.setText(mContactInfoList.get(i).getName());</div><div class="line">            holder.numbertv.setText(mContactInfoList.get(i).getNumber());</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> view;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ViewHolder</span> </span>&#123;</div><div class="line">        TextView nametv;</div><div class="line">        TextView numbertv;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li>首先创建了一个内部类ViewHolder，用于对控件的实例进行缓存。</li>
-<li>在getView方法中，创建了一个ViewHolder对象，当缓存view为空时，就将联系人的信息封装在ViewHolder里，然后调用setTag()方法将ViewHolder储存在view中，而当缓存不为空时，就调用getTag()方法取出ViewHolder，这样就实现了缓存的复用。</li>
-</ul>
-</blockquote>
-<h3 id="继续改进"><a href="#继续改进" class="headerlink" title="继续改进"></a>继续改进</h3><blockquote>
-<ul>
-<li>通过复用缓存对象我们对ListView进行了优化，而通过观察getView()方法，我们发现不管缓存view为空时，新建ViewHolder去缓存实例还是缓存view不为空时，取出缓存，我们都需要用这个ViewHolder对TextView进行设置文本内容，所以我们又可以进一步优化代码:</li>
-</ul>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyAdapter</span> <span class="keyword">extends</span> <span class="title">BaseAdapter</span> </span>&#123;</div><div class="line"></div><div class="line">    ...</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> View <span class="title">getView</span><span class="params">(<span class="keyword">int</span> i, View view, ViewGroup viewGroup)</span> </span>&#123;</div><div class="line">       </div><div class="line">       ...</div><div class="line">       </div><div class="line">        ViewHolder holder;</div><div class="line">        <span class="keyword">if</span> (view == <span class="keyword">null</span>) &#123;</div><div class="line">            view = LayoutInflater.from(mContext).inflate(R.layout.contact, <span class="keyword">null</span>);</div><div class="line">            holder = <span class="keyword">new</span> ViewHolder();</div><div class="line">            holder.nametv = (TextView) view.findViewById(R.id.name);</div><div class="line">            holder.numbertv = (TextView) view.findViewById(R.id.number);</div><div class="line">            view.setTag(holder);</div><div class="line">        &#125; <span class="keyword">else</span></div><div class="line">            holder = (ViewHolder) view.getTag();</div><div class="line">        holder.nametv.setText(mContactInfoList.get(i).getName());</div><div class="line">        holder.numbertv.setText(mContactInfoList.get(i).getNumber());</div><div class="line"></div><div class="line">        <span class="keyword">return</span> view;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">   ...</div><div class="line">   </div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li>这里我们将holder.nametv.setText(mContactInfoList.get(i).getName())和     holder.numbertv.setText(mContactInfoList.get(i).getNumber())放到判断语句外边，减少了代码的重复(其实就是之前忘了放)。</li>
-</ul>
-</blockquote>
-<p>这样就完成了从手机系统通讯录中取出数据放到我们自己的通讯录上的效果。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;如何做一个简单的通讯录&quot;&gt;&lt;a href=&quot;#如何做一个简单的通讯录&quot; class=&quot;headerlink&quot; title=&quot;如何做一个简单的通讯录&quot;&gt;&lt;/a&gt;如何做一个简单的通讯录&lt;/h1&gt;&lt;h2 id=&quot;获取手机通讯录信息&quot;&gt;&lt;a href=&quot;#获取手机通讯录信
-    
-    </summary>
-    
-      <category term="Android" scheme="https://izdo.github.io/categories/Android/"/>
-    
-    
-      <category term="Android" scheme="https://izdo.github.io/tags/Android/"/>
-    
-      <category term="demo" scheme="https://izdo.github.io/tags/demo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何做一个简单的倒计时</title>
-    <link href="https://izdo.github.io/2017/03/25/%E5%88%B6%E4%BD%9C%E5%80%92%E8%AE%A1%E6%97%B6/"/>
-    <id>https://izdo.github.io/2017/03/25/制作倒计时/</id>
-    <published>2017-03-25T08:36:11.032Z</published>
-    <updated>2017-04-06T12:43:41.272Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="如何做一个简单的倒计时"><a href="#如何做一个简单的倒计时" class="headerlink" title="如何做一个简单的倒计时"></a>如何做一个简单的倒计时</h1><h2 id="1-创建新工程CountTime"><a href="#1-创建新工程CountTime" class="headerlink" title="1. 创建新工程CountTime"></a>1. 创建新工程CountTime</h2><h2 id="2-布局文件activity-main-xml"><a href="#2-布局文件activity-main-xml" class="headerlink" title="2. 布局文件activity_main.xml:"></a>2. 布局文件activity_main.xml:</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">    <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    <span class="attr">xmlns:tools</span>=<span class="string">"http://schemas.android.com/tools"</span></div><div class="line">    <span class="attr">android:id</span>=<span class="string">"@+id/activity_main"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span></div><div class="line">    <span class="attr">tools:context</span>=<span class="string">"com.counttime.MainActivity"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">EditText</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/inputtime"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:ems</span>=<span class="string">"10"</span>/&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/gettime"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:text</span>=<span class="string">"获取倒计时时间"</span>/&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/time"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span>/&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/starttime"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:text</span>=<span class="string">"开始计时"</span>/&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/stoptime"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:text</span>=<span class="string">"停止计时"</span>/&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>inputtime用于输入倒计时时间<br>gettime用于显示inputtime输入的时间<br>time用于显示倒计时时间<br>starttime、stoptime分别用于开始和停止倒计时</p>
-</blockquote>
-<ul>
-<li><h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图:"></a>效果图:</h3></li>
-</ul>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog1/Blog1_1.png?raw=true" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<h2 id="3-MainActivity逻辑"><a href="#3-MainActivity逻辑" class="headerlink" title="3. MainActivity逻辑:"></a>3. MainActivity逻辑:</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.counttime;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.os.Bundle;</div><div class="line"><span class="keyword">import</span> android.os.Handler;</div><div class="line"><span class="keyword">import</span> android.os.Message;</div><div class="line"><span class="keyword">import</span> android.support.v7.app.AppCompatActivity;</div><div class="line"><span class="keyword">import</span> android.view.View;</div><div class="line"><span class="keyword">import</span> android.widget.Button;</div><div class="line"><span class="keyword">import</span> android.widget.EditText;</div><div class="line"><span class="keyword">import</span> android.widget.TextView;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.Timer;</div><div class="line"><span class="keyword">import</span> java.util.TimerTask;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> <span class="keyword">implements</span> <span class="title">View</span>.<span class="title">OnClickListener</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> EditText inputet;</div><div class="line">    <span class="keyword">private</span> Button getTime, startTime, stopTime;</div><div class="line">    <span class="keyword">private</span> TextView time;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">    <span class="keyword">private</span> Timer timer = <span class="keyword">null</span>;</div><div class="line">    <span class="keyword">private</span> TimerTask task = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line">        <span class="comment">//调用初始化控件方法</span></div><div class="line">        initView();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 初始化控件</span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initView</span><span class="params">()</span> </span>&#123;</div><div class="line">        inputet = (EditText) findViewById(R.id.inputtime);</div><div class="line">        getTime = (Button) findViewById(R.id.gettime);</div><div class="line">        startTime = (Button) findViewById(R.id.starttime);</div><div class="line">        stopTime = (Button) findViewById(R.id.stoptime);</div><div class="line">        time = (TextView) findViewById(R.id.time);</div><div class="line">        getTime.setOnClickListener(<span class="keyword">this</span>);</div><div class="line">        startTime.setOnClickListener(<span class="keyword">this</span>);</div><div class="line">        stopTime.setOnClickListener(<span class="keyword">this</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 设置点击事件</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View view)</span> </span>&#123;</div><div class="line">        <span class="keyword">switch</span> (view.getId()) &#123;</div><div class="line">            <span class="comment">// 点击gettime按钮获取inputet上的时间值</span></div><div class="line">            <span class="keyword">case</span> R.id.gettime:</div><div class="line">                time.setText(inputet.getText().toString());</div><div class="line">                i = Integer.parseInt(inputet.getText().toString());</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> R.id.starttime:</div><div class="line">                startTime();</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> R.id.stoptime:</div><div class="line">                stopTime();</div><div class="line">                <span class="keyword">break</span>;</div><div class="line"></div><div class="line">            <span class="keyword">default</span>:</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 使用Handler实现对主线程的更新UI操作</span></div><div class="line">    <span class="keyword">private</span> Handler mHandler = <span class="keyword">new</span> Handler() &#123;</div><div class="line">        <span class="comment">// 调用handleMessage处理消息</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>&#123;</div><div class="line">            time.setText(msg.arg1 + <span class="string">""</span>);</div><div class="line">            startTime();</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">startTime</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">// 创建计时器和计时任务</span></div><div class="line">        timer = <span class="keyword">new</span> Timer();</div><div class="line">        task = <span class="keyword">new</span> TimerTask() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                i--;</div><div class="line">                Message message = mHandler.obtainMessage();</div><div class="line">                message.arg1 = i;</div><div class="line">                mHandler.sendMessage(message);</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">        timer.schedule(task, <span class="number">1000</span>);</div><div class="line">    &#125;</div><div class="line">   </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stopTime</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">// 取消计时器</span></div><div class="line">        timer.cancel();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<ul>
-<li><p>由于主线程不允许子线程更新UI，因此这里需要用到Handler实现子线程更新UI的操作。</p>
-</li>
-<li><p>首先创建一个Handler并调用handleMessage方法处理sendMessage传递过来的消息，需要注意的是，TextView的setText方法只能传入String类型的参数，因此不能单单传入msg.arg1，一种简单的处理方式就是在后面加上“”将其转换成字符串:time.setText(msg.arg1 + “”);。</p>
-</li>
-<li><p>Timer和TimerTask一般是配合使用的(由TimerTask实现任务内容，然后将任务放入计时器Timer),在TimerTask的run()方法里创建一个Message用于向Handler发送消息，这里传入的是i(此前已经将inputet中的数字赋给i)，并调用sendMessage方法将Message发送给Handler，最后调用schedule()方法将TimerTask放入计时器。</p>
-</li>
-<li><p>timer.schedule(task, 1);第一个参数表示要放入的TimerTask任务，第二个参数是一个毫秒值，表示多少时间之后启动任务，这里放入1000毫秒(1秒)。</p>
-</li>
-<li><p>最后调用cancel()方法取消任务。</p>
-</li>
-<li><p>ps:在startTime()中调用sendMessage()方法向Handler发送消息，而在Handler的handleMessage中又调用startTime()方法，这样就形成了sendMessage()-&gt;handleMessage()-&gt;sendMessage()-&gt;handleMessage()-&gt;…的循环。</p>
-</li>
-</ul>
-</blockquote>
-<h2 id="4-部署到Genymotion观看效果"><a href="#4-部署到Genymotion观看效果" class="headerlink" title="4. 部署到Genymotion观看效果:"></a>4. 部署到Genymotion观看效果:</h2><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog1/Blog1_2.gif?raw=true" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<h2 id="5-改进"><a href="#5-改进" class="headerlink" title="5. 改进"></a>5. 改进</h2><blockquote>
-<p>这里存在这一个问题就是计时器读数到0后会变成负数，所以下面需要修改一些代码使计时器归0后停止计时。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">startTime</span><span class="params">()</span> </span>&#123;</div><div class="line">        ...</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                i--;</div><div class="line">                <span class="keyword">if</span>(i&lt;<span class="number">0</span>)&#123;</div><div class="line">                    stopTime();</div><div class="line">                    <span class="keyword">return</span>;</div><div class="line">                &#125;</div><div class="line">        ...</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
-</blockquote>
-<ul>
-<li><p>这里在startTime()方法中的run()方法中加入一个if判断，当i小于0的时候就调用stopTime()方法并且return。(这里判断条件是小于0而不是等于0是逻辑顺序的问题)</p>
-</li>
-<li><p>为了更好地看到”刹车”效果，将任务间隔设置为1毫秒。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">timer.schedule(task, <span class="number">1</span>);</div></pre></td></tr></table></figure>
-</li>
-<li><h3 id="效果如下"><a href="#效果如下" class="headerlink" title="效果如下:"></a>效果如下:</h3></li>
-</ul>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog1/Blog1_3.gif?raw=true" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<blockquote>
-<p>对于目前的程序，由于从inputet获取的值为int类型，但当我们输入小数或者字符和其他符号时，程序会崩溃，这里可以使用正则表达式限制输入。</p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;如何做一个简单的倒计时&quot;&gt;&lt;a href=&quot;#如何做一个简单的倒计时&quot; class=&quot;headerlink&quot; title=&quot;如何做一个简单的倒计时&quot;&gt;&lt;/a&gt;如何做一个简单的倒计时&lt;/h1&gt;&lt;h2 id=&quot;1-创建新工程CountTime&quot;&gt;&lt;a href=&quot;#1
-    
-    </summary>
-    
-      <category term="Android" scheme="https://izdo.github.io/categories/Android/"/>
-    
-    
-      <category term="Android" scheme="https://izdo.github.io/tags/Android/"/>
-    
-      <category term="demo" scheme="https://izdo.github.io/tags/demo/"/>
     
   </entry>
   

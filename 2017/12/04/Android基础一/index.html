@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Android基础一 | iZdo&#39;s Blog | bonbolu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Android,note">
+    <meta name="description" content="Android基础(一)移动通讯技术第一代通讯技术
+大哥大模拟信号 工作频段缺点：保密性差
+
+第二代通讯技术
+从模拟信号转变为数字信号拥有发送短信、彩信的功能(某些2G系统中也支持资料传输与传真)。
+
+第三代通讯技术
+采用数字通讯的方式可处理图像、音乐、视频等多种媒体形式
+
+第四代通讯技术
+集3G和无线局域网络于一体  
+
+Android发展史
+安迪-鲁宾(Andy Rubin)：Android创">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android基础一">
+<meta property="og:url" content="https://izdo.github.io/2017/12/04/Android基础一/index.html">
+<meta property="og:site_name" content="iZdo's Blog">
+<meta property="og:description" content="Android基础(一)移动通讯技术第一代通讯技术
+大哥大模拟信号 工作频段缺点：保密性差
+
+第二代通讯技术
+从模拟信号转变为数字信号拥有发送短信、彩信的功能(某些2G系统中也支持资料传输与传真)。
+
+第三代通讯技术
+采用数字通讯的方式可处理图像、音乐、视频等多种媒体形式
+
+第四代通讯技术
+集3G和无线局域网络于一体  
+
+Android发展史
+安迪-鲁宾(Andy Rubin)：Android创">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog20/Blog20_1.jpg?raw=true">
+<meta property="og:updated_time" content="2017-11-21T11:44:39.125Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android基础一">
+<meta name="twitter:description" content="Android基础(一)移动通讯技术第一代通讯技术
+大哥大模拟信号 工作频段缺点：保密性差
+
+第二代通讯技术
+从模拟信号转变为数字信号拥有发送短信、彩信的功能(某些2G系统中也支持资料传输与传真)。
+
+第三代通讯技术
+采用数字通讯的方式可处理图像、音乐、视频等多种媒体形式
+
+第四代通讯技术
+集3G和无线局域网络于一体  
+
+Android发展史
+安迪-鲁宾(Andy Rubin)：Android创">
+<meta name="twitter:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog20/Blog20_1.jpg?raw=true">
+    
+        <link rel="alternative" href="/atom.xml" title="iZdo&#39;s Blog" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.14">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/heizi.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">iZdo</h5>
+          <a href="mailto:401135451@qq.com" title="401135451@qq.com" class="mail">401135451@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/iZdo" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Android基础一</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Android基础一</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-12-04T12:45:25.006Z" itemprop="datePublished" class="page-time">
+  2017-12-04
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Android基础-一"><span class="post-toc-number">1.</span> <span class="post-toc-text">Android基础(一)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#移动通讯技术"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">移动通讯技术</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第一代通讯技术"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">第一代通讯技术</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第二代通讯技术"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">第二代通讯技术</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第三代通讯技术"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">第三代通讯技术</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第四代通讯技术"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">第四代通讯技术</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Android发展史"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Android发展史</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Android版本"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">Android版本</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Android系统体系结"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">Android系统体系结</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Android虚拟机"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">Android虚拟机</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#JVM与DVM的区别"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">JVM与DVM的区别</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Android开发工具介绍"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">Android开发工具介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Android工程目录解析"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">Android工程目录解析</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#应用程序编译安装过程"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">应用程序编译安装过程</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#adb命令"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">adb命令</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#按钮的四种点击事件"><span class="post-toc-number">1.9.</span> <span class="post-toc-text">按钮的四种点击事件</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Android基础一"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Android基础一</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年12月04日 20:45" datetime="2017-12-04T12:45:25.006Z"  itemprop="datePublished">2017-12-04</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Android基础-一"><a href="#Android基础-一" class="headerlink" title="Android基础(一)"></a>Android基础(一)</h1><h2 id="移动通讯技术"><a href="#移动通讯技术" class="headerlink" title="移动通讯技术"></a>移动通讯技术</h2><h3 id="第一代通讯技术"><a href="#第一代通讯技术" class="headerlink" title="第一代通讯技术"></a>第一代通讯技术</h3><blockquote>
+<p>大哥大<br>模拟信号 工作频段<br>缺点：保密性差</p>
+</blockquote>
+<h3 id="第二代通讯技术"><a href="#第二代通讯技术" class="headerlink" title="第二代通讯技术"></a>第二代通讯技术</h3><blockquote>
+<p>从模拟信号转变为数字信号<br>拥有发送短信、彩信的功能(某些2G系统中也支持资料传输与传真)。</p>
+</blockquote>
+<h3 id="第三代通讯技术"><a href="#第三代通讯技术" class="headerlink" title="第三代通讯技术"></a>第三代通讯技术</h3><blockquote>
+<p>采用数字通讯的方式<br>可处理图像、音乐、视频等多种媒体形式</p>
+</blockquote>
+<h3 id="第四代通讯技术"><a href="#第四代通讯技术" class="headerlink" title="第四代通讯技术"></a>第四代通讯技术</h3><blockquote>
+<p>集3G和无线局域网络于一体  </p>
+</blockquote>
+<h2 id="Android发展史"><a href="#Android发展史" class="headerlink" title="Android发展史"></a>Android发展史</h2><blockquote>
+<p>安迪-鲁宾(Andy Rubin)：Android创始人</p>
+<h3 id="Android版本"><a href="#Android版本" class="headerlink" title="Android版本"></a>Android版本</h3><p>1.5 Cupcake：纸杯蛋糕<br>1.6 Donut：甜甜圈<br>2.1 Éclair：闪电泡芙、法式奶油夹心甜点、松饼<br>2.2 Froyo：冻酸奶<br>2.3 Gingerbread：姜饼<br>3.0 Honeycomb：蜂巢<br>4.0 Ice Cream Sandwich：冰激凌三明治<br>4.1、4.2 Jelly Bean：果冻豆<br>4.4 KitKat：奇巧巧克力棒<br>5.0 Lolipop：棒棒糖<br>6.0 Marshmallow：棉花糖<br>7.0 Nougat：牛轧糖<br>8.0 Oreo：奥利奥</p>
+</blockquote>
+<h2 id="Android系统体系结"><a href="#Android系统体系结" class="headerlink" title="Android系统体系结"></a>Android系统体系结</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog20/Blog20_1.jpg?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>  
+<p><a href="https://www.cnblogs.com/xiaoluo501395377/p/3389411.html" target="_blank" rel="external">Android的系统体系架构</a></p>
+<h2 id="Android虚拟机"><a href="#Android虚拟机" class="headerlink" title="Android虚拟机"></a>Android虚拟机</h2><blockquote>
+<p>Dalvik Virtual Machine(DVM)</p>
+<h3 id="JVM与DVM的区别"><a href="#JVM与DVM的区别" class="headerlink" title="JVM与DVM的区别"></a>JVM与DVM的区别</h3><ul>
+<li>编译方式<br>jvm: .java -&gt; .class -&gt; .jar<br>dvm: .java -&gt; .class -&gt; .dex(相比.jar文件更小) </li>
+<li>架构<br>jvm: 基于栈的结构<br>dvm：基于寄存器的结构(离CPU更接近)</li>
+</ul>
+</blockquote>
+<h2 id="Android开发工具介绍"><a href="#Android开发工具介绍" class="headerlink" title="Android开发工具介绍"></a>Android开发工具介绍</h2><ul>
+<li>Android SDK:Android standard develop kits 安卓开发工具集  </li>
+<li>build-tools:编译工具</li>
+<li>extras:兼容低版本开发</li>
+<li>platforms:主要储存不同的安卓版本</li>
+<li>platform-tools:Android开发所需工具</li>
+<li>sources:Android(Java层)应用层的源代码</li>
+<li>DDMS:Dalvik Debug Monitor Service,是Android开发环境中的Dalvik虚拟机调试监控服务。</li>
+</ul>
+<h2 id="Android工程目录解析"><a href="#Android工程目录解析" class="headerlink" title="Android工程目录解析"></a>Android工程目录解析</h2><ul>
+<li>src：放置Java源代码的目录</li>
+<li>gen：放置自动生成的Java文件的目录</li>
+<li>assets：放置资源文件的目录</li>
+<li>res：<ol>
+<li>drawable–图片资源文件</li>
+<li>layout–布局文件</li>
+<li>menu–菜单文件</li>
+<li>values<ol>
+<li>colors–颜色文件  </li>
+<li>dimens–尺寸文件</li>
+<li>strings–文字(字符串)文件</li>
+<li>styles–样式文件</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>AndroidManifest：清单文件</li>
+</ul>
+<h2 id="应用程序编译安装过程"><a href="#应用程序编译安装过程" class="headerlink" title="应用程序编译安装过程"></a>应用程序编译安装过程</h2><ol>
+<li>把所有的.java文件编译成.class文件(通过jdk的javac.exe)</li>
+<li>把所有的.class字节码文件打包合成一个文件classes.dex(通过dx.bat)</li>
+<li>根据资源id，生成一个resources.ap_文件，保存所有的资源信息</li>
+<li>res目录下的资源文件，resources.ap_文件，asset目录下的文件合成一起打包成一个apk文件(通过appt.exe)</li>
+<li>adb.exe负责把生成好的apk文件上传安装到手机里面(通过Adb(Android debug bridge：安卓调试桥)负责上传安装apk)</li>
+</ol>
+<h2 id="adb命令"><a href="#adb命令" class="headerlink" title="adb命令"></a>adb命令</h2><ul>
+<li>安装一个应用程序：adb install xxx.apk</li>
+<li>卸载一个应用程序：adb uninstall com.xxx.xxx</li>
+<li>进入手机终端(由于安卓系统基于Linux系统，所以可执行Linux终端命令)：adb shell</li>
+<li>杀死adb调试桥(当调试桥不稳定的时候)：adb kill-server</li>
+<li>启动adb调试桥：adb start-server</li>
+<li>查看连接到电脑上的设备：adb devices</li>
+<li>指定设备执行的adb指令：adb -s xxx install xxx.apk</li>
+</ul>
+<h2 id="按钮的四种点击事件"><a href="#按钮的四种点击事件" class="headerlink" title="按钮的四种点击事件"></a>按钮的四种点击事件</h2><ol>
+<li>在xml布局对应的按钮中添加onclick属性，属性值为xxx，在Java代码中实现onclick方法(public void xxx(View v))</li>
+<li>button.setOnclickListener(this)，并实现OnclickListener接口，实现onClick方法</li>
+<li>button.setOnclickListener(new OnclickListener)，使用匿名方式实现onClick方法</li>
+<li>自定义MyOnclickListener类并实现OnclickListener接口，需要时继承此类即可</li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-11-21T11:44:39.125Z" itemprop="dateUpdated">2017年11月21日 19:44</time>
+</span><br>
+
+
+        这里写留言或版权声明：<a href="/2017/12/04/Android基础一/" target="_blank" rel="external">https://izdo.github.io/2017/12/04/Android基础一/</a>
+    </div>
+    <footer>
+        <a href="https://izdo.github.io">
+            <img src="/img/heizi.jpg" alt="iZdo">
+            iZdo
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/note/">note</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://izdo.github.io/2017/12/04/Android基础一/&title=《Android基础一》 — iZdo's Blog&pic=https://izdo.github.io/img/heizi.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://izdo.github.io/2017/12/04/Android基础一/&title=《Android基础一》 — iZdo's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://izdo.github.io/2017/12/04/Android基础一/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android基础一》 — iZdo's Blog&url=https://izdo.github.io/2017/12/04/Android基础一/&via=https://izdo.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://izdo.github.io/2017/12/04/Android基础一/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/12/04/Android基础二/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Android基础二</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/09/03/内存优化(下)/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">内存优化(下)</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>iZdo's Blog &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://izdo.github.io/2017/12/04/Android基础一/&title=《Android基础一》 — iZdo's Blog&pic=https://izdo.github.io/img/heizi.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://izdo.github.io/2017/12/04/Android基础一/&title=《Android基础一》 — iZdo's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://izdo.github.io/2017/12/04/Android基础一/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android基础一》 — iZdo's Blog&url=https://izdo.github.io/2017/12/04/Android基础一/&via=https://izdo.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://izdo.github.io/2017/12/04/Android基础一/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMUlEQVR42u3aS5KDMAxF0ex/0/Q0g+DcJzldhXwZUYQGHwZq6/N64eN6O+6uv/96d/3uyeu3bDtkyJDxWMa1PO5esCatF5qer9cmQ4aMcxgkFK4XTcLxeinkmbfXZciQIQPfQ7Z6BCNDhgwZuxg8+eSLliFDhoxOEpsGWf5XBLYtF5chQ8YDGbzq/v/nP+lvyJAh41GMKzzS59Qak/GqZMiQMZrBAxyHdRLa2npkyJBxDoOUw3j5jAdZ8ka0KhkyZBzAqBXCOiG708788n9DhgwZgxj80Xu3hq3AKkOGjMMYnTGItNC/qz1we48MGTKGMtIASlLW9VJI4I4HxWTIkHEAIx22INvHtDyXJsMfAq4MGTKGMtKQmjL6TQLyEWXIkDGb0W9YBgGxNJARhFoZMmQMZfC2ZS195ckt3z6iHqkMGTIGMYru8HOQ8lmtJRBvDWXIkPFwRi1Z5cviwxzkg8qQIeNMRi1lDcLisgBHrtw+QYYMGaMZZLSis5kj9/Nfg2anDBkyxjHSpDEd/NpV2vtSZ5MhQ8YBDPJKskRynm4WW/0NGTJkDGL0S/zp0EawYwVtURkyZExlXOHRb1XyFDegypAhYzRj1yBFbbm8tZCGexkyZMxjpKMPta0k/6Jx+ipDhoxjGLXAl5b7ySerrVaGDBkyOgH3F2NhMmTIkMETSJ6+pmMc6eZVhgwZJzB4MyAd2+oPW6DinQwZMkYz0tRxwwgX2GL+pKkpQ4aM5zH+ADQtIuBvZ691AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.14"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.14" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
