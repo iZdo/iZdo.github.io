@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://izdo.github.io/"/>
-  <updated>2017-12-04T13:09:58.702Z</updated>
+  <updated>2017-12-04T13:37:10.541Z</updated>
   <id>https://izdo.github.io/</id>
   
   <author>
@@ -16,15 +16,13 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>Android基础八</title>
     <link href="https://izdo.github.io/2017/12/04/Android%E5%9F%BA%E7%A1%80%E5%85%AB/"/>
     <id>https://izdo.github.io/2017/12/04/Android基础八/</id>
     <published>2017-12-04T13:35:50.138Z</published>
-    <updated>2017-12-04T13:09:58.702Z</updated>
+    <updated>2017-12-04T13:37:10.541Z</updated>
     
-    <content type="html"><![CDATA[<hr>
-<p>layout: post<br>title: Android基础八<br>tags: [Android,note]</p>
-<h2 id="categories-Android"><a href="#categories-Android" class="headerlink" title="categories: Android"></a>categories: Android</h2><h1 id="Android基础-八"><a href="#Android基础-八" class="headerlink" title="Android基础(八)"></a>Android基础(八)</h1><h2 id="应用程序的国际化"><a href="#应用程序的国际化" class="headerlink" title="应用程序的国际化"></a>应用程序的国际化</h2><ul>
+    <content type="html"><![CDATA[<h1 id="Android基础-八"><a href="#Android基础-八" class="headerlink" title="Android基础(八)"></a>Android基础(八)</h1><h2 id="应用程序的国际化"><a href="#应用程序的国际化" class="headerlink" title="应用程序的国际化"></a>应用程序的国际化</h2><ul>
 <li>国际化步骤</li>
 </ul>
 <ol>
@@ -87,12 +85,16 @@
     
     <summary type="html">
     
-      &lt;hr&gt;
-&lt;p&gt;layout: post&lt;br&gt;title: Android基础八&lt;br&gt;tags: [Android,note]&lt;/p&gt;
-&lt;h2 id=&quot;categories-Android&quot;&gt;&lt;a href=&quot;#categories-Android&quot; class=&quot;heade
+      &lt;h1 id=&quot;Android基础-八&quot;&gt;&lt;a href=&quot;#Android基础-八&quot; class=&quot;headerlink&quot; title=&quot;Android基础(八)&quot;&gt;&lt;/a&gt;Android基础(八)&lt;/h1&gt;&lt;h2 id=&quot;应用程序的国际化&quot;&gt;&lt;a href=&quot;#应用程序的国际
     
     </summary>
     
+      <category term="Android" scheme="https://izdo.github.io/categories/Android/"/>
+    
+    
+      <category term="Android" scheme="https://izdo.github.io/tags/Android/"/>
+    
+      <category term="note" scheme="https://izdo.github.io/tags/note/"/>
     
   </entry>
   
