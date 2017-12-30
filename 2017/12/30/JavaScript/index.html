@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>JavaScript | iZdo&#39;s Blog | bonbolu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="note,JavaEE">
+    <meta name="description" content="JavaScript一、js的简介1、js是什么js是可以嵌入到html中，是 基于对象 和 事件驱动 的 脚本语言
+特点：
+    (1)交互性
+    (2)安全性：js不能访问本地磁盘
+    (3)跨平台：浏览器中都具备js解析器
+2、js能做什么(1)js能动态的修改(增删)html和css的代码
+(2)能动态的校验数据
+3、js历史及组成ECMAScript    BOM(浏览器对象模">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript">
+<meta property="og:url" content="https://izdo.github.io/2017/12/30/JavaScript/index.html">
+<meta property="og:site_name" content="iZdo's Blog">
+<meta property="og:description" content="JavaScript一、js的简介1、js是什么js是可以嵌入到html中，是 基于对象 和 事件驱动 的 脚本语言
+特点：
+    (1)交互性
+    (2)安全性：js不能访问本地磁盘
+    (3)跨平台：浏览器中都具备js解析器
+2、js能做什么(1)js能动态的修改(增删)html和css的代码
+(2)能动态的校验数据
+3、js历史及组成ECMAScript    BOM(浏览器对象模">
+<meta property="og:updated_time" content="2017-12-30T15:16:25.722Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript">
+<meta name="twitter:description" content="JavaScript一、js的简介1、js是什么js是可以嵌入到html中，是 基于对象 和 事件驱动 的 脚本语言
+特点：
+    (1)交互性
+    (2)安全性：js不能访问本地磁盘
+    (3)跨平台：浏览器中都具备js解析器
+2、js能做什么(1)js能动态的修改(增删)html和css的代码
+(2)能动态的校验数据
+3、js历史及组成ECMAScript    BOM(浏览器对象模">
+    
+        <link rel="alternative" href="/atom.xml" title="iZdo&#39;s Blog" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.14">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/heizi.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">iZdo</h5>
+          <a href="mailto:401135451@qq.com" title="401135451@qq.com" class="mail">401135451@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/iZdo" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/u/2597276811" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://music.163.com/#/user/home?id=384832070" target="_blank" >
+                <i class="icon icon-lg icon-music"></i>
+                cloudmusic
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://steamcommunity.com/id/401135451/" target="_blank" >
+                <i class="icon icon-lg icon-steam"></i>
+                Steam
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">JavaScript</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">JavaScript</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-12-30T15:16:49.056Z" itemprop="datePublished" class="page-time">
+  2017-12-30
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/JavaEE/">JavaEE</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#JavaScript"><span class="post-toc-number">1.</span> <span class="post-toc-text">JavaScript</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、js的简介"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">一、js的简介</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1、js是什么"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">1、js是什么</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2、js能做什么"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">2、js能做什么</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3、js历史及组成"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">3、js历史及组成</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4、js被引入的方式"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">4、js被引入的方式</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二、js基本语法"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">二、js基本语法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1、变量"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">1、变量</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2、原始数据类型"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">2、原始数据类型</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3、引用数据类型"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">3、引用数据类型</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4、运算符"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">4、运算符</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5、逻辑语句"><span class="post-toc-number">1.2.5.</span> <span class="post-toc-text">5、逻辑语句</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三、js内建对象"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">三、js内建对象</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#四、js的函数"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">四、js的函数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1、js函数定义的方式"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">1、js函数定义的方式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2、函数的参数"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">2、函数的参数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3、返回值"><span class="post-toc-number">1.4.3.</span> <span class="post-toc-text">3、返回值</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4、js的全局函数"><span class="post-toc-number">1.4.4.</span> <span class="post-toc-text">4、js的全局函数</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#五、js的事件"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">五、js的事件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1、js的常用事件"><span class="post-toc-number">1.5.1.</span> <span class="post-toc-text">1、js的常用事件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2、事件的绑定方式"><span class="post-toc-number">1.5.2.</span> <span class="post-toc-text">2、事件的绑定方式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3、阻止事件的默认行为"><span class="post-toc-number">1.5.3.</span> <span class="post-toc-text">3、阻止事件的默认行为</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4、阻止事件的传播"><span class="post-toc-number">1.5.4.</span> <span class="post-toc-text">4、阻止事件的传播</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#六、js的bom"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">六、js的bom</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#七、js的dom"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">七、js的dom</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1、理解一下文档对象模型"><span class="post-toc-number">1.7.1.</span> <span class="post-toc-text">1、理解一下文档对象模型</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2、dom方法和属性"><span class="post-toc-number">1.7.2.</span> <span class="post-toc-text">2、dom方法和属性</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-JavaScript"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">JavaScript</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年12月30日 23:16" datetime="2017-12-30T15:16:49.056Z"  itemprop="datePublished">2017-12-30</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/JavaEE/">JavaEE</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><h3 id="一、js的简介"><a href="#一、js的简介" class="headerlink" title="一、js的简介"></a>一、js的简介</h3><h4 id="1、js是什么"><a href="#1、js是什么" class="headerlink" title="1、js是什么"></a>1、js是什么</h4><pre><code>js是可以嵌入到html中，是 基于对象 和 事件驱动 的 脚本语言
+特点：
+    (1)交互性
+    (2)安全性：js不能访问本地磁盘
+    (3)跨平台：浏览器中都具备js解析器
+</code></pre><h4 id="2、js能做什么"><a href="#2、js能做什么" class="headerlink" title="2、js能做什么"></a>2、js能做什么</h4><pre><code>(1)js能动态的修改(增删)html和css的代码
+(2)能动态的校验数据
+</code></pre><h4 id="3、js历史及组成"><a href="#3、js历史及组成" class="headerlink" title="3、js历史及组成"></a>3、js历史及组成</h4><pre><code>ECMAScript    BOM(浏览器对象模型)  DOM(文档对象模型)    
+</code></pre><h4 id="4、js被引入的方式"><a href="#4、js被引入的方式" class="headerlink" title="4、js被引入的方式"></a>4、js被引入的方式</h4><pre><code>(1)内嵌脚本
+    &lt;input type=&quot;button&quot; value=&quot;button&quot; onclick=&quot;alert(&apos;xxx&apos;)&quot; /&gt;            
+(2)内部脚本
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        alert(&quot;xxx&quot;);
+    &lt;/script&gt;
+(3)外部脚本
+    首先先创建一个js文件
+    其次在html中引入
+        &lt;script type=&quot;text/javascript&quot; src=&quot;demo1.js&quot;&gt;&lt;/script&gt;
+
+js代码放在哪？
+    放在哪都行 但是在不影响html功能的前提下 越晚加载越好
+</code></pre><h3 id="二、js基本语法"><a href="#二、js基本语法" class="headerlink" title="二、js基本语法"></a>二、js基本语法</h3><h4 id="1、变量"><a href="#1、变量" class="headerlink" title="1、变量"></a>1、变量</h4><pre><code>(1)
+var x = 5;
+x = &apos;javascript&apos;;
+var y = &quot;hello&quot;;
+var b = true;
+(2)
+x = 5;
+</code></pre><h4 id="2、原始数据类型"><a href="#2、原始数据类型" class="headerlink" title="2、原始数据类型"></a>2、原始数据类型</h4><pre><code>(1)number:数字类型
+(2)string：字符串类型
+(3)boolean:布尔类型
+(4)null:空类型
+(5)underfind:未定义
+
+注意：number、boolean、string是伪对象
+
+类型转换：
+    number\boolean转成string
+        toString();
+    string\boolean转成number
+        parseInt()
+        parseFloat()
+        boolean不能转
+        string可以将数字字符串转换成number 如果“123a3sd5” 转成123
+    强制转换
+        Boolean()     强转成布尔
+            数字强转成布尔  非零就是true   零就是false
+            字符串强转成布尔  非“”(空字符串)就是true   空字符串“”就是false
+        Number()    强转成数字
+            布尔转数字 true转成1  false转成0
+            字符串转数字 不能强转
+</code></pre><h4 id="3、引用数据类型"><a href="#3、引用数据类型" class="headerlink" title="3、引用数据类型"></a>3、引用数据类型</h4><pre><code>java:    Object obj = new Object();
+js:        var obj = new Object();
+        var num = new Number();    
+</code></pre><h4 id="4、运算符"><a href="#4、运算符" class="headerlink" title="4、运算符"></a>4、运算符</h4><pre><code>(1)赋值运算符
+    var x = 5;
+(2)算数运算符
+    + - * / %
+    +: 遇到字符串变成连接
+    -：先把字符串转成数字然后进行运算
+    *: 先把字符串转成数字然后进行运算
+    /: 先把字符串转成数字然后进行运算
+(3)逻辑运算符
+    &amp;&amp;    ||
+(4)比较运算符
+    &lt;    &gt;    &gt;=    &lt;=    !=    ==
+    ===:全等：类型与值都要相等
+(5)三元运算符
+    3&lt;2?&quot;大于&quot;:&quot;小于&quot;
+(6)void运算符
+    &lt;a href=&quot;javascript:void(0);&quot;&gt;xxxxxx&lt;/a&gt;
+(7)类型运算符
+    typeof:判断数据类型 返回我的数据类型
+    instanceof：判断数据类型 是否是某种类型
+    var obj = new Object();
+    alert(typeof obj);//object
+    alert(obj instanceof Object);//true
+</code></pre><h4 id="5、逻辑语句"><a href="#5、逻辑语句" class="headerlink" title="5、逻辑语句"></a>5、逻辑语句</h4><pre><code>(1)if-else
+    //条件:
+    //数字非0 字符串非空====true
+        if(9){
+            alert(&quot;true--&quot;);
+        }else{
+            alert(&quot;false--&quot;);
+        }
+(2)switch
+    var x = &quot;java&quot;;
+    switch(x){
+        case &quot;css&quot;:
+            alert(&quot;css&quot;);
+            break;
+        case &quot;js&quot;:
+            alert(&quot;js&quot;);
+            break;
+        case &quot;java&quot;:
+            alert(&quot;java&quot;);
+            break;
+        default:
+            alert(&quot;def&quot;);
+    }
+
+(3)for
+     for(var i = 0;i&lt;5;i++){
+        alert(i);
+     }
+(4)for in
+    var arr = [1,3,5,7,&quot;js&quot;];
+     for(index in arr){//index代表角标
+        //alert(index);
+        alert(arr[index]);
+     }
+</code></pre><h3 id="三、js内建对象"><a href="#三、js内建对象" class="headerlink" title="三、js内建对象"></a>三、js内建对象</h3><pre><code>(1)Number
+    创建方式：
+        var myNum=new Number(value);
+        var myNum=Number(value);
+    属性和方法：
+        toString():转成字符串
+        valueOf()：返回一个 Number 对象的基本数字值
+(2)Boolean
+    创建方式：
+        var bool = new Boolean(value);    
+        var bool = Boolean(value);
+    属性和方法：
+        toString():转成字符串
+        valueOf()：返回一个 Boolean 对象的基本值(boolean)            
+(3)String
+    创建方式：
+        var str = new String(s);
+        var str = String(s);
+    属性和方法：
+        length:字符串的长度
+        charAt():返回索引字符
+        charCodeAt:返回索引字符unicode
+        indexOf():返回字符的索引
+        lastIndexOf():逆向返回字符的索引
+        split():将字符串按照特殊字符切割成数组
+        substr():从起始索引号提取字符串中指定数目的字符
+        substring():提取字符串中两个指定的索引号之间的字符
+        toUpperCase();转大写
+    示例：
+(4)Array
+    创建方式：
+        var arr = new Array();//空数组
+        var arr = new Array(size);//创建一个指定长度的数组
+        var arr = new Array(element0, element1, ..., elementn);//创建数组直接实例化元素
+        var arr = [];//空数组
+        var arr = [1,2,5,&quot;java&quot;];//创建数组直接实例化元素
+    属性和方法：
+        length:数组长度
+        join()：把数组的所有元素放入一个字符串。元素通过指定的分隔符进行分隔一个
+        pop():删除并返回最后元素
+        push()：向数组的末尾添加一个或更多元素，并返回新的长度
+        reverse():反转数组
+        sort():排序
+(5)Date
+    创建方式：    
+        var myDate = new Date();
+        var myDate = new Date(毫秒值);//代表从1970-1-1到现在的一个毫秒值
+    属性和方法
+        getFullYear():年
+        getMonth():月 0-11
+        getDate():日 1-31
+        getDay()：星期 0-6
+        getTime():返回1970年1月1日午夜到指定日期（字符串）的毫秒数
+        toLocalString();获得本地时间格式的字符串
+
+(6)Math
+    创建方式：    
+        Math 对象并不像 Date 和 String 那样是对象的类，因此没有构造函数 Math()，像 Math.sin() 这样的函数只是函数，
+        不是某个对象的方法。您无需创建它，通过把 Math 作为对象使用就可以调用其所有属性和方法。
+    属性和方法
+        PI：圆周率
+        abs():绝对值
+        ceil():对数进行上舍入
+        floor():对数进行下舍入
+        pow(x,y)：返回 x 的 y 次幂
+        random():0-1之间的随机数
+        round():四舍五入
+(7)RegExp
+    创建方式：    
+        var reg = new RegExp(pattern);
+        var reg = /^正则规则$/;
+    规则的写法：
+        [0-9] 
+        [A-Z]
+        [a-z]
+        [A-z]
+        \d 代表数据
+        \D    非数字
+        \w    查找单词字符
+        \W    查找非单词字符
+        \s    查找空白字符
+        \S    查找非空白字符
+        n+    出现至少一次
+        n*    出现0次或多次
+        n?    出现0次或1次
+        {5} 出现5
+        {2,8} 2到8次
+    方法：    
+        test(str):检索字符串中指定的值。返回 true 或 false
+    需求：
+        校验邮箱：
+        var email = haohao_827@163.com
+        var reg = /^[A-z]+[A-z0-9_-]*\@[A-z0-9]+\.[A-z]+$/;
+        reg.test(email);
+</code></pre><h3 id="四、js的函数"><a href="#四、js的函数" class="headerlink" title="四、js的函数"></a>四、js的函数</h3><h4 id="1、js函数定义的方式"><a href="#1、js函数定义的方式" class="headerlink" title="1、js函数定义的方式"></a>1、js函数定义的方式</h4><pre><code>(1)普通方式
+    语法：function 函数名(参数列表){函数体}
+    示例：
+        function method(){
+            alert(&quot;xxx&quot;);
+        }
+        method();
+(2)匿名函数
+    语法：function(参数列表){函数体}
+    示例：
+        var method = function(){
+            alert(&quot;yyy&quot;);
+        };
+        method();
+(3)对象函数
+    语法：new Function(参数1,参数2,...,函数体);
+    注意：参数名称必须使用字符串形式、最后一个默认是函数体且函数体需要字符串形式
+    示例：
+        var fn = new Function(&quot;a&quot;,&quot;b&quot;,&quot;alert(a+b)&quot;);
+        fn(2,5);
+</code></pre><h4 id="2、函数的参数"><a href="#2、函数的参数" class="headerlink" title="2、函数的参数"></a>2、函数的参数</h4><pre><code>(1)形参没有var去修饰
+(2)形参和实参个数不一定相等
+(3)arguments对象 是个数组 会将传递的实参进行封装
+function fn(a,b,c){
+    //var sum = a+b+c;
+    //alert(sum);
+    //arguments是个数组 会将传递的实参进行封装
+    for(var i=0;i&lt;arguments.length;i++){
+        alert(arguments[i]);
+    }
+}
+fn(1,2,4,8);
+</code></pre><h4 id="3、返回值"><a href="#3、返回值" class="headerlink" title="3、返回值"></a>3、返回值</h4><pre><code>(1)在定义函数的时候不必表明是否具有返回值
+(2)返回值仅仅通过return关键字就可以了 return后的代码不执行
+function fn(a,b){
+    return a+b;
+    //alert(&quot;xxxx&quot;);
+}
+alert(fn(2,3));
+</code></pre><h4 id="4、js的全局函数"><a href="#4、js的全局函数" class="headerlink" title="4、js的全局函数"></a>4、js的全局函数</h4><pre><code>(1)编码和解码
+    encodeURI()   decodeURI()
+    encodeURIComponet()      decodeURIComponent()
+    escape()    unescape()
+    三者区别：
+        进行编码的符号范围不同吧，实际开发中常使用第一种
+(2)强制转换
+    Number()
+    String()
+    Boolean()
+(3)转成数字
+    parseInt()
+    parseFloat()
+(4)eval()方法    
+    将字符串当作脚本进行解析运行
+    //var str = &quot;var a=2;var b=3;alert(a+b)&quot;;
+    //eval(str);
+    function print(str){
+        eval(str);
+    }
+    print(&quot;自定义逻辑&quot;);
+</code></pre><h3 id="五、js的事件"><a href="#五、js的事件" class="headerlink" title="五、js的事件"></a>五、js的事件</h3><pre><code>事件
+事件源
+响应行为
+</code></pre><h4 id="1、js的常用事件"><a href="#1、js的常用事件" class="headerlink" title="1、js的常用事件"></a>1、js的常用事件</h4><pre><code>onclick:点击事件
+onchange:域内容被改变的事件
+    需求：实现二级联动
+    &lt;select id=&quot;city&quot;&gt;
+        &lt;option value=&quot;bj&quot;&gt;北京&lt;/option&gt;
+        &lt;option value=&quot;tj&quot;&gt;天津&lt;/option&gt;
+        &lt;option value=&quot;sh&quot;&gt;上海&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;select id=&quot;area&quot;&gt;
+        &lt;option&gt;海淀&lt;/option&gt;
+        &lt;option&gt;朝阳&lt;/option&gt;
+        &lt;option&gt;东城&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        var select = document.getElementById(&quot;city&quot;);
+        select.onchange = function(){
+            var optionVal = select.value;
+            switch(optionVal){
+                case &apos;bj&apos;:
+                    var area = document.getElementById(&quot;area&quot;);
+                    area.innerHTML = &quot;&lt;option&gt;海淀&lt;/option&gt;&lt;option&gt;朝阳&lt;/option&gt;&lt;option&gt;东城&lt;/option&gt;&quot;;
+                    break;
+                case &apos;tj&apos;:
+                    var area = document.getElementById(&quot;area&quot;);
+                    area.innerHTML = &quot;&lt;option&gt;南开&lt;/option&gt;&lt;option&gt;西青&lt;/option&gt;&lt;option&gt;河西&lt;/option&gt;&quot;;
+                    break;
+                case &apos;sh&apos;:
+                    var area = document.getElementById(&quot;area&quot;);
+                    area.innerHTML = &quot;&lt;option&gt;浦东&lt;/option&gt;&lt;option&gt;杨浦&lt;/option&gt;&quot;;
+                    break;
+                default:
+                    alert(&quot;error&quot;);
+            }
+        };                
+
+    &lt;/script&gt;
+onfoucus:获得焦点的事件
+onblur:失去焦点的事件
+    需求：    当输入框获得焦点的时候，提示输入的内容格式
+            当输入框失去焦点的时候，提示输入有误
+    &lt;label for=&quot;txt&quot;&gt;name&lt;/label&gt;
+    &lt;input id=&quot;txt&quot; type=&quot;text&quot; /&gt;&lt;span id=&quot;action&quot;&gt;&lt;/span&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        var txt = document.getElementById(&quot;txt&quot;);
+        txt.onfocus = function(){
+            //友好提示
+            var span = document.getElementById(&quot;action&quot;);
+            span.innerHTML = &quot;用户名格式最小8位&quot;;
+            span.style.color = &quot;green&quot;;
+        };
+        txt.onblur = function(){
+            //错误提示
+            var span = document.getElementById(&quot;action&quot;);
+            span.innerHTML = &quot;对不起 格式不正确&quot;;
+            span.style.color = &quot;red&quot;;
+        };
+    &lt;/script&gt;
+
+onmouseover:鼠标悬浮的事件
+onmouseout:鼠标离开的事件
+    需求：div元素 鼠标移入变为绿色 移出恢复原色
+    #d1{background-color: red;width:200px;height: 200px;}
+    &lt;div id=&quot;d1&quot;&gt;&lt;/div&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        var div = document.getElementById(&quot;d1&quot;);
+        div.onmouseover = function(){
+            this.style.backgroundColor = &quot;green&quot;;
+        };
+        div.onmouseout = function(){
+            this.style.backgroundColor = &quot;red&quot;;
+        };
+    &lt;/script&gt;
+
+
+onload:加载完毕的事件
+    等到页面加载完毕在执行onload事件所指向的函数
+    &lt;span id=&quot;span&quot;&gt;&lt;/span&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        window.onload = function(){
+            var span = document.getElementById(&quot;span&quot;);
+            alert(span);
+            span.innerHTML = &quot;hello js&quot;;
+        };
+    &lt;/script&gt;
+</code></pre><h4 id="2、事件的绑定方式"><a href="#2、事件的绑定方式" class="headerlink" title="2、事件的绑定方式"></a>2、事件的绑定方式</h4><pre><code>(1)将事件和响应行为都内嵌到html标签中
+    &lt;input type=&quot;button&quot; value=&quot;button&quot;  onclick=&quot;alert(&apos;xxx&apos;)&quot;/&gt;
+(2)将事件内嵌到html中而响应行为用函数进行封装
+    &lt;input type=&quot;button&quot; value=&quot;button&quot; onclick=&quot;fn()&quot; /&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        function fn(){
+            alert(&quot;yyy&quot;);
+        }
+    &lt;/script&gt;
+(3)将事件和响应行为 与html标签完全分离
+    &lt;input id=&quot;btn&quot; type=&quot;button&quot; value=&quot;button&quot;/&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        var btn = document.getElementById(&quot;btn&quot;);
+        btn.onclick = function(){
+            alert(&quot;zzz&quot;);
+        };
+    &lt;/script&gt;
+
+****this关键字
+    this经过事件的函数进行传递的是html标签对象
+    &lt;input id=&quot;btn&quot; name=&quot;mybtn&quot; type=&quot;button&quot; value=&quot;button123&quot; onclick=&quot;fn(this)&quot;/&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        function fn(obj){
+            alert(obj.name);
+        }
+    &lt;/script&gt;
+</code></pre><h4 id="3、阻止事件的默认行为"><a href="#3、阻止事件的默认行为" class="headerlink" title="3、阻止事件的默认行为"></a>3、阻止事件的默认行为</h4><pre><code>IE：window.event.returnValue = false;
+W3c: 传递过来的事件对象.preventDefault();
+//ie：window.event.returnValue = false;
+//W3c：传递过来的事件对象.preventDefault();
+//W3c标准
+if(e&amp;&amp;e.preventDefault){
+    alert(&quot;w3c&quot;);
+    e.preventDefault();
+//IE标签
+}else{
+    alert(&quot;ie&quot;);
+    window.event.returnValue = false;
+}
+
+
+//通过事件返回false也可以阻止事件的默认行为
+&lt;a href=&quot;demo11.html&quot; onclick=&quot;return false&quot;&gt;点击我吧&lt;/a&gt;
+</code></pre><h4 id="4、阻止事件的传播"><a href="#4、阻止事件的传播" class="headerlink" title="4、阻止事件的传播"></a>4、阻止事件的传播</h4><pre><code>IE：window.event.cancelBubble = true;
+W3c: 传递过来的事件对象.stopPropagation();
+if(e&amp;&amp;e.stopPropagation){
+    alert(&quot;w3c&quot;);
+    e.stopPropagation();
+//IE标签
+}else{
+    alert(&quot;ie&quot;);
+    window.event.cancelBubble = true;
+}    
+</code></pre><h3 id="六、js的bom"><a href="#六、js的bom" class="headerlink" title="六、js的bom"></a>六、js的bom</h3><pre><code>(1)window对象
+    弹框的方法：
+        提示框：alert(&quot;提示信息&quot;);
+        确认框：confirm(&quot;确认信息&quot;);
+            有返回值：如果点击确认返回true  如果点击取消 返回false
+            var res = confirm(&quot;您确认要删除吗？&quot;);
+            alert(res);
+        输入框：prompt(&quot;提示信息&quot;);
+            有返回值：如果点击确认返回输入框的文本 点击取消返回null
+            var res =  prompt(&quot;请输入密码？&quot;);
+            alert(res);
+    open方法：
+        window.open(&quot;url地址&quot;);            
+        open(&quot;../jsCore/demo10.html&quot;);
+
+    定时器：
+        setTimeout(函数,毫秒值);
+            setTimeout(
+                function(){
+                    alert(&quot;xx&quot;);
+                },
+                3000
+            );
+        clearTimeout(定时器的名称);
+            var timer;
+            var fn = function(){
+                alert(&quot;x&quot;);
+                timer = setTimeout(fn,2000);
+            };
+            var closer = function(){
+                clearTimeout(timer);
+            };
+            fn();
+        setInterval(函数,毫秒值);
+        clearInterval(定时器的名称)
+            var timer = setInterval(
+            function(){
+                alert(&quot;nihao&quot;);
+            },
+            2000
+        );
+        var closer = function(){
+            clearInterval(timer);
+        };
+
+    需求：注册后5秒钟跳转首页
+    恭喜您注册成功，&lt;span id=&quot;second&quot; style=&quot;color: red;&quot;&gt;5&lt;/span&gt;秒后跳转到首页，如果不跳转请&lt;a href=&quot;../jsCore/demo10.html&quot;&gt;点击这里&lt;/a&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        var time = 5;
+        var timer;
+        timer = setInterval(
+            function(){
+                var second = document.getElementById(&quot;second&quot;);
+                if(time&gt;=1){
+                    second.innerHTML = time;
+                    time--;
+                }else{
+                    clearInterval(timer);
+                    location.href=&quot;../jsCore/demo10.html&quot;;
+                }
+            },
+            1000
+        );
+    &lt;/script&gt;
+
+(2)location    
+    location.href=&quot;url地址&quot;;
+(3)history
+    back();
+    forward();
+    go();
+    &lt;a href=&quot;demo7.html&quot;&gt;后一页&lt;/a&gt;
+    &lt;input type=&quot;button&quot; value=&quot;上一页&quot; onclick=&quot;history.back()&quot;&gt;
+    &lt;input type=&quot;button&quot; value=&quot;下一页&quot; onclick=&quot;history.forward()&quot;&gt;
+
+    &lt;input type=&quot;button&quot; value=&quot;上一页&quot; onclick=&quot;history.go(-1)&quot;&gt;
+    &lt;input type=&quot;button&quot; value=&quot;下一页&quot; onclick=&quot;history.go(1)&quot;&gt;
+</code></pre><h3 id="七、js的dom"><a href="#七、js的dom" class="headerlink" title="七、js的dom"></a>七、js的dom</h3><h4 id="1、理解一下文档对象模型"><a href="#1、理解一下文档对象模型" class="headerlink" title="1、理解一下文档对象模型"></a>1、理解一下文档对象模型</h4><pre><code>html文件加载到内存之后会形成一颗dom树，根据这些节点对象可以进行脚本代码的动态修改
+在dom树当中 一切皆为节点对象
+</code></pre><h4 id="2、dom方法和属性"><a href="#2、dom方法和属性" class="headerlink" title="2、dom方法和属性"></a>2、dom方法和属性</h4>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-12-30T15:16:25.722Z" itemprop="dateUpdated">2017年12月30日 23:16</time>
+</span><br>
+
+
+        这里写留言或版权声明：<a href="/2017/12/30/JavaScript/" target="_blank" rel="external">https://izdo.github.io/2017/12/30/JavaScript/</a>
+    </div>
+    <footer>
+        <a href="https://izdo.github.io">
+            <img src="/img/heizi.jpg" alt="iZdo">
+            iZdo
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaEE/">JavaEE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/note/">note</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://izdo.github.io/2017/12/30/JavaScript/&title=《JavaScript》 — iZdo's Blog&pic=https://izdo.github.io/img/heizi.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://izdo.github.io/2017/12/30/JavaScript/&title=《JavaScript》 — iZdo's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://izdo.github.io/2017/12/30/JavaScript/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JavaScript》 — iZdo's Blog&url=https://izdo.github.io/2017/12/30/JavaScript/&via=https://izdo.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://izdo.github.io/2017/12/30/JavaScript/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/12/30/HTML+CSS/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">HTML+CSS</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>iZdo's Blog &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://izdo.github.io/2017/12/30/JavaScript/&title=《JavaScript》 — iZdo's Blog&pic=https://izdo.github.io/img/heizi.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://izdo.github.io/2017/12/30/JavaScript/&title=《JavaScript》 — iZdo's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://izdo.github.io/2017/12/30/JavaScript/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《JavaScript》 — iZdo's Blog&url=https://izdo.github.io/2017/12/30/JavaScript/&via=https://izdo.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://izdo.github.io/2017/12/30/JavaScript/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACHklEQVR42u3aS27EIBAFwLn/pZ0DTOy8pnEkoFiNRv5QXrQaHp9PPK6vcXdN9fq7uz5vDAwMjGUZ1+PIX3k3ie9rqr+f54aBgXEOIymgSa2rfqCkBD/PDQMDA+O5CI61es8TxcDAwJhbcJMympMwMDAwnhnJIjZp4GY94cW1OAYGxoKMfNf9/3+/km9gYGAsxbiKIw8sq8Hk1RgYGBh7M/ICV+VVF7TVgouBgXEOY2zB2T8Q1tmA++UfDAyMrRlj2205L3nLrC0/DAyMXRnVpWlSUnNe/rGi1hADA2NTxqxgoN9czvqIGBgYuzKq7dqshjKJEJJnYmBg7M2ovr5zMGKslYwiBAwMjMMYSYl8L/hMWsYowsTAwNiOUS2jHepYif9jhhgYGAcwOqWwE1h2jl8UXoaBgbERoxoQVpev1Q21PF7FwMA4jdEPBvKpTzg8ke/JYWBgLM4YI1WPYiT/VNvH2+02DAyMjRj9Ze1YPNDZyItKMwYGxnaMsTJXPSI2Fi3kjSwGBsYJjCTOrGLyQLQDw8DAOI2R3DB2VKK/uVZeuGJgYGzBuIojmfSsI2KFwo2BgbE1ox92jm3oJ1dWIwcMDIy9GWNFtnoKIv+ihRyjmiFgYGAszsgL36wWMF/0RldiYGBgFOOBvKFMlrJR1IqBgYGRP25S4c4PZ2BgYJzDqJa/vCzOKsEYGBgnM6pLx07mUA0G+uUeAwNjccYP1QmJh0+1oyIAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.14"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.14" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

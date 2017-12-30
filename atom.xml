@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://izdo.github.io/"/>
-  <updated>2017-12-30T09:35:24.141Z</updated>
+  <updated>2017-12-30T15:16:25.722Z</updated>
   <id>https://izdo.github.io/</id>
   
   <author>
@@ -14,6 +14,514 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JavaScript</title>
+    <link href="https://izdo.github.io/2017/12/30/JavaScript/"/>
+    <id>https://izdo.github.io/2017/12/30/JavaScript/</id>
+    <published>2017-12-30T15:16:49.056Z</published>
+    <updated>2017-12-30T15:16:25.722Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><h3 id="一、js的简介"><a href="#一、js的简介" class="headerlink" title="一、js的简介"></a>一、js的简介</h3><h4 id="1、js是什么"><a href="#1、js是什么" class="headerlink" title="1、js是什么"></a>1、js是什么</h4><pre><code>js是可以嵌入到html中，是 基于对象 和 事件驱动 的 脚本语言
+特点：
+    (1)交互性
+    (2)安全性：js不能访问本地磁盘
+    (3)跨平台：浏览器中都具备js解析器
+</code></pre><h4 id="2、js能做什么"><a href="#2、js能做什么" class="headerlink" title="2、js能做什么"></a>2、js能做什么</h4><pre><code>(1)js能动态的修改(增删)html和css的代码
+(2)能动态的校验数据
+</code></pre><h4 id="3、js历史及组成"><a href="#3、js历史及组成" class="headerlink" title="3、js历史及组成"></a>3、js历史及组成</h4><pre><code>ECMAScript    BOM(浏览器对象模型)  DOM(文档对象模型)    
+</code></pre><h4 id="4、js被引入的方式"><a href="#4、js被引入的方式" class="headerlink" title="4、js被引入的方式"></a>4、js被引入的方式</h4><pre><code>(1)内嵌脚本
+    &lt;input type=&quot;button&quot; value=&quot;button&quot; onclick=&quot;alert(&apos;xxx&apos;)&quot; /&gt;            
+(2)内部脚本
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        alert(&quot;xxx&quot;);
+    &lt;/script&gt;
+(3)外部脚本
+    首先先创建一个js文件
+    其次在html中引入
+        &lt;script type=&quot;text/javascript&quot; src=&quot;demo1.js&quot;&gt;&lt;/script&gt;
+
+js代码放在哪？
+    放在哪都行 但是在不影响html功能的前提下 越晚加载越好
+</code></pre><h3 id="二、js基本语法"><a href="#二、js基本语法" class="headerlink" title="二、js基本语法"></a>二、js基本语法</h3><h4 id="1、变量"><a href="#1、变量" class="headerlink" title="1、变量"></a>1、变量</h4><pre><code>(1)
+var x = 5;
+x = &apos;javascript&apos;;
+var y = &quot;hello&quot;;
+var b = true;
+(2)
+x = 5;
+</code></pre><h4 id="2、原始数据类型"><a href="#2、原始数据类型" class="headerlink" title="2、原始数据类型"></a>2、原始数据类型</h4><pre><code>(1)number:数字类型
+(2)string：字符串类型
+(3)boolean:布尔类型
+(4)null:空类型
+(5)underfind:未定义
+
+注意：number、boolean、string是伪对象
+
+类型转换：
+    number\boolean转成string
+        toString();
+    string\boolean转成number
+        parseInt()
+        parseFloat()
+        boolean不能转
+        string可以将数字字符串转换成number 如果“123a3sd5” 转成123
+    强制转换
+        Boolean()     强转成布尔
+            数字强转成布尔  非零就是true   零就是false
+            字符串强转成布尔  非“”(空字符串)就是true   空字符串“”就是false
+        Number()    强转成数字
+            布尔转数字 true转成1  false转成0
+            字符串转数字 不能强转
+</code></pre><h4 id="3、引用数据类型"><a href="#3、引用数据类型" class="headerlink" title="3、引用数据类型"></a>3、引用数据类型</h4><pre><code>java:    Object obj = new Object();
+js:        var obj = new Object();
+        var num = new Number();    
+</code></pre><h4 id="4、运算符"><a href="#4、运算符" class="headerlink" title="4、运算符"></a>4、运算符</h4><pre><code>(1)赋值运算符
+    var x = 5;
+(2)算数运算符
+    + - * / %
+    +: 遇到字符串变成连接
+    -：先把字符串转成数字然后进行运算
+    *: 先把字符串转成数字然后进行运算
+    /: 先把字符串转成数字然后进行运算
+(3)逻辑运算符
+    &amp;&amp;    ||
+(4)比较运算符
+    &lt;    &gt;    &gt;=    &lt;=    !=    ==
+    ===:全等：类型与值都要相等
+(5)三元运算符
+    3&lt;2?&quot;大于&quot;:&quot;小于&quot;
+(6)void运算符
+    &lt;a href=&quot;javascript:void(0);&quot;&gt;xxxxxx&lt;/a&gt;
+(7)类型运算符
+    typeof:判断数据类型 返回我的数据类型
+    instanceof：判断数据类型 是否是某种类型
+    var obj = new Object();
+    alert(typeof obj);//object
+    alert(obj instanceof Object);//true
+</code></pre><h4 id="5、逻辑语句"><a href="#5、逻辑语句" class="headerlink" title="5、逻辑语句"></a>5、逻辑语句</h4><pre><code>(1)if-else
+    //条件:
+    //数字非0 字符串非空====true
+        if(9){
+            alert(&quot;true--&quot;);
+        }else{
+            alert(&quot;false--&quot;);
+        }
+(2)switch
+    var x = &quot;java&quot;;
+    switch(x){
+        case &quot;css&quot;:
+            alert(&quot;css&quot;);
+            break;
+        case &quot;js&quot;:
+            alert(&quot;js&quot;);
+            break;
+        case &quot;java&quot;:
+            alert(&quot;java&quot;);
+            break;
+        default:
+            alert(&quot;def&quot;);
+    }
+
+(3)for
+     for(var i = 0;i&lt;5;i++){
+        alert(i);
+     }
+(4)for in
+    var arr = [1,3,5,7,&quot;js&quot;];
+     for(index in arr){//index代表角标
+        //alert(index);
+        alert(arr[index]);
+     }
+</code></pre><h3 id="三、js内建对象"><a href="#三、js内建对象" class="headerlink" title="三、js内建对象"></a>三、js内建对象</h3><pre><code>(1)Number
+    创建方式：
+        var myNum=new Number(value);
+        var myNum=Number(value);
+    属性和方法：
+        toString():转成字符串
+        valueOf()：返回一个 Number 对象的基本数字值
+(2)Boolean
+    创建方式：
+        var bool = new Boolean(value);    
+        var bool = Boolean(value);
+    属性和方法：
+        toString():转成字符串
+        valueOf()：返回一个 Boolean 对象的基本值(boolean)            
+(3)String
+    创建方式：
+        var str = new String(s);
+        var str = String(s);
+    属性和方法：
+        length:字符串的长度
+        charAt():返回索引字符
+        charCodeAt:返回索引字符unicode
+        indexOf():返回字符的索引
+        lastIndexOf():逆向返回字符的索引
+        split():将字符串按照特殊字符切割成数组
+        substr():从起始索引号提取字符串中指定数目的字符
+        substring():提取字符串中两个指定的索引号之间的字符
+        toUpperCase();转大写
+    示例：
+(4)Array
+    创建方式：
+        var arr = new Array();//空数组
+        var arr = new Array(size);//创建一个指定长度的数组
+        var arr = new Array(element0, element1, ..., elementn);//创建数组直接实例化元素
+        var arr = [];//空数组
+        var arr = [1,2,5,&quot;java&quot;];//创建数组直接实例化元素
+    属性和方法：
+        length:数组长度
+        join()：把数组的所有元素放入一个字符串。元素通过指定的分隔符进行分隔一个
+        pop():删除并返回最后元素
+        push()：向数组的末尾添加一个或更多元素，并返回新的长度
+        reverse():反转数组
+        sort():排序
+(5)Date
+    创建方式：    
+        var myDate = new Date();
+        var myDate = new Date(毫秒值);//代表从1970-1-1到现在的一个毫秒值
+    属性和方法
+        getFullYear():年
+        getMonth():月 0-11
+        getDate():日 1-31
+        getDay()：星期 0-6
+        getTime():返回1970年1月1日午夜到指定日期（字符串）的毫秒数
+        toLocalString();获得本地时间格式的字符串
+
+(6)Math
+    创建方式：    
+        Math 对象并不像 Date 和 String 那样是对象的类，因此没有构造函数 Math()，像 Math.sin() 这样的函数只是函数，
+        不是某个对象的方法。您无需创建它，通过把 Math 作为对象使用就可以调用其所有属性和方法。
+    属性和方法
+        PI：圆周率
+        abs():绝对值
+        ceil():对数进行上舍入
+        floor():对数进行下舍入
+        pow(x,y)：返回 x 的 y 次幂
+        random():0-1之间的随机数
+        round():四舍五入
+(7)RegExp
+    创建方式：    
+        var reg = new RegExp(pattern);
+        var reg = /^正则规则$/;
+    规则的写法：
+        [0-9] 
+        [A-Z]
+        [a-z]
+        [A-z]
+        \d 代表数据
+        \D    非数字
+        \w    查找单词字符
+        \W    查找非单词字符
+        \s    查找空白字符
+        \S    查找非空白字符
+        n+    出现至少一次
+        n*    出现0次或多次
+        n?    出现0次或1次
+        {5} 出现5
+        {2,8} 2到8次
+    方法：    
+        test(str):检索字符串中指定的值。返回 true 或 false
+    需求：
+        校验邮箱：
+        var email = haohao_827@163.com
+        var reg = /^[A-z]+[A-z0-9_-]*\@[A-z0-9]+\.[A-z]+$/;
+        reg.test(email);
+</code></pre><h3 id="四、js的函数"><a href="#四、js的函数" class="headerlink" title="四、js的函数"></a>四、js的函数</h3><h4 id="1、js函数定义的方式"><a href="#1、js函数定义的方式" class="headerlink" title="1、js函数定义的方式"></a>1、js函数定义的方式</h4><pre><code>(1)普通方式
+    语法：function 函数名(参数列表){函数体}
+    示例：
+        function method(){
+            alert(&quot;xxx&quot;);
+        }
+        method();
+(2)匿名函数
+    语法：function(参数列表){函数体}
+    示例：
+        var method = function(){
+            alert(&quot;yyy&quot;);
+        };
+        method();
+(3)对象函数
+    语法：new Function(参数1,参数2,...,函数体);
+    注意：参数名称必须使用字符串形式、最后一个默认是函数体且函数体需要字符串形式
+    示例：
+        var fn = new Function(&quot;a&quot;,&quot;b&quot;,&quot;alert(a+b)&quot;);
+        fn(2,5);
+</code></pre><h4 id="2、函数的参数"><a href="#2、函数的参数" class="headerlink" title="2、函数的参数"></a>2、函数的参数</h4><pre><code>(1)形参没有var去修饰
+(2)形参和实参个数不一定相等
+(3)arguments对象 是个数组 会将传递的实参进行封装
+function fn(a,b,c){
+    //var sum = a+b+c;
+    //alert(sum);
+    //arguments是个数组 会将传递的实参进行封装
+    for(var i=0;i&lt;arguments.length;i++){
+        alert(arguments[i]);
+    }
+}
+fn(1,2,4,8);
+</code></pre><h4 id="3、返回值"><a href="#3、返回值" class="headerlink" title="3、返回值"></a>3、返回值</h4><pre><code>(1)在定义函数的时候不必表明是否具有返回值
+(2)返回值仅仅通过return关键字就可以了 return后的代码不执行
+function fn(a,b){
+    return a+b;
+    //alert(&quot;xxxx&quot;);
+}
+alert(fn(2,3));
+</code></pre><h4 id="4、js的全局函数"><a href="#4、js的全局函数" class="headerlink" title="4、js的全局函数"></a>4、js的全局函数</h4><pre><code>(1)编码和解码
+    encodeURI()   decodeURI()
+    encodeURIComponet()      decodeURIComponent()
+    escape()    unescape()
+    三者区别：
+        进行编码的符号范围不同吧，实际开发中常使用第一种
+(2)强制转换
+    Number()
+    String()
+    Boolean()
+(3)转成数字
+    parseInt()
+    parseFloat()
+(4)eval()方法    
+    将字符串当作脚本进行解析运行
+    //var str = &quot;var a=2;var b=3;alert(a+b)&quot;;
+    //eval(str);
+    function print(str){
+        eval(str);
+    }
+    print(&quot;自定义逻辑&quot;);
+</code></pre><h3 id="五、js的事件"><a href="#五、js的事件" class="headerlink" title="五、js的事件"></a>五、js的事件</h3><pre><code>事件
+事件源
+响应行为
+</code></pre><h4 id="1、js的常用事件"><a href="#1、js的常用事件" class="headerlink" title="1、js的常用事件"></a>1、js的常用事件</h4><pre><code>onclick:点击事件
+onchange:域内容被改变的事件
+    需求：实现二级联动
+    &lt;select id=&quot;city&quot;&gt;
+        &lt;option value=&quot;bj&quot;&gt;北京&lt;/option&gt;
+        &lt;option value=&quot;tj&quot;&gt;天津&lt;/option&gt;
+        &lt;option value=&quot;sh&quot;&gt;上海&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;select id=&quot;area&quot;&gt;
+        &lt;option&gt;海淀&lt;/option&gt;
+        &lt;option&gt;朝阳&lt;/option&gt;
+        &lt;option&gt;东城&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        var select = document.getElementById(&quot;city&quot;);
+        select.onchange = function(){
+            var optionVal = select.value;
+            switch(optionVal){
+                case &apos;bj&apos;:
+                    var area = document.getElementById(&quot;area&quot;);
+                    area.innerHTML = &quot;&lt;option&gt;海淀&lt;/option&gt;&lt;option&gt;朝阳&lt;/option&gt;&lt;option&gt;东城&lt;/option&gt;&quot;;
+                    break;
+                case &apos;tj&apos;:
+                    var area = document.getElementById(&quot;area&quot;);
+                    area.innerHTML = &quot;&lt;option&gt;南开&lt;/option&gt;&lt;option&gt;西青&lt;/option&gt;&lt;option&gt;河西&lt;/option&gt;&quot;;
+                    break;
+                case &apos;sh&apos;:
+                    var area = document.getElementById(&quot;area&quot;);
+                    area.innerHTML = &quot;&lt;option&gt;浦东&lt;/option&gt;&lt;option&gt;杨浦&lt;/option&gt;&quot;;
+                    break;
+                default:
+                    alert(&quot;error&quot;);
+            }
+        };                
+
+    &lt;/script&gt;
+onfoucus:获得焦点的事件
+onblur:失去焦点的事件
+    需求：    当输入框获得焦点的时候，提示输入的内容格式
+            当输入框失去焦点的时候，提示输入有误
+    &lt;label for=&quot;txt&quot;&gt;name&lt;/label&gt;
+    &lt;input id=&quot;txt&quot; type=&quot;text&quot; /&gt;&lt;span id=&quot;action&quot;&gt;&lt;/span&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        var txt = document.getElementById(&quot;txt&quot;);
+        txt.onfocus = function(){
+            //友好提示
+            var span = document.getElementById(&quot;action&quot;);
+            span.innerHTML = &quot;用户名格式最小8位&quot;;
+            span.style.color = &quot;green&quot;;
+        };
+        txt.onblur = function(){
+            //错误提示
+            var span = document.getElementById(&quot;action&quot;);
+            span.innerHTML = &quot;对不起 格式不正确&quot;;
+            span.style.color = &quot;red&quot;;
+        };
+    &lt;/script&gt;
+
+onmouseover:鼠标悬浮的事件
+onmouseout:鼠标离开的事件
+    需求：div元素 鼠标移入变为绿色 移出恢复原色
+    #d1{background-color: red;width:200px;height: 200px;}
+    &lt;div id=&quot;d1&quot;&gt;&lt;/div&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        var div = document.getElementById(&quot;d1&quot;);
+        div.onmouseover = function(){
+            this.style.backgroundColor = &quot;green&quot;;
+        };
+        div.onmouseout = function(){
+            this.style.backgroundColor = &quot;red&quot;;
+        };
+    &lt;/script&gt;
+
+
+onload:加载完毕的事件
+    等到页面加载完毕在执行onload事件所指向的函数
+    &lt;span id=&quot;span&quot;&gt;&lt;/span&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        window.onload = function(){
+            var span = document.getElementById(&quot;span&quot;);
+            alert(span);
+            span.innerHTML = &quot;hello js&quot;;
+        };
+    &lt;/script&gt;
+</code></pre><h4 id="2、事件的绑定方式"><a href="#2、事件的绑定方式" class="headerlink" title="2、事件的绑定方式"></a>2、事件的绑定方式</h4><pre><code>(1)将事件和响应行为都内嵌到html标签中
+    &lt;input type=&quot;button&quot; value=&quot;button&quot;  onclick=&quot;alert(&apos;xxx&apos;)&quot;/&gt;
+(2)将事件内嵌到html中而响应行为用函数进行封装
+    &lt;input type=&quot;button&quot; value=&quot;button&quot; onclick=&quot;fn()&quot; /&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        function fn(){
+            alert(&quot;yyy&quot;);
+        }
+    &lt;/script&gt;
+(3)将事件和响应行为 与html标签完全分离
+    &lt;input id=&quot;btn&quot; type=&quot;button&quot; value=&quot;button&quot;/&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        var btn = document.getElementById(&quot;btn&quot;);
+        btn.onclick = function(){
+            alert(&quot;zzz&quot;);
+        };
+    &lt;/script&gt;
+
+****this关键字
+    this经过事件的函数进行传递的是html标签对象
+    &lt;input id=&quot;btn&quot; name=&quot;mybtn&quot; type=&quot;button&quot; value=&quot;button123&quot; onclick=&quot;fn(this)&quot;/&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        function fn(obj){
+            alert(obj.name);
+        }
+    &lt;/script&gt;
+</code></pre><h4 id="3、阻止事件的默认行为"><a href="#3、阻止事件的默认行为" class="headerlink" title="3、阻止事件的默认行为"></a>3、阻止事件的默认行为</h4><pre><code>IE：window.event.returnValue = false;
+W3c: 传递过来的事件对象.preventDefault();
+//ie：window.event.returnValue = false;
+//W3c：传递过来的事件对象.preventDefault();
+//W3c标准
+if(e&amp;&amp;e.preventDefault){
+    alert(&quot;w3c&quot;);
+    e.preventDefault();
+//IE标签
+}else{
+    alert(&quot;ie&quot;);
+    window.event.returnValue = false;
+}
+
+
+//通过事件返回false也可以阻止事件的默认行为
+&lt;a href=&quot;demo11.html&quot; onclick=&quot;return false&quot;&gt;点击我吧&lt;/a&gt;
+</code></pre><h4 id="4、阻止事件的传播"><a href="#4、阻止事件的传播" class="headerlink" title="4、阻止事件的传播"></a>4、阻止事件的传播</h4><pre><code>IE：window.event.cancelBubble = true;
+W3c: 传递过来的事件对象.stopPropagation();
+if(e&amp;&amp;e.stopPropagation){
+    alert(&quot;w3c&quot;);
+    e.stopPropagation();
+//IE标签
+}else{
+    alert(&quot;ie&quot;);
+    window.event.cancelBubble = true;
+}    
+</code></pre><h3 id="六、js的bom"><a href="#六、js的bom" class="headerlink" title="六、js的bom"></a>六、js的bom</h3><pre><code>(1)window对象
+    弹框的方法：
+        提示框：alert(&quot;提示信息&quot;);
+        确认框：confirm(&quot;确认信息&quot;);
+            有返回值：如果点击确认返回true  如果点击取消 返回false
+            var res = confirm(&quot;您确认要删除吗？&quot;);
+            alert(res);
+        输入框：prompt(&quot;提示信息&quot;);
+            有返回值：如果点击确认返回输入框的文本 点击取消返回null
+            var res =  prompt(&quot;请输入密码？&quot;);
+            alert(res);
+    open方法：
+        window.open(&quot;url地址&quot;);            
+        open(&quot;../jsCore/demo10.html&quot;);
+
+    定时器：
+        setTimeout(函数,毫秒值);
+            setTimeout(
+                function(){
+                    alert(&quot;xx&quot;);
+                },
+                3000
+            );
+        clearTimeout(定时器的名称);
+            var timer;
+            var fn = function(){
+                alert(&quot;x&quot;);
+                timer = setTimeout(fn,2000);
+            };
+            var closer = function(){
+                clearTimeout(timer);
+            };
+            fn();
+        setInterval(函数,毫秒值);
+        clearInterval(定时器的名称)
+            var timer = setInterval(
+            function(){
+                alert(&quot;nihao&quot;);
+            },
+            2000
+        );
+        var closer = function(){
+            clearInterval(timer);
+        };
+
+    需求：注册后5秒钟跳转首页
+    恭喜您注册成功，&lt;span id=&quot;second&quot; style=&quot;color: red;&quot;&gt;5&lt;/span&gt;秒后跳转到首页，如果不跳转请&lt;a href=&quot;../jsCore/demo10.html&quot;&gt;点击这里&lt;/a&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        var time = 5;
+        var timer;
+        timer = setInterval(
+            function(){
+                var second = document.getElementById(&quot;second&quot;);
+                if(time&gt;=1){
+                    second.innerHTML = time;
+                    time--;
+                }else{
+                    clearInterval(timer);
+                    location.href=&quot;../jsCore/demo10.html&quot;;
+                }
+            },
+            1000
+        );
+    &lt;/script&gt;
+
+(2)location    
+    location.href=&quot;url地址&quot;;
+(3)history
+    back();
+    forward();
+    go();
+    &lt;a href=&quot;demo7.html&quot;&gt;后一页&lt;/a&gt;
+    &lt;input type=&quot;button&quot; value=&quot;上一页&quot; onclick=&quot;history.back()&quot;&gt;
+    &lt;input type=&quot;button&quot; value=&quot;下一页&quot; onclick=&quot;history.forward()&quot;&gt;
+
+    &lt;input type=&quot;button&quot; value=&quot;上一页&quot; onclick=&quot;history.go(-1)&quot;&gt;
+    &lt;input type=&quot;button&quot; value=&quot;下一页&quot; onclick=&quot;history.go(1)&quot;&gt;
+</code></pre><h3 id="七、js的dom"><a href="#七、js的dom" class="headerlink" title="七、js的dom"></a>七、js的dom</h3><h4 id="1、理解一下文档对象模型"><a href="#1、理解一下文档对象模型" class="headerlink" title="1、理解一下文档对象模型"></a>1、理解一下文档对象模型</h4><pre><code>html文件加载到内存之后会形成一颗dom树，根据这些节点对象可以进行脚本代码的动态修改
+在dom树当中 一切皆为节点对象
+</code></pre><h4 id="2、dom方法和属性"><a href="#2、dom方法和属性" class="headerlink" title="2、dom方法和属性"></a>2、dom方法和属性</h4>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;JavaScript&quot;&gt;&lt;a href=&quot;#JavaScript&quot; class=&quot;headerlink&quot; title=&quot;JavaScript&quot;&gt;&lt;/a&gt;JavaScript&lt;/h2&gt;&lt;h3 id=&quot;一、js的简介&quot;&gt;&lt;a href=&quot;#一、js的简介&quot; class
+    
+    </summary>
+    
+      <category term="JavaEE" scheme="https://izdo.github.io/categories/JavaEE/"/>
+    
+    
+      <category term="note" scheme="https://izdo.github.io/tags/note/"/>
+    
+      <category term="JavaEE" scheme="https://izdo.github.io/tags/JavaEE/"/>
+    
+  </entry>
   
   <entry>
     <title>HTML+CSS</title>
@@ -2443,126 +2951,6 @@ margin:
       <category term="Java" scheme="https://izdo.github.io/tags/Java/"/>
     
       <category term="设计模式" scheme="https://izdo.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>RxJava2(下)</title>
-    <link href="https://izdo.github.io/2017/06/04/RxJava2(%E4%B8%8B)/"/>
-    <id>https://izdo.github.io/2017/06/04/RxJava2(下)/</id>
-    <published>2017-06-04T01:54:38.652Z</published>
-    <updated>2017-06-03T15:16:40.193Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="RxJava2-下"><a href="#RxJava2-下" class="headerlink" title="RxJava2(下)"></a>RxJava2(下)</h1><h2 id="自定义图片缓存框架模型"><a href="#自定义图片缓存框架模型" class="headerlink" title="自定义图片缓存框架模型"></a>自定义图片缓存框架模型</h2><blockquote>
-<p>在RxJava2的最后一部分我们利用RxJava2来做一个类似于Picasso的自定义图片缓存框架的模型(具体功能并不实现)，下面是我们要实现的自定义图片缓存框架的流程图。</p>
-</blockquote>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog13/Blog13_1.png?raw=true" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<blockquote>
-<p>解析：当我们发起一个加载图片的请求时，首先是去检查内存中是否有缓存，如果有的话直接显示图片，没有的话就检查文件中是否有缓存，有的话同样直接显示图片，没有的话再从网络上加载，然后再缓存到内存和文件中，通过这样的方式，可以减少从网络上请求数据的操作，这样不仅加快的图片的显示，而且还能降低流量的消耗，而不是说每次都到网络上下载数据。</p>
-</blockquote>
-<h3 id="新建ImgActivity"><a href="#新建ImgActivity" class="headerlink" title="新建ImgActivity"></a>新建ImgActivity</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.izdo.rxjavaop;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.os.Bundle;</div><div class="line"><span class="keyword">import</span> android.support.v7.app.AppCompatActivity;</div><div class="line"><span class="keyword">import</span> android.util.Log;</div><div class="line"><span class="keyword">import</span> android.widget.Button;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.jakewharton.rxbinding2.view.RxView;</div><div class="line"></div><div class="line"><span class="keyword">import</span> io.reactivex.Observable;</div><div class="line"><span class="keyword">import</span> io.reactivex.ObservableEmitter;</div><div class="line"><span class="keyword">import</span> io.reactivex.ObservableOnSubscribe;</div><div class="line"><span class="keyword">import</span> io.reactivex.functions.Consumer;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ImgActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> Button mButton;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_img);</div><div class="line"></div><div class="line">        mButton = (Button) findViewById(R.id.btn_get);</div><div class="line"></div><div class="line"></div><div class="line">        <span class="comment">// 内存</span></div><div class="line">        <span class="keyword">final</span> Observable&lt;String&gt; memoryObservable = Observable.create(<span class="keyword">new</span> ObservableOnSubscribe&lt;String&gt;() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">subscribe</span><span class="params">(ObservableEmitter&lt;String&gt; e)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">                e.onNext(<span class="string">"memory"</span>);</div><div class="line">                e.onComplete();</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">        <span class="comment">// 文件</span></div><div class="line">        <span class="keyword">final</span> Observable&lt;String&gt; diskObservable = Observable.create(<span class="keyword">new</span> ObservableOnSubscribe&lt;String&gt;() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">subscribe</span><span class="params">(ObservableEmitter&lt;String&gt; e)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">                e.onNext(<span class="string">"disk"</span>);</div><div class="line">                e.onComplete();</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">        <span class="comment">// 网络</span></div><div class="line">        <span class="keyword">final</span> Observable&lt;String&gt; netWorkObservable = Observable.create(<span class="keyword">new</span> ObservableOnSubscribe&lt;String&gt;() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">subscribe</span><span class="params">(ObservableEmitter&lt;String&gt; e)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">                e.onNext(<span class="string">"network"</span>);</div><div class="line">                e.onComplete();</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">        RxView.clicks(mButton).subscribe(<span class="keyword">new</span> Consumer&lt;Object&gt;() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">accept</span><span class="params">(Object o)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">                Observable.concat(memoryObservable, diskObservable, netWorkObservable)</div><div class="line">                        .subscribe(<span class="keyword">new</span> Consumer&lt;String&gt;() &#123;</div><div class="line">                            <span class="meta">@Override</span></div><div class="line">                            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">accept</span><span class="params">(String s)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">                                Log.d(<span class="string">"ImgActivity"</span>, <span class="string">"get data from"</span> + s);</div><div class="line">                            &#125;</div><div class="line">                        &#125;);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>布局文件同样只有一个按钮。<br>这里通过三个Observable模拟出内存、文件和网络，然后通过concat合并三个Observable(Concat操作符与上一篇文章中的Merge是一样的，只不过Merge可能会使数据发生交错)，最后再打印出合并后的结果即可。</p>
-</blockquote>
-<h4 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h4><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog13/Blog13_2.png?raw=true" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<blockquote>
-<p>从图中可以看出，获取数据的来源是内存、文件和网络，那么我们刚才所说的内存-&gt;文件-&gt;网络逐一检查该怎么实现呢？这个时候就要用到Filter操作符了。<br>PS：RxJava2与RxJava1有所不同，RxJava1可以使用First操作符限制其只发送第一个非null数据，而在RxJava2中则需要使用Filter进行过滤。</p>
-</blockquote>
-<h4 id="修改ImgActicity中的代码"><a href="#修改ImgActicity中的代码" class="headerlink" title="修改ImgActicity中的代码"></a>修改ImgActicity中的代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ImgActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> Button mButton;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line"></div><div class="line">        ...</div><div class="line"></div><div class="line">        RxView.clicks(mButton).subscribe(<span class="keyword">new</span> Consumer&lt;Object&gt;() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">accept</span><span class="params">(Object o)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">                Observable.concat(memoryObservable, diskObservable, netWorkObservable)</div><div class="line">                        .filter(<span class="keyword">new</span> Predicate&lt;String&gt;() &#123;</div><div class="line">                            <span class="meta">@Override</span></div><div class="line">                            <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">test</span><span class="params">(String s)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">                                <span class="keyword">return</span> !TextUtils.isEmpty(s);</div><div class="line">                            &#125;</div><div class="line">                        &#125;)</div><div class="line">                        .firstElement()</div><div class="line">                        .subscribe(<span class="keyword">new</span> Consumer&lt;String&gt;() &#123;</div><div class="line">                            <span class="meta">@Override</span></div><div class="line">                            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">accept</span><span class="params">(String s)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">                                Log.d(<span class="string">"ImgActivity"</span>, <span class="string">"get data from "</span> + s);</div><div class="line">                            &#125;</div><div class="line">                        &#125;);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>这里使用Filter过滤掉null对象。<br>需要注意的是，RxJava1是可以发送null对象的，也就是<strong>onNext(null)</strong>，而RxJava2中不能发送null对象，如果使用RxJava2时发送null对象，则会报错：<strong>java.lang.NullPointerException: onNext called with null. Null values are generally not allowed in 2.x operators and sources.</strong>，也就是说RxJava2中不需要发送null对象。<br>那么我们这里的处理就是直接发送空值：<strong>//e.onNext(“”);</strong><br>而通过Filter操作符，这个空值是会被过滤掉的，然后通过FirstElement()获取第一个数据。</p>
-</blockquote>
-<h5 id="当三个Observable都不为空值时"><a href="#当三个Observable都不为空值时" class="headerlink" title="当三个Observable都不为空值时"></a>当三个Observable都不为空值时</h5><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog13/Blog13_3.png?raw=true" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<blockquote>
-<p>这个情况代表内存中缓存，则直接读取内存显示图片。</p>
-</blockquote>
-<h5 id="memoryObservable发送空值"><a href="#memoryObservable发送空值" class="headerlink" title="memoryObservable发送空值"></a>memoryObservable发送空值</h5><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog13/Blog13_4.png?raw=true" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<blockquote>
-<p>这个情况代表内存无缓存，而文件中右缓存，则直接读取文件显示图片。</p>
-</blockquote>
-<h5 id="diskObservable发送空值"><a href="#diskObservable发送空值" class="headerlink" title="diskObservable发送空值"></a>diskObservable发送空值</h5><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog13/Blog13_5.png?raw=true" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<blockquote>
-<p>这个情况代表内存和文件中均无缓存，这个时候则从网络上获取图片然后再显示。<br>这样模拟图片显示的效果就实现了，接下来会正式地编写自定义的图片缓存框架。</p>
-</blockquote>
-<h2 id="模仿Picasso自定义图片缓存框架"><a href="#模仿Picasso自定义图片缓存框架" class="headerlink" title="模仿Picasso自定义图片缓存框架"></a>模仿Picasso自定义图片缓存框架</h2><blockquote>
-<p>在我的OKHttp3框架(上)文章中，曾经使用过Picasso加载图片：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog13/Blog13_6.png?raw=true" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * Picasso 第三方开源框架</div><div class="line"> * load() 加载图片地址</div><div class="line"> * resize() 设置图片大小</div><div class="line"> * centerCrop() 设置图片圆角</div><div class="line"> * into() 显示到控件</div><div class="line">*/</div><div class="line">Picasso.with(UserInfoActivity.<span class="keyword">this</span>).load(img).resize(<span class="number">100</span>, <span class="number">100</span>).centerCrop().into(mImgview);</div></pre></td></tr></table></figure>
-<blockquote>
-<p>当我们在使用Picasso框架加载图片的时候，短短的一句话就能让我们成功地获取图片并显示，这样的框架用起来是非常爽的，而我们现在就要模仿Picasso框架的写法，使用RxJava2来自定义一个图片缓存框架。  </p>
-</blockquote>
-<h3 id="新建RxImageLoader类"><a href="#新建RxImageLoader类" class="headerlink" title="新建RxImageLoader类"></a>新建RxImageLoader类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> Imgloader;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.content.Context;</div><div class="line"><span class="keyword">import</span> android.widget.ImageView;</div><div class="line"></div><div class="line"><span class="keyword">import</span> io.reactivex.Observable;</div><div class="line"><span class="keyword">import</span> io.reactivex.Observer;</div><div class="line"><span class="keyword">import</span> io.reactivex.disposables.Disposable;</div><div class="line"><span class="keyword">import</span> io.reactivex.functions.Predicate;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by iZdo on 2017/5/31.</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RxImageLoader</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// 创建单例</span></div><div class="line">    <span class="keyword">static</span> RxImageLoader singleton;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> String mUrl;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> RequestCreator mRequestCreator;</div><div class="line"></div><div class="line">    <span class="comment">// 单例模式私有化构造器</span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">RxImageLoader</span><span class="params">()</span> </span>&#123;</div><div class="line">        mRequestCreator = <span class="keyword">new</span> RequestCreator();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> RxImageLoader <span class="title">with</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (singleton == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">synchronized</span> (RxImageLoader.class) &#123;</div><div class="line">                <span class="comment">// 当单例为空时则新建一个单例</span></div><div class="line">                <span class="keyword">if</span> (singleton == <span class="keyword">null</span>) &#123;</div><div class="line">                    singleton = <span class="keyword">new</span> Builder(context).build();</div><div class="line"></div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> singleton;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * url 加载图片的地址</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> RxImageLoader <span class="title">load</span><span class="params">(String url)</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">this</span>.mUrl = url;</div><div class="line">        <span class="keyword">return</span> singleton;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * imgView 显示图片的控件</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">into</span><span class="params">(<span class="keyword">final</span> ImageView imgview)</span> </span>&#123;</div><div class="line"></div><div class="line">        Observable.concat(mRequestCreator.getImageFromMemory(mUrl),</div><div class="line">                mRequestCreator.getImageFromDisk(mUrl),</div><div class="line">                mRequestCreator.getImageFromNetwork(mUrl))</div><div class="line">                .filter(<span class="keyword">new</span> Predicate&lt;Image&gt;() &#123;</div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">test</span><span class="params">(Image image)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">                        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">                    &#125;</div><div class="line">                &#125;)</div><div class="line">                .subscribe(<span class="keyword">new</span> Observer&lt;Image&gt;() &#123;</div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onSubscribe</span><span class="params">(Disposable d)</span> </span>&#123;</div><div class="line"></div><div class="line">                    &#125;</div><div class="line"></div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onNext</span><span class="params">(Image value)</span> </span>&#123;</div><div class="line"></div><div class="line">                        imgview.setImageBitmap(value.getBitmap());</div><div class="line">                    &#125;</div><div class="line"></div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onError</span><span class="params">(Throwable e)</span> </span>&#123;</div><div class="line"></div><div class="line">                    &#125;</div><div class="line"></div><div class="line">                    <span class="meta">@Override</span></div><div class="line">                    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onComplete</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">                    &#125;</div><div class="line">                &#125;);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 单例模式创建RxImageLoader</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Builder</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">private</span> Context mContext;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="title">Builder</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">            <span class="keyword">this</span>.mContext = context;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> RxImageLoader <span class="title">build</span><span class="params">()</span> </span>&#123;</div><div class="line">            <span class="keyword">return</span> <span class="keyword">new</span> RxImageLoader();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>这种单例模式的创建方法是很常见的，将构造器私有化并在Builder()方法中只创建一个实例，调用者只能用这个实例去调用其他方法。</p>
-</blockquote>
-<h3 id="新建Image类作为图片封装类"><a href="#新建Image类作为图片封装类" class="headerlink" title="新建Image类作为图片封装类"></a>新建Image类作为图片封装类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> Imgloader;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.graphics.Bitmap;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by iZdo on 2017/6/1.</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Image</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> String url;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> Bitmap bitmap;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Image</span><span class="params">(String url, Bitmap bitmap)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.url = url;</div><div class="line">        <span class="keyword">this</span>.bitmap = bitmap;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getUrl</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> url;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUrl</span><span class="params">(String url)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.url = url;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> Bitmap <span class="title">getBitmap</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> bitmap;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBitmap</span><span class="params">(Bitmap bitmap)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.bitmap = bitmap;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>这个类比较简单，只有一个url地址和bitmap以及其get()、set()方法。</p>
-</blockquote>
-<h3 id="新建CacheObservable类作为缓存类"><a href="#新建CacheObservable类作为缓存类" class="headerlink" title="新建CacheObservable类作为缓存类"></a>新建CacheObservable类作为缓存类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> Imgloader;</div><div class="line"></div><div class="line"><span class="keyword">import</span> io.reactivex.Observable;</div><div class="line"><span class="keyword">import</span> io.reactivex.ObservableEmitter;</div><div class="line"><span class="keyword">import</span> io.reactivex.ObservableOnSubscribe;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by iZdo on 2017/6/1.</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">CacheObservable</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> Observable&lt;Image&gt; <span class="title">getImage</span><span class="params">(<span class="keyword">final</span> String url)</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> Observable.create(<span class="keyword">new</span> ObservableOnSubscribe&lt;Image&gt;() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">subscribe</span><span class="params">(ObservableEmitter&lt;Image&gt; e)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">                <span class="keyword">if</span> (!e.isDisposed()) &#123;</div><div class="line">                    Image image = getDataFromCache(url);</div><div class="line"></div><div class="line">                    e.onNext(image);</div><div class="line">                    e.onComplete();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 获取缓存</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> Image <span class="title">getDataFromCache</span><span class="params">(String url)</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">// 设置缓存</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">putDataToCache</span><span class="params">(Image image)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>由于我们获取缓存的方式有内存、文件和网络，所以需要将这个缓存类作为一个父类，然后每种缓存方式都继承自这个缓存类，而具体的缓存方式处理数据的方式又有所不同，所以缓存类中需要有抽象方法，当子类继承这个缓存类的时候，才去具体实现相应的处理，所以缓存类需要定义为抽象类，而对于getImage()方法来说，每种方式显示图片的方法都是一致的，所以此方法在缓存类中实现即可。</p>
-</blockquote>
-<h3 id="内存缓存类"><a href="#内存缓存类" class="headerlink" title="内存缓存类"></a>内存缓存类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> Imgloader;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by iZdo on 2017/6/1.</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MemoryCacheObservable</span> <span class="keyword">extends</span> <span class="title">CacheObservable</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Image <span class="title">getDataFromCache</span><span class="params">(String url)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">putDataToCache</span><span class="params">(Image image)</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="文件缓存类"><a href="#文件缓存类" class="headerlink" title="文件缓存类"></a>文件缓存类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> Imgloader;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by iZdo on 2017/6/1.</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DiskCacheObservable</span> <span class="keyword">extends</span> <span class="title">CacheObservable</span></span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Image <span class="title">getDataFromCache</span><span class="params">(String url)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">putDataToCache</span><span class="params">(Image image)</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="网络缓存类"><a href="#网络缓存类" class="headerlink" title="网络缓存类"></a>网络缓存类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> Imgloader;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by iZdo on 2017/6/1.</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NetworkCacheObservable</span> <span class="keyword">extends</span> <span class="title">CacheObservable</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Image <span class="title">getDataFromCache</span><span class="params">(String url)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">putDataToCache</span><span class="params">(Image image)</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="新建RequestCreator类用于实例化三个缓存类"><a href="#新建RequestCreator类用于实例化三个缓存类" class="headerlink" title="新建RequestCreator类用于实例化三个缓存类"></a>新建RequestCreator类用于实例化三个缓存类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> Imgloader;</div><div class="line"></div><div class="line"><span class="keyword">import</span> io.reactivex.Observable;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * Created by iZdo on 2017/6/1.</div><div class="line"> */</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RequestCreator</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> MemoryCacheObservable mMemoryCacheObservable;</div><div class="line">    <span class="keyword">private</span> DiskCacheObservable mDiskCacheObservable;</div><div class="line">    <span class="keyword">private</span> NetworkCacheObservable mNetworkCacheObservable;</div><div class="line"></div><div class="line">    <span class="comment">// 构造器 初始化三个缓存类</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">RequestCreator</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">        mMemoryCacheObservable = <span class="keyword">new</span> MemoryCacheObservable();</div><div class="line">        mDiskCacheObservable = <span class="keyword">new</span> DiskCacheObservable();</div><div class="line">        mNetworkCacheObservable = <span class="keyword">new</span> NetworkCacheObservable();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 从内存中获取图片</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Observable&lt;Image&gt; <span class="title">getImageFromMemory</span><span class="params">(String url)</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> mMemoryCacheObservable.getImage(url);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 从文件中获取图片</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Observable&lt;Image&gt; <span class="title">getImageFromDisk</span><span class="params">(String url)</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> mDiskCacheObservable.getImage(url);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 从网络获取图片</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Observable&lt;Image&gt; <span class="title">getImageFromNetwork</span><span class="params">(String url)</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> mNetworkCacheObservable.getImage(url);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>这个类主要用于创建三种缓存类，而调用者只需要实例化RequestCreator类就能同时操作这三种缓存方式了。<br>这样，自定义图片缓存框架大体上的模板已经完成了。</p>
-</blockquote>
-<h3 id="新建ImgLoaderActivity类"><a href="#新建ImgLoaderActivity类" class="headerlink" title="新建ImgLoaderActivity类"></a>新建ImgLoaderActivity类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.izdo.rxjavaop;</div><div class="line"></div><div class="line"><span class="keyword">import</span> android.os.Bundle;</div><div class="line"><span class="keyword">import</span> android.support.v7.app.AppCompatActivity;</div><div class="line"><span class="keyword">import</span> android.widget.Button;</div><div class="line"><span class="keyword">import</span> android.widget.ImageView;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.jakewharton.rxbinding2.view.RxView;</div><div class="line"></div><div class="line"><span class="keyword">import</span> Imgloader.RxImageLoader;</div><div class="line"><span class="keyword">import</span> io.reactivex.functions.Consumer;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ImgLoaderActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> Button mButton;</div><div class="line">    <span class="keyword">private</span> ImageView mImageView;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_imgloader);</div><div class="line"></div><div class="line">        mButton = (Button) findViewById(R.id.btn_getImg);</div><div class="line">        mImageView = (ImageView) findViewById(R.id.imageview);</div><div class="line"></div><div class="line"></div><div class="line">        RxView.clicks(mButton).subscribe(<span class="keyword">new</span> Consumer&lt;Object&gt;() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">accept</span><span class="params">(Object o)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">                RxImageLoader.with(ImgLoaderActivity.<span class="keyword">this</span>)</div><div class="line">                        .load(<span class="string">"https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1035293498,3690663067&amp;fm=23&amp;gp=0.jpg"</span>)</div><div class="line">                        .into(mImageView);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>自定义的图片缓存框架调用方式和Picasso基本上是一样的，但是由于这只是一个模型，具体的功能并没有实现，所以就不进行测试了。</p>
-<p>最后再提供几篇可以参考的文章，本篇文章遇到的bug大多数参考自以下文章以及RxJava2(上)文章开头所提供的几篇文章：<br><a href="http://www.open-open.com/lib/view/open1489980802535.html" target="_blank" rel="external">[转]RxJava1 升级到 RxJava2 所踩过的坑</a><br><a href="http://blog.csdn.net/qq285016127/article/details/63010761" target="_blank" rel="external">[转]深入浅出RxJava2.0_02[新特性]</a></p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;RxJava2-下&quot;&gt;&lt;a href=&quot;#RxJava2-下&quot; class=&quot;headerlink&quot; title=&quot;RxJava2(下)&quot;&gt;&lt;/a&gt;RxJava2(下)&lt;/h1&gt;&lt;h2 id=&quot;自定义图片缓存框架模型&quot;&gt;&lt;a href=&quot;#自定义图片缓存框架模型&quot;
-    
-    </summary>
-    
-      <category term="Android" scheme="https://izdo.github.io/categories/Android/"/>
-    
-    
-      <category term="Android" scheme="https://izdo.github.io/tags/Android/"/>
     
   </entry>
   
