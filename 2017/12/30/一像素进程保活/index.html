@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>一像素进程保活 | iZdo&#39;s Blog | bonbolu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Android,note">
+    <meta name="description" content="一像素进程保活为什么要保活
+从产品的角度来说，任何一个app都希望自己在用户手机中的存活率高些，即使app被用户杀死，关键的服务仍要存活，即app要有一个保活的进程来保障app一直存活于后台不被杀死。针对国内第三方厂商ROM在息屏后app很快被杀死的调查发现：原生系统在内存充足的情况下，用户执行熄屏的操作不会立即杀死app，但是第三方ROM会，在系统管理工具检测到锁屏事件后一段时间(一般为5分钟以">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一像素进程保活">
+<meta property="og:url" content="https://izdo.github.io/2017/12/30/一像素进程保活/index.html">
+<meta property="og:site_name" content="iZdo's Blog">
+<meta property="og:description" content="一像素进程保活为什么要保活
+从产品的角度来说，任何一个app都希望自己在用户手机中的存活率高些，即使app被用户杀死，关键的服务仍要存活，即app要有一个保活的进程来保障app一直存活于后台不被杀死。针对国内第三方厂商ROM在息屏后app很快被杀死的调查发现：原生系统在内存充足的情况下，用户执行熄屏的操作不会立即杀死app，但是第三方ROM会，在系统管理工具检测到锁屏事件后一段时间(一般为5分钟以">
+<meta property="og:updated_time" content="2017-12-26T15:04:10.311Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一像素进程保活">
+<meta name="twitter:description" content="一像素进程保活为什么要保活
+从产品的角度来说，任何一个app都希望自己在用户手机中的存活率高些，即使app被用户杀死，关键的服务仍要存活，即app要有一个保活的进程来保障app一直存活于后台不被杀死。针对国内第三方厂商ROM在息屏后app很快被杀死的调查发现：原生系统在内存充足的情况下，用户执行熄屏的操作不会立即杀死app，但是第三方ROM会，在系统管理工具检测到锁屏事件后一段时间(一般为5分钟以">
+    
+        <link rel="alternative" href="/atom.xml" title="iZdo&#39;s Blog" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.14">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/heizi.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">iZdo</h5>
+          <a href="mailto:401135451@qq.com" title="401135451@qq.com" class="mail">401135451@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/iZdo" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/u/2597276811" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://music.163.com/#/user/home?id=384832070" target="_blank" >
+                <i class="icon icon-lg icon-music"></i>
+                cloudmusic
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://steamcommunity.com/id/401135451/" target="_blank" >
+                <i class="icon icon-lg icon-steam"></i>
+                Steam
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">一像素进程保活</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">一像素进程保活</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-12-30T08:43:09.729Z" itemprop="datePublished" class="page-time">
+  2017-12-30
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一像素进程保活"><span class="post-toc-number">1.</span> <span class="post-toc-text">一像素进程保活</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#为什么要保活"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">为什么要保活</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一像素进程概述"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">一像素进程概述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一像素进程保活案例"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">一像素进程保活案例</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#MainActivity"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">MainActivity</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#广播接收者OnePixelReceiver"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">广播接收者OnePixelReceiver</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一像素OnePixelActivity"><span class="post-toc-number">1.3.3.</span> <span class="post-toc-text">一像素OnePixelActivity</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-一像素进程保活"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">一像素进程保活</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年12月30日 16:43" datetime="2017-12-30T08:43:09.729Z"  itemprop="datePublished">2017-12-30</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="一像素进程保活"><a href="#一像素进程保活" class="headerlink" title="一像素进程保活"></a>一像素进程保活</h1><h2 id="为什么要保活"><a href="#为什么要保活" class="headerlink" title="为什么要保活"></a>为什么要保活</h2><blockquote>
+<p>从产品的角度来说，任何一个app都希望自己在用户手机中的存活率高些，即使app被用户杀死，关键的服务仍要存活，即app要有一个保活的进程来保障app一直存活于后台不被杀死。<br>针对国内第三方厂商ROM在息屏后app很快被杀死的调查发现：原生系统在内存充足的情况下，用户执行熄屏的操作不会立即杀死app，但是第三方ROM会，在系统管理工具检测到锁屏事件后一段时间(一般为5分钟以内)内会杀死后台进程，达到省电和释放内存的目的，推测是第三方厂商修改了ROM在熄屏时执行了内存清理工作，不论此时手机内存是否充足都执行清理，对于没有加入到厂商ROM清理白名单中的app，不可避免的就会被杀死，而像QQ，微信这类app已经加入到系统的白名单中，不需要用户手动添加，这是由于双方达成协议，厂商白名单中提前加入了QQ，微信。<br>目前保活的手段有很多种，这里就讲述一下一像素进程保活的思路(据说QQ用过这种保活手段)。</p>
+</blockquote>
+<h2 id="一像素进程概述"><a href="#一像素进程概述" class="headerlink" title="一像素进程概述"></a>一像素进程概述</h2><blockquote>
+<p>一像素进程其实就是当应用进入后台时，在手机界面上开启一个一像素的Activity，由于一像素已经小到肉眼不可见的级别，所以也不用担心被用户发现，这样app的进程优先级就被提高，减少了被系统杀死的几率(并不是说不会被杀死)。</p>
+</blockquote>
+<h2 id="一像素进程保活案例"><a href="#一像素进程保活案例" class="headerlink" title="一像素进程保活案例"></a>一像素进程保活案例</h2><blockquote>
+<p>接下来用一个案例讲述一像素进程保活。</p>
+</blockquote>
+<h3 id="MainActivity"><a href="#MainActivity" class="headerlink" title="MainActivity"></a>MainActivity</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> String TAG = <span class="string">"abc"</span>;</div><div class="line">    <span class="keyword">private</span> OnePixelReceiver onePixelReceive;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line"></div><div class="line">        <span class="comment">// 广播接收者</span></div><div class="line">        onePixelReceive = <span class="keyword">new</span> OnePixelReceiver();</div><div class="line"></div><div class="line">        <span class="comment">// IntentFilter 被广播接收者接收的Action</span></div><div class="line">        IntentFilter intentFilter = <span class="keyword">new</span> IntentFilter();</div><div class="line">        intentFilter.addAction(Intent.ACTION_SCREEN_OFF);</div><div class="line">        intentFilter.addAction(Intent.ACTION_SCREEN_ON);</div><div class="line"></div><div class="line">        <span class="comment">// 注册广播接收者</span></div><div class="line">        registerReceiver(onePixelReceive, intentFilter);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onResume</span><span class="params">()</span> </span>&#123;</div><div class="line">        Log.i(TAG, <span class="string">"程序进入前台"</span>);</div><div class="line">        <span class="keyword">super</span>.onResume();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onStop</span><span class="params">()</span> </span>&#123;</div><div class="line">        Log.i(TAG, <span class="string">"程序进入后台"</span>);</div><div class="line">        <span class="keyword">super</span>.onStop();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="广播接收者OnePixelReceiver"><a href="#广播接收者OnePixelReceiver" class="headerlink" title="广播接收者OnePixelReceiver"></a>广播接收者OnePixelReceiver</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OnePixelReceiver</span> <span class="keyword">extends</span> <span class="title">BroadcastReceiver</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> String TAG = <span class="string">"abc"</span>;</div><div class="line">    <span class="keyword">private</span> Intent it;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (intent.getAction().equals(Intent.ACTION_SCREEN_OFF)) &#123;<span class="comment">// 屏幕关闭的状态下</span></div><div class="line">            Log.i(TAG, <span class="string">"锁屏了 "</span>);</div><div class="line">            it = <span class="keyword">new</span> Intent(context, OnePixelActivity.class);</div><div class="line">            <span class="comment">// 栈中查找 没有则new一个</span></div><div class="line">            it.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);</div><div class="line">            context.startActivity(it);</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (intent.getAction().equals(Intent.ACTION_SCREEN_ON)) &#123;<span class="comment">// 屏幕开启的状态下</span></div><div class="line">            Log.i(TAG, <span class="string">"亮屏了 "</span>);</div><div class="line">            <span class="comment">// 发送finish的广播</span></div><div class="line">            context.sendBroadcast(<span class="keyword">new</span> Intent(<span class="string">"finish"</span>));</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="一像素OnePixelActivity"><a href="#一像素OnePixelActivity" class="headerlink" title="一像素OnePixelActivity"></a>一像素OnePixelActivity</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OnePixelActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> String TAG = <span class="string">"abc"</span>;</div><div class="line">    <span class="keyword">private</span> MyThread myThread;</div><div class="line">    <span class="keyword">private</span> BroadcastReceiver broadcastReceiver;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line"></div><div class="line">        myThread = <span class="keyword">new</span> MyThread();</div><div class="line"></div><div class="line">        <span class="comment">// 设置一个一像素的界面</span></div><div class="line">        Window window = getWindow();</div><div class="line">        window.setGravity(Gravity.LEFT | Gravity.TOP);</div><div class="line">        WindowManager.LayoutParams attributes = window.getAttributes();</div><div class="line">        attributes.x = <span class="number">0</span>;</div><div class="line">        attributes.y = <span class="number">0</span>;</div><div class="line">        attributes.height = <span class="number">1</span>;</div><div class="line">        attributes.width = <span class="number">1</span>;</div><div class="line">        window.setAttributes(attributes);</div><div class="line"></div><div class="line">        <span class="comment">// 结束界面广播</span></div><div class="line">        broadcastReceiver = <span class="keyword">new</span> BroadcastReceiver() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span> </span>&#123;</div><div class="line">                finish();</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">        registerReceiver(broadcastReceiver, <span class="keyword">new</span> IntentFilter(<span class="string">"finish"</span>));</div><div class="line">        printLog();</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">printLog</span><span class="params">()</span> </span>&#123;</div><div class="line">        myThread.start();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onDestroy();</div><div class="line">        unregisterReceiver(broadcastReceiver);</div><div class="line">        Log.i(TAG, <span class="string">"onDestroy: "</span>);</div><div class="line">        myThread.stop();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyThread</span> <span class="keyword">extends</span> <span class="title">Thread</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                Thread.sleep(<span class="number">3000</span>);</div><div class="line">            &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125;</div><div class="line">            Log.i(<span class="string">"abc"</span>, <span class="string">"run: "</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>运行程序后通过日志可以发现:</p>
+</blockquote>
+<ul>
+<li><p>当应用打开位于前台时，打印日志：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">I/abc: 程序进入前台</div></pre></td></tr></table></figure>
+</li>
+<li><p>当锁屏时，打印日志：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">I/abc: 程序进入后台</div><div class="line">I/abc: 锁屏了 </div><div class="line">I/abc: run: </div><div class="line">I/abc: run: </div><div class="line">I/abc: run: </div><div class="line">I/abc: run: </div><div class="line">...(不断打run:)</div></pre></td></tr></table></figure>
+</li>
+<li><p>当重新亮屏时，打印日志：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">I/abc: 亮屏了 </div><div class="line">I/abc: onDestroy:</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>思路：通过监控手机锁屏解锁事件，当程序从前台进入后台(锁屏)时，通过发送广播通知广播接收者打开一个一像素的进程OnePixelActivity，并在线程MyThread中不停的打印run日志，当屏幕重新亮屏时，同样发送一个finish的广播(通知广播接收者OnePixelReceiver再发送一个finish广播)，从而销毁一像素的进程，同时将MyThread销毁，不再打印run日志。</p>
+<p>总结：一像素进程保活的实质其实就是当程序进入后台时，吊起一个一像素的页面，假装app在前台，拥有最高的进程优先级，但事实上，这种一像素的进程保活手段非常流氓，而且是在用户不知情的情况下开启，对用户很不友好，所以不推荐使用，但是技术无罪，了解一下这种技术扩展一下见识也是有益的。</p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-12-26T15:04:10.311Z" itemprop="dateUpdated">2017年12月26日 23:04</time>
+</span><br>
+
+
+        这里写留言或版权声明：<a href="/2017/12/30/一像素进程保活/" target="_blank" rel="external">https://izdo.github.io/2017/12/30/一像素进程保活/</a>
+    </div>
+    <footer>
+        <a href="https://izdo.github.io">
+            <img src="/img/heizi.jpg" alt="iZdo">
+            iZdo
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/note/">note</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://izdo.github.io/2017/12/30/一像素进程保活/&title=《一像素进程保活》 — iZdo's Blog&pic=https://izdo.github.io/img/heizi.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://izdo.github.io/2017/12/30/一像素进程保活/&title=《一像素进程保活》 — iZdo's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://izdo.github.io/2017/12/30/一像素进程保活/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《一像素进程保活》 — iZdo's Blog&url=https://izdo.github.io/2017/12/30/一像素进程保活/&via=https://izdo.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://izdo.github.io/2017/12/30/一像素进程保活/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/12/30/Notification/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Notification</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>iZdo's Blog &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://izdo.github.io/2017/12/30/一像素进程保活/&title=《一像素进程保活》 — iZdo's Blog&pic=https://izdo.github.io/img/heizi.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://izdo.github.io/2017/12/30/一像素进程保活/&title=《一像素进程保活》 — iZdo's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://izdo.github.io/2017/12/30/一像素进程保活/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《一像素进程保活》 — iZdo's Blog&url=https://izdo.github.io/2017/12/30/一像素进程保活/&via=https://izdo.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://izdo.github.io/2017/12/30/一像素进程保活/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMUlEQVR42u3aQY7CMAwFUO5/6Y40q5EQ5dsJaOq+rBAqtC8L17H9eMTr+F3Pn5+v+bvya5LfblgYGBiXZRyn6xUjWflG9O6FgYFxN8ZKkH2+ZTU2vvqH5L4YGBgY1SCbJ3mvwi4GBgbGroCbf5M83HlqiIGBgZEfYntpX16A+9JZHAMD44KMlcbApz9/qb+BgYHxjxnH8sqTwrysVn4GDAyM0Yxq2nd+/TqvV3rDwMC4D6P34/yBkgJfb7wMAwNjNqPabqwOeyUBdMOwBQYGxmhGHnDXW5h73xLN9wYGBsYFGXmTstrUXG9JFjYFAwNjNKNXs1pPIvPkMinYYWBg3IGx+TC5HC6rrQUMDIzZjF4A7TU7kwQx36DymAUGBsZlGbswvTw0347mewMDA2ME4zwIJoljdRQsKbrlm/VI6nkYGBgXZ5wHsl7RP8/WzpPCXjKKgYExj5EX1PLj6Po4RXn8AgMDYzQjbzrmqVseKKuB+82VGBgYoxl5ypg8ejVb67UiCiNiGBgYIxgrA1v5LasDFs1CGwYGxm0Y+SOutC3zZLTQicXAwBjKyJOz6jhXrzHQS1IxMDCmMo7iystwe4c53mwQBgbGaEa+djHW71U9HmNgYMxgVINs9bibj1BUj6kYGBh3Y/QCXxW/Evvf/D8GBgZG8QDZO2TmG7ehE4uBgTGU8elmQKE9iYGBcUtGkuT1BrbywL3U8sTAwBjN6CVtvaDZG+D4YAsTAwPjvzN+AFBmA/HLkeEzAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.14"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.14" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

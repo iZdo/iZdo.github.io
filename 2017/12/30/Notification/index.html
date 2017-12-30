@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>Notification | iZdo&#39;s Blog | bonbolu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Android,note">
+    <meta name="description" content="NotificationNotification(通知)概述
+通知是一个可以在应用程序正常的用户界面之外显示给用户的消息。通知发出时，它首先出现在状态栏的通知区域中，用户打开通知抽屉可查看通知详情。通知区域和通知抽屉都是用户可以随时查看的系统控制区域。
+通知的目的是高职用户App事件，例如
+
+显示接收到的短消息，即使消息等信息，如：QQ、微信、短信等。
+显示客户端的推送消息，如广告、应用更新、推荐">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Notification">
+<meta property="og:url" content="https://izdo.github.io/2017/12/30/Notification/index.html">
+<meta property="og:site_name" content="iZdo's Blog">
+<meta property="og:description" content="NotificationNotification(通知)概述
+通知是一个可以在应用程序正常的用户界面之外显示给用户的消息。通知发出时，它首先出现在状态栏的通知区域中，用户打开通知抽屉可查看通知详情。通知区域和通知抽屉都是用户可以随时查看的系统控制区域。
+通知的目的是高职用户App事件，例如
+
+显示接收到的短消息，即使消息等信息，如：QQ、微信、短信等。
+显示客户端的推送消息，如广告、应用更新、推荐">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog32/Blog32_1.png?raw=true">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog32/Blog32_2.png?raw=true">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog32/Blog32_3.png?raw=true">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog32/Blog32_4.png?raw=true">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog32/Blog32_5.png?raw=true">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog32/Blog32_6.png?raw=true">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog32/Blog32_7.png?raw=true">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog32/Blog32_8.png?raw=true">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog32/Blog32_9.png?raw=true">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog32/Blog32_10.png?raw=true">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog32/Blog32_11.png?raw=true">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog32/Blog32_12.png?raw=true">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog32/Blog32_13.png?raw=true">
+<meta property="og:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog32/Blog32_14.png?raw=true">
+<meta property="og:updated_time" content="2017-12-30T08:42:21.713Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Notification">
+<meta name="twitter:description" content="NotificationNotification(通知)概述
+通知是一个可以在应用程序正常的用户界面之外显示给用户的消息。通知发出时，它首先出现在状态栏的通知区域中，用户打开通知抽屉可查看通知详情。通知区域和通知抽屉都是用户可以随时查看的系统控制区域。
+通知的目的是高职用户App事件，例如
+
+显示接收到的短消息，即使消息等信息，如：QQ、微信、短信等。
+显示客户端的推送消息，如广告、应用更新、推荐">
+<meta name="twitter:image" content="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog32/Blog32_1.png?raw=true">
+    
+        <link rel="alternative" href="/atom.xml" title="iZdo&#39;s Blog" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.14">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/heizi.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">iZdo</h5>
+          <a href="mailto:401135451@qq.com" title="401135451@qq.com" class="mail">401135451@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/iZdo" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/u/2597276811" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://music.163.com/#/user/home?id=384832070" target="_blank" >
+                <i class="icon icon-lg icon-music"></i>
+                cloudmusic
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://steamcommunity.com/id/401135451/" target="_blank" >
+                <i class="icon icon-lg icon-steam"></i>
+                Steam
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Notification</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Notification</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-12-30T08:43:09.725Z" itemprop="datePublished" class="page-time">
+  2017-12-30
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Notification"><span class="post-toc-number">1.</span> <span class="post-toc-text">Notification</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Notification-通知-概述"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Notification(通知)概述</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Notification的基本使用"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Notification的基本使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#通知的必备属性"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">通知的必备属性</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#创建Notification"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">创建Notification</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#创建Notification的步骤"><span class="post-toc-number">1.2.2.1.</span> <span class="post-toc-text">创建Notification的步骤</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#为Nofitication设置Action"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">为Nofitication设置Action</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#修改代码"><span class="post-toc-number">1.2.3.1.</span> <span class="post-toc-text">修改代码</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#PendingIntent"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">PendingIntent</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#PendingIntnet的三种构造方法"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">PendingIntnet的三种构造方法</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#更新Notification"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">更新Notification</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#取消通知"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">取消通知</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Notification的通知效果"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">Notification的通知效果</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#通知类型"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">通知类型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#构建大视图通知案例"><span class="post-toc-number">1.7.1.</span> <span class="post-toc-text">构建大视图通知案例</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#进度条通知"><span class="post-toc-number">1.8.</span> <span class="post-toc-text">进度条通知</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#明确进度的进度条通知"><span class="post-toc-number">1.8.1.</span> <span class="post-toc-text">明确进度的进度条通知</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#使用明确进度的进度条通知模拟下载过程"><span class="post-toc-number">1.8.1.1.</span> <span class="post-toc-text">使用明确进度的进度条通知模拟下载过程</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#不明确进度的进度条通知"><span class="post-toc-number">1.8.2.</span> <span class="post-toc-text">不明确进度的进度条通知</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#修改代码-1"><span class="post-toc-number">1.8.2.1.</span> <span class="post-toc-text">修改代码</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#浮动通知"><span class="post-toc-number">1.9.</span> <span class="post-toc-text">浮动通知</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#锁屏通知"><span class="post-toc-number">1.10.</span> <span class="post-toc-text">锁屏通知</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#自定义通知"><span class="post-toc-number">1.11.</span> <span class="post-toc-text">自定义通知</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自定义通知步骤"><span class="post-toc-number">1.11.1.</span> <span class="post-toc-text">自定义通知步骤</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#自定义通知案例"><span class="post-toc-number">1.11.1.1.</span> <span class="post-toc-text">自定义通知案例</span></a></li></ol></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Notification"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Notification</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年12月30日 16:43" datetime="2017-12-30T08:43:09.725Z"  itemprop="datePublished">2017-12-30</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Android/">Android</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Notification"><a href="#Notification" class="headerlink" title="Notification"></a>Notification</h1><h2 id="Notification-通知-概述"><a href="#Notification-通知-概述" class="headerlink" title="Notification(通知)概述"></a>Notification(通知)概述</h2><blockquote>
+<p>通知是一个可以在应用程序正常的用户界面之外显示给用户的消息。<br>通知发出时，它首先出现在状态栏的通知区域中，用户打开通知抽屉可查看通知详情。<br>通知区域和通知抽屉都是用户可以随时查看的系统控制区域。</p>
+<p>通知的目的是高职用户App事件，例如</p>
+<ol>
+<li>显示接收到的短消息，即使消息等信息，如：QQ、微信、短信等。</li>
+<li>显示客户端的推送消息，如广告、应用更新、推荐新闻等，常用的第三方SDK有：JPush、个推、阿里云推送等。</li>
+<li>显示正在进行的后台程序，如：音乐播放器、下载文件进度等。</li>
+</ol>
+</blockquote>
+<h2 id="Notification的基本使用"><a href="#Notification的基本使用" class="headerlink" title="Notification的基本使用"></a>Notification的基本使用</h2><p><strong>* Android3.0(API11)之前创建Notification的方式为new Notification()</strong><br><strong>* Android3.0(API11)之后创建Notification的方式改为Notification.Builder()</strong></p>
+<h3 id="通知的必备属性"><a href="#通知的必备属性" class="headerlink" title="通知的必备属性"></a>通知的必备属性</h3><blockquote>
+<p>一个通知必须包含三个属性：</p>
+<ol>
+<li>小图标 -&gt; setSmallIcon()</li>
+<li>通知标题 -&gt; setContentTitle()</li>
+<li>通知内容 -&gt; setContentText()<br>除了以上属性，其他如震动、响铃、呼吸灯等都是可选属性。<br>话虽如此，但是还是建议给Notification设置一个Action，这样通过Notification就可以跳转到某个Activity、启动Service或发送Broadcast，否则，Notification就只能起到通知的效果，不能与用户进行交互。</li>
+</ol>
+</blockquote>
+<h3 id="创建Notification"><a href="#创建Notification" class="headerlink" title="创建Notification"></a>创建Notification</h3><blockquote>
+<p>Notification的创建需要设计到Notification.Builder、Notification以及NotificationManager这三个类。</p>
+<ul>
+<li>Notification.Builder：使用建造者模式构建Notification对象(为了解决兼容性问题，Google在Android Support v4中加入了NotificationCompat.Builder类用于构建Notification)。</li>
+<li>Notification：通知对应类，保存通知的相关数据。</li>
+<li>NotificationManager：通知管理类，是一个系统服务。通过调用notify()方法可以向系统发送通知。</li>
+</ul>
+</blockquote>
+<h4 id="创建Notification的步骤"><a href="#创建Notification的步骤" class="headerlink" title="创建Notification的步骤"></a>创建Notification的步骤</h4><ol>
+<li>获取NotificationManager实例</li>
+<li>实例化NotificationCompat.Builder()并设置相关属性</li>
+<li>通过builder.build()方法生成Notification对象，并发送通知<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 获取NotificationManager实例</span></div><div class="line">NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);</div><div class="line"></div><div class="line"><span class="comment">// 实例化NotificationCompat.Builder()并设置相关属性</span></div><div class="line">NotificationCompat.Builder builder = <span class="keyword">new</span> NotificationCompat.Builder(<span class="keyword">this</span>)</div><div class="line">        <span class="comment">// 设置小图标</span></div><div class="line">        .setSmallIcon(R.mipmap.ic_launcher)</div><div class="line">        <span class="comment">// 设置通知标题</span></div><div class="line">        .setContentTitle(<span class="string">"通知标题"</span>)</div><div class="line">        <span class="comment">// 设置通知内容</span></div><div class="line">        .setContentText(<span class="string">"通知内容"</span>);</div><div class="line"></div><div class="line"><span class="comment">// 通过builder.build()方法生成Notification对象，并发送通知(1为通知的id)</span></div><div class="line">notificationManager.notify(<span class="number">1</span>, builder.build());</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>效果图：<br><img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog32/Blog32_1.png?raw=true" alt=""></p>
+<blockquote>
+<p>这是一个最简单的通知，但是还不具备与用户交互的能力(点击Notification后并没有任何事件触发)，这是因为没有给Notification设置Action。</p>
+</blockquote>
+<h3 id="为Nofitication设置Action"><a href="#为Nofitication设置Action" class="headerlink" title="为Nofitication设置Action"></a>为Nofitication设置Action</h3><h4 id="修改代码"><a href="#修改代码" class="headerlink" title="修改代码"></a>修改代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 获取NotificationManager实例</span></div><div class="line">NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);</div><div class="line"></div><div class="line"><span class="comment">// 获取PendingIntent</span></div><div class="line">Intent intent = <span class="keyword">new</span> Intent(<span class="keyword">this</span>,MainActivity.class);</div><div class="line">PendingIntent pendingIntent = PendingIntent.getActivity(<span class="keyword">this</span>,<span class="number">0</span>,intent,PendingIntent.FLAG_UPDATE_CURRENT);</div><div class="line"></div><div class="line"><span class="comment">// 实例化NotificationCompat.Builder()并设置相关属性</span></div><div class="line">NotificationCompat.Builder builder = <span class="keyword">new</span> NotificationCompat.Builder(<span class="keyword">this</span>)</div><div class="line">        .setSmallIcon(R.mipmap.ic_launcher)</div><div class="line">        .setContentTitle(<span class="string">"通知标题"</span>)</div><div class="line">        .setContentText(<span class="string">"通知内容"</span>)</div><div class="line">        <span class="comment">// 设置intent</span></div><div class="line">        .setContentIntent(pendingIntent)</div><div class="line">        <span class="comment">// 设置点击通知后自动清除Notification</span></div><div class="line">        .setAutoCancel(<span class="keyword">true</span>);</div><div class="line"></div><div class="line"><span class="comment">// 通过builder.build()方法生成Notification对象，并发送通知(1为通知的id)</span></div><div class="line">notificationManager.notify(<span class="number">1</span>, builder.build());</div></pre></td></tr></table></figure>
+<blockquote>
+<p>在设置PendingIntent之后，点击通知就会跳转到MainActivity了，而同时由于设置了setAutoCancel(true)，在点击通知之后，Notification会被清除。</p>
+</blockquote>
+<h2 id="PendingIntent"><a href="#PendingIntent" class="headerlink" title="PendingIntent"></a>PendingIntent</h2><blockquote>
+<p>PendingIntent是一种特殊的Intent，其意思为延迟的Intent，用于在某个事件结束后执行特定的Action，如上述案例中的Notification中的PendingIntent，当Notification弹出时并不会马上进行跳转，而是延时到当用户点击通知时才会执行跳转操作。<br>PendingIntent是Android系统管理并持有的用于描述和获取原始数据的对象的引用，也就是说，即使创建该PendingIntent对象的进程被杀死了，这个PendingIntent对象在其他进程中还是可用的，日常使用中的短信、闹钟等都用到了PendingIntent。</p>
+</blockquote>
+<h3 id="PendingIntnet的三种构造方法"><a href="#PendingIntnet的三种构造方法" class="headerlink" title="PendingIntnet的三种构造方法"></a>PendingIntnet的三种构造方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 获取一个用于启动Activity的PendingIntent对象</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> PendingIntent <span class="title">getActivity</span><span class="params">(Content content,<span class="keyword">int</span> requestCode,Intent intent,<span class="keyword">int</span> flags)</span></span>;</div><div class="line"><span class="comment">// 获取一个用于启动Service的PendingIntent对象</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> PendingIntent <span class="title">getService</span><span class="params">(Context context,<span class="keyword">int</span> requestCode,Intent intent,<span class="keyword">int</span> flags)</span></span>;</div><div class="line"><span class="comment">// 获取一个用于向BroadcastReceiver发送广播的PendingIntent对象</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> PendingIntent <span class="title">getBroadcast</span><span class="params">(Context context,<span class="keyword">int</span> requestCode,Intent intent,<span class="keyword">int</span> flags)</span></span>;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>PendingIntent的几种flag包括：</p>
+<ul>
+<li>FLAG_CANCEL_CURRENT:如果当前系统中已经存在一个相同的PendingIntent对象，那么就先将已有的PendingIntent取消，然后重新生成一个PendingIntent对象。</li>
+<li>FLAG_NO_CREATE:如果当前系统中不存在相同的PendingIntent对象，系统将不会创建该PendingIntent对象而是直接返回null。</li>
+<li>FLAG_ONE_SHOT:该PendingIntent只作用一次。</li>
+<li>FLAG_UPDATE_CURRENT:如果系统中已存在该PendingIntent对象，那么系统将保留该PendingIntent对象，但是会使用新的Intent来更新之前PendingIntent中Intent对象的数据。</li>
+</ul>
+</blockquote>
+<h2 id="更新Notification"><a href="#更新Notification" class="headerlink" title="更新Notification"></a>更新Notification</h2><blockquote>
+<p>更新通知很简单，只需再次发送相同ID的通知即可，如果之前的通知依然存在则会更新通知属性，如果之前通知不存在则重新创建。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 更新通知与创建使用方式相同</span></div><div class="line">notificationManager.notify(<span class="number">1</span>, builder.build());</div></pre></td></tr></table></figure>
+<h2 id="取消通知"><a href="#取消通知" class="headerlink" title="取消通知"></a>取消通知</h2><blockquote>
+<p>取消通知的方式有以下五种：</p>
+<ol>
+<li>点击通知栏的清除按钮，会清除所有可清除的通知</li>
+<li>设置了setAutoCancel()或FLAG_AUTO_CANCEL的通知，点击该通知时会清除它</li>
+<li>通过NotificationManager调用cancel(int id)方法清除指定ID的通知</li>
+<li>通过NotificationManager调用cancel(String tag,int id)方法清除指定TAG和ID的通知</li>
+<li>通过NotificationManager调用cancelAll()方法清除所有该应用发送的通知  </li>
+</ol>
+</blockquote>
+<p><strong>* 如果是通过NotificationManager.notify(String tag,int id.Notification notify)方法创建的通知，那么只能通过NotificationManager.cancel(String tag,int id)方法才能清除对应的通知，而过NotificationManager.cancel(int id)是无效的</strong></p>
+<h2 id="Notification的通知效果"><a href="#Notification的通知效果" class="headerlink" title="Notification的通知效果"></a>Notification的通知效果</h2><blockquote>
+<p>Notification有震动、响铃、呼吸灯三种效果，可以通过setDefaults(int defaults)方法设置。<br>Default有以下四种属性：</p>
+<ul>
+<li>Notification.DEFAULT_VIBRATE：添加默认震动效果，需要申请震动权限：<uses-permission android:name="android.permission.VIBRATE"></uses-permission></li>
+<li>Notification.DEFAULT_SOUND：添加系统默认声音效果，设置此值后，调用setSound()设置的自定义声音无效</li>
+<li>Notification.DEFAULT_LIGHTS：添加默认呼吸灯效果，使用时须与Notification.FLAG_SHOW_LIGHTS结合使用，否则无效</li>
+<li>Notification.DEFAULT_ALL：添加上述三种默认提醒效果  </li>
+</ul>
+</blockquote>
+<p><strong>* 注：当设置默认的提醒效果后，自定义的提醒效果全部失效。</strong></p>
+<blockquote>
+<p>除了上述几种默认通知效果，Notification还提供了以下几种FLAG设置通知效果：</p>
+<ul>
+<li>Notification.FLAG_SHOW_LIGHTS：三色灯提醒</li>
+<li>Notification.FLAG_FLAG_ONGOING_EVENT：发起正在运行事件</li>
+<li>Notification.FLAG_INSISTENT：让铃声、震动无限循环，直到用户取消或者打开</li>
+<li>Notification.FLAG_ONLY_ALERT_ONCE：让铃声、震动只执行一次</li>
+<li>Notification.FLAG_AUTO_CANCEL：单击通知后自动消失</li>
+<li>Notification.FLAG_NO_CLEAR：无法被清除的通知，只有通过调用NotificationManager.cancel()时才会被清除</li>
+<li>Notification.FLAG_FOREGROUND_SERVICE：表示正在运行的服务</li>
+</ul>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">  NotificationCompat.Builder builder = <span class="keyword">new</span> NotificationCompat.Builder(MainActivity.<span class="keyword">this</span>)</div><div class="line">        .setSmallIcon(R.mipmap.ic_launcher)</div><div class="line">        .setContentTitle(<span class="string">"通知标题"</span>)</div><div class="line">        .setContentText(<span class="string">"带有铃声+震动+呼吸灯效果的通知"</span>)</div><div class="line">        <span class="comment">//等价于setDefaults(Notification.DEFAULT_SOUND | Notification.DEFAULT_LIGHTS | Notification.DEFAULT_VIBRATE);</span></div><div class="line">        .setDefaults(Notification.DEFAULT_ALL);</div><div class="line">mManager.notify(<span class="number">1</span>, builder.build());</div></pre></td></tr></table></figure>
+<h2 id="通知类型"><a href="#通知类型" class="headerlink" title="通知类型"></a>通知类型</h2><blockquote>
+<p>通知分为普通视图通知和大视图通知，一般情况下不做特殊设置(默认情况下)的通知都是普通视图通知。<br>可以通过NotificationCompat.Builder.setStyle()设置大视图。<br><strong>* 大视图(Big Views)由Android4.1(API16)开始引入，仅支持4.1及以上的版本 </strong></p>
+<h3 id="构建大视图通知案例"><a href="#构建大视图通知案例" class="headerlink" title="构建大视图通知案例"></a>构建大视图通知案例</h3></blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 获取NotificationManager实例</span></div><div class="line">NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);</div><div class="line"></div><div class="line"> <span class="comment">// 实例化NotificationCompat.Builder()并设置相关属性</span></div><div class="line">NotificationCompat.Builder builder =</div><div class="line">        <span class="keyword">new</span> NotificationCompat.Builder(<span class="keyword">this</span>)</div><div class="line">                .setSmallIcon(R.mipmap.ic_launcher)</div><div class="line">                .setContentTitle(<span class="string">"通知标题"</span>)</div><div class="line">                .setContentText(<span class="string">"通知内容"</span>)</div><div class="line">                .setDefaults(Notification.DEFAULT_ALL)</div><div class="line">                <span class="comment">// 该方法在Android 4.1之前会被忽略</span></div><div class="line">                .setStyle(<span class="keyword">new</span> NotificationCompat.BigTextStyle()</div><div class="line">                        .bigText(<span class="string">"大视图Text"</span>));</div><div class="line"></div><div class="line"><span class="comment">// 通过builder.build()方法生成Notification对象，并发送通知(1为通知的id)</span></div><div class="line">notificationManager.notify(<span class="number">1</span>, builder.build());</div></pre></td></tr></table></figure>
+<h2 id="进度条通知"><a href="#进度条通知" class="headerlink" title="进度条通知"></a>进度条通知</h2><h3 id="明确进度的进度条通知"><a href="#明确进度的进度条通知" class="headerlink" title="明确进度的进度条通知"></a>明确进度的进度条通知</h3><blockquote>
+<p>可以使用setProgress(max,progress,false)来更新进度<br>参数说明：<br>max：最大进度值<br>progress：当前进度<br>false：是否不明确进度</p>
+<h4 id="使用明确进度的进度条通知模拟下载过程"><a href="#使用明确进度的进度条通知模拟下载过程" class="headerlink" title="使用明确进度的进度条通知模拟下载过程"></a>使用明确进度的进度条通知模拟下载过程</h4></blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 获取NotificationManager实例</span></div><div class="line"><span class="keyword">final</span> NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);</div><div class="line"></div><div class="line"><span class="comment">// 实例化NotificationCompat.Builder()并设置相关属性</span></div><div class="line"><span class="keyword">final</span> NotificationCompat.Builder builder = <span class="keyword">new</span> NotificationCompat.Builder(<span class="keyword">this</span>)</div><div class="line">        .setContentTitle(<span class="string">"下载通知"</span>)</div><div class="line">        .setContentText(<span class="string">"下载中"</span>)</div><div class="line">        .setSmallIcon(R.mipmap.ic_launcher);</div><div class="line"></div><div class="line"><span class="keyword">new</span> Thread(</div><div class="line">        <span class="keyword">new</span> Runnable() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="keyword">int</span> cur;</div><div class="line">                <span class="keyword">for</span> (cur = <span class="number">0</span>; cur &lt;= <span class="number">100</span>; cur += <span class="number">10</span>) &#123;</div><div class="line">                    builder.setProgress(<span class="number">100</span>, cur, <span class="keyword">false</span>);</div><div class="line">                    notificationManager.notify(<span class="number">1</span>, builder.build());</div><div class="line">                    <span class="keyword">try</span> &#123;</div><div class="line">                        Thread.sleep(<span class="number">1000</span>);</div><div class="line">                    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">                        e.printStackTrace();</div><div class="line">                    &#125;</div><div class="line">                    <span class="keyword">if</span> (cur != <span class="number">100</span>)</div><div class="line">                        Log.i(<span class="string">"abc"</span>, <span class="string">"下载中: "</span> + cur + <span class="string">"%"</span>);</div><div class="line">                    <span class="keyword">else</span></div><div class="line">                        Log.i(<span class="string">"abc"</span>, <span class="string">"下载完成: "</span> + cur + <span class="string">"%"</span>);</div><div class="line">                &#125;</div><div class="line">                builder.setContentText(<span class="string">"下载完成 "</span>)</div><div class="line">                        <span class="comment">// 移除进度条</span></div><div class="line">                        .setProgress(<span class="number">0</span>, <span class="number">0</span>, <span class="keyword">false</span>);</div><div class="line">                notificationManager.notify(<span class="number">1</span>, builder.build());</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">).start();</div></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog32/Blog32_2.png?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog32/Blog32_3.png?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="不明确进度的进度条通知"><a href="#不明确进度的进度条通知" class="headerlink" title="不明确进度的进度条通知"></a>不明确进度的进度条通知</h3><blockquote>
+<p>可以使用setProgress(0, 0, true)来更新进度  </p>
+<h4 id="修改代码-1"><a href="#修改代码-1" class="headerlink" title="修改代码"></a>修改代码</h4></blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 获取NotificationManager实例</span></div><div class="line"><span class="keyword">final</span> NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);</div><div class="line"></div><div class="line"><span class="comment">// 实例化NotificationCompat.Builder()并设置相关属性</span></div><div class="line"><span class="keyword">final</span> NotificationCompat.Builder builder = <span class="keyword">new</span> NotificationCompat.Builder(<span class="keyword">this</span>)</div><div class="line">        .setContentTitle(<span class="string">"下载通知"</span>)</div><div class="line">        .setContentText(<span class="string">"下载中"</span>)</div><div class="line">        .setSmallIcon(R.mipmap.ic_launcher);</div><div class="line"></div><div class="line"><span class="keyword">new</span> Thread(</div><div class="line">        <span class="keyword">new</span> Runnable() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">                <span class="keyword">int</span> cur;</div><div class="line">                <span class="keyword">for</span> (cur = <span class="number">0</span>; cur &lt;= <span class="number">100</span>; cur += <span class="number">10</span>) &#123;</div><div class="line">                    builder.setProgress(<span class="number">0</span>, <span class="number">0</span>, <span class="keyword">true</span>);</div><div class="line">                    notificationManager.notify(<span class="number">1</span>, builder.build());</div><div class="line">                    <span class="keyword">try</span> &#123;</div><div class="line">                        Thread.sleep(<span class="number">1000</span>);</div><div class="line">                    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</div><div class="line">                        e.printStackTrace();</div><div class="line">                    &#125;</div><div class="line">                    <span class="keyword">if</span> (cur != <span class="number">100</span>)</div><div class="line">                        Log.i(<span class="string">"abc"</span>, <span class="string">"下载中: "</span> + cur + <span class="string">"%"</span>);</div><div class="line">                    <span class="keyword">else</span></div><div class="line">                        Log.i(<span class="string">"abc"</span>, <span class="string">"下载完成: "</span> + cur + <span class="string">"%"</span>);</div><div class="line">                &#125;</div><div class="line">                builder.setContentText(<span class="string">"下载完成 "</span>)</div><div class="line">                        <span class="comment">// 移除进度条</span></div><div class="line">                        .setProgress(<span class="number">0</span>, <span class="number">0</span>, <span class="keyword">false</span>);</div><div class="line">                notificationManager.notify(<span class="number">1</span>, builder.build());</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">).start();</div></pre></td></tr></table></figure>
+<blockquote>
+<p>将builder.setProgress(100, cur, true);修改为builder.setProgress(0, 0, true);</p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog32/Blog32_4.png?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog32/Blog32_5.png?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="浮动通知"><a href="#浮动通知" class="headerlink" title="浮动通知"></a>浮动通知</h2><blockquote>
+<p>Android5.0(API21)开始，当屏幕未上锁且亮屏时，通知可以以小窗口形式显示。用户可以在不离开当前应用前提下操作该通知，这种通知即为浮动通知(Heads-up Notifications)</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 获取NotificationManager实例</span></div><div class="line"><span class="keyword">final</span> NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);</div><div class="line"></div><div class="line"><span class="comment">// 获取PendingIntent</span></div><div class="line">Intent intent = <span class="keyword">new</span> Intent(<span class="keyword">this</span>, MainActivity.class);</div><div class="line">PendingIntent pendingIntent = PendingIntent.getActivity(<span class="keyword">this</span>, <span class="number">0</span>, intent, PendingIntent.FLAG_UPDATE_CURRENT);</div><div class="line"></div><div class="line">NotificationCompat.Builder builder =</div><div class="line">        <span class="keyword">new</span> NotificationCompat.Builder(<span class="keyword">this</span>)</div><div class="line">                .setContentTitle(<span class="string">"浮动通知"</span>)</div><div class="line">                .setContentText(<span class="string">"您收到一条浮动通知"</span>)</div><div class="line">                .setSmallIcon(R.mipmap.ic_launcher)</div><div class="line">                .setFullScreenIntent(pendingIntent, <span class="keyword">false</span>);</div><div class="line"></div><div class="line"><span class="comment">// 通过builder.build()方法生成Notification对象，并发送通知(1为通知的id)</span></div><div class="line">notificationManager.notify(<span class="number">1</span>, builder.build());</div></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog32/Blog32_6.png?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="锁屏通知"><a href="#锁屏通知" class="headerlink" title="锁屏通知"></a>锁屏通知</h2><blockquote>
+<p>Android5.0(API21)开始，通知可以显示在锁屏上，用户可以通过设置选择是否允许敏感的通知内容显示在安全的锁屏上。  </p>
+<p>应用可以通过setVisibility()控制通知的显示等级:</p>
+<ul>
+<li>VISIBILITY_PRIVATE：显示基本信息，如通知的图标，但隐藏通知的全部内容</li>
+<li>VISIBILITY_PUBLIC：显示通知的全部内容</li>
+<li>VISIBILITY_SECRET：不显示任何内容，包括图标</li>
+</ul>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 获取NotificationManager实例</span></div><div class="line"><span class="keyword">final</span> NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);</div><div class="line"></div><div class="line"><span class="comment">// 获取PendingIntent</span></div><div class="line">Intent intent = <span class="keyword">new</span> Intent(<span class="keyword">this</span>, MainActivity.class);</div><div class="line">PendingIntent pendingIntent = PendingIntent.getActivity(<span class="keyword">this</span>, <span class="number">0</span>, intent, PendingIntent.FLAG_UPDATE_CURRENT);</div><div class="line"></div><div class="line">NotificationCompat.Builder builder =</div><div class="line">        <span class="keyword">new</span> NotificationCompat.Builder(<span class="keyword">this</span>)</div><div class="line">                .setContentTitle(<span class="string">"浮动通知"</span>)</div><div class="line">                .setContentText(<span class="string">"您收到一条浮动通知"</span>)</div><div class="line">                .setSmallIcon(R.mipmap.ic_launcher)</div><div class="line">                .setVisibility(Notification.VISIBILITY_PUBLIC)</div><div class="line">                .setDefaults(Notification.DEFAULT_ALL)</div><div class="line">                .setFullScreenIntent(pendingIntent, <span class="keyword">false</span>);</div><div class="line"></div><div class="line"><span class="comment">// 通过builder.build()方法生成Notification对象，并发送通知(1为通知的id)</span></div><div class="line">notificationManager.notify(<span class="number">1</span>, builder.build());</div></pre></td></tr></table></figure>
+<p><img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog32/Blog32_7.png?raw=true" alt=""></p>
+<h2 id="自定义通知"><a href="#自定义通知" class="headerlink" title="自定义通知"></a>自定义通知</h2><blockquote>
+<p>Android系统允许使用RemoteViews来自定义通知。<br>自定义普通视图通知高度限制为64dp，大视图通知高度限制为256dp。同时建议自定义通知尽量简单，以提高兼容性。</p>
+</blockquote>
+<h3 id="自定义通知步骤"><a href="#自定义通知步骤" class="headerlink" title="自定义通知步骤"></a>自定义通知步骤</h3><ol>
+<li>创建自定义通知布局</li>
+<li>使用RemoteViews定义通知组件，如图标、文字等</li>
+<li>调用setContent()将RemoteViews对象绑定到NotificationCompat.Builder</li>
+<li>发送通知  </li>
+</ol>
+<p><strong>* 注：避免为通知设置背景，由于兼容性原因，有些文字可能看不清</strong></p>
+<h4 id="自定义通知案例"><a href="#自定义通知案例" class="headerlink" title="自定义通知案例"></a>自定义通知案例</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> Button login;</div><div class="line">    <span class="keyword">private</span> Button logout;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> RemoteViews remoteViews;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> NotificationManager manager;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> NotificationCompat.Builder builder;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Notification notification;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> LoginReceiver loginReceiver;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_main);</div><div class="line"></div><div class="line">        initReceiver();</div><div class="line"></div><div class="line">        login = findViewById(R.id.login);</div><div class="line">        logout = findViewById(R.id.logout);</div><div class="line"></div><div class="line">        setNotification();</div><div class="line"></div><div class="line">        login.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View view)</span> </span>&#123;</div><div class="line">                startActivity(<span class="keyword">new</span> Intent(MainActivity.<span class="keyword">this</span>, LoginActivity.class));</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">        logout.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View view)</span> </span>&#123;</div><div class="line">                sendBroadcast(<span class="keyword">new</span> Intent(<span class="string">"LOGOUT_ACTION"</span>));</div><div class="line">                Toast.makeText(MainActivity.<span class="keyword">this</span>, <span class="string">"已退出登陆"</span>, Toast.LENGTH_SHORT).show();</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initReceiver</span><span class="params">()</span> </span>&#123;</div><div class="line">        loginReceiver = <span class="keyword">new</span> LoginReceiver();</div><div class="line">        IntentFilter intentFilter = <span class="keyword">new</span> IntentFilter();</div><div class="line">        intentFilter.addAction(<span class="string">"LOGIN_ACTION"</span>);</div><div class="line">        intentFilter.addAction(<span class="string">"LOGOUT_ACTION"</span>);</div><div class="line">        registerReceiver(loginReceiver, intentFilter);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setNotification</span><span class="params">()</span> </span>&#123;</div><div class="line">        manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);</div><div class="line">        Intent intent = <span class="keyword">new</span> Intent(MainActivity.<span class="keyword">this</span>, MainActivity.class);</div><div class="line">        PendingIntent pendingIntent = PendingIntent.getActivity(MainActivity.<span class="keyword">this</span>, <span class="number">0</span>, intent, PendingIntent.FLAG_UPDATE_CURRENT);</div><div class="line"></div><div class="line">        Intent intent2 = <span class="keyword">new</span> Intent(MainActivity.<span class="keyword">this</span>, LoginActivity.class);</div><div class="line">        PendingIntent pendingIntent2 = PendingIntent.getActivity(MainActivity.<span class="keyword">this</span>, <span class="number">0</span>, intent2, PendingIntent.FLAG_UPDATE_CURRENT);</div><div class="line"></div><div class="line">        builder = <span class="keyword">new</span> NotificationCompat.Builder(MainActivity.<span class="keyword">this</span>);</div><div class="line">        <span class="comment">// 使用自定义布局</span></div><div class="line">        remoteViews = <span class="keyword">new</span> RemoteViews(getPackageName(), R.layout.notification);</div><div class="line">        remoteViews.setOnClickPendingIntent(R.id.btn, pendingIntent2);</div><div class="line">        builder.setSmallIcon(R.mipmap.ic_launcher);</div><div class="line">        builder.setContent(remoteViews);</div><div class="line">        <span class="comment">// 设置点击跳转</span></div><div class="line">        builder.setContentIntent(pendingIntent);</div><div class="line">        notification = builder.build();</div><div class="line">        <span class="comment">// 设为常驻状态栏</span></div><div class="line">        notification.flags = Notification.FLAG_ONGOING_EVENT;</div><div class="line">        manager.notify(<span class="number">1</span>, notification);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> LoginReceiver loginReceiver;</div><div class="line">    <span class="keyword">private</span> Button login;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_login);</div><div class="line"></div><div class="line">        initReceiver();</div><div class="line"></div><div class="line">        login = findViewById(R.id.login);</div><div class="line">        login.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View view)</span> </span>&#123;</div><div class="line">                sendBroadcast(<span class="keyword">new</span> Intent(<span class="string">"LOGIN_ACTION"</span>));</div><div class="line">                Toast.makeText(LoginActivity.<span class="keyword">this</span>, <span class="string">"已登陆"</span>, Toast.LENGTH_SHORT).show();</div><div class="line">                finish();</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initReceiver</span><span class="params">()</span> </span>&#123;</div><div class="line">        loginReceiver = <span class="keyword">new</span> LoginReceiver();</div><div class="line">        IntentFilter intentFilter = <span class="keyword">new</span> IntentFilter();</div><div class="line">        intentFilter.addAction(<span class="string">"LOGIN_ACTION"</span>);</div><div class="line">        intentFilter.addAction(<span class="string">"LOGOUT_ACTION"</span>);</div><div class="line">        registerReceiver(loginReceiver,intentFilter);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">LoginReceiver</span> <span class="keyword">extends</span> <span class="title">BroadcastReceiver</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (intent.getAction().equals(<span class="string">"LOGIN_ACTION"</span>)) &#123;</div><div class="line">            MainActivity.remoteViews.setTextViewText(R.id.tv, <span class="string">"已登录"</span>);</div><div class="line">            MainActivity.remoteViews.setViewVisibility(R.id.btn, View.GONE);</div><div class="line">            MainActivity.manager.notify(<span class="number">1</span>, MainActivity.notification);</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (intent.getAction().equals(<span class="string">"LOGOUT_ACTION"</span>)) &#123;</div><div class="line">            MainActivity.remoteViews.setTextViewText(R.id.tv, <span class="string">"未登录"</span>);</div><div class="line">            MainActivity.remoteViews.setViewVisibility(R.id.btn, View.VISIBLE);</div><div class="line">            MainActivity.manager.notify(<span class="number">1</span>, MainActivity.notification);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>布局比较简单，此处就不贴代码了<br>主要实现了一个常驻状态栏的通知，通过点击MainActivity中的登陆按钮跳转到登陆界面，登陆界面点击登陆按钮后发送一个广播给广播接收者LoginReceiver，接收到广播之后，程序会从未登录状态变为登陆状态，通知中的登陆按钮消失，而通过点击退出登录按钮同样发送一个广播，使程序从登陆状态变为未登录状态，通知中的登陆按钮重新出现。<br>关键代码在于：</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 使用自定义布局</span></div><div class="line">remoteViews = <span class="keyword">new</span> RemoteViews(getPackageName(), R.layout.notification);</div><div class="line">remoteViews.setOnClickPendingIntent(R.id.btn, pendingIntent2);</div><div class="line">builder.setSmallIcon(R.mipmap.ic_launcher);</div><div class="line">builder.setContent(remoteViews);</div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">LinearLayout</span></span></div><div class="line">    <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></div><div class="line">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">    <span class="attr">android:gravity</span>=<span class="string">"center"</span></div><div class="line">    <span class="attr">android:orientation</span>=<span class="string">"horizontal"</span></div><div class="line">    <span class="attr">android:paddingTop</span>=<span class="string">"6dp"</span>&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">ImageView</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/iv"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:src</span>=<span class="string">"@mipmap/ic_launcher"</span>/&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/tv"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_marginLeft</span>=<span class="string">"10dp"</span></div><div class="line">        <span class="attr">android:layout_weight</span>=<span class="string">"1"</span></div><div class="line">        <span class="attr">android:text</span>=<span class="string">"未登录"</span></div><div class="line">        <span class="attr">android:textSize</span>=<span class="string">"14sp"</span>/&gt;</div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">Button</span></span></div><div class="line">        <span class="attr">android:id</span>=<span class="string">"@+id/btn"</span></div><div class="line">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></div><div class="line">        <span class="attr">android:text</span>=<span class="string">"登陆"</span>/&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>使用RemoteViews定义通知组件</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 设为常驻状态栏</span></div><div class="line">notification.flags = Notification.FLAG_ONGOING_EVENT;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>调用notification.flags = Notification.FLAG_ONGOING_EVENT;将通知设置为常驻状态栏</p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog32/Blog32_8.png?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog32/Blog32_9.png?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog32/Blog32_10.png?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog32/Blog32_11.png?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog32/Blog32_12.png?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog32/Blog32_13.png?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://github.com/iZdo/iZdo.github.io/blob/master/BlogImgs/Blog32/Blog32_14.png?raw=true" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-12-30T08:42:21.713Z" itemprop="dateUpdated">2017年12月30日 16:42</time>
+</span><br>
+
+
+        这里写留言或版权声明：<a href="/2017/12/30/Notification/" target="_blank" rel="external">https://izdo.github.io/2017/12/30/Notification/</a>
+    </div>
+    <footer>
+        <a href="https://izdo.github.io">
+            <img src="/img/heizi.jpg" alt="iZdo">
+            iZdo
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/note/">note</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://izdo.github.io/2017/12/30/Notification/&title=《Notification》 — iZdo's Blog&pic=https://izdo.github.io/img/heizi.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://izdo.github.io/2017/12/30/Notification/&title=《Notification》 — iZdo's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://izdo.github.io/2017/12/30/Notification/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Notification》 — iZdo's Blog&url=https://izdo.github.io/2017/12/30/Notification/&via=https://izdo.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://izdo.github.io/2017/12/30/Notification/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/12/30/一像素进程保活/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">一像素进程保活</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/12/04/Android基础十/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Android基础十</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>iZdo's Blog &copy; 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://izdo.github.io/2017/12/30/Notification/&title=《Notification》 — iZdo's Blog&pic=https://izdo.github.io/img/heizi.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://izdo.github.io/2017/12/30/Notification/&title=《Notification》 — iZdo's Blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://izdo.github.io/2017/12/30/Notification/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Notification》 — iZdo's Blog&url=https://izdo.github.io/2017/12/30/Notification/&via=https://izdo.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://izdo.github.io/2017/12/30/Notification/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3aQWrEMAwF0Ln/pVMoXRSGJF+yZyD286qEaeLnhZAlvV7xOn7X2fP/6/r52f+ePZm8MDAwHss4Ltc7I/n8+1bGYTdvwMDA2IBxHWSTjV7/b05KvoKBgYGRbyVPEK8DKwYGBsZ3Am41rcx/j4GBgZG/unm9LJbYPn4Xx8DAeCCj2hj45t8f7G9gYGA8hHEUV5IUVr87sp+/N2BgYCzNSEpp4yMXvd+UGxIYGBgbMOYWwnoX2vxYy3dxDAyMhzNGQmpeUJt1z47SUAwMjIUY46X8aoDukW4OBQMDY2lGPlqRhN0ckMTJZujHwMBYjjFr69USf2/84vTgMDAwNmCMtC2TrecJX94KLXdiMTAwHsvotTNHNtdLEzEwMDDmthILg1wDh4iBgbEbY+4mkjJc3h5ohmYMDIzlGHlpPinW9y6r+cDZTWqIgYGxHKNaVqtuKB+hqF6Jb2ZGMDAwlmP0WpJ5SyB/Um0wYGBg7MDIt1gNi9UjGB+8wMDAWJXRu3xGN+OBA6qW+TAwMHZgJJfSXjjOR82q6eBpvRADA2M5Rq8B0EsQr7eSJ6BDE20YGBgPZBzFNau1OffSi4GBsTYjX8lgRFTbK4b7kZEyDAyMlRi9IJuHzryElwTcKHPEwMBYlFGtt48ni9Wof/MVDAwMjOFSWs5uZrIYGBgYxaHVWcW1vNWKgYGxAyNJ/kY+k7+zmVZiYGAszZjVGEgY+RH0mqMYGBjLMX4ApLlLqZLyl4kAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.14"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.14" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
